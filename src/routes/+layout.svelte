@@ -86,17 +86,8 @@ $: if (browser && analyticsId) {
 		{JSON.stringify(faqSchema)}
 	</script>
 	
-</svelte:head>
-
-<Navigation />
-
-<main id="main-content">
-	<slot />
-</main>
-
-<!-- begin Widget Tracker Code -->
-{#if browser}
-	<svelte:head>
+	<!-- begin Widget Tracker Code -->
+	{#if browser}
 		<script>
 		(function(w,i,d,g,e,t){w["WidgetTrackerObject"]=g;(w[g]=w[g]||function()
 		{(w[g].q=w[g].q||[]).push(arguments);}),(w[g].ds=1*new Date());(e="script"),
@@ -106,9 +97,16 @@ $: if (browser && analyticsId) {
 		window.widgetTracker("create", "WT-XQHVYQWW");
 		window.widgetTracker("send", "pageview");
 		</script>
-	</svelte:head>
-{/if}
-<!-- end Widget Tracker Code -->
+	{/if}
+	<!-- end Widget Tracker Code -->
+</svelte:head>
+
+<Navigation />
+
+<main id="main-content">
+	<slot />
+</main>
+
 
 <footer>
 	<div class="footer-content">
