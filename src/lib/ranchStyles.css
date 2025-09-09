@@ -2,34 +2,34 @@
    Specialized styling for Lone Mountain Heights ranch properties */
 
 :root {
-  /* Ranch-Style Color Palette - Deep & Crisp */
-  --ranch-terracotta: #b8860b; /* Deep Gold */
-  --ranch-sage: #8b9a5b; /* Sophisticated Sage */
-  --ranch-cream: #f8f8f8; /* Luxury White */
-  --ranch-adobe: #c4a484; /* Warm Beige */
-  --ranch-sandstone: #e8e0d0; /* Light Sand */
-  --ranch-slate: #2a2a2a; /* Deep Charcoal Slate */
-  --ranch-charcoal: #000000; /* Pure Black */
-  --ranch-burgundy: #8b1538; /* Luxury Burgundy */
-  --ranch-gold: #b8860b; /* Deep Gold */
-  --ranch-copper: #cd7f32; /* Deep Copper */
+  /* Ranch-Style Color Palette - Navy + White + Gold */
+  --ranch-terracotta: #d4af37; /* Gold */
+  --ranch-sage: #059669; /* Success Green */
+  --ranch-cream: #ffffff; /* Pure White */
+  --ranch-adobe: #f1f5f9; /* Light Gray */
+  --ranch-sandstone: #e2e8f0; /* Light Slate */
+  --ranch-slate: #334155; /* Slate Gray */
+  --ranch-charcoal: #1e3a8a; /* Navy Blue */
+  --ranch-burgundy: #dc2626; /* Error Red */
+  --ranch-gold: #d4af37; /* Gold */
+  --ranch-copper: #d97706; /* Warning Orange */
   
-  /* Estate-Specific Colors - Deep & Crisp */
-  --estate-gold: #b8860b; /* Deep Gold */
-  --estate-silver: #b8b8b8; /* Sophisticated Silver */
-  --estate-bronze: #cd7f32; /* Deep Bronze */
-  --estate-marble: #f8f8f8; /* Luxury Marble */
-  --estate-granite: #000000; /* Pure Black Granite */
+  /* Estate-Specific Colors - Navy + White + Gold */
+  --estate-gold: #d4af37; /* Gold */
+  --estate-silver: #94a3b8; /* Silver */
+  --estate-bronze: #d97706; /* Bronze */
+  --estate-marble: #ffffff; /* Pure White Marble */
+  --estate-granite: #1e3a8a; /* Navy Blue Granite */
   
-  /* Ranch Architecture Shadows - Deep Gold */
-  --ranch-shadow-light: 0 2px 8px rgba(184, 134, 11, 0.1);
-  --ranch-shadow-medium: 0 4px 16px rgba(184, 134, 11, 0.15);
-  --ranch-shadow-heavy: 0 8px 32px rgba(184, 134, 11, 0.2);
+  /* Ranch Architecture Shadows - Navy Theme */
+  --ranch-shadow-light: 0 2px 8px rgba(30, 58, 138, 0.1);
+  --ranch-shadow-medium: 0 4px 16px rgba(30, 58, 138, 0.15);
+  --ranch-shadow-heavy: 0 8px 32px rgba(30, 58, 138, 0.2);
   
-  /* Estate Shadows - Deep Gold */
-  --estate-shadow-light: 0 2px 8px rgba(184, 134, 11, 0.1);
-  --estate-shadow-medium: 0 4px 16px rgba(184, 134, 11, 0.15);
-  --estate-shadow-heavy: 0 8px 32px rgba(184, 134, 11, 0.2);
+  /* Estate Shadows - Navy Theme */
+  --estate-shadow-light: 0 2px 8px rgba(30, 58, 138, 0.1);
+  --estate-shadow-medium: 0 4px 16px rgba(30, 58, 138, 0.15);
+  --estate-shadow-heavy: 0 8px 32px rgba(30, 58, 138, 0.2);
 }
 
 /* Ranch Style Home Cards */
