@@ -81,47 +81,19 @@ function closeMobileMenu() {
 					<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-link nav-link-primary" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="Search Homes in Lone Mountain Heights (opens in new tab)">Search Homes</a>
 				</li>
 				
-				<!-- Local Areas Dropdown -->
+				<!-- Properties Dropdown - Consolidated -->
 				<li class="nav-item nav-item-dropdown" role="none">
 					<button 
 						class="nav-link nav-dropdown-toggle" 
-						class:active={activeDropdown === 'areas'}
-						aria-expanded={activeDropdown === 'areas'}
+						class:active={activeDropdown === 'properties'}
+						aria-expanded={activeDropdown === 'properties'}
 						aria-haspopup="true"
-						on:click={() => toggleDropdown('areas')}
+						on:click={() => toggleDropdown('properties')}
 						on:blur={() => setTimeout(closeDropdown, 150)}
 					>
-						Local Areas <span class="dropdown-arrow">▼</span>
+						Properties <span class="dropdown-arrow">▼</span>
 					</button>
-					<ul class="nav-dropdown" class:active={activeDropdown === 'areas'} role="menu">
-						<li role="none">
-							<a href="/neighborhood" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Lone Mountain Heights</a>
-						</li>
-						<li role="none">
-							<a href="/locations/lone-mountain-ranch" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Lone Mountain Ranch</a>
-						</li>
-						<li role="none">
-							<a href="/locations/desert-vista-estates" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Desert Vista Estates</a>
-						</li>
-						<li role="none">
-							<a href="/neighborhoods" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>All Micro-Neighborhoods</a>
-						</li>
-					</ul>
-				</li>
-				
-				<!-- Homes for Sale Dropdown -->
-				<li class="nav-item nav-item-dropdown" role="none">
-					<button 
-						class="nav-link nav-dropdown-toggle" 
-						class:active={activeDropdown === 'homes'}
-						aria-expanded={activeDropdown === 'homes'}
-						aria-haspopup="true"
-						on:click={() => toggleDropdown('homes')}
-						on:blur={() => setTimeout(closeDropdown, 150)}
-					>
-						Homes for Sale <span class="dropdown-arrow">▼</span>
-					</button>
-					<ul class="nav-dropdown" class:active={activeDropdown === 'homes'} role="menu">
+					<ul class="nav-dropdown nav-dropdown-wide" class:active={activeDropdown === 'properties'} role="menu">
 						<li role="none">
 							<a href="/homes" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Browse All Listings</a>
 						</li>
@@ -137,19 +109,47 @@ function closeMobileMenu() {
 					</ul>
 				</li>
 				
-				<!-- Local Info Dropdown -->
+				<!-- Neighborhoods Dropdown - Consolidated -->
 				<li class="nav-item nav-item-dropdown" role="none">
 					<button 
 						class="nav-link nav-dropdown-toggle" 
-						class:active={activeDropdown === 'local'}
-						aria-expanded={activeDropdown === 'local'}
+						class:active={activeDropdown === 'neighborhoods'}
+						aria-expanded={activeDropdown === 'neighborhoods'}
 						aria-haspopup="true"
-						on:click={() => toggleDropdown('local')}
+						on:click={() => toggleDropdown('neighborhoods')}
 						on:blur={() => setTimeout(closeDropdown, 150)}
 					>
-						Local Info <span class="dropdown-arrow">▼</span>
+						Neighborhoods <span class="dropdown-arrow">▼</span>
 					</button>
-					<ul class="nav-dropdown" class:active={activeDropdown === 'local'} role="menu">
+					<ul class="nav-dropdown" class:active={activeDropdown === 'neighborhoods'} role="menu">
+						<li role="none">
+							<a href="/neighborhood" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Lone Mountain Heights</a>
+						</li>
+						<li role="none">
+							<a href="/locations/lone-mountain-ranch" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Lone Mountain Ranch</a>
+						</li>
+						<li role="none">
+							<a href="/locations/desert-vista-estates" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Desert Vista Estates</a>
+						</li>
+						<li role="none">
+							<a href="/neighborhoods" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>All Micro-Neighborhoods</a>
+						</li>
+					</ul>
+				</li>
+				
+				<!-- Resources Dropdown - Consolidated -->
+				<li class="nav-item nav-item-dropdown" role="none">
+					<button 
+						class="nav-link nav-dropdown-toggle" 
+						class:active={activeDropdown === 'resources'}
+						aria-expanded={activeDropdown === 'resources'}
+						aria-haspopup="true"
+						on:click={() => toggleDropdown('resources')}
+						on:blur={() => setTimeout(closeDropdown, 150)}
+					>
+						Resources <span class="dropdown-arrow">▼</span>
+					</button>
+					<ul class="nav-dropdown" class:active={activeDropdown === 'resources'} role="menu">
 						<li role="none">
 							<a href="/amenities" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Amenities</a>
 						</li>
@@ -194,7 +194,7 @@ function closeMobileMenu() {
 				</div>
 				
 				<div class="nav-group">
-					<h4 class="nav-group-title">Local Areas</h4>
+					<h4 class="nav-group-title">Neighborhoods</h4>
 					<ul class="nav-list" role="menubar">
 						<li class="nav-item" role="none">
 							<a href="/neighborhood" class="nav-link" class:active={$page.url.pathname.startsWith('/neighborhood')} role="menuitem" aria-current={$page.url.pathname.startsWith('/neighborhood') ? 'page' : undefined} on:click={handleNavLinkClick}>Lone Mountain Heights</a>
@@ -212,7 +212,7 @@ function closeMobileMenu() {
 				</div>
 				
 				<div class="nav-group">
-					<h4 class="nav-group-title">Homes for Sale</h4>
+					<h4 class="nav-group-title">Properties</h4>
 					<ul class="nav-list" role="menubar">
 						<li class="nav-item" role="none">
 							<a href="/homes" class="nav-link" class:active={$page.url.pathname.startsWith('/homes')} role="menuitem" aria-current={$page.url.pathname.startsWith('/homes') ? 'page' : undefined} on:click={handleNavLinkClick}>Browse All Listings</a>
@@ -230,7 +230,7 @@ function closeMobileMenu() {
 				</div>
 				
 				<div class="nav-group">
-					<h4 class="nav-group-title">Local Info</h4>
+					<h4 class="nav-group-title">Resources</h4>
 					<ul class="nav-list" role="menubar">
 						<li class="nav-item" role="none">
 							<a href="/amenities" class="nav-link" class:active={$page.url.pathname.startsWith('/amenities')} role="menuitem" aria-current={$page.url.pathname.startsWith('/amenities') ? 'page' : undefined} on:click={handleNavLinkClick}>Amenities</a>
@@ -243,6 +243,9 @@ function closeMobileMenu() {
 						</li>
 						<li class="nav-item" role="none">
 							<a href="/market-intelligence" class="nav-link" class:active={$page.url.pathname.startsWith('/market-intelligence')} role="menuitem" aria-current={$page.url.pathname.startsWith('/market-intelligence') ? 'page' : undefined} on:click={handleNavLinkClick}>Market Data</a>
+						</li>
+						<li class="nav-item" role="none">
+							<a href="/faq/hoa-fees" class="nav-link" class:active={$page.url.pathname.startsWith('/faq/hoa-fees')} role="menuitem" aria-current={$page.url.pathname.startsWith('/faq/hoa-fees') ? 'page' : undefined} on:click={handleNavLinkClick}>HOA Information</a>
 						</li>
 					</ul>
 				</div>
@@ -404,7 +407,7 @@ function closeMobileMenu() {
 		list-style: none;
 		margin: 0;
 		padding: 0;
-		gap: 0.5rem;
+		gap: 0.25rem;
 		align-items: center;
 		flex: 1;
 		justify-content: center;
@@ -474,8 +477,9 @@ function closeMobileMenu() {
 
 	.nav-dropdown {
 		position: absolute;
-		top: 100%;
-		left: 0;
+		top: calc(100% + 4px);
+		left: 50%;
+		transform: translateX(-50%) translateY(-5px);
 		background: white;
 		border: 1px solid #E2E8F0;
 		border-radius: 6px;
@@ -483,18 +487,21 @@ function closeMobileMenu() {
 		min-width: 180px;
 		opacity: 0;
 		visibility: hidden;
-		transform: translateY(-5px);
 		transition: all 0.2s ease;
 		z-index: 1000;
 		list-style: none;
 		margin: 0;
 		padding: 0.25rem 0;
 	}
+	
+	.nav-dropdown-wide {
+		min-width: 220px;
+	}
 
 	.nav-dropdown.active {
 		opacity: 1;
 		visibility: visible;
-		transform: translateY(0);
+		transform: translateX(-50%) translateY(0);
 	}
 
 	.nav-dropdown li {
