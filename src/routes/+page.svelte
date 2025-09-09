@@ -5,6 +5,9 @@ import MarketInsights from '$lib/MarketInsights.svelte';
 import Testimonials from '$lib/Testimonials.svelte';
 import MarketStats from '$lib/components/MarketStats.svelte';
 import SeasonalContent from '$lib/components/SeasonalContent.svelte';
+import NeighborhoodMap from '$lib/components/NeighborhoodMap.svelte';
+import MarketInfographics from '$lib/components/MarketInfographics.svelte';
+import StagingGallery from '$lib/components/StagingGallery.svelte';
 </script>
 
 <svelte:head>
@@ -227,7 +230,10 @@ import SeasonalContent from '$lib/components/SeasonalContent.svelte';
 <main>
 	<Hero />
 	<MarketStats />
+	<NeighborhoodMap />
+	<MarketInfographics />
 	<SeasonalContent />
+	<StagingGallery />
 	<FeaturedHomes />
 	<MarketInsights />
 	<Testimonials />

@@ -91,7 +91,14 @@
 				"Market Analysis Expert"
 			],
 			"award": "500+ Lone Mountain Heights Transactions",
-			"image": "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+			"image": {
+				"@type": "ImageObject",
+				"url": "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80&fm=webp",
+				"width": 400,
+				"height": 400,
+				"caption": "Dr. Jan Duffy - Lone Mountain Heights Real Estate Expert",
+				"contentUrl": "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80&fm=webp"
+			}
 		}
 	</script>
 
