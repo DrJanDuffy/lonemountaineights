@@ -128,12 +128,12 @@ function closeMobileMenu() {
 		</div>
 		
 		<nav class="nav-menu" class:mobile-open={mobileMenuOpen} aria-label="Main navigation">
-			<!-- Desktop Navigation - Categorized Dropdowns -->
+			<!-- Desktop Navigation - Berkshire Hathaway Style -->
 			<ul class="nav-list nav-list-desktop" role="menubar">
-				<!-- Search Homes Dropdown -->
+				<!-- Search Dropdown -->
 				<li class="nav-item nav-item-dropdown" role="none">
 					<button 
-						class="nav-link nav-dropdown-toggle nav-link-primary" 
+						class="nav-link nav-dropdown-toggle" 
 						class:active={activeDropdown === 'search'}
 						aria-expanded={activeDropdown === 'search'}
 						aria-haspopup="true"
@@ -141,14 +141,14 @@ function closeMobileMenu() {
 						on:keydown={(e) => handleDropdownArrowKeys(e, 'search')}
 						on:blur={() => setTimeout(closeDropdown, 150)}
 					>
-						🔍 SEARCH HOMES <span class="dropdown-arrow">▼</span>
+						SEARCH <span class="dropdown-arrow">▼</span>
 					</button>
 					<ul class="nav-dropdown" class:active={activeDropdown === 'search'} role="menu">
 						<li role="none">
-							<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-dropdown-link nav-dropdown-primary" target="_blank" rel="noopener noreferrer" role="menuitem" on:click={handleNavLinkClick}>🔍 Search All Homes</a>
+							<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-dropdown-link" target="_blank" rel="noopener noreferrer" role="menuitem" on:click={handleNavLinkClick}>Search All Homes</a>
 						</li>
 						<li role="none">
-							<a href="/homes" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Browse All Listings</a>
+							<a href="/homes" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Browse Listings</a>
 						</li>
 						<li role="none">
 							<a href="/sales" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Recent Sales</a>
@@ -162,94 +162,93 @@ function closeMobileMenu() {
 					</ul>
 				</li>
 
-				<!-- Market Data Dropdown -->
+				<!-- Buyers Dropdown -->
 				<li class="nav-item nav-item-dropdown" role="none">
 					<button 
 						class="nav-link nav-dropdown-toggle" 
-						class:active={activeDropdown === 'market'}
-						aria-expanded={activeDropdown === 'market'}
+						class:active={activeDropdown === 'buyers'}
+						aria-expanded={activeDropdown === 'buyers'}
 						aria-haspopup="true"
-						on:click={() => toggleDropdown('market')}
-						on:keydown={(e) => handleDropdownArrowKeys(e, 'market')}
+						on:click={() => toggleDropdown('buyers')}
+						on:keydown={(e) => handleDropdownArrowKeys(e, 'buyers')}
 						on:blur={() => setTimeout(closeDropdown, 150)}
 					>
-						📊 MARKET DATA <span class="dropdown-arrow">▼</span>
+						BUYERS <span class="dropdown-arrow">▼</span>
 					</button>
-					<ul class="nav-dropdown" class:active={activeDropdown === 'market'} role="menu">
+					<ul class="nav-dropdown" class:active={activeDropdown === 'buyers'} role="menu">
 						<li role="none">
-							<a href="/market-intelligence" class="nav-dropdown-link nav-dropdown-primary" role="menuitem" on:click={handleNavLinkClick}>📊 Market Intelligence</a>
+							<a href="/tools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Home Value Calculator</a>
 						</li>
 						<li role="none">
-							<a href="/tools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>💰 Home Value Calculator</a>
+							<a href="/tools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Mortgage Calculator</a>
 						</li>
 						<li role="none">
-							<a href="/tools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>🏦 Mortgage Calculator</a>
+							<a href="/market-intelligence" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Market Data</a>
 						</li>
 						<li role="none">
-							<a href="/sales" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>📈 Recent Sales Data</a>
+							<a href="/contact" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Free Consultation</a>
 						</li>
 					</ul>
 				</li>
 
-				<!-- Communities Dropdown -->
+				<!-- Sellers Dropdown -->
 				<li class="nav-item nav-item-dropdown" role="none">
 					<button 
 						class="nav-link nav-dropdown-toggle" 
-						class:active={activeDropdown === 'communities'}
-						aria-expanded={activeDropdown === 'communities'}
+						class:active={activeDropdown === 'sellers'}
+						aria-expanded={activeDropdown === 'sellers'}
 						aria-haspopup="true"
-						on:click={() => toggleDropdown('communities')}
-						on:keydown={(e) => handleDropdownArrowKeys(e, 'communities')}
+						on:click={() => toggleDropdown('sellers')}
+						on:keydown={(e) => handleDropdownArrowKeys(e, 'sellers')}
 						on:blur={() => setTimeout(closeDropdown, 150)}
 					>
-						🏘️ COMMUNITIES <span class="dropdown-arrow">▼</span>
+						SELLERS <span class="dropdown-arrow">▼</span>
 					</button>
-					<ul class="nav-dropdown" class:active={activeDropdown === 'communities'} role="menu">
+					<ul class="nav-dropdown" class:active={activeDropdown === 'sellers'} role="menu">
 						<li role="none">
-							<a href="/neighborhood" class="nav-dropdown-link nav-dropdown-primary" role="menuitem" on:click={handleNavLinkClick}>🏔️ Lone Mountain Heights</a>
+							<a href="/tools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>What's My Home Worth?</a>
 						</li>
 						<li role="none">
-							<a href="/locations/lone-mountain-ranch" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>🏘️ Lone Mountain Ranch</a>
+							<a href="/contact" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Free Home Valuation</a>
 						</li>
 						<li role="none">
-							<a href="/locations/desert-vista-estates" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>🏜️ Desert Vista Estates</a>
+							<a href="/contact" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Selling Process</a>
 						</li>
 						<li role="none">
-							<a href="/neighborhoods" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>🗺️ All Micro-Neighborhoods</a>
+							<a href="/contact" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Market Analysis</a>
 						</li>
 					</ul>
 				</li>
 
-				<!-- Local Info Dropdown -->
-				<li class="nav-item nav-item-dropdown" role="none">
-					<button 
-						class="nav-link nav-dropdown-toggle" 
-						class:active={activeDropdown === 'local'}
-						aria-expanded={activeDropdown === 'local'}
-						aria-haspopup="true"
-						on:click={() => toggleDropdown('local')}
-						on:keydown={(e) => handleDropdownArrowKeys(e, 'local')}
-						on:blur={() => setTimeout(closeDropdown, 150)}
-					>
-						📍 LOCAL INFO <span class="dropdown-arrow">▼</span>
-					</button>
-					<ul class="nav-dropdown" class:active={activeDropdown === 'local'} role="menu">
-						<li role="none">
-							<a href="/amenities" class="nav-dropdown-link nav-dropdown-primary" role="menuitem" on:click={handleNavLinkClick}>🏪 Amenities</a>
-						</li>
-						<li role="none">
-							<a href="/schools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>🎓 Schools</a>
-						</li>
-						<li role="none">
-							<a href="/faq/hoa-fees" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>🏠 HOA Information</a>
-						</li>
-						<li role="none">
-							<a href="/contact" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>📞 Contact</a>
-						</li>
-					</ul>
+				<!-- Communities -->
+				<li class="nav-item" role="none">
+					<a href="/neighborhood" class="nav-link" role="menuitem" on:click={handleNavLinkClick}>
+						COMMUNITIES
+					</a>
 				</li>
 
-				<!-- About Dropdown -->
+				<!-- Luxury -->
+				<li class="nav-item" role="none">
+					<a href="/luxury" class="nav-link" role="menuitem" on:click={handleNavLinkClick}>
+						LUXURY
+					</a>
+				</li>
+
+				<!-- Agents -->
+				<li class="nav-item" role="none">
+					<a href="/about" class="nav-link" role="menuitem" on:click={handleNavLinkClick}>
+						AGENTS
+					</a>
+				</li>
+
+				<!-- Offices -->
+				<li class="nav-item" role="none">
+					<a href="/contact" class="nav-link" role="menuitem" on:click={handleNavLinkClick}>
+						OFFICES
+					</a>
+				</li>
+
+				<!-- About Us Dropdown -->
 				<li class="nav-item nav-item-dropdown" role="none">
 					<button 
 						class="nav-link nav-dropdown-toggle" 
@@ -260,22 +259,36 @@ function closeMobileMenu() {
 						on:keydown={(e) => handleDropdownArrowKeys(e, 'about')}
 						on:blur={() => setTimeout(closeDropdown, 150)}
 					>
-						👩‍💼 ABOUT <span class="dropdown-arrow">▼</span>
+						ABOUT US <span class="dropdown-arrow">▼</span>
 					</button>
 					<ul class="nav-dropdown" class:active={activeDropdown === 'about'} role="menu">
 						<li role="none">
-							<a href="/about" class="nav-dropdown-link nav-dropdown-primary" role="menuitem" on:click={handleNavLinkClick}>👩‍💼 About Dr. Jan</a>
+							<a href="/about" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>About Dr. Jan Duffy</a>
 						</li>
 						<li role="none">
-							<a href="/tools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>💰 What's My Home Worth?</a>
+							<a href="/amenities" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Local Amenities</a>
 						</li>
 						<li role="none">
-							<a href="/contact" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>📞 Free Consultation</a>
+							<a href="/schools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Schools</a>
 						</li>
 						<li role="none">
-							<a href="/contact" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>📧 Contact Dr. Jan</a>
+							<a href="/faq/hoa-fees" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>HOA Information</a>
 						</li>
 					</ul>
+				</li>
+
+				<!-- Careers -->
+				<li class="nav-item" role="none">
+					<a href="/careers" class="nav-link" role="menuitem" on:click={handleNavLinkClick}>
+						CAREERS
+					</a>
+				</li>
+
+				<!-- Blog -->
+				<li class="nav-item" role="none">
+					<a href="/blog" class="nav-link" role="menuitem" on:click={handleNavLinkClick}>
+						BLOG
+					</a>
 				</li>
 			</ul>
 			
@@ -600,13 +613,13 @@ function closeMobileMenu() {
 		transform: rotate(-45deg) translate(7px, -6px);
 	}
 	
-	/* Desktop Navigation */
+	/* Desktop Navigation - Berkshire Hathaway Style */
 	.nav-list-desktop {
 		display: flex;
 		list-style: none;
 		margin: 0;
 		padding: 0;
-		gap: 1rem;
+		gap: 2rem;
 		align-items: center;
 		flex: 1;
 		justify-content: center;
@@ -689,9 +702,11 @@ function closeMobileMenu() {
 	}
 
 	.dropdown-arrow {
-		font-size: 0.7rem;
+		font-size: 0.6rem;
+		margin-left: 0.4rem;
 		transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 		pointer-events: none;
+		color: white;
 	}
 
 	.nav-dropdown-toggle.active .dropdown-arrow {
@@ -855,16 +870,18 @@ function closeMobileMenu() {
 	
 	.nav-link {
 		text-decoration: none;
-		color: #1a365d;
+		color: white;
 		font-weight: 600;
-		font-size: 0.8rem;
-		padding: 0.5rem 0.75rem;
+		font-size: 0.9rem;
+		padding: 0.75rem 0;
 		transition: all 0.2s ease;
 		position: relative;
 		text-transform: uppercase;
-		letter-spacing: 0.3px;
+		letter-spacing: 0.5px;
 		white-space: nowrap;
-		border-radius: 4px;
+		background: none;
+		border: none;
+		cursor: pointer;
 	}
 	
 	.nav-link:hover {
