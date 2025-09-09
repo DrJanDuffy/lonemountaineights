@@ -225,12 +225,12 @@
 			<div class="recommendations">
 				{#each recommendations as neighborhood, index}
 					<div class="recommendation-card">
-						<div class="recommendation-image">
-							<img 
-								src={neighborhood.image} 
-								alt={neighborhood.name + ' neighborhood in Lone Mountain Heights'}
-								loading="lazy"
-							/>
+					<div class="recommendation-image">
+						<img 
+							src={neighborhood.image || '/placeholder-neighborhood.jpg'} 
+							alt={(neighborhood.name || 'Neighborhood') + ' neighborhood in Lone Mountain Heights'}
+							loading="lazy"
+						/>
 						</div>
 						<div class="recommendation-content">
 							<div class="recommendation-header">

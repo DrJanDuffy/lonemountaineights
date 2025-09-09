@@ -329,8 +329,8 @@
 			{#each (recommendedHomes || []) as home}
 				<div class="recommendation-card">
 					<div class="home-image">
-						<img src={home.image} alt={home.address} loading="lazy" />
-						<div class="match-score">{home.matchScore}% Match</div>
+						<img src={home.image || '/placeholder-home.jpg'} alt={home.address || 'Home'} loading="lazy" />
+						<div class="match-score">{home.matchScore || 0}% Match</div>
 						<button 
 							class="favorite-btn"
 							on:click={() => addToFavorites(home)}
@@ -374,7 +374,7 @@
 		<h4>Neighborhood Spotlight</h4>
 		<div class="spotlight-card">
 			<div class="spotlight-image">
-				<img src={personalizedContent.neighborhoodSpotlight.image} alt={personalizedContent.neighborhoodSpotlight.name} loading="lazy" />
+				<img src={personalizedContent.neighborhoodSpotlight?.image || '/placeholder-neighborhood.jpg'} alt={personalizedContent.neighborhoodSpotlight?.name || 'Neighborhood'} loading="lazy" />
 			</div>
 			<div class="spotlight-content">
 				<h5>{personalizedContent.neighborhoodSpotlight.name}</h5>
@@ -425,7 +425,7 @@
 				{#each (userProfile.favorites || []) as home}
 					<div class="favorite-card">
 						<div class="favorite-image">
-							<img src={home.image} alt={home.address} loading="lazy" />
+							<img src={home.image || '/placeholder-home.jpg'} alt={home.address || 'Home'} loading="lazy" />
 							<button 
 								class="remove-favorite"
 								on:click={() => removeFromFavorites(home.id)}

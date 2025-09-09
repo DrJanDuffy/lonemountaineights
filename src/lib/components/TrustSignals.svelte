@@ -172,9 +172,9 @@
 				<div class="testimonial-card">
 					<div class="testimonial-header">
 						<div class="client-info">
-							<div class="client-avatar">
-								<img src={testimonial.image} alt={testimonial.name} loading="lazy" />
-							</div>
+						<div class="client-avatar">
+							<img src={testimonial.image || '/placeholder-avatar.jpg'} alt={testimonial.name || 'Client'} loading="lazy" />
+						</div>
 							<div class="client-details">
 								<div class="client-name">{testimonial.name}</div>
 								<div class="client-location">{testimonial.location}</div>
