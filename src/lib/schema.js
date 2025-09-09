@@ -146,7 +146,7 @@ export function generateLocalBusinessSchema() {
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
     "name": "Dr. Jan Duffy - Lone Mountain Heights Real Estate Expert",
-    "description": "Premier real estate services in Lone Mountain Heights, Las Vegas. 500+ successful transactions with deep neighborhood expertise.",
+    "description": "Premier real estate services in Lone Mountain Heights, Las Vegas. Your complete real estate partner with deep neighborhood expertise.",
     "url": "https://lonemountainheights.com",
     "telephone": "+1-702-222-1964",
     "email": "jan@lonemountainheights.com",

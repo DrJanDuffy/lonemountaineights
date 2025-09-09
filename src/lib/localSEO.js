@@ -461,7 +461,7 @@ export function generateLocalSEOMetaTags(pageType = 'home') {
   
   return {
     title: `Lone Mountain Heights Real Estate | Dr. Jan Duffy Team | Las Vegas 89129`,
-    description: `Find homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy leads the Berkshire Hathaway HomeServices team with 500+ Lone Mountain transactions. Expert local knowledge.`,
+    description: `Find homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy leads the Berkshire Hathaway HomeServices team as your complete real estate partner. Expert local knowledge.`,
     keywords: allKeywords,
     canonical: `https://lonemountainheights.com/${pageType}`,
     openGraph: {

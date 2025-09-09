@@ -18,7 +18,7 @@ import Personalization from '$lib/components/Personalization.svelte';
 
 <svelte:head>
 	<title>Lone Mountain Heights Homes for Sale | Dr. Jan Duffy Expert | Las Vegas 89129</title>
-	<meta name="description" content="Find your dream home in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy, 500+ transactions expert, offers exclusive listings, market insights, and personalized service." />
+	<meta name="description" content="Find your dream home in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy, your complete real estate partner, offers exclusive listings, market insights, and personalized service." />
 	
 	<!-- LocalBusiness Schema -->
 	<script type="application/ld+json">

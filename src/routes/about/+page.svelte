@@ -49,7 +49,7 @@
 
 <svelte:head>
 	<title>About Dr. Jan Duffy | Lone Mountain Heights Expert | Las Vegas 89129</title>
-	<meta name="description" content="Meet Dr. Jan Duffy, Lone Mountain Heights real estate expert in Las Vegas 89129. 500+ transactions, Berkshire Hathaway team leader, and local market specialist." />
+	<meta name="description" content="Meet Dr. Jan Duffy, your complete real estate partner in Lone Mountain Heights, Las Vegas 89129. Berkshire Hathaway team leader, local market specialist, and your forever agent." />
 	
 	<!-- Person Schema for Dr. Jan Duffy -->
 	<script type="application/ld+json">
@@ -58,7 +58,7 @@
 			"@type": "Person",
 			"name": "Dr. Jan Duffy",
 			"jobTitle": "Head of Berkshire Hathaway HomeServices Lone Mountain Heights Team",
-			"description": "Real estate expert specializing in Lone Mountain Heights, Las Vegas 89129 with 500+ successful transactions.",
+			"description": "Your complete real estate partner specializing in Lone Mountain Heights, Las Vegas 89129 with comprehensive local expertise.",
 			"url": "https://www.lonemountainheights.com/about",
 			"telephone": "702-222-1964",
 			"email": "jan@lonemountainheights.com",
@@ -90,7 +90,7 @@
 				"Luxury Home Specialist",
 				"Market Analysis Expert"
 			],
-			"award": "500+ Lone Mountain Heights Transactions",
+			"award": "Your Complete Real Estate Partner",
 			"image": {
 				"@type": "ImageObject",
 				"url": "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80&fm=webp",
@@ -184,7 +184,7 @@
 				<div class="profile-content">
 					<div class="profile-text">
 						<h2>Meet Your Team Head & Forever Agent</h2>
-						<p>Dr. Jan Duffy leads the Berkshire Hathaway HomeServices Lone Mountain Heights Team, overseeing 500+ successful transactions in the Lone Mountain area. As your dedicated Forever Agent, Dr. Jan is committed to supporting your long-term real estate needs throughout your lifetime, bringing unparalleled local expertise combined with the power of a global network and team resources.</p>
+						<p>Dr. Jan Duffy leads the Berkshire Hathaway HomeServices Lone Mountain Heights Team, serving as your complete real estate partner in the Lone Mountain area. As your dedicated Forever Agent, Dr. Jan is committed to supporting your long-term real estate needs throughout your lifetime, bringing unparalleled local expertise combined with the power of a global network and team resources.</p>
 						
 						<div class="credentials">
 							<h3>Credentials & Expertise</h3>

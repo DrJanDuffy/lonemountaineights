@@ -451,7 +451,7 @@ $: applyFilters();
 	<div class="page-header">
 		<div class="container">
 			<h1>Lone Mountain Heights Homes for Sale | Las Vegas 89129</h1>
-			<p>Exclusive listings hand-picked by Dr. Jan Duffy - 500+ transaction expert</p>
+			<p>Exclusive listings hand-picked by Dr. Jan Duffy - Your Complete Real Estate Partner</p>
 			
 			<!-- Lone Mountain Heights Search CTA -->
 			<div class="lone-mountain-cta">
