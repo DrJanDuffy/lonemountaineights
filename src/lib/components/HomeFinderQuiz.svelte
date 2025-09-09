@@ -227,7 +227,7 @@
 					<div class="recommendation-card">
 					<div class="recommendation-image">
 						<img 
-							src={neighborhood.image || '/placeholder-neighborhood.jpg'} 
+							src={neighborhood.image || '/svelte-welcome.png'} 
 							alt={(neighborhood.name || 'Neighborhood') + ' neighborhood in Lone Mountain Heights'}
 							loading="lazy"
 						/>
