@@ -36,6 +36,13 @@
 		loadSavedSearches();
 	});
 	
+	// Initialize arrays to prevent undefined errors during SSR
+	userProfile.favorites = userProfile.favorites || [];
+	userProfile.searchHistory = userProfile.searchHistory || [];
+	userProfile.interests = userProfile.interests || [];
+	recommendedHomes = recommendedHomes || [];
+	savedSearches = savedSearches || [];
+	
 	function loadUserData() {
 		if (typeof window !== 'undefined') {
 			const savedProfile = localStorage.getItem('userProfile');
@@ -292,10 +299,10 @@
 	{/if}
 	
 	<!-- Market Alerts -->
-	{#if personalizedContent.marketAlerts && personalizedContent.marketAlerts.length > 0}
+	{#if personalizedContent.marketAlerts && (personalizedContent.marketAlerts || []).length > 0}
 		<div class="market-alerts">
 			<h4>Market Alerts for You</h4>
-			{#each personalizedContent.marketAlerts as alert, index}
+			{#each (personalizedContent.marketAlerts || []) as alert, index}
 				<div class="alert-card">
 					<div class="alert-content">
 						<div class="alert-icon">
@@ -319,7 +326,7 @@
 	<div class="recommendations">
 		<h4>Recommended for You</h4>
 		<div class="recommendations-grid">
-			{#each recommendedHomes as home}
+			{#each (recommendedHomes || []) as home}
 				<div class="recommendation-card">
 					<div class="home-image">
 						<img src={home.image} alt={home.address} loading="lazy" />
@@ -339,7 +346,7 @@
 						</div>
 						<div class="home-neighborhood">{home.neighborhood}</div>
 						<div class="home-features">
-							{#each home.features as feature}
+							{#each (home.features || []) as feature}
 								<span class="feature-tag">{feature}</span>
 							{/each}
 						</div>
@@ -353,7 +360,7 @@
 	<div class="market-insights">
 		<h4>Your Market Insights</h4>
 		<div class="insights-grid">
-			{#each personalizedContent.marketInsights as insight}
+			{#each (personalizedContent.marketInsights || []) as insight}
 				<div class="insight-card">
 					<h5>{insight.title}</h5>
 					<p>{insight.content}</p>
@@ -374,7 +381,7 @@
 				<p>{personalizedContent.neighborhoodSpotlight.description}</p>
 				<div class="spotlight-price">Avg Price: {personalizedContent.neighborhoodSpotlight.avgPrice}</div>
 				<div class="spotlight-features">
-					{#each personalizedContent.neighborhoodSpotlight.features as feature}
+					{#each (personalizedContent.neighborhoodSpotlight?.features || []) as feature}
 						<span class="feature-tag">{feature}</span>
 					{/each}
 				</div>
@@ -393,11 +400,11 @@
 	</div>
 	
 	<!-- Saved Searches -->
-	{#if savedSearches.length > 0}
+	{#if (savedSearches || []).length > 0}
 		<div class="saved-searches">
 			<h4>Your Saved Searches</h4>
 			<div class="searches-list">
-				{#each savedSearches as search}
+				{#each (savedSearches || []) as search}
 					<div class="search-item">
 						<div class="search-criteria">
 							{Object.entries(search.criteria).map(([key, value]) => `${key}: ${value}`).join(', ')}
@@ -411,11 +418,11 @@
 	{/if}
 	
 	<!-- Favorites -->
-	{#if userProfile.favorites.length > 0}
+	{#if (userProfile.favorites || []).length > 0}
 		<div class="favorites">
-			<h4>Your Favorites ({userProfile.favorites.length})</h4>
+			<h4>Your Favorites ({(userProfile.favorites || []).length})</h4>
 			<div class="favorites-grid">
-				{#each userProfile.favorites as home}
+				{#each (userProfile.favorites || []) as home}
 					<div class="favorite-card">
 						<div class="favorite-image">
 							<img src={home.image} alt={home.address} loading="lazy" />
