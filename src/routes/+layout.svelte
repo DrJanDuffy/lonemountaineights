@@ -43,7 +43,7 @@ $: if (browser && analyticsId) {
 		<div class="footer-section">
 			<h4>Dr. Jan Duffy</h4>
 			<p>Berkshire Hathaway HomeServices</p>
-			<p>Team Head • Lone Mountain Heights</p>
+			<p>Head of Lone Mountain Heights Team</p>
 			<p>500+ Lone Mountain Transactions</p>
 			<p>Global Network • 1,600+ Offices</p>
 		</div>

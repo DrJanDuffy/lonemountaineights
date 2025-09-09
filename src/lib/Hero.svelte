@@ -13,13 +13,13 @@ let heroImage =
 				<span class="homeservices">HomeServices</span>
 			</div>
 			<div class="team-leadership">
-				<span class="team-head">Team Head</span>
-				<span class="lone-mountain-team">Lone Mountain Heights</span>
+				<span class="team-head">Head of the Berkshire Hathaway HomeServices</span>
+				<span class="lone-mountain-team">Lone Mountain Heights Team</span>
 			</div>
 			<h1>Lone Mountain Heights Homes for Sale</h1>
 			<h2>Gated Community in Las Vegas 89129</h2>
 			<p class="hero-subtitle">
-				Quiet, gated community developed 2001-2005 with 3-5 bedroom homes (2,500-4,400 sq ft) featuring mature landscaping and spectacular mountain views. Dr. Jan Duffy, Head of the Berkshire Hathaway HomeServices Team, leads 500+ successful transactions in the Lone Mountain area.
+				Quiet, gated community developed 2001-2005 with 3-5 bedroom homes (2,500-4,400 sq ft) featuring mature landscaping and spectacular mountain views. Dr. Jan Duffy, Head of the Berkshire Hathaway HomeServices Lone Mountain Heights Team, leads 500+ successful transactions in the Lone Mountain area.
 			</p>
 			
 			<div class="cta-buttons">
@@ -39,7 +39,7 @@ let heroImage =
 			<div class="image-overlay">
 				<div class="expertise-badge">
 					<span class="badge-text">500+ Lone Mountain Transactions</span>
-					<span class="badge-subtext">Team Head • Berkshire Hathaway HomeServices</span>
+					<span class="badge-subtext">Head of Lone Mountain Heights Team • Berkshire Hathaway HomeServices</span>
 				</div>
 			</div>
 		</div>
