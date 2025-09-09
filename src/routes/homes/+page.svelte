@@ -347,7 +347,7 @@ let filters = {
 
 let sortBy = 'price';
 let viewMode = 'grid'; // 'grid' or 'list'
-const showFilters = false;
+let showFilters = false;
 
 function formatPrice(price) {
   return new Intl.NumberFormat('en-US', {
