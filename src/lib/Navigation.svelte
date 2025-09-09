@@ -86,36 +86,64 @@
 </script>
 
 <header class="navigation" bind:this={navContainer} on:keydown={handleDropdownKeydown}>
+	<!-- Top Utility Bar -->
+	<div class="utility-bar">
+		<div class="utility-container">
+			<div class="utility-left">
+				<div class="social-links">
+					<a href="#" class="social-link" aria-label="Facebook">f</a>
+					<a href="#" class="social-link" aria-label="Twitter">X</a>
+					<a href="#" class="social-link" aria-label="YouTube">▶</a>
+					<a href="#" class="social-link" aria-label="LinkedIn">in</a>
+				</div>
+				<div class="phone-utility">
+					<span class="phone-icon">📞</span>
+					<span class="phone-text">(702) 222-1964</span>
+				</div>
+			</div>
+			<div class="utility-right">
+				<div class="language-selector">
+					<select class="language-dropdown">
+						<option value="en">SELECT LANGUAGE</option>
+						<option value="es">Español</option>
+					</select>
+				</div>
+				<a href="/contact" class="sign-in-link">SIGN IN / CONTACT</a>
+				<button class="app-download-btn">APP</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Main Navigation -->
 	<div class="nav-container">
 		<div class="nav-brand">
 			<a href="/" class="brand-link">
 				<div class="brand-logo">
-					<span class="logo-icon">🏔️</span>
 					<div class="brand-text">
-						<span class="brand-name">Dr. Jan Duffy</span>
-						<span class="brand-tagline">Lone Mountain Heights Expert</span>
+						<span class="brand-name">DR. JAN DUFFY</span>
+						<span class="brand-tagline">LONE MOUNTAIN HEIGHTS EXPERT</span>
 					</div>
 				</div>
 			</a>
 		</div>
 		
 		<nav class="nav-menu" class:mobile-open={mobileMenuOpen} aria-label="Main navigation">
-			<!-- Desktop Navigation - Dropdown Structure -->
+			<!-- Desktop Navigation - Berkshire Hathaway Style -->
 			<ul class="nav-list nav-list-desktop" role="menubar">
-				<!-- 1. Properties Dropdown -->
+				<!-- Search -->
 				<li class="nav-item nav-item-dropdown" role="none">
 					<button 
 						class="nav-link nav-dropdown-toggle" 
-						class:active={activeDropdown === 'properties'}
-						aria-expanded={activeDropdown === 'properties'}
+						class:active={activeDropdown === 'search'}
+						aria-expanded={activeDropdown === 'search'}
 						aria-haspopup="true"
-						on:click={() => toggleDropdown('properties')}
-						on:keydown={(e) => handleDropdownArrowKeys(e, 'properties')}
+						on:click={() => toggleDropdown('search')}
+						on:keydown={(e) => handleDropdownArrowKeys(e, 'search')}
 						on:blur={() => setTimeout(closeDropdown, 150)}
 					>
-						Properties <span class="dropdown-arrow">▼</span>
+						SEARCH <span class="dropdown-arrow">▼</span>
 					</button>
-					<ul class="nav-dropdown nav-dropdown-wide" class:active={activeDropdown === 'properties'} role="menu">
+					<ul class="nav-dropdown" class:active={activeDropdown === 'search'} role="menu">
 						<li role="none">
 							<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-dropdown-link nav-dropdown-primary" target="_blank" rel="noopener noreferrer" role="menuitem" on:click={handleNavLinkClick}>🔍 Search All Homes</a>
 						</li>
@@ -125,29 +153,75 @@
 						<li role="none">
 							<a href="/sales" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Recent Sales</a>
 						</li>
+					</ul>
+				</li>
+
+				<!-- Buyers -->
+				<li class="nav-item nav-item-dropdown" role="none">
+					<button 
+						class="nav-link nav-dropdown-toggle" 
+						class:active={activeDropdown === 'buyers'}
+						aria-expanded={activeDropdown === 'buyers'}
+						aria-haspopup="true"
+						on:click={() => toggleDropdown('buyers')}
+						on:keydown={(e) => handleDropdownArrowKeys(e, 'buyers')}
+						on:blur={() => setTimeout(closeDropdown, 150)}
+					>
+						BUYERS <span class="dropdown-arrow">▼</span>
+					</button>
+					<ul class="nav-dropdown" class:active={activeDropdown === 'buyers'} role="menu">
 						<li role="none">
 							<a href="/property-types/3-bedroom-homes" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>3 Bedroom Homes</a>
 						</li>
 						<li role="none">
 							<a href="/price-ranges/600k-800k" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Homes $600K-$800K</a>
 						</li>
+						<li role="none">
+							<a href="/tools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Home Value Calculator</a>
+						</li>
 					</ul>
 				</li>
-				
-				<!-- 3. Neighborhoods Dropdown -->
+
+				<!-- Sellers -->
 				<li class="nav-item nav-item-dropdown" role="none">
 					<button 
 						class="nav-link nav-dropdown-toggle" 
-						class:active={activeDropdown === 'neighborhoods'}
-						aria-expanded={activeDropdown === 'neighborhoods'}
+						class:active={activeDropdown === 'sellers'}
+						aria-expanded={activeDropdown === 'sellers'}
 						aria-haspopup="true"
-						on:click={() => toggleDropdown('neighborhoods')}
-						on:keydown={(e) => handleDropdownArrowKeys(e, 'neighborhoods')}
+						on:click={() => toggleDropdown('sellers')}
+						on:keydown={(e) => handleDropdownArrowKeys(e, 'sellers')}
 						on:blur={() => setTimeout(closeDropdown, 150)}
 					>
-						Neighborhoods <span class="dropdown-arrow">▼</span>
+						SELLERS <span class="dropdown-arrow">▼</span>
 					</button>
-					<ul class="nav-dropdown" class:active={activeDropdown === 'neighborhoods'} role="menu">
+					<ul class="nav-dropdown" class:active={activeDropdown === 'sellers'} role="menu">
+						<li role="none">
+							<a href="/tools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>What's My Home Worth?</a>
+						</li>
+						<li role="none">
+							<a href="/market-intelligence" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Market Analysis</a>
+						</li>
+						<li role="none">
+							<a href="/contact" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Free Consultation</a>
+						</li>
+					</ul>
+				</li>
+
+				<!-- Communities -->
+				<li class="nav-item nav-item-dropdown" role="none">
+					<button 
+						class="nav-link nav-dropdown-toggle" 
+						class:active={activeDropdown === 'communities'}
+						aria-expanded={activeDropdown === 'communities'}
+						aria-haspopup="true"
+						on:click={() => toggleDropdown('communities')}
+						on:keydown={(e) => handleDropdownArrowKeys(e, 'communities')}
+						on:blur={() => setTimeout(closeDropdown, 150)}
+					>
+						COMMUNITIES <span class="dropdown-arrow">▼</span>
+					</button>
+					<ul class="nav-dropdown" class:active={activeDropdown === 'communities'} role="menu">
 						<li role="none">
 							<a href="/neighborhood" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Lone Mountain Heights</a>
 						</li>
@@ -157,53 +231,33 @@
 						<li role="none">
 							<a href="/locations/desert-vista-estates" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Desert Vista Estates</a>
 						</li>
-						<li role="none">
-							<a href="/neighborhoods" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>All Micro-Neighborhoods</a>
-						</li>
 					</ul>
 				</li>
-				
-				<!-- 4. Resources Dropdown -->
+
+				<!-- About -->
 				<li class="nav-item nav-item-dropdown" role="none">
 					<button 
 						class="nav-link nav-dropdown-toggle" 
-						class:active={activeDropdown === 'resources'}
-						aria-expanded={activeDropdown === 'resources'}
+						class:active={activeDropdown === 'about'}
+						aria-expanded={activeDropdown === 'about'}
 						aria-haspopup="true"
-						on:click={() => toggleDropdown('resources')}
-						on:keydown={(e) => handleDropdownArrowKeys(e, 'resources')}
+						on:click={() => toggleDropdown('about')}
+						on:keydown={(e) => handleDropdownArrowKeys(e, 'about')}
 						on:blur={() => setTimeout(closeDropdown, 150)}
 					>
-						Resources <span class="dropdown-arrow">▼</span>
+						ABOUT <span class="dropdown-arrow">▼</span>
 					</button>
-					<ul class="nav-dropdown" class:active={activeDropdown === 'resources'} role="menu">
+					<ul class="nav-dropdown" class:active={activeDropdown === 'about'} role="menu">
 						<li role="none">
-							<a href="/tools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Home Value Calculator</a>
+							<a href="/about" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>About Dr. Jan</a>
 						</li>
 						<li role="none">
-							<a href="/market-intelligence" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Market Data</a>
-						</li>
-						<li role="none">
-							<a href="/amenities" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Amenities</a>
+							<a href="/amenities" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Local Amenities</a>
 						</li>
 						<li role="none">
 							<a href="/schools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Schools</a>
 						</li>
-						<li role="none">
-							<a href="/faq/hoa-fees" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>HOA Information</a>
-						</li>
-						<li role="none">
-							<a href="/about" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>About Dr. Jan</a>
-						</li>
 					</ul>
-				</li>
-				
-				<!-- 4. Contact - Phone Number -->
-				<li class="nav-item" role="none">
-					<a href="tel:702-222-1964" class="nav-link nav-link-phone" role="menuitem" aria-label="Call Dr. Jan Duffy at 702-222-1964">
-						<span class="phone-icon">📞</span>
-						<span class="phone-number">702-222-1964</span>
-					</a>
 				</li>
 			</ul>
 			
@@ -330,6 +384,95 @@
 		backdrop-filter: blur(10px);
 		will-change: transform;
 	}
+
+	/* Utility Bar Styling */
+	.utility-bar {
+		background: #1a365d;
+		color: white;
+		padding: 0.5rem 0;
+		font-size: 0.8rem;
+	}
+
+	.utility-container {
+		max-width: 1600px;
+		margin: 0 auto;
+		padding: 0 1rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.utility-left {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+	}
+
+	.social-links {
+		display: flex;
+		gap: 1rem;
+	}
+
+	.social-link {
+		color: white;
+		text-decoration: none;
+		font-weight: bold;
+		font-size: 0.9rem;
+		transition: color 0.2s ease;
+	}
+
+	.social-link:hover {
+		color: #3A8DDE;
+	}
+
+	.phone-utility {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-weight: 600;
+	}
+
+	.utility-right {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+	}
+
+	.language-dropdown {
+		background: transparent;
+		color: white;
+		border: 1px solid rgba(255, 255, 255, 0.3);
+		padding: 0.25rem 0.5rem;
+		border-radius: 3px;
+		font-size: 0.8rem;
+	}
+
+	.sign-in-link {
+		color: white;
+		text-decoration: none;
+		font-weight: 600;
+		transition: color 0.2s ease;
+	}
+
+	.sign-in-link:hover {
+		color: #3A8DDE;
+	}
+
+	.app-download-btn {
+		background: #dc2626;
+		color: white;
+		border: none;
+		padding: 0.5rem 1rem;
+		border-radius: 3px;
+		font-weight: bold;
+		font-size: 0.8rem;
+		cursor: pointer;
+		transition: background 0.2s ease;
+	}
+
+	.app-download-btn:hover {
+		background: #b91c1c;
+	}
 	
 	.nav-container {
 		max-width: 1600px;
@@ -371,17 +514,19 @@
 	}
 	
 	.brand-name {
-		font-size: 1.1rem;
+		font-size: 1.2rem;
 		font-weight: 700;
-		color: var(--heading-color);
+		color: #1a365d;
 		white-space: nowrap;
+		letter-spacing: 0.5px;
 	}
 	
 	.brand-tagline {
-		font-size: 0.7rem;
-		color: var(--text-light);
-		font-weight: 500;
+		font-size: 0.8rem;
+		color: #4a5568;
+		font-weight: 600;
 		white-space: nowrap;
+		letter-spacing: 0.3px;
 	}
 	
 	.nav-menu {
@@ -666,12 +811,14 @@
 	
 	.nav-link {
 		text-decoration: none;
-		color: var(--text-color);
-		font-weight: 500;
+		color: #1a365d;
+		font-weight: 600;
 		font-size: 0.9rem;
-		padding: 0.4rem 0.6rem;
-		transition: color 0.3s ease;
+		padding: 0.6rem 1rem;
+		transition: all 0.2s ease;
 		position: relative;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
 	}
 	
 	.nav-link:hover {

@@ -1,409 +1,288 @@
 <script>
 const heroImage =
-  'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1973&q=80';
+  'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80';
+
+let searchValue = '';
+let activeTab = 'search';
+
+function handleSearch() {
+	if (searchValue.trim()) {
+		window.open(`https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx`, '_blank');
+	}
+}
+
+function handleKeydown(event) {
+	if (event.key === 'Enter') {
+		handleSearch();
+	}
+}
 </script>
 
 <section class="hero">
+	<div class="hero-background">
+		<img src={heroImage} alt="Las Vegas cityscape at night" />
+		<div class="hero-overlay"></div>
+	</div>
+	
 	<div class="hero-content">
-		<div class="hero-text">
-			<div class="brand-badge">
-				<span class="berkshire-logo">Berkshire Hathaway</span>
-				<span class="homeservices">HomeServices</span>
-			</div>
-			<div class="team-leadership">
-				<span class="team-head">Head of the Berkshire Hathaway HomeServices</span>
-				<span class="lone-mountain-team">Lone Mountain Heights Team</span>
-			</div>
-			<h1>Lone Mountain Heights Homes for Sale</h1>
-			<h2>Gated Community in Las Vegas 89129</h2>
-			<p class="hero-subtitle">
-				Quiet, gated community developed 2001-2005 with 3-5 bedroom homes (2,500-4,400 sq ft) featuring mature landscaping and spectacular mountain views. Dr. Jan Duffy, Head of the Berkshire Hathaway HomeServices Lone Mountain Heights Team, serves as your complete real estate partner in the Lone Mountain area.
-			</p>
-			
-			<div class="cta-buttons">
-				<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Search All Homes in Lone Mountain Heights</a>
-				<a href="/homes" class="btn btn-secondary">Browse Listings</a>
-				<a href="/valuation" class="btn btn-secondary">Get My Home's Value</a>
+		<!-- Search Interface Overlay -->
+		<div class="search-interface">
+			<div class="search-tabs">
+				<button 
+					class="search-tab" 
+					class:active={activeTab === 'search'}
+					on:click={() => activeTab = 'search'}
+				>
+					SEARCH HOMES
+				</button>
+				<button 
+					class="search-tab" 
+					class:active={activeTab === 'valuation'}
+					on:click={() => activeTab = 'valuation'}
+				>
+					WHAT'S YOUR HOME WORTH?
+				</button>
 			</div>
 			
-			<div class="contact-info">
-				<a href="tel:702-222-1964" class="phone-link">
-					📞 Call/Text 702-222-1964
-				</a>
-			</div>
-		</div>
-		
-		<div class="hero-image">
-			<img src={heroImage} alt="Lone Mountain Heights neighborhood with mountain views" />
-			<div class="image-overlay">
-				<div class="expertise-badge">
-					<span class="badge-text">Your Complete Real Estate Partner</span>
-					<span class="badge-subtext">Head of Lone Mountain Heights Team • Berkshire Hathaway HomeServices</span>
+			<div class="search-form">
+				<div class="search-input-container">
+					<span class="search-icon">🏠</span>
+					<input 
+						type="text" 
+						class="search-input"
+						placeholder="Search by Address, City, Zip, Neighborhood, School or MLS#"
+						bind:value={searchValue}
+						on:keydown={handleKeydown}
+					/>
+					<button class="search-button" on:click={handleSearch}>
+						<span class="search-icon">🔍</span>
+					</button>
 				</div>
 			</div>
 		</div>
-	</div>
-	
-	<div class="hero-stats">
-		<div class="stat">
-			<span class="stat-number">$847K</span>
-			<span class="stat-label">Avg Sale Price</span>
-		</div>
-		<div class="stat">
-			<span class="stat-number">12</span>
-			<span class="stat-label">Days on Market</span>
-		</div>
-		<div class="stat">
-			<span class="stat-number">98%</span>
-			<span class="stat-label">List to Sale Ratio</span>
-		</div>
-		<div class="stat">
-			<span class="stat-number">47</span>
-			<span class="stat-label">Active Listings</span>
+		
+		<!-- Main Tagline -->
+		<div class="hero-tagline">
+			<h1>YOUR DREAM · YOUR LIFE · YOUR HOME</h1>
 		</div>
 	</div>
 </section>
 
 <style>
 	.hero {
-		background: linear-gradient(135deg, var(--warm-cream) 0%, var(--desert-sand) 100%);
-		padding: 4rem 2rem;
-		min-height: 80vh;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
 		position: relative;
+		height: 70vh;
 		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
-	
-	.hero::before {
-		content: '';
+
+	.hero-background {
 		position: absolute;
 		top: 0;
 		left: 0;
-		right: 0;
-		bottom: 0;
-		background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="mountain" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M0,20 L10,0 L20,20 Z" fill="rgba(139,69,19,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23mountain)"/></svg>');
-		opacity: 0.3;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
 	}
-	
+
+	.hero-background img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.hero-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(45deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 100%);
+		z-index: 2;
+	}
+
 	.hero-content {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 4rem;
-		align-items: center;
+		position: relative;
+		z-index: 3;
+		width: 100%;
 		max-width: 1200px;
 		margin: 0 auto;
-		position: relative;
-		z-index: 1;
-		width: 100%;
-		box-sizing: border-box;
-	}
-	
-	.brand-badge {
-		display: inline-block;
-		background: var(--accent-color);
-		color: white;
-		padding: 0.5rem 1rem;
-		border-radius: 6px;
-		margin-bottom: 1rem;
-		font-size: 0.9rem;
-		font-weight: 600;
-	}
-	
-	.berkshire-logo {
-		display: block;
-		font-weight: 700;
-		font-size: 1rem;
-	}
-	
-	.homeservices {
-		display: block;
-		font-size: 0.8rem;
-		opacity: 0.9;
-	}
-	
-	.team-leadership {
-		display: inline-block;
-		background: var(--primary-color);
-		color: white;
-		padding: 0.4rem 0.8rem;
-		border-radius: 4px;
-		margin-bottom: 1rem;
-		font-size: 0.8rem;
-		font-weight: 600;
-	}
-	
-	.team-head {
-		display: block;
-		font-weight: 700;
-		font-size: 0.9rem;
-	}
-	
-	.lone-mountain-team {
-		display: block;
-		font-size: 0.7rem;
-		opacity: 0.9;
-	}
-	
-	.hero-text h1 {
-		font-size: 3.5rem;
-		font-weight: 700;
-		color: var(--heading-color);
-		margin: 0 0 1rem 0;
-		line-height: 1.1;
-		word-wrap: break-word;
-		overflow-wrap: break-word;
-	}
-	
-	.hero-text h2 {
-		font-size: 2rem;
-		font-weight: 600;
-		color: var(--accent-color);
-		margin: 0 0 1.5rem 0;
-	}
-	
-	.hero-subtitle {
-		font-size: 1.25rem;
-		color: var(--text-color);
-		margin: 0 0 2rem 0;
-		line-height: 1.6;
-		max-width: 500px;
-	}
-	
-	.cta-buttons {
+		padding: 0 2rem;
 		display: flex;
-		gap: 1rem;
-		margin-bottom: 2rem;
-		flex-wrap: wrap;
-	}
-	
-	.btn {
-		padding: 1rem 2rem;
-		border-radius: 8px;
-		text-decoration: none;
-		font-weight: 600;
-		font-size: 1.1rem;
-		transition: all 0.3s ease;
-		display: inline-block;
-		text-align: center;
-		min-width: 200px;
-	}
-	
-	.btn-primary {
-		background: var(--accent-color);
-		color: white;
-		border: 2px solid var(--accent-color);
-	}
-	
-	.btn-primary:hover {
-		background: var(--accent-light);
-		border-color: var(--accent-light);
-		transform: translateY(-2px);
-		box-shadow: 0 8px 25px rgba(30, 58, 138, 0.3);
-	}
-	
-	.btn-secondary {
-		background: transparent;
-		color: var(--accent-color);
-		border: 2px solid var(--accent-color);
-	}
-	
-	.btn-secondary:hover {
-		background: var(--accent-color);
-		color: white;
-		transform: translateY(-2px);
-		box-shadow: 0 8px 25px rgba(30, 58, 138, 0.2);
-	}
-	
-	.contact-info {
-		margin-top: 1rem;
-	}
-	
-	.phone-link {
-		font-size: 1.5rem;
-		font-weight: 700;
-		color: var(--primary-color);
-		text-decoration: none;
-		display: inline-flex;
+		flex-direction: column;
 		align-items: center;
-		gap: 0.5rem;
-		transition: color 0.3s ease;
+		gap: 3rem;
 	}
-	
-	.phone-link:hover {
-		color: var(--accent-color);
-	}
-	
-	.hero-image {
-		position: relative;
-		border-radius: 16px;
-		overflow: hidden;
-		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-	}
-	
-	.hero-image img {
-		width: 100%;
-		height: 400px;
-		object-fit: cover;
-		display: block;
-	}
-	
-	.image-overlay {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-		padding: 2rem;
-	}
-	
-	.expertise-badge {
-		background: var(--accent-color);
-		color: white;
-		padding: 1rem 1.5rem;
+
+	/* Search Interface Styling */
+	.search-interface {
+		background: rgba(255, 255, 255, 0.95);
 		border-radius: 8px;
-		text-align: center;
-		max-width: 200px;
+		padding: 0;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+		backdrop-filter: blur(10px);
+		width: 100%;
+		max-width: 800px;
 	}
-	
-	.badge-text {
-		display: block;
-		font-weight: 700;
-		font-size: 1.1rem;
-		margin-bottom: 0.25rem;
+
+	.search-tabs {
+		display: flex;
+		background: #f8f9fa;
+		border-radius: 8px 8px 0 0;
+		overflow: hidden;
 	}
-	
-	.badge-subtext {
-		display: block;
+
+	.search-tab {
+		flex: 1;
+		padding: 1rem 1.5rem;
+		border: none;
+		background: transparent;
+		color: #6c757d;
+		font-weight: 600;
 		font-size: 0.9rem;
-		opacity: 0.9;
-	}
-	
-	.hero-stats {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		gap: 2rem;
-		max-width: 1200px;
-		margin: 3rem auto 0;
-		position: relative;
-		z-index: 1;
-	}
-	
-	.stat {
-		text-align: center;
-		background: white;
-		padding: 1.5rem;
-		border-radius: 12px;
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-		transition: transform 0.3s ease;
-	}
-	
-	.stat:hover {
-		transform: translateY(-4px);
-	}
-	
-	.stat-number {
-		display: block;
-		font-size: 2rem;
-		font-weight: 700;
-		color: var(--accent-color);
-		margin-bottom: 0.5rem;
-	}
-	
-	.stat-label {
-		font-size: 0.9rem;
-		color: var(--text-light);
-		font-weight: 500;
+		cursor: pointer;
+		transition: all 0.2s ease;
 		text-transform: uppercase;
 		letter-spacing: 0.5px;
 	}
-	
+
+	.search-tab.active {
+		background: #8b1538;
+		color: white;
+	}
+
+	.search-tab:hover:not(.active) {
+		background: #e9ecef;
+		color: #495057;
+	}
+
+	.search-form {
+		padding: 2rem;
+	}
+
+	.search-input-container {
+		display: flex;
+		align-items: center;
+		background: white;
+		border: 2px solid #e9ecef;
+		border-radius: 6px;
+		padding: 0.5rem;
+		transition: border-color 0.2s ease;
+	}
+
+	.search-input-container:focus-within {
+		border-color: #8b1538;
+	}
+
+	.search-icon {
+		font-size: 1.2rem;
+		margin: 0 0.75rem;
+		color: #6c757d;
+	}
+
+	.search-input {
+		flex: 1;
+		border: none;
+		outline: none;
+		font-size: 1rem;
+		padding: 0.75rem 0;
+		background: transparent;
+	}
+
+	.search-input::placeholder {
+		color: #adb5bd;
+	}
+
+	.search-button {
+		background: #8b1538;
+		color: white;
+		border: none;
+		padding: 0.75rem 1.5rem;
+		border-radius: 4px;
+		cursor: pointer;
+		font-weight: 600;
+		transition: background 0.2s ease;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.search-button:hover {
+		background: #6d0f2a;
+	}
+
+	.hero-tagline {
+		text-align: center;
+	}
+
+	.hero-tagline h1 {
+		font-size: 3.5rem;
+		font-weight: 700;
+		color: white;
+		margin: 0;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+		letter-spacing: 2px;
+		line-height: 1.1;
+	}
+
+	/* Responsive Design */
 	@media (max-width: 768px) {
 		.hero {
-			padding: 2rem 1rem;
-			min-height: 70vh;
+			height: 60vh;
 		}
-		
+
 		.hero-content {
-			grid-template-columns: 1fr;
+			padding: 0 1rem;
 			gap: 2rem;
-			text-align: center;
 		}
-		
-		.hero-text h1 {
-			font-size: 2.5rem;
+
+		.search-interface {
+			max-width: 100%;
 		}
-		
-		.hero-text h2 {
-			font-size: 1.5rem;
+
+		.search-tabs {
+			flex-direction: column;
 		}
-		
-		.hero-subtitle {
-			font-size: 1.1rem;
+
+		.search-tab {
+			padding: 0.75rem 1rem;
+			font-size: 0.8rem;
 		}
-		
-		.cta-buttons {
-			justify-content: center;
+
+		.search-form {
+			padding: 1.5rem;
 		}
-		
-		.btn {
-			min-width: 180px;
-		}
-		
-		.hero-stats {
-			grid-template-columns: repeat(2, 1fr);
-			gap: 1rem;
-			margin-top: 2rem;
-		}
-		
-		.stat {
-			padding: 1rem;
-		}
-		
-		.stat-number {
-			font-size: 1.5rem;
-		}
-	}
-	
-	/* Additional responsive fixes */
-	@media (max-width: 1024px) {
-		.hero-content {
-			grid-template-columns: 1fr;
-			gap: 2rem;
-			text-align: center;
-		}
-		
-		.hero-text h1 {
-			font-size: 2.5rem;
-		}
-		
-		.hero-text h2 {
-			font-size: 1.5rem;
-		}
-	}
-	
-	@media (max-width: 768px) {
-		.hero {
-			padding: 2rem 1rem;
-			min-height: 60vh;
-		}
-		
-		.hero-text h1 {
-			font-size: 2rem;
-		}
-		
-		.hero-text h2 {
-			font-size: 1.25rem;
-		}
-		
-		.hero-subtitle {
-			font-size: 1rem;
-		}
-		
-		.cta-buttons {
+
+		.search-input-container {
 			flex-direction: column;
 			gap: 1rem;
+		}
+
+		.search-input {
+			text-align: center;
+		}
+
+		.search-button {
+			width: 100%;
+			justify-content: center;
+		}
+
+		.hero-tagline h1 {
+			font-size: 2.5rem;
+			letter-spacing: 1px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.hero-tagline h1 {
+			font-size: 2rem;
+		}
+
+		.search-tab {
+			font-size: 0.75rem;
+			padding: 0.5rem 0.75rem;
 		}
 	}
 </style>
