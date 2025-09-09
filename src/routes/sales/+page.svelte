@@ -113,7 +113,7 @@
 		});
 	}
 	
-	function getDaysOnMarketClass(days: number) {
+	function getDaysOnMarketClass(days) {
 		if (days <= 10) return 'fast';
 		if (days <= 20) return 'normal';
 		return 'slow';
