@@ -1,16 +1,7 @@
 <script>
-import Hero from '$lib/Hero.svelte';
-import Personalization from '$lib/components/Personalization.svelte';
-import TrustSignals from '$lib/components/TrustSignals.svelte';
-import HomeValueCalculator from '$lib/components/HomeValueCalculator.svelte';
-import MortgageCalculator from '$lib/components/MortgageCalculator.svelte';
-import HomeFinderQuiz from '$lib/components/HomeFinderQuiz.svelte';
-import MarketStats from '$lib/components/MarketStats.svelte';
-import NeighborhoodMap from '$lib/components/NeighborhoodMap.svelte';
-import MarketInfographics from '$lib/components/MarketInfographics.svelte';
-import SeasonalContent from '$lib/components/SeasonalContent.svelte';
-import StagingGallery from '$lib/components/StagingGallery.svelte';
-import OptimizedCTA from '$lib/components/OptimizedCTA.svelte';
+	import Hero from '$lib/Hero.svelte';
+	import TrustSignals from '$lib/components/TrustSignals.svelte';
+	import OptimizedCTA from '$lib/components/OptimizedCTA.svelte';
 </script>
 
 <svelte:head>
@@ -233,16 +224,32 @@ import OptimizedCTA from '$lib/components/OptimizedCTA.svelte';
 <main>
 	<Hero />
 	<div class="main-content-container">
-		<Personalization />
 		<TrustSignals />
-		<HomeValueCalculator />
-		<MortgageCalculator />
-		<HomeFinderQuiz />
-		<MarketStats />
-		<NeighborhoodMap />
-		<MarketInfographics />
-		<SeasonalContent />
-		<StagingGallery />
+		
+		<!-- Quick Access Section -->
+		<section class="quick-access">
+			<div class="container">
+				<h2>Everything You Need to Know</h2>
+				<div class="quick-links">
+					<a href="/tools" class="quick-link">
+						<div class="quick-link-icon">🧮</div>
+						<h3>Real Estate Tools</h3>
+						<p>Home value calculator, mortgage calculator, and home finder quiz</p>
+					</a>
+					<a href="/market-intelligence" class="quick-link">
+						<div class="quick-link-icon">📊</div>
+						<h3>Market Intelligence</h3>
+						<p>Current statistics, trends, and seasonal market insights</p>
+					</a>
+					<a href="/neighborhood" class="quick-link">
+						<div class="quick-link-icon">🗺️</div>
+						<h3>Neighborhood Guide</h3>
+						<p>Interactive map, amenities, schools, and lifestyle features</p>
+					</a>
+				</div>
+			</div>
+		</section>
+
 		<OptimizedCTA variant="primary" size="large" showPhone={true} showEmail={true} showText={true} showForm={true} />
 	</div>
 </main>
@@ -260,10 +267,90 @@ import OptimizedCTA from '$lib/components/OptimizedCTA.svelte';
 		width: 100%;
 		box-sizing: border-box;
 	}
+
+	.quick-access {
+		background: #F7F9FC;
+		padding: 4rem 0;
+		margin: 2rem 0;
+		border-radius: 12px;
+	}
+
+	.container {
+		max-width: 1000px;
+		margin: 0 auto;
+	}
+
+	.quick-access h2 {
+		text-align: center;
+		font-size: 2.5rem;
+		font-weight: 700;
+		color: #1A202C;
+		margin: 0 0 3rem 0;
+	}
+
+	.quick-links {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+	}
+
+	.quick-link {
+		background: white;
+		padding: 2rem;
+		border-radius: 12px;
+		text-decoration: none;
+		color: inherit;
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+		transition: all 0.3s ease;
+		text-align: center;
+	}
+
+	.quick-link:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+		text-decoration: none;
+	}
+
+	.quick-link-icon {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	.quick-link h3 {
+		font-size: 1.5rem;
+		font-weight: 600;
+		color: #1A202C;
+		margin: 0 0 1rem 0;
+	}
+
+	.quick-link p {
+		color: #4A5568;
+		margin: 0;
+		line-height: 1.6;
+	}
 	
 	@media (max-width: 768px) {
 		.main-content-container {
 			padding: 0 1rem;
+		}
+
+		.quick-access {
+			padding: 2rem 0;
+			margin: 1rem 0;
+		}
+
+		.quick-access h2 {
+			font-size: 2rem;
+			margin-bottom: 2rem;
+		}
+
+		.quick-links {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
+		}
+
+		.quick-link {
+			padding: 1.5rem;
 		}
 	}
 </style>

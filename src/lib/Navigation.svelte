@@ -11,13 +11,13 @@ function closeMobileMenu() {
   mobileMenuOpen = false;
 }
 
-function handleKeydown(event) {
+function handleKeydown(event: any) {
   if (event.key === 'Escape') {
     closeMobileMenu();
   }
 }
 
-function handleNavKeydown(event) {
+function handleNavKeydown(event: any) {
   if (event.key === 'Enter' || event.key === ' ') {
     event.preventDefault();
     toggleMobileMenu();
@@ -44,7 +44,39 @@ function handleNavLinkClick() {
 		</div>
 		
 		<nav class="nav-menu" class:mobile-open={mobileMenuOpen} aria-label="Main navigation">
-			<div class="nav-groups">
+			<!-- Desktop Navigation - Horizontal -->
+			<ul class="nav-list nav-list-desktop" role="menubar">
+				<li class="nav-item" role="none">
+					<a href="/" class="nav-link" class:active={$page.url.pathname === '/'} role="menuitem" aria-current={$page.url.pathname === '/' ? 'page' : undefined}>Home</a>
+				</li>
+				<li class="nav-item" role="none">
+					<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-link nav-link-primary" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="Search Homes in Lone Mountain Heights (opens in new tab)">Search Homes</a>
+				</li>
+				<li class="nav-item" role="none">
+					<a href="/homes" class="nav-link" class:active={$page.url.pathname.startsWith('/homes')} role="menuitem" aria-current={$page.url.pathname.startsWith('/homes') ? 'page' : undefined}>Browse Listings</a>
+				</li>
+				<li class="nav-item" role="none">
+					<a href="/sales" class="nav-link" class:active={$page.url.pathname.startsWith('/sales')} role="menuitem" aria-current={$page.url.pathname.startsWith('/sales') ? 'page' : undefined}>Recent Sales</a>
+				</li>
+				<li class="nav-item" role="none">
+					<a href="/neighborhood" class="nav-link" class:active={$page.url.pathname.startsWith('/neighborhood')} role="menuitem" aria-current={$page.url.pathname.startsWith('/neighborhood') ? 'page' : undefined}>Neighborhood</a>
+				</li>
+				<li class="nav-item" role="none">
+					<a href="/market-intelligence" class="nav-link" class:active={$page.url.pathname.startsWith('/market-intelligence')} role="menuitem" aria-current={$page.url.pathname.startsWith('/market-intelligence') ? 'page' : undefined}>Market Data</a>
+				</li>
+				<li class="nav-item" role="none">
+					<a href="/tools" class="nav-link" class:active={$page.url.pathname.startsWith('/tools')} role="menuitem" aria-current={$page.url.pathname.startsWith('/tools') ? 'page' : undefined}>Tools</a>
+				</li>
+				<li class="nav-item" role="none">
+					<a href="/about" class="nav-link" class:active={$page.url.pathname.startsWith('/about')} role="menuitem" aria-current={$page.url.pathname.startsWith('/about') ? 'page' : undefined}>About</a>
+				</li>
+				<li class="nav-item" role="none">
+					<a href="/contact" class="nav-link" class:active={$page.url.pathname.startsWith('/contact')} role="menuitem" aria-current={$page.url.pathname.startsWith('/contact') ? 'page' : undefined}>Contact</a>
+				</li>
+			</ul>
+			
+			<!-- Mobile Navigation - Grouped -->
+			<div class="nav-groups nav-groups-mobile">
 				<div class="nav-group">
 					<h4 class="nav-group-title">Main</h4>
 					<ul class="nav-list" role="menubar">
@@ -67,7 +99,7 @@ function handleNavLinkClick() {
 							<a href="/sales" class="nav-link" class:active={$page.url.pathname.startsWith('/sales')} role="menuitem" aria-current={$page.url.pathname.startsWith('/sales') ? 'page' : undefined} on:click={handleNavLinkClick}>Recent Sales</a>
 						</li>
 						<li class="nav-item" role="none">
-							<a href="/neighborhoods" class="nav-link" class:active={$page.url.pathname.startsWith('/neighborhoods')} role="menuitem" aria-current={$page.url.pathname.startsWith('/neighborhoods') ? 'page' : undefined} on:click={handleNavLinkClick}>Micro-Neighborhoods</a>
+							<a href="/neighborhood" class="nav-link" class:active={$page.url.pathname.startsWith('/neighborhood')} role="menuitem" aria-current={$page.url.pathname.startsWith('/neighborhood') ? 'page' : undefined} on:click={handleNavLinkClick}>Neighborhood</a>
 						</li>
 					</ul>
 				</div>
@@ -76,13 +108,13 @@ function handleNavLinkClick() {
 					<h4 class="nav-group-title">Resources</h4>
 					<ul class="nav-list" role="menubar">
 						<li class="nav-item" role="none">
-							<a href="/guide" class="nav-link" class:active={$page.url.pathname.startsWith('/guide')} role="menuitem" aria-current={$page.url.pathname.startsWith('/guide') ? 'page' : undefined} on:click={handleNavLinkClick}>Neighborhood Guide</a>
+							<a href="/market-intelligence" class="nav-link" class:active={$page.url.pathname.startsWith('/market-intelligence')} role="menuitem" aria-current={$page.url.pathname.startsWith('/market-intelligence') ? 'page' : undefined} on:click={handleNavLinkClick}>Market Data</a>
 						</li>
 						<li class="nav-item" role="none">
-							<a href="/market-report" class="nav-link" class:active={$page.url.pathname.startsWith('/market-report')} role="menuitem" aria-current={$page.url.pathname.startsWith('/market-report') ? 'page' : undefined} on:click={handleNavLinkClick}>Market Report</a>
+							<a href="/tools" class="nav-link" class:active={$page.url.pathname.startsWith('/tools')} role="menuitem" aria-current={$page.url.pathname.startsWith('/tools') ? 'page' : undefined} on:click={handleNavLinkClick}>Tools</a>
 						</li>
 						<li class="nav-item" role="none">
-							<a href="/valuation" class="nav-link" class:active={$page.url.pathname.startsWith('/valuation')} role="menuitem" aria-current={$page.url.pathname.startsWith('/valuation') ? 'page' : undefined} on:click={handleNavLinkClick}>Home Valuation</a>
+							<a href="/guide" class="nav-link" class:active={$page.url.pathname.startsWith('/guide')} role="menuitem" aria-current={$page.url.pathname.startsWith('/guide') ? 'page' : undefined} on:click={handleNavLinkClick}>Guide</a>
 						</li>
 					</ul>
 				</div>
@@ -236,6 +268,35 @@ function handleNavLinkClick() {
 	
 	.hamburger.active .hamburger-line:nth-child(3) {
 		transform: rotate(-45deg) translate(7px, -6px);
+	}
+	
+	/* Desktop Navigation */
+	.nav-list-desktop {
+		display: flex;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		gap: 1.5rem;
+		align-items: center;
+	}
+	
+	.nav-link-primary {
+		background: var(--accent-color);
+		color: white !important;
+		padding: 0.5rem 1rem;
+		border-radius: 6px;
+		font-weight: 600;
+		transition: all 0.3s ease;
+	}
+	
+	.nav-link-primary:hover {
+		background: var(--accent-light);
+		transform: translateY(-1px);
+	}
+	
+	/* Mobile Navigation Groups */
+	.nav-groups-mobile {
+		display: none;
 	}
 	
 	.nav-groups {
@@ -399,17 +460,22 @@ function handleNavLinkClick() {
 	}
 	
 	@media (max-width: 1024px) {
-		.nav-groups {
-			gap: 1.5rem;
+		.nav-list-desktop {
+			gap: 1rem;
 		}
 		
-		.nav-group:nth-child(n+3) {
+		.nav-list-desktop .nav-item:nth-child(n+7) {
 			display: none;
 		}
 	}
 	
 	@media (max-width: 900px) {
-		.nav-groups {
+		.nav-list-desktop {
+			display: none;
+		}
+		
+		.nav-groups-mobile {
+			display: flex;
 			flex-direction: column;
 			gap: 1rem;
 		}
@@ -472,7 +538,7 @@ function handleNavLinkClick() {
 			font-size: 0.7rem;
 		}
 		
-		.nav-groups {
+		.nav-groups-mobile {
 			flex-direction: column;
 			padding: 2rem;
 			gap: 1.5rem;
