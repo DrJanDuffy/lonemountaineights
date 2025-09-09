@@ -51,6 +51,30 @@
 				hours: 'Dawn to Dusk',
 				rating: 4.8,
 				image: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+			},
+			{
+				name: 'Lone Mountain Regional Park',
+				type: 'Regional Park',
+				distance: '1.0 miles',
+				address: '4445 N Jensen St, Las Vegas, NV 89129',
+				phone: '(702) 229-6300',
+				description: 'Large regional park offering natural wildlife preserves, pond fishing, hiking trails, camping, and picnic sites with spectacular mountain views.',
+				features: ['Wildlife Preserves', 'Pond Fishing', 'Hiking Trails', 'Camping', 'Picnic Sites', 'Mountain Views'],
+				hours: '6:00 AM - 10:00 PM',
+				rating: 4.6,
+				image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+			},
+			{
+				name: 'Floyd Lamb State Park',
+				type: 'State Park',
+				distance: '3.5 miles',
+				address: '9200 Tule Springs Rd, Las Vegas, NV 89131',
+				phone: '(702) 486-5413',
+				description: 'Historic state park featuring fishing ponds, walking trails, historic buildings, and abundant wildlife in a peaceful desert setting.',
+				features: ['Fishing Ponds', 'Walking Trails', 'Historic Buildings', 'Wildlife Viewing', 'Desert Setting', 'Historic Significance'],
+				hours: '8:00 AM - 5:00 PM',
+				rating: 4.4,
+				image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
 			}
 		],
 		recreation: [
@@ -89,6 +113,30 @@
 				hours: '6:00 AM - 7:00 PM',
 				rating: 4.4,
 				image: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+			},
+			{
+				name: 'Mount Charleston',
+				type: 'Mountain Recreation',
+				distance: '25 miles',
+				address: 'Mount Charleston, NV 89124',
+				phone: '(702) 515-5400',
+				description: 'Highest peak in Southern Nevada offering skiing, snowboarding, hiking, camping, and year-round outdoor recreation with cooler temperatures.',
+				features: ['Skiing & Snowboarding', 'Hiking Trails', 'Camping', 'Cooler Temperatures', 'Scenic Views', 'Year-Round Recreation'],
+				hours: '24/7 (varies by season)',
+				rating: 4.8,
+				image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+			},
+			{
+				name: 'Red Rock Canyon National Conservation Area',
+				type: 'National Conservation Area',
+				distance: '15 miles',
+				address: '1000 Scenic Loop Dr, Las Vegas, NV 89161',
+				phone: '(702) 515-5350',
+				description: 'Spectacular red rock formations, hiking trails, scenic drive, rock climbing, and abundant wildlife in a protected desert environment.',
+				features: ['Red Rock Formations', 'Hiking Trails', 'Scenic Drive', 'Rock Climbing', 'Wildlife Viewing', 'Desert Environment'],
+				hours: '6:00 AM - 8:00 PM',
+				rating: 4.9,
+				image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
 			}
 		],
 		shopping: [
@@ -136,20 +184,20 @@
 	// Community characteristics
 	const communityFeatures = {
 		title: 'Lone Mountain Heights Community Features',
-		description: 'Lone Mountain Heights is part of the broader Lone Mountain neighborhood, immediately north of Summerlin. The area features some of the most desirable houses in Las Vegas, ranging from Spanish Colonial horse ranches to luxury mini-estates and mid-century modern revival homes.',
+		description: 'Lone Mountain Heights is a quiet, gated community developed between 2001-2005, nestled on the west side of Lone Mountain in the northeast area of the Las Vegas Valley. The community features 3-5 bedroom single and two-story homes (2,500-4,400 sq ft) with mature landscaping and spectacular mountain views.',
 		features: [
-			'Immediately north of Summerlin',
-			'Some of the most desirable houses in Las Vegas',
-			'Spanish Colonial horse ranches',
-			'Luxury mini-estates by Blue Heron Homes',
-			'Mid-century modern revival houses at Hillside',
-			'Custom homes and single-family houses',
-			'Oversized lots for privacy',
-			'Natural terrain and parks preserved',
-			'Low traffic and noise levels',
-			'Established neighborhood feel',
-			'Close-knit community',
-			'Stunning mountain and city views'
+			'Gated community developed 2001-2005',
+			'3-5 bedroom homes (2,500-4,400 sq ft)',
+			'Single and two-story single-family homes',
+			'Mature landscaping throughout',
+			'Spectacular mountain views',
+			'Quiet, established neighborhood',
+			'Close proximity to shopping and dining',
+			'Easy access to 215 Beltway and Summerlin Parkway',
+			'Nearby communities: Lone Mountain West, Centennial Hills, Shadow Hills',
+			'El Capitan Ranch, North Shore, Providence nearby',
+			'Elkhorn Springs and Painted Desert close by',
+			'Zip code 89129'
 		]
 	};
 	
@@ -166,7 +214,7 @@
 
 <svelte:head>
 	<title>Lone Mountain Heights Amenities | Local Attractions & Recreation | Dr. Jan Duffy</title>
-	<meta name="description" content="Discover the local amenities and attractions near Lone Mountain Heights, Las Vegas. Official recreation parks, Lone Mountain summit trail, police memorial, and community facilities from Dr. Jan Duffy." />
+	<meta name="description" content="Discover the local amenities and attractions near Lone Mountain Heights, Las Vegas 89129. Gated community with parks, hiking trails, golf courses, and outdoor recreation from Dr. Jan Duffy." />
 	
 	<!-- Breadcrumb Schema -->
 	<script type="application/ld+json">
@@ -178,7 +226,7 @@
 	<div class="page-header">
 		<div class="container">
 			<h1>Lone Mountain Heights Amenities</h1>
-			<p>Discover the local attractions and recreational opportunities in our community, immediately north of Summerlin</p>
+			<p>Discover the local attractions and recreational opportunities in our gated community (89129), nestled on the west side of Lone Mountain</p>
 		</div>
 	</div>
 	

@@ -8,10 +8,10 @@ let heroImage =
 <section class="hero">
 	<div class="hero-content">
 		<div class="hero-text">
-			<h1>Lone Mountain Heights Homes</h1>
-			<h2>Your Expert Neighbor Guide</h2>
+			<h1>Lone Mountain Heights Homes for Sale</h1>
+			<h2>Gated Community in Las Vegas 89129</h2>
 			<p class="hero-subtitle">
-				Dr. Jan Duffy knows every sale, every street, every opportunity in Lone Mountain Heights
+				Quiet, gated community developed 2001-2005 with 3-5 bedroom homes (2,500-4,400 sq ft) featuring mature landscaping and spectacular mountain views. Dr. Jan Duffy knows every sale, every street, every opportunity in Lone Mountain Heights.
 			</p>
 			
 			<div class="cta-buttons">
