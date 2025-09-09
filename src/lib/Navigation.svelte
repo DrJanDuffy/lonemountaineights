@@ -1,23 +1,23 @@
 <script>
-	import { page } from '$app/stores';
+import { page } from '$app/stores';
 	import { onMount } from 'svelte';
 
-	let mobileMenuOpen = false;
+let mobileMenuOpen = false;
 	let activeDropdown = null;
 	let navContainer;
 
 	// Optimized functions with better performance
-	function toggleMobileMenu() {
-		mobileMenuOpen = !mobileMenuOpen;
+function toggleMobileMenu() {
+  mobileMenuOpen = !mobileMenuOpen;
 		// Close dropdowns when mobile menu opens
 		if (mobileMenuOpen) {
 			activeDropdown = null;
 		}
-	}
+}
 
-	function closeMobileMenu() {
-		mobileMenuOpen = false;
-	}
+function closeMobileMenu() {
+  mobileMenuOpen = false;
+}
 
 	function handleKeydown(event) {
 		if (event.key === 'Escape') {
@@ -128,166 +128,104 @@
 		</div>
 		
 		<nav class="nav-menu" class:mobile-open={mobileMenuOpen} aria-label="Main navigation">
-			<!-- Desktop Navigation - Consolidated Dropdown Structure -->
+			<!-- Desktop Navigation - Direct Links on Main Bar -->
 			<ul class="nav-list nav-list-desktop" role="menubar">
-				<!-- All Homes Dropdown -->
-				<li class="nav-item nav-item-dropdown" role="none">
-					<button 
-						class="nav-link nav-dropdown-toggle" 
-						class:active={activeDropdown === 'allhomes'}
-						aria-expanded={activeDropdown === 'allhomes'}
-						aria-haspopup="true"
-						on:click={() => toggleDropdown('allhomes')}
-						on:keydown={(e) => handleDropdownArrowKeys(e, 'allhomes')}
-						on:blur={() => setTimeout(closeDropdown, 150)}
-					>
-						ALL HOMES <span class="dropdown-arrow">▼</span>
-					</button>
-					<ul class="nav-dropdown nav-dropdown-mega" class:active={activeDropdown === 'allhomes'} role="menu">
-						<div class="mega-dropdown-content">
-							<div class="mega-column">
-								<h4 class="mega-title">SEARCH HOMES</h4>
-								<li role="none">
-									<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-dropdown-link nav-dropdown-primary" target="_blank" rel="noopener noreferrer" role="menuitem" on:click={handleNavLinkClick}>🔍 Search All Homes</a>
-								</li>
-								<li role="none">
-									<a href="/homes" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Browse All Listings</a>
-								</li>
-								<li role="none">
-									<a href="/sales" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Recent Sales</a>
-								</li>
-								<li role="none">
-									<a href="/property-types/3-bedroom-homes" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>3 Bedroom Homes</a>
-								</li>
-								<li role="none">
-									<a href="/price-ranges/600k-800k" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Homes $600K-$800K</a>
-								</li>
-							</div>
-							<div class="mega-column">
-								<h4 class="mega-title">BUYER TOOLS</h4>
-								<li role="none">
-									<a href="/tools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Home Value Calculator</a>
-								</li>
-								<li role="none">
-									<a href="/tools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Mortgage Calculator</a>
-								</li>
-								<li role="none">
-									<a href="/market-intelligence" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Market Data</a>
-								</li>
-								<li role="none">
-									<a href="/amenities" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Amenities</a>
-								</li>
-								<li role="none">
-									<a href="/schools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Schools</a>
-								</li>
-								<li role="none">
-									<a href="/faq/hoa-fees" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>HOA Information</a>
-								</li>
-							</div>
-							<div class="mega-column">
-								<h4 class="mega-title">COMMUNITIES</h4>
-								<li role="none">
-									<a href="/neighborhood" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Lone Mountain Heights</a>
-								</li>
-								<li role="none">
-									<a href="/locations/lone-mountain-ranch" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Lone Mountain Ranch</a>
-								</li>
-								<li role="none">
-									<a href="/locations/desert-vista-estates" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Desert Vista Estates</a>
-								</li>
-								<li role="none">
-									<a href="/neighborhoods" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>All Micro-Neighborhoods</a>
-								</li>
-							</div>
-						</div>
-					</ul>
+				<!-- Search All Homes -->
+				<li class="nav-item" role="none">
+					<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-link nav-link-primary" target="_blank" rel="noopener noreferrer" role="menuitem" on:click={handleNavLinkClick}>
+						🔍 SEARCH HOMES
+					</a>
 				</li>
 
-				<!-- Sellers Dropdown -->
-				<li class="nav-item nav-item-dropdown" role="none">
-					<button 
-						class="nav-link nav-dropdown-toggle" 
-						class:active={activeDropdown === 'sellers'}
-						aria-expanded={activeDropdown === 'sellers'}
-						aria-haspopup="true"
-						on:click={() => toggleDropdown('sellers')}
-						on:keydown={(e) => handleDropdownArrowKeys(e, 'sellers')}
-						on:blur={() => setTimeout(closeDropdown, 150)}
-					>
-						SELLERS <span class="dropdown-arrow">▼</span>
-					</button>
-					<ul class="nav-dropdown" class:active={activeDropdown === 'sellers'} role="menu">
-						<li role="none">
-							<a href="/tools" class="nav-dropdown-link nav-dropdown-primary" role="menuitem" on:click={handleNavLinkClick}>💰 What's My Home Worth?</a>
-						</li>
-						<li role="none">
-							<a href="/market-intelligence" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>📊 Market Analysis</a>
-						</li>
-						<li role="none">
-							<a href="/contact" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>📞 Free Consultation</a>
-						</li>
-						<li role="none">
-							<a href="/sales" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>📈 Recent Sales Data</a>
-						</li>
-					</ul>
+				<!-- Browse Listings -->
+				<li class="nav-item" role="none">
+					<a href="/homes" class="nav-link" role="menuitem" on:click={handleNavLinkClick}>
+						BROWSE LISTINGS
+					</a>
 				</li>
 
-				<!-- Communities Dropdown -->
-				<li class="nav-item nav-item-dropdown" role="none">
-					<button 
-						class="nav-link nav-dropdown-toggle" 
-						class:active={activeDropdown === 'communities'}
-						aria-expanded={activeDropdown === 'communities'}
-						aria-haspopup="true"
-						on:click={() => toggleDropdown('communities')}
-						on:keydown={(e) => handleDropdownArrowKeys(e, 'communities')}
-						on:blur={() => setTimeout(closeDropdown, 150)}
-					>
-						COMMUNITIES <span class="dropdown-arrow">▼</span>
-					</button>
-					<ul class="nav-dropdown" class:active={activeDropdown === 'communities'} role="menu">
-						<li role="none">
-							<a href="/neighborhood" class="nav-dropdown-link nav-dropdown-primary" role="menuitem" on:click={handleNavLinkClick}>🏔️ Lone Mountain Heights</a>
-						</li>
-						<li role="none">
-							<a href="/locations/lone-mountain-ranch" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>🏘️ Lone Mountain Ranch</a>
-						</li>
-						<li role="none">
-							<a href="/locations/desert-vista-estates" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>🏜️ Desert Vista Estates</a>
-						</li>
-						<li role="none">
-							<a href="/neighborhoods" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>🗺️ All Micro-Neighborhoods</a>
-						</li>
-					</ul>
+				<!-- Recent Sales -->
+				<li class="nav-item" role="none">
+					<a href="/sales" class="nav-link" role="menuitem" on:click={handleNavLinkClick}>
+						RECENT SALES
+					</a>
 				</li>
 
-				<!-- About Dropdown -->
-				<li class="nav-item nav-item-dropdown" role="none">
-					<button 
-						class="nav-link nav-dropdown-toggle" 
-						class:active={activeDropdown === 'about'}
-						aria-expanded={activeDropdown === 'about'}
-						aria-haspopup="true"
-						on:click={() => toggleDropdown('about')}
-						on:keydown={(e) => handleDropdownArrowKeys(e, 'about')}
-						on:blur={() => setTimeout(closeDropdown, 150)}
-					>
-						ABOUT <span class="dropdown-arrow">▼</span>
-					</button>
-					<ul class="nav-dropdown" class:active={activeDropdown === 'about'} role="menu">
-						<li role="none">
-							<a href="/about" class="nav-dropdown-link nav-dropdown-primary" role="menuitem" on:click={handleNavLinkClick}>👩‍💼 About Dr. Jan</a>
-						</li>
-						<li role="none">
-							<a href="/amenities" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>🏪 Local Amenities</a>
-						</li>
-						<li role="none">
-							<a href="/schools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>🎓 Schools</a>
-						</li>
-						<li role="none">
-							<a href="/contact" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>📞 Contact</a>
-						</li>
-					</ul>
+				<!-- 3 Bedroom Homes -->
+				<li class="nav-item" role="none">
+					<a href="/property-types/3-bedroom-homes" class="nav-link" role="menuitem" on:click={handleNavLinkClick}>
+						3 BEDROOM HOMES
+					</a>
+				</li>
+
+				<!-- Homes $600K-$800K -->
+				<li class="nav-item" role="none">
+					<a href="/price-ranges/600k-800k" class="nav-link" role="menuitem" on:click={handleNavLinkClick}>
+						HOMES $600K-$800K
+					</a>
+				</li>
+
+				<!-- Market Data -->
+				<li class="nav-item" role="none">
+					<a href="/market-intelligence" class="nav-link" role="menuitem" on:click={handleNavLinkClick}>
+						MARKET DATA
+					</a>
+				</li>
+
+				<!-- Amenities -->
+				<li class="nav-item" role="none">
+					<a href="/amenities" class="nav-link" role="menuitem" on:click={handleNavLinkClick}>
+						AMENITIES
+					</a>
+				</li>
+
+				<!-- Schools -->
+				<li class="nav-item" role="none">
+					<a href="/schools" class="nav-link" role="menuitem" on:click={handleNavLinkClick}>
+						SCHOOLS
+					</a>
+				</li>
+
+				<!-- HOA Information -->
+				<li class="nav-item" role="none">
+					<a href="/faq/hoa-fees" class="nav-link" role="menuitem" on:click={handleNavLinkClick}>
+						HOA INFORMATION
+					</a>
+				</li>
+
+				<!-- Lone Mountain Heights -->
+				<li class="nav-item" role="none">
+					<a href="/neighborhood" class="nav-link" role="menuitem" on:click={handleNavLinkClick}>
+						LONE MOUNTAIN HEIGHTS
+					</a>
+				</li>
+
+				<!-- Lone Mountain Ranch -->
+				<li class="nav-item" role="none">
+					<a href="/locations/lone-mountain-ranch" class="nav-link" role="menuitem" on:click={handleNavLinkClick}>
+						LONE MOUNTAIN RANCH
+					</a>
+				</li>
+
+				<!-- Desert Vista Estates -->
+				<li class="nav-item" role="none">
+					<a href="/locations/desert-vista-estates" class="nav-link" role="menuitem" on:click={handleNavLinkClick}>
+						DESERT VISTA ESTATES
+					</a>
+				</li>
+
+				<!-- All Micro-Neighborhoods -->
+				<li class="nav-item" role="none">
+					<a href="/neighborhoods" class="nav-link" role="menuitem" on:click={handleNavLinkClick}>
+						ALL MICRO-NEIGHBORHOODS
+					</a>
+				</li>
+
+				<!-- About Dr. Jan -->
+				<li class="nav-item" role="none">
+					<a href="/about" class="nav-link" role="menuitem" on:click={handleNavLinkClick}>
+						ABOUT DR. JAN
+					</a>
 				</li>
 			</ul>
 			
@@ -618,13 +556,19 @@
 		list-style: none;
 		margin: 0;
 		padding: 0;
-		gap: 1rem;
+		gap: 0.5rem;
 		align-items: center;
 		flex: 1;
-		justify-content: space-between;
+		justify-content: flex-start;
 		flex-wrap: nowrap;
-		max-width: 1000px;
-		margin: 0 auto;
+		overflow-x: auto;
+		overflow-y: hidden;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+	}
+
+	.nav-list-desktop::-webkit-scrollbar {
+		display: none;
 	}
 	
 	.nav-link-primary {
@@ -871,12 +815,14 @@
 		text-decoration: none;
 		color: #1a365d;
 		font-weight: 600;
-		font-size: 0.9rem;
-		padding: 0.6rem 1rem;
+		font-size: 0.8rem;
+		padding: 0.5rem 0.75rem;
 		transition: all 0.2s ease;
 		position: relative;
 		text-transform: uppercase;
-		letter-spacing: 0.5px;
+		letter-spacing: 0.3px;
+		white-space: nowrap;
+		border-radius: 4px;
 	}
 	
 	.nav-link:hover {
