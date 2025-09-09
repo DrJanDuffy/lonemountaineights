@@ -1,48 +1,45 @@
 <script>
-  import { page } from '$app/stores';
-  import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
-  
-  // Get route parameters
-  $: street = $page.params.street;
-  $: address = $page.params.address;
-  
-  // Decode URL parameters
-  $: streetName = decodeURIComponent(street);
-  $: propertyAddress = decodeURIComponent(address);
-  
-  // Generate breadcrumbs
-  $: breadcrumbs = [
-    { name: 'Home', path: '/' },
-    { name: 'Homes', path: '/homes' },
-    { name: streetName, path: `/homes/${street}` },
-    { name: propertyAddress, path: `/homes/${street}/${address}` }
-  ];
-  
-  // Sample property data (in real app, this would come from API)
-  const propertyData = {
-    address: propertyAddress,
-    street: streetName,
-    price: '$750,000',
-    bedrooms: 4,
-    bathrooms: 3,
-    squareFeet: 2800,
-    lotSize: '0.25 acres',
-    yearBuilt: 2003,
-    description: `Beautiful ${streetName} home in Lone Mountain Heights featuring modern amenities and stunning mountain views.`,
-    features: [
-      'Mountain Views',
-      'Gated Community',
-      'Mature Landscaping',
-      'Updated Kitchen',
-      'Master Suite',
-      'Two-Car Garage'
-    ],
-    images: [
-      'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-    ]
-  };
+// Get route parameters
+$: street = $page.params.street;
+$: address = $page.params.address;
+
+// Decode URL parameters
+$: streetName = decodeURIComponent(street);
+$: propertyAddress = decodeURIComponent(address);
+
+// Generate breadcrumbs
+$: breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Homes', path: '/homes' },
+  { name: streetName, path: `/homes/${street}` },
+  { name: propertyAddress, path: `/homes/${street}/${address}` },
+];
+
+// Sample property data (in real app, this would come from API)
+const propertyData = {
+  address: propertyAddress,
+  street: streetName,
+  price: '$750,000',
+  bedrooms: 4,
+  bathrooms: 3,
+  squareFeet: 2800,
+  lotSize: '0.25 acres',
+  yearBuilt: 2003,
+  description: `Beautiful ${streetName} home in Lone Mountain Heights featuring modern amenities and stunning mountain views.`,
+  features: [
+    'Mountain Views',
+    'Gated Community',
+    'Mature Landscaping',
+    'Updated Kitchen',
+    'Master Suite',
+    'Two-Car Garage',
+  ],
+  images: [
+    'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+  ],
+};
 </script>
 
 <svelte:head>

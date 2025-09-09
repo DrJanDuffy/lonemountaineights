@@ -14,18 +14,18 @@
     "indentStyle": "space",
     "indentWidth": 2
   },
-	"linter": {
-		"enabled": true,
-		"rules": {
-			"recommended": true,
-			"correctness": {
-				"noUnusedVariables": "off"
-			},
-			"style": {
-				"useConst": "warn"
-			}
-		}
-	},
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "correctness": {
+        "noUnusedVariables": "off"
+      },
+      "style": {
+        "useConst": "warn"
+      }
+    }
+  },
   "javascript": {
     "formatter": {
       "quoteStyle": "single",

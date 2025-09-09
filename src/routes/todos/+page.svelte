@@ -1,8 +1,4 @@
 <script>
-import { enhance } from '$lib/form';
-import { scale } from 'svelte/transition';
-import { flip } from 'svelte/animate';
-
 /** @type {import('./$types').PageData} */
 export let data;
 </script>

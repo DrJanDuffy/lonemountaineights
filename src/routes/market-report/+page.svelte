@@ -1,68 +1,68 @@
 <script>
-	// Market report data
-	const marketData = {
-		monthlyStats: {
-			avgPrice: 847000,
-			medianPrice: 825000,
-			pricePerSqft: 345,
-			daysOnMarket: 12,
-			monthsSupply: 2.1,
-			priceChange: 5.2,
-			volumeChange: 8.7
-		},
-		vsMetro: {
-			priceDifference: 12.5,
-			daysDifference: -8,
-			supplyDifference: -1.2
-		},
-		trends: [
-			{
-				month: 'January 2024',
-				avgPrice: 820000,
-				daysOnMarket: 15,
-				unitsSold: 8
-			},
-			{
-				month: 'February 2024',
-				avgPrice: 835000,
-				daysOnMarket: 13,
-				unitsSold: 12
-			},
-			{
-				month: 'March 2024',
-				avgPrice: 847000,
-				daysOnMarket: 12,
-				unitsSold: 15
-			}
-		],
-		buyerPreferences: [
-			'Updated kitchens with granite countertops',
-			'Open floor plans and modern layouts',
-			'Energy-efficient features and solar panels',
-			'Outdoor living spaces and pools',
-			'Garage space for 2+ cars'
-		],
-		sellerAdvice: [
-			'Price competitively - market is moving fast',
-			'Stage homes to highlight modern features',
-			'Consider minor updates for maximum ROI',
-			'Professional photography is essential',
-			'Be prepared for multiple offers'
-		]
-	};
-	
-	function formatPrice(price) {
-		return new Intl.NumberFormat('en-US', {
-			style: 'currency',
-			currency: 'USD',
-			minimumFractionDigits: 0,
-			maximumFractionDigits: 0
-		}).format(price);
-	}
-	
-	function formatPercent(value) {
-		return `${value > 0 ? '+' : ''}${value}%`;
-	}
+// Market report data
+const marketData = {
+  monthlyStats: {
+    avgPrice: 847000,
+    medianPrice: 825000,
+    pricePerSqft: 345,
+    daysOnMarket: 12,
+    monthsSupply: 2.1,
+    priceChange: 5.2,
+    volumeChange: 8.7,
+  },
+  vsMetro: {
+    priceDifference: 12.5,
+    daysDifference: -8,
+    supplyDifference: -1.2,
+  },
+  trends: [
+    {
+      month: 'January 2024',
+      avgPrice: 820000,
+      daysOnMarket: 15,
+      unitsSold: 8,
+    },
+    {
+      month: 'February 2024',
+      avgPrice: 835000,
+      daysOnMarket: 13,
+      unitsSold: 12,
+    },
+    {
+      month: 'March 2024',
+      avgPrice: 847000,
+      daysOnMarket: 12,
+      unitsSold: 15,
+    },
+  ],
+  buyerPreferences: [
+    'Updated kitchens with granite countertops',
+    'Open floor plans and modern layouts',
+    'Energy-efficient features and solar panels',
+    'Outdoor living spaces and pools',
+    'Garage space for 2+ cars',
+  ],
+  sellerAdvice: [
+    'Price competitively - market is moving fast',
+    'Stage homes to highlight modern features',
+    'Consider minor updates for maximum ROI',
+    'Professional photography is essential',
+    'Be prepared for multiple offers',
+  ],
+};
+
+function formatPrice(price) {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(price);
+}
+
+function formatPercent(value) {
+  return `${value > 0 ? '+' : ''}${value}%`;
+}
 </script>
 
 <svelte:head>

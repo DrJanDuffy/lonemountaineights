@@ -1,6 +1,4 @@
 <script>
-import { onMount } from 'svelte';
-
 let formData = {
   address: '',
   bedrooms: '',
@@ -101,16 +99,16 @@ async function calculateValuation() {
   await new Promise((resolve) => setTimeout(resolve, 2000));
 
   // Mock valuation calculation
-  const basePrice = parseInt(formData.sqft) * 345; // $345 per sqft base
+  const basePrice = parseInt(formData.sqft, 10) * 345; // $345 per sqft base
   let adjustments = 0;
 
   // Bedroom adjustment
-  if (parseInt(formData.bedrooms) >= 4) adjustments += 15000;
-  if (parseInt(formData.bedrooms) >= 5) adjustments += 25000;
+  if (parseInt(formData.bedrooms, 10) >= 4) adjustments += 15000;
+  if (parseInt(formData.bedrooms, 10) >= 5) adjustments += 25000;
 
   // Bathroom adjustment
-  if (parseInt(formData.bathrooms) >= 3) adjustments += 10000;
-  if (parseInt(formData.bathrooms) >= 4) adjustments += 20000;
+  if (parseInt(formData.bathrooms, 10) >= 3) adjustments += 10000;
+  if (parseInt(formData.bathrooms, 10) >= 4) adjustments += 20000;
 
   // Home style adjustment
   if (formData.homeStyle === 'Two Story') adjustments += 20000;
@@ -120,8 +118,8 @@ async function calculateValuation() {
   if (formData.pool) adjustments += 25000;
 
   // Garage adjustment
-  if (parseInt(formData.garage) >= 2) adjustments += 10000;
-  if (parseInt(formData.garage) >= 3) adjustments += 20000;
+  if (parseInt(formData.garage, 10) >= 2) adjustments += 10000;
+  if (parseInt(formData.garage, 10) >= 3) adjustments += 20000;
 
   // View adjustment
   if (formData.view === 'Mountain') adjustments += 30000;
@@ -132,7 +130,7 @@ async function calculateValuation() {
 
   // Year built adjustment
   const currentYear = new Date().getFullYear();
-  const age = currentYear - parseInt(formData.yearBuilt);
+  const age = currentYear - parseInt(formData.yearBuilt, 10);
   if (age < 5) adjustments += 15000;
   else if (age < 10) adjustments += 5000;
   else if (age > 20) adjustments -= 10000;
@@ -145,7 +143,7 @@ async function calculateValuation() {
     estimatedValue,
     lowEstimate,
     highEstimate,
-    pricePerSqft: Math.round(estimatedValue / parseInt(formData.sqft)),
+    pricePerSqft: Math.round(estimatedValue / parseInt(formData.sqft, 10)),
     confidence: 'High',
     marketTrend: '+5.2%',
     daysOnMarket: 12,
@@ -159,7 +157,7 @@ async function calculateValuation() {
 function generateRecommendations(value, data) {
   const recommendations = [];
 
-  if (parseInt(data.sqft) < 2000) {
+  if (parseInt(data.sqft, 10) < 2000) {
     recommendations.push(
       'Consider adding square footage - larger homes sell for more per sqft in this area',
     );
@@ -171,7 +169,7 @@ function generateRecommendations(value, data) {
     );
   }
 
-  if (parseInt(data.yearBuilt) > 2010) {
+  if (parseInt(data.yearBuilt, 10) > 2010) {
     recommendations.push('Recent construction - excellent timing for sale');
   }
 

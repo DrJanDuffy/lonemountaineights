@@ -1,103 +1,119 @@
 <script>
-	import { generateBreadcrumbSchema } from '$lib/schema.js';
-	
-	// School data for Lone Mountain Heights/Summerlin area
-	const schools = {
-		elementary: [
-			{
-				name: 'William G. Geer Elementary School',
-				rating: 8,
-				grade: 'K-5',
-				distance: '1.5 miles',
-				address: '1234 Lone Mountain Rd, Las Vegas, NV 89134',
-				phone: '(702) 799-8880',
-				website: 'https://geeres.ccsd.net',
-				highlights: ['STEM Program', 'Gifted & Talented', 'After School Care'],
-				description: 'Excellent elementary school serving the Lone Mountain Heights area with strong academic programs and dedicated teachers.',
-				boundary: 'Serves the Lone Mountain Heights neighborhood and surrounding Summerlin area'
-			}
-		],
-		middle: [
-			{
-				name: 'Sig Rogich Middle School',
-				rating: 8,
-				grade: '6-8',
-				distance: '2.0 miles',
-				address: '5678 Sig Rogich Dr, Las Vegas, NV 89134',
-				phone: '(702) 799-8881',
-				website: 'https://rogichms.ccsd.net',
-				highlights: ['Advanced Math', 'Science Fair', 'Sports Programs'],
-				description: 'Comprehensive middle school serving the Lone Mountain Heights vicinity with strong academic and extracurricular programs.',
-				boundary: 'Serves the Lone Mountain Heights area and surrounding Summerlin neighborhoods'
-			}
-		],
-		high: [
-			{
-				name: 'Liberty High School',
-				rating: 8,
-				grade: '9-12',
-				distance: '3.0 miles',
-				address: '9012 Liberty High Dr, Las Vegas, NV 89134',
-				phone: '(702) 799-8882',
-				website: 'https://libertyhs.ccsd.net',
-				highlights: ['AP Programs', 'Honors Society', 'Sports Excellence'],
-				description: 'Large, comprehensive high school serving the broader Summerlin area including Lone Mountain Heights with diverse academic and athletic programs.',
-				boundary: 'Serves the broader Summerlin area including Lone Mountain Heights'
-			}
-		]
-	};
-	
-	// Private school options
-	const privateSchools = [
-		{
-			name: 'The Meadows School',
-			type: 'Private K-12',
-			rating: 10,
-			distance: '4.0 miles',
-			address: '8601 Scholar Ln, Las Vegas, NV 89128',
-			phone: '(702) 255-1610',
-			website: 'https://www.themeadowsschool.org',
-			highlights: ['College Prep', 'Small Class Sizes', 'Individual Attention', 'Arts Program'],
-			description: 'Premier private school in Las Vegas offering K-12 education with small class sizes and personalized education.',
-			tuition: '$25,000/year'
-		}
-	];
-	
-	// School district information
-	const districtInfo = {
-		name: 'Clark County School District',
-		website: 'https://ccsd.net',
-		phone: '(702) 799-5000',
-		description: 'The fifth-largest school district in the nation, serving over 300,000 students.',
-		highlights: [
-			'Largest school district in Nevada',
-			'Diverse student population',
-			'Strong academic programs',
-			'Extensive extracurricular activities',
-			'Modern facilities and technology'
-		]
-	};
-	
-	// School boundary information
-	const boundaryInfo = {
-		title: 'School Boundaries & Zoning',
-		description: 'School boundaries can change, so always verify with the school district.',
-		important: 'Contact Dr. Jan Duffy for the most current school boundary information and to verify which schools serve specific addresses.',
-		verification: 'School boundaries are determined by the Clark County School District and can be verified at ccsd.net or by calling individual schools.'
-	};
-	
-	// Generate breadcrumb schema
-	const breadcrumbSchema = generateBreadcrumbSchema([
-		{ name: 'Home', url: 'https://lonemountainheights.com' },
-		{ name: 'Schools', url: 'https://lonemountainheights.com/schools' }
-	]);
-	
-	function getStars(rating) {
-		const validRating = Math.max(0, Math.min(10, rating || 0));
-		const filledStars = Math.floor(validRating / 2);
-		const emptyStars = 5 - filledStars;
-		return '★'.repeat(filledStars) + '☆'.repeat(Math.max(0, emptyStars));
-	}
+import { generateBreadcrumbSchema } from '$lib/schema.js';
+
+// School data for Lone Mountain Heights/Summerlin area
+const schools = {
+  elementary: [
+    {
+      name: 'William G. Geer Elementary School',
+      rating: 8,
+      grade: 'K-5',
+      distance: '1.5 miles',
+      address: '1234 Lone Mountain Rd, Las Vegas, NV 89134',
+      phone: '(702) 799-8880',
+      website: 'https://geeres.ccsd.net',
+      highlights: ['STEM Program', 'Gifted & Talented', 'After School Care'],
+      description:
+        'Excellent elementary school serving the Lone Mountain Heights area with strong academic programs and dedicated teachers.',
+      boundary:
+        'Serves the Lone Mountain Heights neighborhood and surrounding Summerlin area',
+    },
+  ],
+  middle: [
+    {
+      name: 'Sig Rogich Middle School',
+      rating: 8,
+      grade: '6-8',
+      distance: '2.0 miles',
+      address: '5678 Sig Rogich Dr, Las Vegas, NV 89134',
+      phone: '(702) 799-8881',
+      website: 'https://rogichms.ccsd.net',
+      highlights: ['Advanced Math', 'Science Fair', 'Sports Programs'],
+      description:
+        'Comprehensive middle school serving the Lone Mountain Heights vicinity with strong academic and extracurricular programs.',
+      boundary:
+        'Serves the Lone Mountain Heights area and surrounding Summerlin neighborhoods',
+    },
+  ],
+  high: [
+    {
+      name: 'Liberty High School',
+      rating: 8,
+      grade: '9-12',
+      distance: '3.0 miles',
+      address: '9012 Liberty High Dr, Las Vegas, NV 89134',
+      phone: '(702) 799-8882',
+      website: 'https://libertyhs.ccsd.net',
+      highlights: ['AP Programs', 'Honors Society', 'Sports Excellence'],
+      description:
+        'Large, comprehensive high school serving the broader Summerlin area including Lone Mountain Heights with diverse academic and athletic programs.',
+      boundary:
+        'Serves the broader Summerlin area including Lone Mountain Heights',
+    },
+  ],
+};
+
+// Private school options
+const privateSchools = [
+  {
+    name: 'The Meadows School',
+    type: 'Private K-12',
+    rating: 10,
+    distance: '4.0 miles',
+    address: '8601 Scholar Ln, Las Vegas, NV 89128',
+    phone: '(702) 255-1610',
+    website: 'https://www.themeadowsschool.org',
+    highlights: [
+      'College Prep',
+      'Small Class Sizes',
+      'Individual Attention',
+      'Arts Program',
+    ],
+    description:
+      'Premier private school in Las Vegas offering K-12 education with small class sizes and personalized education.',
+    tuition: '$25,000/year',
+  },
+];
+
+// School district information
+const districtInfo = {
+  name: 'Clark County School District',
+  website: 'https://ccsd.net',
+  phone: '(702) 799-5000',
+  description:
+    'The fifth-largest school district in the nation, serving over 300,000 students.',
+  highlights: [
+    'Largest school district in Nevada',
+    'Diverse student population',
+    'Strong academic programs',
+    'Extensive extracurricular activities',
+    'Modern facilities and technology',
+  ],
+};
+
+// School boundary information
+const boundaryInfo = {
+  title: 'School Boundaries & Zoning',
+  description:
+    'School boundaries can change, so always verify with the school district.',
+  important:
+    'Contact Dr. Jan Duffy for the most current school boundary information and to verify which schools serve specific addresses.',
+  verification:
+    'School boundaries are determined by the Clark County School District and can be verified at ccsd.net or by calling individual schools.',
+};
+
+// Generate breadcrumb schema
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://lonemountainheights.com' },
+  { name: 'Schools', url: 'https://lonemountainheights.com/schools' },
+]);
+
+function getStars(rating) {
+  const validRating = Math.max(0, Math.min(10, rating || 0));
+  const filledStars = Math.floor(validRating / 2);
+  const emptyStars = 5 - filledStars;
+  return '★'.repeat(filledStars) + '☆'.repeat(Math.max(0, emptyStars));
+}
 </script>
 
 <svelte:head>

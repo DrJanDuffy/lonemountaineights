@@ -1,119 +1,117 @@
 <script>
-	import OptimizedImage from './OptimizedImage.svelte';
-	
-	// Points of interest in Lone Mountain Heights
-	const pointsOfInterest = [
-		{
-			id: 'canyon-gate',
-			name: 'Canyon Gate Country Club',
-			type: 'Golf Course',
-			description: 'Championship golf course with stunning mountain views',
-			coordinates: { x: 25, y: 30 },
-			icon: '⛳',
-			color: 'var(--success-green)'
-		},
-		{
-			id: 'william-geer',
-			name: 'William G. Geer Elementary',
-			type: 'School',
-			description: 'Highly-rated elementary school serving the community',
-			coordinates: { x: 60, y: 45 },
-			icon: '🏫',
-			color: 'var(--primary-color)'
-		},
-		{
-			id: 'sig-rogich',
-			name: 'Sig Rogich Middle School',
-			type: 'School',
-			description: 'Excellent middle school with strong academic programs',
-			coordinates: { x: 70, y: 35 },
-			icon: '🏫',
-			color: 'var(--primary-color)'
-		},
-		{
-			id: 'liberty-high',
-			name: 'Liberty High School',
-			type: 'School',
-			description: 'Top-performing high school with college prep programs',
-			coordinates: { x: 80, y: 25 },
-			icon: '🏫',
-			color: 'var(--primary-color)'
-		},
-		{
-			id: 'summerlin-center',
-			name: 'Downtown Summerlin',
-			type: 'Shopping',
-			description: 'Premier shopping and dining destination',
-			coordinates: { x: 15, y: 60 },
-			icon: '🛍️',
-			color: 'var(--accent-color)'
-		},
-		{
-			id: 'red-rock',
-			name: 'Red Rock Canyon',
-			type: 'Recreation',
-			description: 'National Conservation Area with hiking trails',
-			coordinates: { x: 5, y: 15 },
-			icon: '🏔️',
-			color: 'var(--tertiary-color)'
-		},
-		{
-			id: 'community-park',
-			name: 'Lone Mountain Community Park',
-			type: 'Park',
-			description: 'Family-friendly park with playgrounds and walking trails',
-			coordinates: { x: 45, y: 55 },
-			icon: '🌳',
-			color: 'var(--success-green)'
-		},
-		{
-			id: 'medical-center',
-			name: 'Summerlin Medical Center',
-			type: 'Healthcare',
-			description: 'Full-service medical facility and emergency care',
-			coordinates: { x: 30, y: 70 },
-			icon: '🏥',
-			color: '#ff6b6b'
-		}
-	];
-	
-	// Neighborhood boundaries
-	const neighborhoods = [
-		{
-			name: 'Lone Mountain Ranch',
-			coordinates: { x: 20, y: 20, width: 30, height: 25 },
-			color: 'rgba(34, 197, 94, 0.2)',
-			borderColor: 'var(--success-green)'
-		},
-		{
-			name: 'Desert Vista Estates',
-			coordinates: { x: 50, y: 40, width: 25, height: 20 },
-			color: 'rgba(59, 130, 246, 0.2)',
-			borderColor: 'var(--primary-color)'
-		},
-		{
-			name: 'Canyon Gate Country Club',
-			coordinates: { x: 15, y: 25, width: 20, height: 15 },
-			color: 'rgba(168, 85, 247, 0.2)',
-			borderColor: 'var(--accent-color)'
-		},
-		{
-			name: 'Mountain Crest',
-			coordinates: { x: 60, y: 25, width: 20, height: 15 },
-			color: 'rgba(245, 158, 11, 0.2)',
-			borderColor: 'var(--tertiary-color)'
-		}
-	];
-	
-	let selectedPoint = null;
-	
-	function selectPoint(point) {
-		selectedPoint = point;
-	}
-	
-	function closeDetails() {
-		selectedPoint = null;
-	}
+// Points of interest in Lone Mountain Heights
+const pointsOfInterest = [
+  {
+    id: 'canyon-gate',
+    name: 'Canyon Gate Country Club',
+    type: 'Golf Course',
+    description: 'Championship golf course with stunning mountain views',
+    coordinates: { x: 25, y: 30 },
+    icon: '⛳',
+    color: 'var(--success-green)',
+  },
+  {
+    id: 'william-geer',
+    name: 'William G. Geer Elementary',
+    type: 'School',
+    description: 'Highly-rated elementary school serving the community',
+    coordinates: { x: 60, y: 45 },
+    icon: '🏫',
+    color: 'var(--primary-color)',
+  },
+  {
+    id: 'sig-rogich',
+    name: 'Sig Rogich Middle School',
+    type: 'School',
+    description: 'Excellent middle school with strong academic programs',
+    coordinates: { x: 70, y: 35 },
+    icon: '🏫',
+    color: 'var(--primary-color)',
+  },
+  {
+    id: 'liberty-high',
+    name: 'Liberty High School',
+    type: 'School',
+    description: 'Top-performing high school with college prep programs',
+    coordinates: { x: 80, y: 25 },
+    icon: '🏫',
+    color: 'var(--primary-color)',
+  },
+  {
+    id: 'summerlin-center',
+    name: 'Downtown Summerlin',
+    type: 'Shopping',
+    description: 'Premier shopping and dining destination',
+    coordinates: { x: 15, y: 60 },
+    icon: '🛍️',
+    color: 'var(--accent-color)',
+  },
+  {
+    id: 'red-rock',
+    name: 'Red Rock Canyon',
+    type: 'Recreation',
+    description: 'National Conservation Area with hiking trails',
+    coordinates: { x: 5, y: 15 },
+    icon: '🏔️',
+    color: 'var(--tertiary-color)',
+  },
+  {
+    id: 'community-park',
+    name: 'Lone Mountain Community Park',
+    type: 'Park',
+    description: 'Family-friendly park with playgrounds and walking trails',
+    coordinates: { x: 45, y: 55 },
+    icon: '🌳',
+    color: 'var(--success-green)',
+  },
+  {
+    id: 'medical-center',
+    name: 'Summerlin Medical Center',
+    type: 'Healthcare',
+    description: 'Full-service medical facility and emergency care',
+    coordinates: { x: 30, y: 70 },
+    icon: '🏥',
+    color: '#ff6b6b',
+  },
+];
+
+// Neighborhood boundaries
+const neighborhoods = [
+  {
+    name: 'Lone Mountain Ranch',
+    coordinates: { x: 20, y: 20, width: 30, height: 25 },
+    color: 'rgba(34, 197, 94, 0.2)',
+    borderColor: 'var(--success-green)',
+  },
+  {
+    name: 'Desert Vista Estates',
+    coordinates: { x: 50, y: 40, width: 25, height: 20 },
+    color: 'rgba(59, 130, 246, 0.2)',
+    borderColor: 'var(--primary-color)',
+  },
+  {
+    name: 'Canyon Gate Country Club',
+    coordinates: { x: 15, y: 25, width: 20, height: 15 },
+    color: 'rgba(168, 85, 247, 0.2)',
+    borderColor: 'var(--accent-color)',
+  },
+  {
+    name: 'Mountain Crest',
+    coordinates: { x: 60, y: 25, width: 20, height: 15 },
+    color: 'rgba(245, 158, 11, 0.2)',
+    borderColor: 'var(--tertiary-color)',
+  },
+];
+
+let selectedPoint = null;
+
+function selectPoint(point) {
+  selectedPoint = point;
+}
+
+function closeDetails() {
+  selectedPoint = null;
+}
 </script>
 
 <div class="neighborhood-map-container">

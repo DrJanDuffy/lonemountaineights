@@ -1,30 +1,36 @@
 <script>
-	import { generateBreadcrumbSchema } from '$lib/schema.js';
-	
-	const breadcrumbSchema = generateBreadcrumbSchema([
-		{ name: 'Home', url: 'https://www.lonemountainheights.com' },
-		{ name: 'Property Types', url: 'https://www.lonemountainheights.com/property-types' },
-		{ name: '3 Bedroom Homes', url: 'https://www.lonemountainheights.com/property-types/3-bedroom-homes' }
-	]);
-	
-	const propertyStats = {
-		averagePrice: '$750,000',
-		priceRange: '$550,000 - $950,000',
-		squareFootage: '1,800 - 2,800',
-		yearBuilt: '1995-2015',
-		lotSize: '0.2 - 0.4 acres'
-	};
-	
-	const features = [
-		'Open Floor Plans',
-		'Master Suite with Walk-in Closet',
-		'Two-Car Garage',
-		'Private Backyard',
-		'Modern Kitchen',
-		'Updated Appliances',
-		'Hardwood Floors',
-		'Energy Efficient'
-	];
+import { generateBreadcrumbSchema } from '$lib/schema.js';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.lonemountainheights.com' },
+  {
+    name: 'Property Types',
+    url: 'https://www.lonemountainheights.com/property-types',
+  },
+  {
+    name: '3 Bedroom Homes',
+    url: 'https://www.lonemountainheights.com/property-types/3-bedroom-homes',
+  },
+]);
+
+const propertyStats = {
+  averagePrice: '$750,000',
+  priceRange: '$550,000 - $950,000',
+  squareFootage: '1,800 - 2,800',
+  yearBuilt: '1995-2015',
+  lotSize: '0.2 - 0.4 acres',
+};
+
+const features = [
+  'Open Floor Plans',
+  'Master Suite with Walk-in Closet',
+  'Two-Car Garage',
+  'Private Backyard',
+  'Modern Kitchen',
+  'Updated Appliances',
+  'Hardwood Floors',
+  'Energy Efficient',
+];
 </script>
 
 <svelte:head>

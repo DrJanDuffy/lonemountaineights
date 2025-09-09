@@ -1,112 +1,112 @@
 <script>
-	// Get current season
-	const currentDate = new Date();
-	const month = currentDate.getMonth() + 1; // 1-12
-	
-	let currentSeason = 'winter';
-	let seasonalContent = {};
-	
-	// Determine current season
-	if (month >= 3 && month <= 5) {
-		currentSeason = 'spring';
-	} else if (month >= 6 && month <= 8) {
-		currentSeason = 'summer';
-	} else if (month >= 9 && month <= 11) {
-		currentSeason = 'fall';
-	} else {
-		currentSeason = 'winter';
-	}
-	
-	// Seasonal content data
-	const seasonalData = {
-		spring: {
-			title: 'Spring Selling Season Tips',
-			subtitle: 'Maximize your home\'s appeal during the busiest time of year',
-			icon: '🌸',
-			color: 'var(--success-green)',
-			tips: [
-				'Enhance curb appeal with fresh landscaping and colorful flowers',
-				'Deep clean windows to let in maximum natural light',
-				'Declutter and organize closets and storage spaces',
-				'Consider fresh paint in neutral, spring-friendly colors',
-				'Stage outdoor living spaces to showcase summer potential',
-				'Schedule professional photography during peak lighting hours'
-			],
-			marketInsights: [
-				'Spring typically sees 20% more buyer activity',
-				'Average days on market decreases by 15%',
-				'Competition increases - pricing strategy is crucial',
-				'Open houses are most effective during spring months'
-			],
-			cta: 'Get your spring selling strategy started today!'
-		},
-		summer: {
-			title: 'Summer Home Maintenance Guide',
-			subtitle: 'Keep your Lone Mountain Heights home in perfect condition',
-			icon: '☀️',
-			color: 'var(--accent-color)',
-			tips: [
-				'Service your air conditioning system before peak summer heat',
-				'Check and clean pool equipment and water chemistry',
-				'Inspect and clean gutters and downspouts',
-				'Test and maintain irrigation systems for desert landscaping',
-				'Clean and maintain outdoor furniture and grills',
-				'Check weatherstripping and seal windows and doors'
-			],
-			marketInsights: [
-				'Summer brings steady buyer activity despite heat',
-				'Pool homes show increased demand during summer months',
-				'Energy-efficient features become more important to buyers',
-				'Indoor staging focuses on cool, comfortable spaces'
-			],
-			cta: 'Schedule your summer home maintenance consultation!'
-		},
-		fall: {
-			title: 'Fall Market Preparation',
-			subtitle: 'Get ready for the second-busiest selling season',
-			icon: '🍂',
-			color: 'var(--tertiary-color)',
-			tips: [
-				'Clean up fallen leaves and maintain landscaping',
-				'Prepare for cooler weather with cozy staging elements',
-				'Highlight energy-efficient features and insulation',
-				'Showcase indoor living spaces as outdoor activities decrease',
-				'Consider warm, inviting color schemes in staging',
-				'Prepare for holiday season with neutral decorations'
-			],
-			marketInsights: [
-				'Fall sees renewed buyer activity after summer slowdown',
-				'Families often prefer to move before school year starts',
-				'Luxury market shows increased activity in fall',
-				'Competition decreases compared to spring market'
-			],
-			cta: 'Prepare your home for the fall market now!'
-		},
-		winter: {
-			title: 'Winter Home Staging Strategies',
-			subtitle: 'Make your home shine during the holiday season',
-			icon: '❄️',
-			color: 'var(--primary-color)',
-			tips: [
-				'Create warm, inviting atmosphere with soft lighting',
-				'Use neutral holiday decorations that appeal to all buyers',
-				'Highlight energy-efficient heating and insulation',
-				'Showcase indoor entertainment and living spaces',
-				'Keep walkways clear of ice and snow (if applicable)',
-				'Use cozy staging elements like throws and pillows'
-			],
-			marketInsights: [
-				'Winter typically has fewer active buyers but serious ones',
-				'Less competition means better negotiating power',
-				'Holiday season can slow down but doesn\'t stop sales',
-				'Buyers in winter are often more motivated and ready to act'
-			],
-			cta: 'Get expert winter staging advice from Dr. Jan Duffy!'
-		}
-	};
-	
-	// Get current seasonal content
-	$: seasonalContent = seasonalData[currentSeason];
+// Get current season
+const currentDate = new Date();
+const month = currentDate.getMonth() + 1; // 1-12
+
+let currentSeason = 'winter';
+let seasonalContent = {};
+
+// Determine current season
+if (month >= 3 && month <= 5) {
+  currentSeason = 'spring';
+} else if (month >= 6 && month <= 8) {
+  currentSeason = 'summer';
+} else if (month >= 9 && month <= 11) {
+  currentSeason = 'fall';
+} else {
+  currentSeason = 'winter';
+}
+
+// Seasonal content data
+const seasonalData = {
+  spring: {
+    title: 'Spring Selling Season Tips',
+    subtitle: "Maximize your home's appeal during the busiest time of year",
+    icon: '🌸',
+    color: 'var(--success-green)',
+    tips: [
+      'Enhance curb appeal with fresh landscaping and colorful flowers',
+      'Deep clean windows to let in maximum natural light',
+      'Declutter and organize closets and storage spaces',
+      'Consider fresh paint in neutral, spring-friendly colors',
+      'Stage outdoor living spaces to showcase summer potential',
+      'Schedule professional photography during peak lighting hours',
+    ],
+    marketInsights: [
+      'Spring typically sees 20% more buyer activity',
+      'Average days on market decreases by 15%',
+      'Competition increases - pricing strategy is crucial',
+      'Open houses are most effective during spring months',
+    ],
+    cta: 'Get your spring selling strategy started today!',
+  },
+  summer: {
+    title: 'Summer Home Maintenance Guide',
+    subtitle: 'Keep your Lone Mountain Heights home in perfect condition',
+    icon: '☀️',
+    color: 'var(--accent-color)',
+    tips: [
+      'Service your air conditioning system before peak summer heat',
+      'Check and clean pool equipment and water chemistry',
+      'Inspect and clean gutters and downspouts',
+      'Test and maintain irrigation systems for desert landscaping',
+      'Clean and maintain outdoor furniture and grills',
+      'Check weatherstripping and seal windows and doors',
+    ],
+    marketInsights: [
+      'Summer brings steady buyer activity despite heat',
+      'Pool homes show increased demand during summer months',
+      'Energy-efficient features become more important to buyers',
+      'Indoor staging focuses on cool, comfortable spaces',
+    ],
+    cta: 'Schedule your summer home maintenance consultation!',
+  },
+  fall: {
+    title: 'Fall Market Preparation',
+    subtitle: 'Get ready for the second-busiest selling season',
+    icon: '🍂',
+    color: 'var(--tertiary-color)',
+    tips: [
+      'Clean up fallen leaves and maintain landscaping',
+      'Prepare for cooler weather with cozy staging elements',
+      'Highlight energy-efficient features and insulation',
+      'Showcase indoor living spaces as outdoor activities decrease',
+      'Consider warm, inviting color schemes in staging',
+      'Prepare for holiday season with neutral decorations',
+    ],
+    marketInsights: [
+      'Fall sees renewed buyer activity after summer slowdown',
+      'Families often prefer to move before school year starts',
+      'Luxury market shows increased activity in fall',
+      'Competition decreases compared to spring market',
+    ],
+    cta: 'Prepare your home for the fall market now!',
+  },
+  winter: {
+    title: 'Winter Home Staging Strategies',
+    subtitle: 'Make your home shine during the holiday season',
+    icon: '❄️',
+    color: 'var(--primary-color)',
+    tips: [
+      'Create warm, inviting atmosphere with soft lighting',
+      'Use neutral holiday decorations that appeal to all buyers',
+      'Highlight energy-efficient heating and insulation',
+      'Showcase indoor entertainment and living spaces',
+      'Keep walkways clear of ice and snow (if applicable)',
+      'Use cozy staging elements like throws and pillows',
+    ],
+    marketInsights: [
+      'Winter typically has fewer active buyers but serious ones',
+      'Less competition means better negotiating power',
+      "Holiday season can slow down but doesn't stop sales",
+      'Buyers in winter are often more motivated and ready to act',
+    ],
+    cta: 'Get expert winter staging advice from Dr. Jan Duffy!',
+  },
+};
+
+// Get current seasonal content
+$: seasonalContent = seasonalData[currentSeason];
 </script>
 
 <div class="seasonal-content-component">

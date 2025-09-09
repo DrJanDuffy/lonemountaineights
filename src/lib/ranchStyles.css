@@ -13,19 +13,19 @@
   --ranch-burgundy: #dc2626; /* Error Red */
   --ranch-gold: #d4af37; /* Gold */
   --ranch-copper: #d97706; /* Warning Orange */
-  
+
   /* Estate-Specific Colors - Navy + White + Gold */
   --estate-gold: #d4af37; /* Gold */
   --estate-silver: #94a3b8; /* Silver */
   --estate-bronze: #d97706; /* Bronze */
   --estate-marble: #ffffff; /* Pure White Marble */
   --estate-granite: #1e3a8a; /* Navy Blue Granite */
-  
+
   /* Ranch Architecture Shadows - Navy Theme */
   --ranch-shadow-light: 0 2px 8px rgba(30, 58, 138, 0.1);
   --ranch-shadow-medium: 0 4px 16px rgba(30, 58, 138, 0.15);
   --ranch-shadow-heavy: 0 8px 32px rgba(30, 58, 138, 0.2);
-  
+
   /* Estate Shadows - Navy Theme */
   --estate-shadow-light: 0 2px 8px rgba(30, 58, 138, 0.1);
   --estate-shadow-medium: 0 4px 16px rgba(30, 58, 138, 0.15);
@@ -34,7 +34,11 @@
 
 /* Ranch Style Home Cards */
 .ranch-home-card {
-  background: linear-gradient(135deg, var(--ranch-cream) 0%, var(--ranch-sandstone) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--ranch-cream) 0%,
+    var(--ranch-sandstone) 100%
+  );
   border: 2px solid var(--ranch-adobe);
   border-radius: 12px;
   box-shadow: var(--ranch-shadow-medium);
@@ -44,13 +48,18 @@
 }
 
 .ranch-home-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--ranch-terracotta), var(--ranch-sage), var(--ranch-gold));
+  background: linear-gradient(
+    90deg,
+    var(--ranch-terracotta),
+    var(--ranch-sage),
+    var(--ranch-gold)
+  );
 }
 
 .ranch-home-card:hover {
@@ -61,7 +70,11 @@
 
 /* Estate Property Cards */
 .estate-home-card {
-  background: linear-gradient(135deg, var(--estate-marble) 0%, var(--ranch-cream) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--estate-marble) 0%,
+    var(--ranch-cream) 100%
+  );
   border: 3px solid var(--estate-gold);
   border-radius: 16px;
   box-shadow: var(--estate-shadow-medium);
@@ -71,13 +84,18 @@
 }
 
 .estate-home-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 6px;
-  background: linear-gradient(90deg, var(--estate-gold), var(--estate-silver), var(--estate-bronze));
+  background: linear-gradient(
+    90deg,
+    var(--estate-gold),
+    var(--estate-silver),
+    var(--estate-bronze)
+  );
 }
 
 .estate-home-card:hover {
@@ -122,7 +140,7 @@
   font-size: 1.4rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  font-family: 'Georgia', serif;
+  font-family: "Georgia", serif;
 }
 
 .ranch-property-details .address {
@@ -137,11 +155,11 @@
   font-size: 1.8rem;
   font-weight: 800;
   margin-bottom: 1rem;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .ranch-property-details .price::before {
-  content: '$';
+  content: "$";
   font-size: 1.2rem;
   vertical-align: top;
 }
@@ -157,8 +175,8 @@
   font-size: 1.6rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  font-family: 'Georgia', serif;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  font-family: "Georgia", serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .estate-property-details .address {
@@ -174,12 +192,12 @@
   font-size: 2.2rem;
   font-weight: 800;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   text-stroke: 1px var(--ranch-charcoal);
 }
 
 .estate-property-details .price::before {
-  content: '$';
+  content: "$";
   font-size: 1.4rem;
   vertical-align: top;
 }
@@ -219,7 +237,7 @@
   font-size: 1rem;
   font-weight: 700;
   box-shadow: var(--estate-shadow-light);
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Ranch Style Property Tags */
@@ -248,7 +266,11 @@
 }
 
 .estate-tag {
-  background: linear-gradient(135deg, var(--estate-silver), var(--estate-marble));
+  background: linear-gradient(
+    135deg,
+    var(--estate-silver),
+    var(--estate-marble)
+  );
   color: var(--ranch-charcoal);
   padding: 0.5rem 1rem;
   border-radius: 20px;
@@ -260,7 +282,11 @@
 
 /* Ranch Style Buttons */
 .ranch-btn {
-  background: linear-gradient(135deg, var(--ranch-terracotta), var(--ranch-copper));
+  background: linear-gradient(
+    135deg,
+    var(--ranch-terracotta),
+    var(--ranch-copper)
+  );
   color: white;
   padding: 0.75rem 1.5rem;
   border: none;
@@ -275,7 +301,11 @@
 }
 
 .ranch-btn:hover {
-  background: linear-gradient(135deg, var(--ranch-copper), var(--ranch-burgundy));
+  background: linear-gradient(
+    135deg,
+    var(--ranch-copper),
+    var(--ranch-burgundy)
+  );
   transform: translateY(-2px);
   box-shadow: var(--ranch-shadow-medium);
 }
@@ -293,7 +323,7 @@
   box-shadow: var(--estate-shadow-light);
   text-transform: uppercase;
   letter-spacing: 1px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .estate-btn:hover {
@@ -331,7 +361,7 @@
   font-size: 1.3rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  font-family: 'Georgia', serif;
+  font-family: "Georgia", serif;
 }
 
 .ranch-filter-group {
@@ -380,8 +410,8 @@
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  font-family: 'Georgia', serif;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  font-family: "Georgia", serif;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .estate-filter-group {
@@ -429,7 +459,7 @@
 }
 
 .ranch-insight::before {
-  content: '🏡 ';
+  content: "🏡 ";
   font-size: 1.2rem;
 }
 
@@ -442,11 +472,11 @@
   font-style: italic;
   font-weight: 600;
   box-shadow: var(--estate-shadow-light);
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .estate-insight::before {
-  content: '🏰 ';
+  content: "🏰 ";
   font-size: 1.4rem;
 }
 
@@ -490,7 +520,11 @@
 .estate-stat {
   text-align: center;
   padding: 1rem;
-  background: linear-gradient(135deg, var(--estate-silver), var(--estate-marble));
+  background: linear-gradient(
+    135deg,
+    var(--estate-silver),
+    var(--estate-marble)
+  );
   border-radius: 12px;
   box-shadow: var(--estate-shadow-light);
   border: 2px solid var(--estate-gold);
@@ -501,7 +535,7 @@
   font-size: 1.8rem;
   font-weight: 800;
   color: var(--estate-gold);
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .estate-stat .label {
@@ -517,40 +551,40 @@
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .estate-property-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .ranch-features {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .estate-features {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .ranch-stats {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .estate-stats {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .ranch-property-details {
     padding: 1rem;
   }
-  
+
   .estate-property-details {
     padding: 1.5rem;
   }
-  
+
   .ranch-filters {
     padding: 1rem;
   }
-  
+
   .estate-filters {
     padding: 1.5rem;
   }
@@ -566,7 +600,7 @@
     align-items: center;
     justify-content: center;
   }
-  
+
   .ranch-feature,
   .estate-feature {
     min-height: 44px;
@@ -584,7 +618,7 @@
     box-shadow: none;
     border: 1px solid #ccc;
   }
-  
+
   .ranch-btn,
   .estate-btn {
     display: none;

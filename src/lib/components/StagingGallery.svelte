@@ -1,101 +1,141 @@
 <script>
-	import OptimizedImage from './OptimizedImage.svelte';
-	
-	// Before/after staging photos
-	const stagingPhotos = [
-		{
-			id: 'living-room',
-			title: 'Living Room Transformation',
-			before: '1494790108755-2616b612b786',
-			after: '1560518883-ce09059eeffa',
-			description: 'Modern living room with neutral colors, proper lighting, and decluttered space',
-			improvements: ['Removed personal items', 'Added modern furniture', 'Improved lighting', 'Neutral color palette']
-		},
-		{
-			id: 'kitchen',
-			title: 'Kitchen Staging',
-			before: '1556909112-5b2b2b2b2b2b',
-			after: '1556909112-5b2b2b2b2b2c',
-			description: 'Clean, modern kitchen with updated appliances and fresh countertops',
-			improvements: ['Deep cleaned appliances', 'Updated hardware', 'Fresh flowers', 'Minimalist decor']
-		},
-		{
-			id: 'master-bedroom',
-			title: 'Master Bedroom Makeover',
-			before: '1556909112-5b2b2b2b2b2d',
-			after: '1556909112-5b2b2b2b2b2e',
-			description: 'Elegant master suite with luxury bedding and proper furniture placement',
-			improvements: ['Luxury bedding', 'Proper furniture scale', 'Soft lighting', 'Neutral colors']
-		},
-		{
-			id: 'dining-room',
-			title: 'Dining Room Setup',
-			before: '1556909112-5b2b2b2b2b2f',
-			after: '1556909112-5b2b2b2b2b30',
-			description: 'Formal dining room with elegant table setting and proper lighting',
-			improvements: ['Elegant table setting', 'Proper lighting', 'Minimal decor', 'Clean lines']
-		},
-		{
-			id: 'outdoor-space',
-			title: 'Outdoor Living Area',
-			before: '1556909112-5b2b2b2b2b31',
-			after: '1556909112-5b2b2b2b2b32',
-			description: 'Inviting outdoor space with comfortable seating and desert landscaping',
-			improvements: ['Comfortable seating', 'Desert plants', 'Clean patio', 'Outdoor lighting']
-		},
-		{
-			id: 'home-office',
-			title: 'Home Office Staging',
-			before: '1556909112-5b2b2b2b2b33',
-			after: '1556909112-5b2b2b2b2b34',
-			description: 'Professional home office with clean desk and organized storage',
-			improvements: ['Clean desk setup', 'Organized storage', 'Professional lighting', 'Minimal distractions']
-		}
-	];
-	
-	// Staging tips
-	const stagingTips = [
-		{
-			title: 'Declutter & Depersonalize',
-			description: 'Remove personal items, family photos, and excess furniture to help buyers envision themselves in the space.',
-			icon: '🧹'
-		},
-		{
-			title: 'Neutral Color Palette',
-			description: 'Use neutral colors on walls and furniture to appeal to the widest range of buyers.',
-			icon: '🎨'
-		},
-		{
-			title: 'Maximize Natural Light',
-			description: 'Clean windows, open curtains, and add mirrors to reflect light and make spaces feel larger.',
-			icon: '☀️'
-		},
-		{
-			title: 'Proper Furniture Scale',
-			description: 'Choose appropriately sized furniture that doesn\'t overwhelm the space or make rooms feel cramped.',
-			icon: '🪑'
-		},
-		{
-			title: 'Create Focal Points',
-			description: 'Highlight the best features of each room with strategic furniture placement and lighting.',
-			icon: '✨'
-		},
-		{
-			title: 'Curb Appeal',
-			description: 'First impressions matter - ensure the exterior is clean, well-maintained, and inviting.',
-			icon: '🏡'
-		}
-	];
-	
-	let selectedPhoto = null;
-	
-	function openPhoto(photo) {
-		selectedPhoto = photo;
-	}
-	
-	function closePhoto() {
-		selectedPhoto = null;
-	}
+// Before/after staging photos
+const stagingPhotos = [
+  {
+    id: 'living-room',
+    title: 'Living Room Transformation',
+    before: '1494790108755-2616b612b786',
+    after: '1560518883-ce09059eeffa',
+    description:
+      'Modern living room with neutral colors, proper lighting, and decluttered space',
+    improvements: [
+      'Removed personal items',
+      'Added modern furniture',
+      'Improved lighting',
+      'Neutral color palette',
+    ],
+  },
+  {
+    id: 'kitchen',
+    title: 'Kitchen Staging',
+    before: '1556909112-5b2b2b2b2b2b',
+    after: '1556909112-5b2b2b2b2b2c',
+    description:
+      'Clean, modern kitchen with updated appliances and fresh countertops',
+    improvements: [
+      'Deep cleaned appliances',
+      'Updated hardware',
+      'Fresh flowers',
+      'Minimalist decor',
+    ],
+  },
+  {
+    id: 'master-bedroom',
+    title: 'Master Bedroom Makeover',
+    before: '1556909112-5b2b2b2b2b2d',
+    after: '1556909112-5b2b2b2b2b2e',
+    description:
+      'Elegant master suite with luxury bedding and proper furniture placement',
+    improvements: [
+      'Luxury bedding',
+      'Proper furniture scale',
+      'Soft lighting',
+      'Neutral colors',
+    ],
+  },
+  {
+    id: 'dining-room',
+    title: 'Dining Room Setup',
+    before: '1556909112-5b2b2b2b2b2f',
+    after: '1556909112-5b2b2b2b2b30',
+    description:
+      'Formal dining room with elegant table setting and proper lighting',
+    improvements: [
+      'Elegant table setting',
+      'Proper lighting',
+      'Minimal decor',
+      'Clean lines',
+    ],
+  },
+  {
+    id: 'outdoor-space',
+    title: 'Outdoor Living Area',
+    before: '1556909112-5b2b2b2b2b31',
+    after: '1556909112-5b2b2b2b2b32',
+    description:
+      'Inviting outdoor space with comfortable seating and desert landscaping',
+    improvements: [
+      'Comfortable seating',
+      'Desert plants',
+      'Clean patio',
+      'Outdoor lighting',
+    ],
+  },
+  {
+    id: 'home-office',
+    title: 'Home Office Staging',
+    before: '1556909112-5b2b2b2b2b33',
+    after: '1556909112-5b2b2b2b2b34',
+    description:
+      'Professional home office with clean desk and organized storage',
+    improvements: [
+      'Clean desk setup',
+      'Organized storage',
+      'Professional lighting',
+      'Minimal distractions',
+    ],
+  },
+];
+
+// Staging tips
+const stagingTips = [
+  {
+    title: 'Declutter & Depersonalize',
+    description:
+      'Remove personal items, family photos, and excess furniture to help buyers envision themselves in the space.',
+    icon: '🧹',
+  },
+  {
+    title: 'Neutral Color Palette',
+    description:
+      'Use neutral colors on walls and furniture to appeal to the widest range of buyers.',
+    icon: '🎨',
+  },
+  {
+    title: 'Maximize Natural Light',
+    description:
+      'Clean windows, open curtains, and add mirrors to reflect light and make spaces feel larger.',
+    icon: '☀️',
+  },
+  {
+    title: 'Proper Furniture Scale',
+    description:
+      "Choose appropriately sized furniture that doesn't overwhelm the space or make rooms feel cramped.",
+    icon: '🪑',
+  },
+  {
+    title: 'Create Focal Points',
+    description:
+      'Highlight the best features of each room with strategic furniture placement and lighting.',
+    icon: '✨',
+  },
+  {
+    title: 'Curb Appeal',
+    description:
+      'First impressions matter - ensure the exterior is clean, well-maintained, and inviting.',
+    icon: '🏡',
+  },
+];
+
+let selectedPhoto = null;
+
+function openPhoto(photo) {
+  selectedPhoto = photo;
+}
+
+function closePhoto() {
+  selectedPhoto = null;
+}
 </script>
 
 <div class="staging-gallery">

@@ -1,75 +1,90 @@
 <script>
-	// Market statistics data (in a real app, this would come from an API)
-	let marketData = {
-		averagePrice: '$850,000',
-		priceChange: '+2.3%',
-		daysOnMarket: 28,
-		inventoryLevel: 'Low',
-		activeListings: 45,
-		interestRate: '6.5%',
-		lastUpdated: new Date().toLocaleDateString()
-	};
-	
-	// Recent sales data
-	let recentSales = [
-		{
-			address: '1234 Mountain View Dr',
-			price: '$875,000',
-			bedrooms: 4,
-			bathrooms: 3,
-			sqft: '2,850',
-			daysOnMarket: 15,
-			subdivision: 'Lone Mountain Ranch',
-			date: '2024-12-18'
-		},
-		{
-			address: '5678 Desert Vista Way',
-			price: '$725,000',
-			bedrooms: 3,
-			bathrooms: 2,
-			sqft: '2,200',
-			daysOnMarket: 22,
-			subdivision: 'Desert Vista Estates',
-			date: '2024-12-17'
-		},
-		{
-			address: '9012 Canyon Gate Blvd',
-			price: '$1,150,000',
-			bedrooms: 5,
-			bathrooms: 4,
-			sqft: '3,500',
-			daysOnMarket: 31,
-			subdivision: 'Canyon Gate Country Club',
-			date: '2024-12-16'
-		},
-		{
-			address: '3456 Mountain Crest Ln',
-			price: '$650,000',
-			bedrooms: 3,
-			bathrooms: 2,
-			sqft: '1,950',
-			daysOnMarket: 18,
-			subdivision: 'Mountain Crest',
-			date: '2024-12-15'
-		}
-	];
-	
-	// Market trends
-	let marketTrends = [
-		{ label: 'Price Trend', value: '+2.3%', direction: 'up', color: 'var(--success-green)' },
-		{ label: 'Inventory', value: '-15%', direction: 'down', color: '#ff6b6b' },
-		{ label: 'Days on Market', value: '-5 days', direction: 'down', color: 'var(--success-green)' },
-		{ label: 'New Listings', value: '+8%', direction: 'up', color: 'var(--success-green)' }
-	];
-	
-	// Auto-update function (in a real app, this would be a WebSocket or API call)
-	function updateMarketData() {
-		// Simulate real-time updates
-		marketData.lastUpdated = new Date().toLocaleDateString();
-	}
-	
-	// Update every 5 minutes
-	setInterval(updateMarketData, 300000);
+// Market statistics data (in a real app, this would come from an API)
+const marketData = {
+  averagePrice: '$850,000',
+  priceChange: '+2.3%',
+  daysOnMarket: 28,
+  inventoryLevel: 'Low',
+  activeListings: 45,
+  interestRate: '6.5%',
+  lastUpdated: new Date().toLocaleDateString(),
+};
+
+// Recent sales data
+const recentSales = [
+  {
+    address: '1234 Mountain View Dr',
+    price: '$875,000',
+    bedrooms: 4,
+    bathrooms: 3,
+    sqft: '2,850',
+    daysOnMarket: 15,
+    subdivision: 'Lone Mountain Ranch',
+    date: '2024-12-18',
+  },
+  {
+    address: '5678 Desert Vista Way',
+    price: '$725,000',
+    bedrooms: 3,
+    bathrooms: 2,
+    sqft: '2,200',
+    daysOnMarket: 22,
+    subdivision: 'Desert Vista Estates',
+    date: '2024-12-17',
+  },
+  {
+    address: '9012 Canyon Gate Blvd',
+    price: '$1,150,000',
+    bedrooms: 5,
+    bathrooms: 4,
+    sqft: '3,500',
+    daysOnMarket: 31,
+    subdivision: 'Canyon Gate Country Club',
+    date: '2024-12-16',
+  },
+  {
+    address: '3456 Mountain Crest Ln',
+    price: '$650,000',
+    bedrooms: 3,
+    bathrooms: 2,
+    sqft: '1,950',
+    daysOnMarket: 18,
+    subdivision: 'Mountain Crest',
+    date: '2024-12-15',
+  },
+];
+
+// Market trends
+const marketTrends = [
+  {
+    label: 'Price Trend',
+    value: '+2.3%',
+    direction: 'up',
+    color: 'var(--success-green)',
+  },
+  { label: 'Inventory', value: '-15%', direction: 'down', color: '#ff6b6b' },
+  {
+    label: 'Days on Market',
+    value: '-5 days',
+    direction: 'down',
+    color: 'var(--success-green)',
+  },
+  {
+    label: 'New Listings',
+    value: '+8%',
+    direction: 'up',
+    color: 'var(--success-green)',
+  },
+];
+
+// Auto-update function (in a real app, this would be a WebSocket or API call)
+function updateMarketData() {
+  // Simulate real-time updates
+  marketData.lastUpdated = new Date().toLocaleDateString();
+}
+
+// Update every 5 minutes
+setInterval(updateMarketData, 300000);
 </script>
 
 <div class="market-stats-component">

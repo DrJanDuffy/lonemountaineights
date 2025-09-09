@@ -1,161 +1,174 @@
 <script>
-	import { onMount } from 'svelte';
-	
-	// Trust signals data
-	let testimonials = [];
-	let certifications = [];
-	let successMetrics = {};
-	let communityInvolvement = [];
-	
-	// Load data on mount
-	onMount(() => {
-		loadTrustData();
-	});
-	
-	function loadTrustData() {
-		// Recent client testimonials
-		testimonials = [
-			{
-				id: 1,
-				name: 'Sarah & Michael Chen',
-				location: 'Lone Mountain Ranch',
-				rating: 5,
-				text: 'Dr. Jan Duffy made our dream home purchase seamless. Her knowledge of Lone Mountain Heights is unmatched, and she negotiated an amazing deal for us.',
-				date: '2024-11-15',
-				transaction: 'Home Purchase - $875,000',
-				image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80'
-			},
-			{
-				id: 2,
-				name: 'Robert Martinez',
-				location: 'Desert Vista Estates',
-				rating: 5,
-				text: 'Sold our home in 3 days above asking price! Dr. Jan\'s marketing strategy and staging advice were incredible. Highly recommend her services.',
-				date: '2024-10-28',
-				transaction: 'Home Sale - $650,000',
-				image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80'
-			},
-			{
-				id: 3,
-				name: 'Jennifer & David Thompson',
-				location: 'Mountain View Heights',
-				rating: 5,
-				text: 'From first-time buyers to now selling our second home, Dr. Jan has been our trusted advisor. Her expertise in the 89129 area is phenomenal.',
-				date: '2024-09-12',
-				transaction: 'Home Sale - $1,200,000',
-				image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80'
-			},
-			{
-				id: 4,
-				name: 'Lisa Wang',
-				location: 'Sunset Ridge',
-				rating: 5,
-				text: 'Dr. Jan helped us find the perfect investment property in Lone Mountain Heights. Her market analysis and rental projections were spot-on.',
-				date: '2024-08-30',
-				transaction: 'Investment Property - $520,000',
-				image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80'
-			}
-		];
-		
-		// Professional certifications and awards
-		certifications = [
-			{
-				name: 'Berkshire Hathaway HomeServices',
-				title: 'Team Leader & Top Producer',
-				year: '2024',
-				description: 'Leading the top-performing team in the Lone Mountain Heights area',
-				icon: '🏆'
-			},
-			{
-				name: 'Luxury Home Specialist',
-				title: 'Certified Luxury Home Marketing Specialist',
-				year: '2023',
-				description: 'Specialized training in luxury home marketing and client service',
-				icon: '💎'
-			},
-			{
-				name: 'Market Analysis Expert',
-				title: 'Certified Market Analysis Professional',
-				year: '2023',
-				description: 'Advanced certification in real estate market analysis and pricing',
-				icon: '📊'
-			},
-			{
-				name: 'Nevada Real Estate License',
-				title: 'Licensed Real Estate Agent',
-				year: '2018',
-				description: 'Fully licensed and insured real estate professional in Nevada',
-				icon: '📋'
-			},
-			{
-				name: '500+ Transactions',
-				title: 'Elite Transaction Volume',
-				year: '2024',
-				description: 'Successfully closed over 500 real estate transactions',
-				icon: '🎯'
-			},
-			{
-				name: '5-Star Reviews',
-				title: 'Consistently High Client Satisfaction',
-				year: '2024',
-				description: 'Maintaining 5-star average rating across all review platforms',
-				icon: '⭐'
-			}
-		];
-		
-		// Success metrics
-		successMetrics = {
-			transactions: 500,
-			avgDaysOnMarket: 23,
-			avgSalePrice: 785000,
-			clientSatisfaction: 5.0,
-			repeatClients: 85,
-			referralRate: 92
-		};
-		
-		// Community involvement
-		communityInvolvement = [
-			{
-				organization: 'Lone Mountain Heights HOA',
-				role: 'Board Member',
-				years: '2020-2024',
-				description: 'Serving the community through HOA leadership and neighborhood improvement initiatives'
-			},
-			{
-				organization: 'Las Vegas Chamber of Commerce',
-				role: 'Real Estate Committee Chair',
-				years: '2022-2024',
-				description: 'Leading real estate industry initiatives and community development projects'
-			},
-			{
-				organization: 'William G. Geer Elementary',
-				role: 'School Volunteer & Sponsor',
-				years: '2019-2024',
-				description: 'Supporting local schools through volunteer work and educational sponsorships'
-			},
-			{
-				organization: 'Lone Mountain Golf Club',
-				role: 'Member & Event Sponsor',
-				years: '2018-2024',
-				description: 'Active community member supporting local golf and recreational activities'
-			}
-		];
-	}
-	
-	// Format currency
-	function formatCurrency(amount) {
-		return new Intl.NumberFormat('en-US', {
-			style: 'currency',
-			currency: 'USD',
-			minimumFractionDigits: 0,
-			maximumFractionDigits: 0
-		}).format(amount);
-	}
-	
-	// Format percentage
-	function formatPercentage(value) {
-		return `${value}%`;
-	}
+import { onMount } from 'svelte';
+
+// Trust signals data
+let testimonials = [];
+let certifications = [];
+let successMetrics = {};
+let communityInvolvement = [];
+
+// Load data on mount
+onMount(() => {
+  loadTrustData();
+});
+
+function loadTrustData() {
+  // Recent client testimonials
+  testimonials = [
+    {
+      id: 1,
+      name: 'Sarah & Michael Chen',
+      location: 'Lone Mountain Ranch',
+      rating: 5,
+      text: 'Dr. Jan Duffy made our dream home purchase seamless. Her knowledge of Lone Mountain Heights is unmatched, and she negotiated an amazing deal for us.',
+      date: '2024-11-15',
+      transaction: 'Home Purchase - $875,000',
+      image:
+        'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80',
+    },
+    {
+      id: 2,
+      name: 'Robert Martinez',
+      location: 'Desert Vista Estates',
+      rating: 5,
+      text: "Sold our home in 3 days above asking price! Dr. Jan's marketing strategy and staging advice were incredible. Highly recommend her services.",
+      date: '2024-10-28',
+      transaction: 'Home Sale - $650,000',
+      image:
+        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80',
+    },
+    {
+      id: 3,
+      name: 'Jennifer & David Thompson',
+      location: 'Mountain View Heights',
+      rating: 5,
+      text: 'From first-time buyers to now selling our second home, Dr. Jan has been our trusted advisor. Her expertise in the 89129 area is phenomenal.',
+      date: '2024-09-12',
+      transaction: 'Home Sale - $1,200,000',
+      image:
+        'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80',
+    },
+    {
+      id: 4,
+      name: 'Lisa Wang',
+      location: 'Sunset Ridge',
+      rating: 5,
+      text: 'Dr. Jan helped us find the perfect investment property in Lone Mountain Heights. Her market analysis and rental projections were spot-on.',
+      date: '2024-08-30',
+      transaction: 'Investment Property - $520,000',
+      image:
+        'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80',
+    },
+  ];
+
+  // Professional certifications and awards
+  certifications = [
+    {
+      name: 'Berkshire Hathaway HomeServices',
+      title: 'Team Leader & Top Producer',
+      year: '2024',
+      description:
+        'Leading the top-performing team in the Lone Mountain Heights area',
+      icon: '🏆',
+    },
+    {
+      name: 'Luxury Home Specialist',
+      title: 'Certified Luxury Home Marketing Specialist',
+      year: '2023',
+      description:
+        'Specialized training in luxury home marketing and client service',
+      icon: '💎',
+    },
+    {
+      name: 'Market Analysis Expert',
+      title: 'Certified Market Analysis Professional',
+      year: '2023',
+      description:
+        'Advanced certification in real estate market analysis and pricing',
+      icon: '📊',
+    },
+    {
+      name: 'Nevada Real Estate License',
+      title: 'Licensed Real Estate Agent',
+      year: '2018',
+      description:
+        'Fully licensed and insured real estate professional in Nevada',
+      icon: '📋',
+    },
+    {
+      name: '500+ Transactions',
+      title: 'Elite Transaction Volume',
+      year: '2024',
+      description: 'Successfully closed over 500 real estate transactions',
+      icon: '🎯',
+    },
+    {
+      name: '5-Star Reviews',
+      title: 'Consistently High Client Satisfaction',
+      year: '2024',
+      description:
+        'Maintaining 5-star average rating across all review platforms',
+      icon: '⭐',
+    },
+  ];
+
+  // Success metrics
+  successMetrics = {
+    transactions: 500,
+    avgDaysOnMarket: 23,
+    avgSalePrice: 785000,
+    clientSatisfaction: 5.0,
+    repeatClients: 85,
+    referralRate: 92,
+  };
+
+  // Community involvement
+  communityInvolvement = [
+    {
+      organization: 'Lone Mountain Heights HOA',
+      role: 'Board Member',
+      years: '2020-2024',
+      description:
+        'Serving the community through HOA leadership and neighborhood improvement initiatives',
+    },
+    {
+      organization: 'Las Vegas Chamber of Commerce',
+      role: 'Real Estate Committee Chair',
+      years: '2022-2024',
+      description:
+        'Leading real estate industry initiatives and community development projects',
+    },
+    {
+      organization: 'William G. Geer Elementary',
+      role: 'School Volunteer & Sponsor',
+      years: '2019-2024',
+      description:
+        'Supporting local schools through volunteer work and educational sponsorships',
+    },
+    {
+      organization: 'Lone Mountain Golf Club',
+      role: 'Member & Event Sponsor',
+      years: '2018-2024',
+      description:
+        'Active community member supporting local golf and recreational activities',
+    },
+  ];
+}
+
+// Format currency
+function formatCurrency(amount) {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(amount);
+}
+
+// Format percentage
+function formatPercentage(value) {
+  return `${value}%`;
+}
 </script>
 
 <div class="trust-signals">

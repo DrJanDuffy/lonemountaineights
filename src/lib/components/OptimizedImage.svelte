@@ -1,18 +1,18 @@
 <script>
-	export let src;
-	export let alt;
-	export let width = 800;
-	export let height = 600;
-	export let quality = 85;
-	export let loading = 'lazy';
-	export let className = '';
-	export let placeholder = true;
-	
-	// Generate optimized image URL with WebP format and compression
-	$: optimizedSrc = `https://images.unsplash.com/photo-${src}?ixlib=rb-4.0.3&auto=format&fit=crop&w=${width}&h=${height}&q=${quality}&fm=webp`;
-	
-	// Generate placeholder for lazy loading
-	$: placeholderSrc = `data:image/svg+xml;base64,${btoa(`
+export let src;
+export let alt;
+export const width = 800;
+export const height = 600;
+export const quality = 85;
+export const loading = 'lazy';
+export const className = '';
+export const placeholder = true;
+
+// Generate optimized image URL with WebP format and compression
+$: optimizedSrc = `https://images.unsplash.com/photo-${src}?ixlib=rb-4.0.3&auto=format&fit=crop&w=${width}&h=${height}&q=${quality}&fm=webp`;
+
+// Generate placeholder for lazy loading
+$: placeholderSrc = `data:image/svg+xml;base64,${btoa(`
 		<svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
 			<rect width="100%" height="100%" fill="#f3f4f6"/>
 			<text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="#9ca3af" font-family="Arial, sans-serif" font-size="14">
@@ -20,17 +20,17 @@
 			</text>
 		</svg>
 	`)}`;
-	
-	let imageLoaded = false;
-	let imageError = false;
-	
-	function handleLoad() {
-		imageLoaded = true;
-	}
-	
-	function handleError() {
-		imageError = true;
-	}
+
+let imageLoaded = false;
+let imageError = false;
+
+function handleLoad() {
+  imageLoaded = true;
+}
+
+function handleError() {
+  imageError = true;
+}
 </script>
 
 <div class="optimized-image-container {className}">

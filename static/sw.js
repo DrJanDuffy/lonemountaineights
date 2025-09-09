@@ -21,47 +21,49 @@ const STATIC_ASSETS = [
   '/blog',
   '/app.css',
   '/critical.css',
-  '/manifest.json'
+  '/manifest.json',
 ];
 
 // Install event - cache static assets
-self.addEventListener('install', event => {
+self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(STATIC_CACHE)
-      .then(cache => {
+    caches
+      .open(STATIC_CACHE)
+      .then((cache) => {
         console.log('Caching static assets');
         return cache.addAll(STATIC_ASSETS);
       })
       .then(() => {
         console.log('Static assets cached successfully');
         return self.skipWaiting();
-      })
+      }),
   );
 });
 
 // Activate event - clean up old caches
-self.addEventListener('activate', event => {
+self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys()
-      .then(cacheNames => {
+    caches
+      .keys()
+      .then((cacheNames) => {
         return Promise.all(
-          cacheNames.map(cacheName => {
+          cacheNames.map((cacheName) => {
             if (cacheName !== STATIC_CACHE && cacheName !== DYNAMIC_CACHE) {
               console.log('Deleting old cache:', cacheName);
               return caches.delete(cacheName);
             }
-          })
+          }),
         );
       })
       .then(() => {
         console.log('Service Worker activated');
         return self.clients.claim();
-      })
+      }),
   );
 });
 
 // Fetch event - implement caching strategies
-self.addEventListener('fetch', event => {
+self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
@@ -141,12 +143,14 @@ async function staleWhileRevalidate(request) {
   const cache = await caches.open(DYNAMIC_CACHE);
   const cachedResponse = await cache.match(request);
 
-  const fetchPromise = fetch(request).then(networkResponse => {
-    if (networkResponse.ok) {
-      cache.put(request, networkResponse.clone());
-    }
-    return networkResponse;
-  }).catch(() => cachedResponse);
+  const fetchPromise = fetch(request)
+    .then((networkResponse) => {
+      if (networkResponse.ok) {
+        cache.put(request, networkResponse.clone());
+      }
+      return networkResponse;
+    })
+    .catch(() => cachedResponse);
 
   return cachedResponse || fetchPromise;
 }
@@ -154,7 +158,9 @@ async function staleWhileRevalidate(request) {
 // Helper functions to determine request type
 function isStaticAsset(request) {
   const url = new URL(request.url);
-  return url.pathname.match(/\.(css|js|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/);
+  return url.pathname.match(
+    /\.(css|js|png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
+  );
 }
 
 function isApiRequest(request) {
@@ -164,22 +170,24 @@ function isApiRequest(request) {
 
 function isPageRequest(request) {
   const url = new URL(request.url);
-  return url.pathname === '/' || 
-         url.pathname.startsWith('/homes') ||
-         url.pathname.startsWith('/about') ||
-         url.pathname.startsWith('/contact') ||
-         url.pathname.startsWith('/neighborhoods') ||
-         url.pathname.startsWith('/market-report') ||
-         url.pathname.startsWith('/sales') ||
-         url.pathname.startsWith('/valuation') ||
-         url.pathname.startsWith('/amenities') ||
-         url.pathname.startsWith('/schools') ||
-         url.pathname.startsWith('/guide') ||
-         url.pathname.startsWith('/blog');
+  return (
+    url.pathname === '/' ||
+    url.pathname.startsWith('/homes') ||
+    url.pathname.startsWith('/about') ||
+    url.pathname.startsWith('/contact') ||
+    url.pathname.startsWith('/neighborhoods') ||
+    url.pathname.startsWith('/market-report') ||
+    url.pathname.startsWith('/sales') ||
+    url.pathname.startsWith('/valuation') ||
+    url.pathname.startsWith('/amenities') ||
+    url.pathname.startsWith('/schools') ||
+    url.pathname.startsWith('/guide') ||
+    url.pathname.startsWith('/blog')
+  );
 }
 
 // Background sync for offline form submissions
-self.addEventListener('sync', event => {
+self.addEventListener('sync', (event) => {
   if (event.tag === 'background-sync') {
     event.waitUntil(doBackgroundSync());
   }
@@ -192,7 +200,7 @@ async function doBackgroundSync() {
 }
 
 // Push notifications (if needed)
-self.addEventListener('push', event => {
+self.addEventListener('push', (event) => {
   if (event.data) {
     const data = event.data.json();
     const options = {
@@ -202,36 +210,32 @@ self.addEventListener('push', event => {
       vibrate: [100, 50, 100],
       data: {
         dateOfArrival: Date.now(),
-        primaryKey: 1
+        primaryKey: 1,
       },
       actions: [
         {
           action: 'explore',
           title: 'View Property',
-          icon: '/icon-192x192.png'
+          icon: '/icon-192x192.png',
         },
         {
           action: 'close',
           title: 'Close',
-          icon: '/icon-192x192.png'
-        }
-      ]
+          icon: '/icon-192x192.png',
+        },
+      ],
     };
 
-    event.waitUntil(
-      self.registration.showNotification(data.title, options)
-    );
+    event.waitUntil(self.registration.showNotification(data.title, options));
   }
 });
 
 // Handle notification clicks
-self.addEventListener('notificationclick', event => {
+self.addEventListener('notificationclick', (event) => {
   event.notification.close();
 
   if (event.action === 'explore') {
-    event.waitUntil(
-      clients.openWindow('/homes')
-    );
+    event.waitUntil(clients.openWindow('/homes'));
   }
 });
 
@@ -243,10 +247,11 @@ async function manageCacheSize() {
   for (const cacheName of cacheNames) {
     const cache = await caches.open(cacheName);
     const keys = await cache.keys();
-    
-    if (keys.length > 100) { // Limit number of cached items
+
+    if (keys.length > 100) {
+      // Limit number of cached items
       const keysToDelete = keys.slice(0, keys.length - 100);
-      await Promise.all(keysToDelete.map(key => cache.delete(key)));
+      await Promise.all(keysToDelete.map((key) => cache.delete(key)));
     }
   }
 }

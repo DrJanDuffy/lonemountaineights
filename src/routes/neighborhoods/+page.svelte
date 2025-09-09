@@ -1,32 +1,34 @@
 <script>
-	import { microNeighborhoods, generateMicroNeighborhoodKeywords } from '$lib/microNeighborhoods.js';
-	import { generateBreadcrumbSchema } from '$lib/schema.js';
-	
-	let selectedCategory = 'subdivisions';
-	let selectedSubdivision = null;
-	
-	function formatPrice(price) {
-		return new Intl.NumberFormat('en-US', {
-			style: 'currency',
-			currency: 'USD',
-			minimumFractionDigits: 0,
-			maximumFractionDigits: 0
-		}).format(price);
-	}
-	
-	function selectSubdivision(subdivision) {
-		selectedSubdivision = subdivision;
-	}
-	
-	function closeSubdivision() {
-		selectedSubdivision = null;
-	}
-	
-	// Generate breadcrumb schema
-	const breadcrumbSchema = generateBreadcrumbSchema([
-		{ name: 'Home', url: 'https://lonemountainheights.com' },
-		{ name: 'Neighborhoods', url: 'https://lonemountainheights.com/neighborhoods' }
-	]);
+import { generateBreadcrumbSchema } from '$lib/schema.js';
+
+const selectedCategory = 'subdivisions';
+let selectedSubdivision = null;
+
+function formatPrice(price) {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(price);
+}
+
+function selectSubdivision(subdivision) {
+  selectedSubdivision = subdivision;
+}
+
+function closeSubdivision() {
+  selectedSubdivision = null;
+}
+
+// Generate breadcrumb schema
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://lonemountainheights.com' },
+  {
+    name: 'Neighborhoods',
+    url: 'https://lonemountainheights.com/neighborhoods',
+  },
+]);
 </script>
 
 <svelte:head>

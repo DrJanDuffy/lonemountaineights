@@ -1,146 +1,144 @@
 <script>
-	import OptimizedImage from './OptimizedImage.svelte';
-	
-	// Calculator state
-	let homeValue = {
-		address: '',
-		bedrooms: 3,
-		bathrooms: 2,
-		sqft: 2000,
-		yearBuilt: 2010,
-		lotSize: 0.25,
-		condition: 'good',
-		upgrades: []
-	};
-	
-	let calculatedValue = null;
-	let isCalculating = false;
-	let showResults = false;
-	
-	// Lone Mountain Heights specific data
-	const neighborhoodData = {
-		basePricePerSqft: 425,
-		bedroomMultiplier: 5000,
-		bathroomMultiplier: 3000,
-		lotSizeMultiplier: 10000,
-		yearBuiltAdjustment: {
-			'2020+': 1.1,
-			'2015-2019': 1.05,
-			'2010-2014': 1.0,
-			'2005-2009': 0.95,
-			'2000-2004': 0.9,
-			'pre-2000': 0.85
-		},
-		conditionMultiplier: {
-			'excellent': 1.1,
-			'good': 1.0,
-			'fair': 0.9,
-			'needs-work': 0.8
-		},
-		upgradeValues: {
-			'kitchen-remodel': 15000,
-			'bathroom-remodel': 10000,
-			'new-roof': 8000,
-			'new-hvac': 6000,
-			'hardwood-floors': 5000,
-			'pool': 25000,
-			'landscaping': 3000,
-			'smart-home': 2000
-		}
-	};
-	
-	// Available upgrades
-	const availableUpgrades = [
-		{ id: 'kitchen-remodel', label: 'Kitchen Remodel', value: 15000 },
-		{ id: 'bathroom-remodel', label: 'Bathroom Remodel', value: 10000 },
-		{ id: 'new-roof', label: 'New Roof', value: 8000 },
-		{ id: 'new-hvac', label: 'New HVAC System', value: 6000 },
-		{ id: 'hardwood-floors', label: 'Hardwood Floors', value: 5000 },
-		{ id: 'pool', label: 'Swimming Pool', value: 25000 },
-		{ id: 'landscaping', label: 'Professional Landscaping', value: 3000 },
-		{ id: 'smart-home', label: 'Smart Home Features', value: 2000 }
-	];
-	
-	// Calculate home value
-	function calculateValue() {
-		isCalculating = true;
-		
-		// Simulate calculation delay
-		setTimeout(() => {
-			let baseValue = homeValue.sqft * neighborhoodData.basePricePerSqft;
-			
-			// Add bedroom value
-			baseValue += homeValue.bedrooms * neighborhoodData.bedroomMultiplier;
-			
-			// Add bathroom value
-			baseValue += homeValue.bathrooms * neighborhoodData.bathroomMultiplier;
-			
-			// Add lot size value
-			baseValue += homeValue.lotSize * neighborhoodData.lotSizeMultiplier;
-			
-			// Apply year built adjustment
-			const yearBuiltKey = getYearBuiltKey(homeValue.yearBuilt);
-			baseValue *= neighborhoodData.yearBuiltAdjustment[yearBuiltKey];
-			
-			// Apply condition multiplier
-			baseValue *= neighborhoodData.conditionMultiplier[homeValue.condition];
-			
-			// Add upgrade values
-			let upgradeValue = 0;
-			homeValue.upgrades.forEach(upgradeId => {
-				upgradeValue += neighborhoodData.upgradeValues[upgradeId] || 0;
-			});
-			baseValue += upgradeValue;
-			
-			// Add market appreciation (5.2% for Lone Mountain Heights)
-			baseValue *= 1.052;
-			
-			calculatedValue = {
-				estimatedValue: Math.round(baseValue),
-				range: {
-					low: Math.round(baseValue * 0.95),
-					high: Math.round(baseValue * 1.05)
-				},
-				upgradeValue: upgradeValue,
-				marketAppreciation: 5.2
-			};
-			
-			isCalculating = false;
-			showResults = true;
-		}, 2000);
-	}
-	
-	function getYearBuiltKey(year) {
-		if (year >= 2020) return '2020+';
-		if (year >= 2015) return '2015-2019';
-		if (year >= 2010) return '2010-2014';
-		if (year >= 2005) return '2005-2009';
-		if (year >= 2000) return '2000-2004';
-		return 'pre-2000';
-	}
-	
-	function toggleUpgrade(upgradeId) {
-		if (homeValue.upgrades.includes(upgradeId)) {
-			homeValue.upgrades = homeValue.upgrades.filter(id => id !== upgradeId);
-		} else {
-			homeValue.upgrades = [...homeValue.upgrades, upgradeId];
-		}
-	}
-	
-	function resetCalculator() {
-		homeValue = {
-			address: '',
-			bedrooms: 3,
-			bathrooms: 2,
-			sqft: 2000,
-			yearBuilt: 2010,
-			lotSize: 0.25,
-			condition: 'good',
-			upgrades: []
-		};
-		calculatedValue = null;
-		showResults = false;
-	}
+// Calculator state
+let homeValue = {
+  address: '',
+  bedrooms: 3,
+  bathrooms: 2,
+  sqft: 2000,
+  yearBuilt: 2010,
+  lotSize: 0.25,
+  condition: 'good',
+  upgrades: [],
+};
+
+let calculatedValue = null;
+let isCalculating = false;
+let showResults = false;
+
+// Lone Mountain Heights specific data
+const neighborhoodData = {
+  basePricePerSqft: 425,
+  bedroomMultiplier: 5000,
+  bathroomMultiplier: 3000,
+  lotSizeMultiplier: 10000,
+  yearBuiltAdjustment: {
+    '2020+': 1.1,
+    '2015-2019': 1.05,
+    '2010-2014': 1.0,
+    '2005-2009': 0.95,
+    '2000-2004': 0.9,
+    'pre-2000': 0.85,
+  },
+  conditionMultiplier: {
+    excellent: 1.1,
+    good: 1.0,
+    fair: 0.9,
+    'needs-work': 0.8,
+  },
+  upgradeValues: {
+    'kitchen-remodel': 15000,
+    'bathroom-remodel': 10000,
+    'new-roof': 8000,
+    'new-hvac': 6000,
+    'hardwood-floors': 5000,
+    pool: 25000,
+    landscaping: 3000,
+    'smart-home': 2000,
+  },
+};
+
+// Available upgrades
+const availableUpgrades = [
+  { id: 'kitchen-remodel', label: 'Kitchen Remodel', value: 15000 },
+  { id: 'bathroom-remodel', label: 'Bathroom Remodel', value: 10000 },
+  { id: 'new-roof', label: 'New Roof', value: 8000 },
+  { id: 'new-hvac', label: 'New HVAC System', value: 6000 },
+  { id: 'hardwood-floors', label: 'Hardwood Floors', value: 5000 },
+  { id: 'pool', label: 'Swimming Pool', value: 25000 },
+  { id: 'landscaping', label: 'Professional Landscaping', value: 3000 },
+  { id: 'smart-home', label: 'Smart Home Features', value: 2000 },
+];
+
+// Calculate home value
+function calculateValue() {
+  isCalculating = true;
+
+  // Simulate calculation delay
+  setTimeout(() => {
+    let baseValue = homeValue.sqft * neighborhoodData.basePricePerSqft;
+
+    // Add bedroom value
+    baseValue += homeValue.bedrooms * neighborhoodData.bedroomMultiplier;
+
+    // Add bathroom value
+    baseValue += homeValue.bathrooms * neighborhoodData.bathroomMultiplier;
+
+    // Add lot size value
+    baseValue += homeValue.lotSize * neighborhoodData.lotSizeMultiplier;
+
+    // Apply year built adjustment
+    const yearBuiltKey = getYearBuiltKey(homeValue.yearBuilt);
+    baseValue *= neighborhoodData.yearBuiltAdjustment[yearBuiltKey];
+
+    // Apply condition multiplier
+    baseValue *= neighborhoodData.conditionMultiplier[homeValue.condition];
+
+    // Add upgrade values
+    let upgradeValue = 0;
+    homeValue.upgrades.forEach((upgradeId) => {
+      upgradeValue += neighborhoodData.upgradeValues[upgradeId] || 0;
+    });
+    baseValue += upgradeValue;
+
+    // Add market appreciation (5.2% for Lone Mountain Heights)
+    baseValue *= 1.052;
+
+    calculatedValue = {
+      estimatedValue: Math.round(baseValue),
+      range: {
+        low: Math.round(baseValue * 0.95),
+        high: Math.round(baseValue * 1.05),
+      },
+      upgradeValue: upgradeValue,
+      marketAppreciation: 5.2,
+    };
+
+    isCalculating = false;
+    showResults = true;
+  }, 2000);
+}
+
+function getYearBuiltKey(year) {
+  if (year >= 2020) return '2020+';
+  if (year >= 2015) return '2015-2019';
+  if (year >= 2010) return '2010-2014';
+  if (year >= 2005) return '2005-2009';
+  if (year >= 2000) return '2000-2004';
+  return 'pre-2000';
+}
+
+function toggleUpgrade(upgradeId) {
+  if (homeValue.upgrades.includes(upgradeId)) {
+    homeValue.upgrades = homeValue.upgrades.filter((id) => id !== upgradeId);
+  } else {
+    homeValue.upgrades = [...homeValue.upgrades, upgradeId];
+  }
+}
+
+function resetCalculator() {
+  homeValue = {
+    address: '',
+    bedrooms: 3,
+    bathrooms: 2,
+    sqft: 2000,
+    yearBuilt: 2010,
+    lotSize: 0.25,
+    condition: 'good',
+    upgrades: [],
+  };
+  calculatedValue = null;
+  showResults = false;
+}
 </script>
 
 <div class="home-value-calculator">

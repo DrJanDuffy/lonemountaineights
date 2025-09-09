@@ -1,30 +1,33 @@
 <script>
-	import { generateBreadcrumbSchema } from '$lib/schema.js';
-	
-	const breadcrumbSchema = generateBreadcrumbSchema([
-		{ name: 'Home', url: 'https://www.lonemountainheights.com' },
-		{ name: 'Locations', url: 'https://www.lonemountainheights.com/locations' },
-		{ name: 'Lone Mountain Ranch', url: 'https://www.lonemountainheights.com/locations/lone-mountain-ranch' }
-	]);
-	
-	const propertyStats = {
-		averagePrice: '$850,000',
-		priceRange: '$650,000 - $1,200,000',
-		bedrooms: '3-5',
-		squareFootage: '2,200 - 4,500',
-		yearBuilt: '2000-2010',
-		lotSize: '0.25 - 0.5 acres'
-	};
-	
-	const amenities = [
-		'Golf Course Views',
-		'Mountain Views',
-		'Private Pools',
-		'Gated Community',
-		'Canyon Gate Country Club Access',
-		'Walking Trails',
-		'Community Parks'
-	];
+import { generateBreadcrumbSchema } from '$lib/schema.js';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.lonemountainheights.com' },
+  { name: 'Locations', url: 'https://www.lonemountainheights.com/locations' },
+  {
+    name: 'Lone Mountain Ranch',
+    url: 'https://www.lonemountainheights.com/locations/lone-mountain-ranch',
+  },
+]);
+
+const propertyStats = {
+  averagePrice: '$850,000',
+  priceRange: '$650,000 - $1,200,000',
+  bedrooms: '3-5',
+  squareFootage: '2,200 - 4,500',
+  yearBuilt: '2000-2010',
+  lotSize: '0.25 - 0.5 acres',
+};
+
+const amenities = [
+  'Golf Course Views',
+  'Mountain Views',
+  'Private Pools',
+  'Gated Community',
+  'Canyon Gate Country Club Access',
+  'Walking Trails',
+  'Community Parks',
+];
 </script>
 
 <svelte:head>

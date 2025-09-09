@@ -1,71 +1,74 @@
 <script>
-	import { generateBreadcrumbSchema } from '$lib/schema.js';
-	
-	const breadcrumbSchema = generateBreadcrumbSchema([
-		{ name: 'Home', url: 'https://www.lonemountainheights.com' },
-		{ name: 'Blog', url: 'https://www.lonemountainheights.com/blog' },
-		{ name: 'This Week in Lone Mountain Heights', url: 'https://www.lonemountainheights.com/blog/this-week-in-lone-mountain-heights' }
-	]);
-	
-	// Weekly market data (in a real app, this would come from an API)
-	const weeklyData = {
-		date: 'December 19, 2024',
-		newListings: 12,
-		closedSales: 8,
-		averagePrice: '$850,000',
-		priceChange: '+2.3%',
-		daysOnMarket: 28,
-		inventoryLevel: 'Low',
-		marketCondition: 'Seller\'s Market'
-	};
-	
-	// Recent sales data
-	const recentSales = [
-		{
-			address: '1234 Mountain View Dr',
-			price: '$875,000',
-			bedrooms: 4,
-			bathrooms: 3,
-			sqft: '2,850',
-			daysOnMarket: 15,
-			subdivision: 'Lone Mountain Ranch'
-		},
-		{
-			address: '5678 Desert Vista Way',
-			price: '$725,000',
-			bedrooms: 3,
-			bathrooms: 2,
-			sqft: '2,200',
-			daysOnMarket: 22,
-			subdivision: 'Desert Vista Estates'
-		},
-		{
-			address: '9012 Canyon Gate Blvd',
-			price: '$1,150,000',
-			bedrooms: 5,
-			bathrooms: 4,
-			sqft: '3,500',
-			daysOnMarket: 31,
-			subdivision: 'Canyon Gate Country Club'
-		}
-	];
-	
-	// Market insights
-	const marketInsights = [
-		'Inventory remains tight with only 45 active listings across Lone Mountain Heights',
-		'Average days on market decreased to 28 days, indicating strong buyer demand',
-		'Luxury properties ($1M+) showing increased activity with 3 sales this week',
-		'Interest rates stabilizing around 6.5% for 30-year fixed mortgages',
-		'Spring selling season expected to bring more inventory in Q1 2025'
-	];
-	
-	// Neighborhood news
-	const neighborhoodNews = [
-		'New walking trail completed connecting Desert Vista Estates to community park',
-		'Canyon Gate Country Club announces golf course renovation project for 2025',
-		'William G. Geer Elementary receives state recognition for academic excellence',
-		'New restaurant opening in Summerlin Center, 5 minutes from Lone Mountain Heights'
-	];
+import { generateBreadcrumbSchema } from '$lib/schema.js';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.lonemountainheights.com' },
+  { name: 'Blog', url: 'https://www.lonemountainheights.com/blog' },
+  {
+    name: 'This Week in Lone Mountain Heights',
+    url: 'https://www.lonemountainheights.com/blog/this-week-in-lone-mountain-heights',
+  },
+]);
+
+// Weekly market data (in a real app, this would come from an API)
+const weeklyData = {
+  date: 'December 19, 2024',
+  newListings: 12,
+  closedSales: 8,
+  averagePrice: '$850,000',
+  priceChange: '+2.3%',
+  daysOnMarket: 28,
+  inventoryLevel: 'Low',
+  marketCondition: "Seller's Market",
+};
+
+// Recent sales data
+const recentSales = [
+  {
+    address: '1234 Mountain View Dr',
+    price: '$875,000',
+    bedrooms: 4,
+    bathrooms: 3,
+    sqft: '2,850',
+    daysOnMarket: 15,
+    subdivision: 'Lone Mountain Ranch',
+  },
+  {
+    address: '5678 Desert Vista Way',
+    price: '$725,000',
+    bedrooms: 3,
+    bathrooms: 2,
+    sqft: '2,200',
+    daysOnMarket: 22,
+    subdivision: 'Desert Vista Estates',
+  },
+  {
+    address: '9012 Canyon Gate Blvd',
+    price: '$1,150,000',
+    bedrooms: 5,
+    bathrooms: 4,
+    sqft: '3,500',
+    daysOnMarket: 31,
+    subdivision: 'Canyon Gate Country Club',
+  },
+];
+
+// Market insights
+const marketInsights = [
+  'Inventory remains tight with only 45 active listings across Lone Mountain Heights',
+  'Average days on market decreased to 28 days, indicating strong buyer demand',
+  'Luxury properties ($1M+) showing increased activity with 3 sales this week',
+  'Interest rates stabilizing around 6.5% for 30-year fixed mortgages',
+  'Spring selling season expected to bring more inventory in Q1 2025',
+];
+
+// Neighborhood news
+const neighborhoodNews = [
+  'New walking trail completed connecting Desert Vista Estates to community park',
+  'Canyon Gate Country Club announces golf course renovation project for 2025',
+  'William G. Geer Elementary receives state recognition for academic excellence',
+  'New restaurant opening in Summerlin Center, 5 minutes from Lone Mountain Heights',
+];
 </script>
 
 <svelte:head>

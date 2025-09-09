@@ -1,215 +1,338 @@
 <script>
-	import { generateBreadcrumbSchema } from '$lib/schema.js';
-	
-	// Local amenities and attractions data
-	const amenities = {
-		parks: [
-			{
-				name: 'Lone Mountain Discovery Park',
-				type: 'Recreation Park',
-				distance: '0.5 miles',
-				address: '4445 N Jensen St, Las Vegas, NV 89129',
-				phone: '(702) 229-6300',
-				description: 'Green space with roller hockey rink, basketball courts, tennis courts, and picnic areas. Part of the official Lone Mountain recreation facilities.',
-				features: ['Roller Hockey Rink', 'Basketball Courts', 'Tennis Courts', 'Picnic Areas', 'Green Space', 'Community Events'],
-				hours: '6:00 AM - 10:00 PM',
-				rating: 4.5,
-				image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-			},
-			{
-				name: 'Majestic Park',
-				type: 'Softball Complex',
-				distance: '1.2 miles',
-				address: '4701 N Durango Dr, Las Vegas, NV 89129',
-				phone: '(702) 229-6300',
-				description: 'Full-service softball facility with twelve playing fields, perfect for sports leagues and tournaments.',
-				features: ['12 Playing Fields', 'Full-Service Facility', 'Tournament Ready', 'League Play', 'Concessions', 'Parking'],
-				hours: '6:00 AM - 10:00 PM',
-				rating: 4.4,
-				image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-			},
-			{
-				name: 'Trigono Hills Park',
-				type: 'Recreation Facility',
-				distance: '1.5 miles',
-				address: 'Cliff Shadows Parkway at Gilmore Avenue, Las Vegas, NV 89129',
-				phone: '(702) 229-6300',
-				description: '$6.5 million recreational facility opened in spring 2020, featuring modern amenities and state-of-the-art equipment.',
-				features: ['Modern Facility', 'State-of-the-Art Equipment', 'Multiple Courts', 'Fitness Areas', 'Community Programs', 'Accessible Design'],
-				hours: '6:00 AM - 10:00 PM',
-				rating: 4.6,
-				image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-			},
-			{
-				name: 'Police Memorial Park',
-				type: 'Memorial Park',
-				distance: '2.0 miles',
-				address: '3250 Metro Academy Way, Las Vegas, NV 89129',
-				phone: '(702) 828-3111',
-				description: 'Dedicated in 2009, includes Memorial Wall and two dedicated tree groves honoring Las Vegas Metropolitan police officers who died in the line of duty.',
-				features: ['Memorial Wall', 'Tree Groves', 'Peaceful Setting', 'Educational Displays', 'Reflection Areas', 'Honor Guards'],
-				hours: 'Dawn to Dusk',
-				rating: 4.8,
-				image: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-			},
-			{
-				name: 'Lone Mountain Regional Park',
-				type: 'Regional Park',
-				distance: '1.0 miles',
-				address: '4445 N Jensen St, Las Vegas, NV 89129',
-				phone: '(702) 229-6300',
-				description: 'Large regional park offering natural wildlife preserves, pond fishing, hiking trails, camping, and picnic sites with spectacular mountain views.',
-				features: ['Wildlife Preserves', 'Pond Fishing', 'Hiking Trails', 'Camping', 'Picnic Sites', 'Mountain Views'],
-				hours: '6:00 AM - 10:00 PM',
-				rating: 4.6,
-				image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-			},
-			{
-				name: 'Floyd Lamb State Park',
-				type: 'State Park',
-				distance: '3.5 miles',
-				address: '9200 Tule Springs Rd, Las Vegas, NV 89131',
-				phone: '(702) 486-5413',
-				description: 'Historic state park featuring fishing ponds, walking trails, historic buildings, and abundant wildlife in a peaceful desert setting.',
-				features: ['Fishing Ponds', 'Walking Trails', 'Historic Buildings', 'Wildlife Viewing', 'Desert Setting', 'Historic Significance'],
-				hours: '8:00 AM - 5:00 PM',
-				rating: 4.4,
-				image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-			}
-		],
-		recreation: [
-			{
-				name: 'Lone Mountain Summit Trail',
-				type: 'Hiking & Jogging',
-				distance: '0.1 miles',
-				address: 'Lone Mountain Rd, Las Vegas, NV 89129',
-				phone: '(702) 229-6300',
-				description: '3.2-mile perimeter trail around Lone Mountain summit (560 feet elevation). Offers spectacular views of Las Vegas, Spring Mountains, and Mount Charleston. Popular for joggers, hikers, and horseback riders.',
-				features: ['3.2-Mile Perimeter Trail', '560-Foot Summit', 'City Views', 'Mountain Views', 'Jogging Path', 'Horseback Riding', '10-Foot Wide Trail'],
-				hours: 'Dawn to Dusk',
-				rating: 4.7,
-				image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-			},
-			{
-				name: 'Mountain Crest Community Center',
-				type: 'Community Center',
-				distance: '1.2 miles',
-				address: '4701 N Durango Dr, Las Vegas, NV 89129',
-				phone: '(702) 229-6300',
-				description: 'Community center offering disc golf, card games, playground, and various recreational activities.',
-				features: ['Disc Golf', 'Card Games', 'Playground', 'Meeting Rooms', 'Recreational Activities'],
-				hours: '8:00 AM - 9:00 PM',
-				rating: 4.2,
-				image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-			},
-			{
-				name: 'Durango Hills Golf Course',
-				type: 'Golf Course',
-				distance: '2.5 miles',
-				address: '3521 N Durango Dr, Las Vegas, NV 89129',
-				phone: '(702) 656-7600',
-				description: '18-hole public golf course offering challenging play with beautiful mountain views.',
-				features: ['18-Hole Course', 'Public Access', 'Mountain Views', 'Pro Shop', 'Restaurant'],
-				hours: '6:00 AM - 7:00 PM',
-				rating: 4.4,
-				image: 'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-			},
-			{
-				name: 'Mount Charleston',
-				type: 'Mountain Recreation',
-				distance: '25 miles',
-				address: 'Mount Charleston, NV 89124',
-				phone: '(702) 515-5400',
-				description: 'Highest peak in Southern Nevada offering skiing, snowboarding, hiking, camping, and year-round outdoor recreation with cooler temperatures.',
-				features: ['Skiing & Snowboarding', 'Hiking Trails', 'Camping', 'Cooler Temperatures', 'Scenic Views', 'Year-Round Recreation'],
-				hours: '24/7 (varies by season)',
-				rating: 4.8,
-				image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-			},
-			{
-				name: 'Red Rock Canyon National Conservation Area',
-				type: 'National Conservation Area',
-				distance: '15 miles',
-				address: '1000 Scenic Loop Dr, Las Vegas, NV 89161',
-				phone: '(702) 515-5350',
-				description: 'Spectacular red rock formations, hiking trails, scenic drive, rock climbing, and abundant wildlife in a protected desert environment.',
-				features: ['Red Rock Formations', 'Hiking Trails', 'Scenic Drive', 'Rock Climbing', 'Wildlife Viewing', 'Desert Environment'],
-				hours: '6:00 AM - 8:00 PM',
-				rating: 4.9,
-				image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-			}
-		],
-		shopping: [
-			{
-				name: 'Centennial Hills Shopping Center',
-				type: 'Shopping Center',
-				distance: '3.0 miles',
-				address: '6600 N Durango Dr, Las Vegas, NV 89149',
-				phone: '(702) 656-7600',
-				description: 'Major shopping center with national chains, local stores, restaurants, and entertainment options.',
-				features: ['National Retailers', 'Local Stores', 'Restaurants', 'Entertainment', 'Parking'],
-				hours: '10:00 AM - 9:00 PM',
-				rating: 4.3,
-				image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-			},
-			{
-				name: 'Summerlin Shopping District',
-				type: 'Shopping District',
-				distance: '4.5 miles',
-				address: '1980 Festival Plaza Dr, Las Vegas, NV 89135',
-				phone: '(702) 656-7600',
-				description: 'Upscale shopping district with high-end retailers, fine dining, and entertainment venues.',
-				features: ['Upscale Retailers', 'Fine Dining', 'Entertainment', 'Outdoor Spaces', 'Events'],
-				hours: '10:00 AM - 10:00 PM',
-				rating: 4.5,
-				image: 'https://images.unsplash.com/photo-1555529902-5a0b4e0b2f8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-			}
-		],
-		dining: [
-			{
-				name: 'Local Restaurants',
-				type: 'Dining Options',
-				distance: '1-3 miles',
-				address: 'Various locations',
-				phone: 'Various',
-				description: 'Mix of national chains and local establishments offering diverse cuisines and dining experiences.',
-				features: ['National Chains', 'Local Establishments', 'Diverse Cuisines', 'Family Friendly', 'Casual Dining'],
-				hours: 'Varies by location',
-				rating: 4.2,
-				image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-			}
-		]
-	};
-	
-	// Community characteristics
-	const communityFeatures = {
-		title: 'Lone Mountain Heights Community Features',
-		description: 'Lone Mountain Heights is a quiet, gated community developed between 2001-2005, nestled on the west side of Lone Mountain in the northeast area of the Las Vegas Valley. The community features 3-5 bedroom single and two-story homes (2,500-4,400 sq ft) with mature landscaping and spectacular mountain views.',
-		features: [
-			'Gated community developed 2001-2005',
-			'3-5 bedroom homes (2,500-4,400 sq ft)',
-			'Single and two-story single-family homes',
-			'Mature landscaping throughout',
-			'Spectacular mountain views',
-			'Quiet, established neighborhood',
-			'Close proximity to shopping and dining',
-			'Easy access to 215 Beltway and Summerlin Parkway',
-			'Nearby communities: Lone Mountain West, Centennial Hills, Shadow Hills',
-			'El Capitan Ranch, North Shore, Providence nearby',
-			'Elkhorn Springs and Painted Desert close by',
-			'Zip code 89129'
-		]
-	};
-	
-	// Generate breadcrumb schema
-	const breadcrumbSchema = generateBreadcrumbSchema([
-		{ name: 'Home', url: 'https://lonemountainheights.com' },
-		{ name: 'Amenities', url: 'https://lonemountainheights.com/amenities' }
-	]);
-	
-	function getStars(rating) {
-		return '★'.repeat(Math.floor(rating)) + '☆'.repeat(5 - Math.floor(rating));
-	}
+import { generateBreadcrumbSchema } from '$lib/schema.js';
+
+// Local amenities and attractions data
+const amenities = {
+  parks: [
+    {
+      name: 'Lone Mountain Discovery Park',
+      type: 'Recreation Park',
+      distance: '0.5 miles',
+      address: '4445 N Jensen St, Las Vegas, NV 89129',
+      phone: '(702) 229-6300',
+      description:
+        'Green space with roller hockey rink, basketball courts, tennis courts, and picnic areas. Part of the official Lone Mountain recreation facilities.',
+      features: [
+        'Roller Hockey Rink',
+        'Basketball Courts',
+        'Tennis Courts',
+        'Picnic Areas',
+        'Green Space',
+        'Community Events',
+      ],
+      hours: '6:00 AM - 10:00 PM',
+      rating: 4.5,
+      image:
+        'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      name: 'Majestic Park',
+      type: 'Softball Complex',
+      distance: '1.2 miles',
+      address: '4701 N Durango Dr, Las Vegas, NV 89129',
+      phone: '(702) 229-6300',
+      description:
+        'Full-service softball facility with twelve playing fields, perfect for sports leagues and tournaments.',
+      features: [
+        '12 Playing Fields',
+        'Full-Service Facility',
+        'Tournament Ready',
+        'League Play',
+        'Concessions',
+        'Parking',
+      ],
+      hours: '6:00 AM - 10:00 PM',
+      rating: 4.4,
+      image:
+        'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      name: 'Trigono Hills Park',
+      type: 'Recreation Facility',
+      distance: '1.5 miles',
+      address: 'Cliff Shadows Parkway at Gilmore Avenue, Las Vegas, NV 89129',
+      phone: '(702) 229-6300',
+      description:
+        '$6.5 million recreational facility opened in spring 2020, featuring modern amenities and state-of-the-art equipment.',
+      features: [
+        'Modern Facility',
+        'State-of-the-Art Equipment',
+        'Multiple Courts',
+        'Fitness Areas',
+        'Community Programs',
+        'Accessible Design',
+      ],
+      hours: '6:00 AM - 10:00 PM',
+      rating: 4.6,
+      image:
+        'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      name: 'Police Memorial Park',
+      type: 'Memorial Park',
+      distance: '2.0 miles',
+      address: '3250 Metro Academy Way, Las Vegas, NV 89129',
+      phone: '(702) 828-3111',
+      description:
+        'Dedicated in 2009, includes Memorial Wall and two dedicated tree groves honoring Las Vegas Metropolitan police officers who died in the line of duty.',
+      features: [
+        'Memorial Wall',
+        'Tree Groves',
+        'Peaceful Setting',
+        'Educational Displays',
+        'Reflection Areas',
+        'Honor Guards',
+      ],
+      hours: 'Dawn to Dusk',
+      rating: 4.8,
+      image:
+        'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      name: 'Lone Mountain Regional Park',
+      type: 'Regional Park',
+      distance: '1.0 miles',
+      address: '4445 N Jensen St, Las Vegas, NV 89129',
+      phone: '(702) 229-6300',
+      description:
+        'Large regional park offering natural wildlife preserves, pond fishing, hiking trails, camping, and picnic sites with spectacular mountain views.',
+      features: [
+        'Wildlife Preserves',
+        'Pond Fishing',
+        'Hiking Trails',
+        'Camping',
+        'Picnic Sites',
+        'Mountain Views',
+      ],
+      hours: '6:00 AM - 10:00 PM',
+      rating: 4.6,
+      image:
+        'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      name: 'Floyd Lamb State Park',
+      type: 'State Park',
+      distance: '3.5 miles',
+      address: '9200 Tule Springs Rd, Las Vegas, NV 89131',
+      phone: '(702) 486-5413',
+      description:
+        'Historic state park featuring fishing ponds, walking trails, historic buildings, and abundant wildlife in a peaceful desert setting.',
+      features: [
+        'Fishing Ponds',
+        'Walking Trails',
+        'Historic Buildings',
+        'Wildlife Viewing',
+        'Desert Setting',
+        'Historic Significance',
+      ],
+      hours: '8:00 AM - 5:00 PM',
+      rating: 4.4,
+      image:
+        'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    },
+  ],
+  recreation: [
+    {
+      name: 'Lone Mountain Summit Trail',
+      type: 'Hiking & Jogging',
+      distance: '0.1 miles',
+      address: 'Lone Mountain Rd, Las Vegas, NV 89129',
+      phone: '(702) 229-6300',
+      description:
+        '3.2-mile perimeter trail around Lone Mountain summit (560 feet elevation). Offers spectacular views of Las Vegas, Spring Mountains, and Mount Charleston. Popular for joggers, hikers, and horseback riders.',
+      features: [
+        '3.2-Mile Perimeter Trail',
+        '560-Foot Summit',
+        'City Views',
+        'Mountain Views',
+        'Jogging Path',
+        'Horseback Riding',
+        '10-Foot Wide Trail',
+      ],
+      hours: 'Dawn to Dusk',
+      rating: 4.7,
+      image:
+        'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      name: 'Mountain Crest Community Center',
+      type: 'Community Center',
+      distance: '1.2 miles',
+      address: '4701 N Durango Dr, Las Vegas, NV 89129',
+      phone: '(702) 229-6300',
+      description:
+        'Community center offering disc golf, card games, playground, and various recreational activities.',
+      features: [
+        'Disc Golf',
+        'Card Games',
+        'Playground',
+        'Meeting Rooms',
+        'Recreational Activities',
+      ],
+      hours: '8:00 AM - 9:00 PM',
+      rating: 4.2,
+      image:
+        'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      name: 'Durango Hills Golf Course',
+      type: 'Golf Course',
+      distance: '2.5 miles',
+      address: '3521 N Durango Dr, Las Vegas, NV 89129',
+      phone: '(702) 656-7600',
+      description:
+        '18-hole public golf course offering challenging play with beautiful mountain views.',
+      features: [
+        '18-Hole Course',
+        'Public Access',
+        'Mountain Views',
+        'Pro Shop',
+        'Restaurant',
+      ],
+      hours: '6:00 AM - 7:00 PM',
+      rating: 4.4,
+      image:
+        'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      name: 'Mount Charleston',
+      type: 'Mountain Recreation',
+      distance: '25 miles',
+      address: 'Mount Charleston, NV 89124',
+      phone: '(702) 515-5400',
+      description:
+        'Highest peak in Southern Nevada offering skiing, snowboarding, hiking, camping, and year-round outdoor recreation with cooler temperatures.',
+      features: [
+        'Skiing & Snowboarding',
+        'Hiking Trails',
+        'Camping',
+        'Cooler Temperatures',
+        'Scenic Views',
+        'Year-Round Recreation',
+      ],
+      hours: '24/7 (varies by season)',
+      rating: 4.8,
+      image:
+        'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      name: 'Red Rock Canyon National Conservation Area',
+      type: 'National Conservation Area',
+      distance: '15 miles',
+      address: '1000 Scenic Loop Dr, Las Vegas, NV 89161',
+      phone: '(702) 515-5350',
+      description:
+        'Spectacular red rock formations, hiking trails, scenic drive, rock climbing, and abundant wildlife in a protected desert environment.',
+      features: [
+        'Red Rock Formations',
+        'Hiking Trails',
+        'Scenic Drive',
+        'Rock Climbing',
+        'Wildlife Viewing',
+        'Desert Environment',
+      ],
+      hours: '6:00 AM - 8:00 PM',
+      rating: 4.9,
+      image:
+        'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    },
+  ],
+  shopping: [
+    {
+      name: 'Centennial Hills Shopping Center',
+      type: 'Shopping Center',
+      distance: '3.0 miles',
+      address: '6600 N Durango Dr, Las Vegas, NV 89149',
+      phone: '(702) 656-7600',
+      description:
+        'Major shopping center with national chains, local stores, restaurants, and entertainment options.',
+      features: [
+        'National Retailers',
+        'Local Stores',
+        'Restaurants',
+        'Entertainment',
+        'Parking',
+      ],
+      hours: '10:00 AM - 9:00 PM',
+      rating: 4.3,
+      image:
+        'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    },
+    {
+      name: 'Summerlin Shopping District',
+      type: 'Shopping District',
+      distance: '4.5 miles',
+      address: '1980 Festival Plaza Dr, Las Vegas, NV 89135',
+      phone: '(702) 656-7600',
+      description:
+        'Upscale shopping district with high-end retailers, fine dining, and entertainment venues.',
+      features: [
+        'Upscale Retailers',
+        'Fine Dining',
+        'Entertainment',
+        'Outdoor Spaces',
+        'Events',
+      ],
+      hours: '10:00 AM - 10:00 PM',
+      rating: 4.5,
+      image:
+        'https://images.unsplash.com/photo-1555529902-5a0b4e0b2f8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    },
+  ],
+  dining: [
+    {
+      name: 'Local Restaurants',
+      type: 'Dining Options',
+      distance: '1-3 miles',
+      address: 'Various locations',
+      phone: 'Various',
+      description:
+        'Mix of national chains and local establishments offering diverse cuisines and dining experiences.',
+      features: [
+        'National Chains',
+        'Local Establishments',
+        'Diverse Cuisines',
+        'Family Friendly',
+        'Casual Dining',
+      ],
+      hours: 'Varies by location',
+      rating: 4.2,
+      image:
+        'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    },
+  ],
+};
+
+// Community characteristics
+const communityFeatures = {
+  title: 'Lone Mountain Heights Community Features',
+  description:
+    'Lone Mountain Heights is a quiet, gated community developed between 2001-2005, nestled on the west side of Lone Mountain in the northeast area of the Las Vegas Valley. The community features 3-5 bedroom single and two-story homes (2,500-4,400 sq ft) with mature landscaping and spectacular mountain views.',
+  features: [
+    'Gated community developed 2001-2005',
+    '3-5 bedroom homes (2,500-4,400 sq ft)',
+    'Single and two-story single-family homes',
+    'Mature landscaping throughout',
+    'Spectacular mountain views',
+    'Quiet, established neighborhood',
+    'Close proximity to shopping and dining',
+    'Easy access to 215 Beltway and Summerlin Parkway',
+    'Nearby communities: Lone Mountain West, Centennial Hills, Shadow Hills',
+    'El Capitan Ranch, North Shore, Providence nearby',
+    'Elkhorn Springs and Painted Desert close by',
+    'Zip code 89129',
+  ],
+};
+
+// Generate breadcrumb schema
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://lonemountainheights.com' },
+  { name: 'Amenities', url: 'https://lonemountainheights.com/amenities' },
+]);
+
+function getStars(rating) {
+  return '★'.repeat(Math.floor(rating)) + '☆'.repeat(5 - Math.floor(rating));
+}
 </script>
 
 <svelte:head>

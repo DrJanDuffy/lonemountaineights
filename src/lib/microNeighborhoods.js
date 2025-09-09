@@ -7,23 +7,39 @@ export const microNeighborhoods = {
     {
       id: 'lone-mountain-ranch',
       name: 'Lone Mountain Ranch',
-      description: 'Premier subdivision with Spanish Colonial horse ranches and luxury mini-estates by Blue Heron Homes',
+      description:
+        'Premier subdivision with Spanish Colonial horse ranches and luxury mini-estates by Blue Heron Homes',
       avgPrice: 950000,
       priceRange: { min: 750000, max: 1200000 },
-      homeStyles: ['Spanish Colonial', 'Horse Ranches', 'Luxury Mini-Estates', 'Custom'],
+      homeStyles: [
+        'Spanish Colonial',
+        'Horse Ranches',
+        'Luxury Mini-Estates',
+        'Custom',
+      ],
       lotSizes: ['0.25-0.5 acres'],
       yearBuilt: '2015-2024',
       hoa: true,
       hoaFee: 150,
       amenities: ['Mountain Views', 'Luxury Finishes', 'Large Lots'],
-      keyStreets: ['Lone Mountain Ranch Dr', 'Mountain Vista Way', 'Ranch View Ln'],
-      seoKeywords: ['Lone Mountain Ranch homes', 'Lone Mountain Ranch real estate', 'Luxury homes Lone Mountain Ranch'],
-      marketInsights: 'Premium subdivision with newest construction and highest values in the area'
+      keyStreets: [
+        'Lone Mountain Ranch Dr',
+        'Mountain Vista Way',
+        'Ranch View Ln',
+      ],
+      seoKeywords: [
+        'Lone Mountain Ranch homes',
+        'Lone Mountain Ranch real estate',
+        'Luxury homes Lone Mountain Ranch',
+      ],
+      marketInsights:
+        'Premium subdivision with newest construction and highest values in the area',
     },
     {
       id: 'desert-vista-estates',
       name: 'Desert Vista Estates',
-      description: 'Established community with mature landscaping and family-friendly atmosphere',
+      description:
+        'Established community with mature landscaping and family-friendly atmosphere',
       avgPrice: 825000,
       priceRange: { min: 650000, max: 950000 },
       homeStyles: ['Two Story', 'Single Story', 'Split Level'],
@@ -33,8 +49,13 @@ export const microNeighborhoods = {
       hoaFee: 120,
       amenities: ['Mature Trees', 'Community Pool', 'Walking Trails'],
       keyStreets: ['Desert Vista Dr', 'Vista Ridge Way', 'Desert Canyon Ln'],
-      seoKeywords: ['Desert Vista Estates homes', 'Desert Vista Estates real estate', 'Family homes Desert Vista'],
-      marketInsights: 'Great value with established neighborhood feel and excellent resale potential'
+      seoKeywords: [
+        'Desert Vista Estates homes',
+        'Desert Vista Estates real estate',
+        'Family homes Desert Vista',
+      ],
+      marketInsights:
+        'Great value with established neighborhood feel and excellent resale potential',
     },
     {
       id: 'mountain-crest',
@@ -49,8 +70,13 @@ export const microNeighborhoods = {
       hoaFee: 200,
       amenities: ['Panoramic Views', 'Custom Homes', 'Hillside Lots'],
       keyStreets: ['Mountain Crest Dr', 'Crest View Way', 'Hillside Ridge Ln'],
-      seoKeywords: ['Mountain Crest homes', 'Mountain Crest real estate', 'Custom homes Mountain Crest'],
-      marketInsights: 'Highest-end subdivision with custom homes and premium views'
+      seoKeywords: [
+        'Mountain Crest homes',
+        'Mountain Crest real estate',
+        'Custom homes Mountain Crest',
+      ],
+      marketInsights:
+        'Highest-end subdivision with custom homes and premium views',
     },
     {
       id: 'tule-springs-village',
@@ -63,15 +89,26 @@ export const microNeighborhoods = {
       yearBuilt: '2018-2024',
       hoa: true,
       hoaFee: 300,
-      amenities: ['55+ Community', 'Golf Course', 'Clubhouse', 'Fitness Center'],
+      amenities: [
+        '55+ Community',
+        'Golf Course',
+        'Clubhouse',
+        'Fitness Center',
+      ],
       keyStreets: ['Tule Springs Dr', 'Village Center Way', 'Springs View Ln'],
-      seoKeywords: ['Tule Springs Village homes', '55+ community Tule Springs', 'Active adult Tule Springs'],
-      marketInsights: 'Active adult community with resort amenities and low maintenance living'
+      seoKeywords: [
+        'Tule Springs Village homes',
+        '55+ community Tule Springs',
+        'Active adult Tule Springs',
+      ],
+      marketInsights:
+        'Active adult community with resort amenities and low maintenance living',
     },
     {
       id: 'desert-foothills',
       name: 'Desert Foothills',
-      description: 'Established neighborhood with diverse home styles and excellent location',
+      description:
+        'Established neighborhood with diverse home styles and excellent location',
       avgPrice: 780000,
       priceRange: { min: 600000, max: 950000 },
       homeStyles: ['Two Story', 'Single Story', 'Ranch'],
@@ -81,8 +118,13 @@ export const microNeighborhoods = {
       hoaFee: 0,
       amenities: ['No HOA', 'Mature Landscaping', 'Established Community'],
       keyStreets: ['Desert Foothills Dr', 'Foothills Way', 'Desert Ridge Ln'],
-      seoKeywords: ['Desert Foothills homes', 'No HOA Desert Foothills', 'Established neighborhood Desert Foothills'],
-      marketInsights: 'No HOA community with diverse home styles and strong resale values'
+      seoKeywords: [
+        'Desert Foothills homes',
+        'No HOA Desert Foothills',
+        'Established neighborhood Desert Foothills',
+      ],
+      marketInsights:
+        'No HOA community with diverse home styles and strong resale values',
     },
     {
       id: 'canyon-gate-country-club',
@@ -97,12 +139,17 @@ export const microNeighborhoods = {
       hoaFee: 250,
       amenities: ['Golf Course Access', 'Country Club', 'Premium Location'],
       keyStreets: ['Canyon Gate Dr', 'Country Club Way', 'Golf View Ln'],
-      seoKeywords: ['Canyon Gate homes', 'Golf course homes Canyon Gate', 'Country club homes Las Vegas'],
-      marketInsights: 'Premium golf course community with highest property values'
+      seoKeywords: [
+        'Canyon Gate homes',
+        'Golf course homes Canyon Gate',
+        'Country club homes Las Vegas',
+      ],
+      marketInsights:
+        'Premium golf course community with highest property values',
     },
     {
       id: 'mountains-edge-north',
-      name: 'Mountain\'s Edge North Section',
+      name: "Mountain's Edge North Section",
       description: 'Newer construction with modern amenities and family focus',
       avgPrice: 720000,
       priceRange: { min: 550000, max: 850000 },
@@ -112,9 +159,14 @@ export const microNeighborhoods = {
       hoa: true,
       hoaFee: 100,
       amenities: ['Modern Amenities', 'Family Focus', 'New Construction'],
-      keyStreets: ['Mountain\'s Edge Dr', 'North Ridge Way', 'Edge View Ln'],
-      seoKeywords: ['Mountain\'s Edge North homes', 'New construction Mountain\'s Edge', 'Family homes Mountain\'s Edge'],
-      marketInsights: 'Newer construction with modern amenities and growing family community'
+      keyStreets: ["Mountain's Edge Dr", 'North Ridge Way', 'Edge View Ln'],
+      seoKeywords: [
+        "Mountain's Edge North homes",
+        "New construction Mountain's Edge",
+        "Family homes Mountain's Edge",
+      ],
+      marketInsights:
+        'Newer construction with modern amenities and growing family community',
     },
     {
       id: 'providence-communities',
@@ -129,25 +181,47 @@ export const microNeighborhoods = {
       hoaFee: 180,
       amenities: ['Master Planned', 'Community Amenities', 'Diverse Options'],
       keyStreets: ['Providence Dr', 'Community Way', 'Planned View Ln'],
-      seoKeywords: ['Providence homes Las Vegas', 'Master planned community Providence', 'Providence real estate'],
-      marketInsights: 'Master-planned community with diverse housing options and amenities'
+      seoKeywords: [
+        'Providence homes Las Vegas',
+        'Master planned community Providence',
+        'Providence real estate',
+      ],
+      marketInsights:
+        'Master-planned community with diverse housing options and amenities',
     },
     {
       id: 'hillside-modern-revival',
       name: 'Hillside Modern Revival',
-      description: 'Three-story, mid-century modern revival houses designed by William Ramsey',
+      description:
+        'Three-story, mid-century modern revival houses designed by William Ramsey',
       avgPrice: 1200000,
       priceRange: { min: 950000, max: 1500000 },
-      homeStyles: ['Mid-Century Modern Revival', 'Three-Story', 'Contemporary', 'Custom'],
+      homeStyles: [
+        'Mid-Century Modern Revival',
+        'Three-Story',
+        'Contemporary',
+        'Custom',
+      ],
       lotSizes: ['0.3-0.5 acres'],
       yearBuilt: '2015-2024',
       hoa: true,
       hoaFee: 200,
-      amenities: ['Modern Design', 'Architectural Significance', 'Premium Location', 'Custom Features'],
+      amenities: [
+        'Modern Design',
+        'Architectural Significance',
+        'Premium Location',
+        'Custom Features',
+      ],
       keyStreets: ['Hillside Dr', 'Modern Way', 'Revival Ln'],
-      seoKeywords: ['Hillside homes Las Vegas', 'Mid-century modern homes', 'William Ramsey homes', 'Modern revival homes'],
-      marketInsights: 'Architecturally significant mid-century modern revival homes by renowned designer William Ramsey'
-    }
+      seoKeywords: [
+        'Hillside homes Las Vegas',
+        'Mid-century modern homes',
+        'William Ramsey homes',
+        'Modern revival homes',
+      ],
+      marketInsights:
+        'Architecturally significant mid-century modern revival homes by renowned designer William Ramsey',
+    },
   ],
 
   // Key Street Clusters
@@ -157,9 +231,17 @@ export const microNeighborhoods = {
       name: 'Lone Mountain Road Corridor',
       description: 'Main thoroughfare with mixed residential and commercial',
       avgPrice: 800000,
-      keyStreets: ['Lone Mountain Rd', 'Lone Mountain Blvd', 'Lone Mountain Pkwy'],
+      keyStreets: [
+        'Lone Mountain Rd',
+        'Lone Mountain Blvd',
+        'Lone Mountain Pkwy',
+      ],
       characteristics: ['Main Access', 'Mixed Use', 'Convenient Location'],
-      seoKeywords: ['Lone Mountain Road homes', 'Lone Mountain Road real estate', 'Homes near Lone Mountain Road']
+      seoKeywords: [
+        'Lone Mountain Road homes',
+        'Lone Mountain Road real estate',
+        'Homes near Lone Mountain Road',
+      ],
     },
     {
       id: 'desert-foothills-drive-area',
@@ -168,7 +250,11 @@ export const microNeighborhoods = {
       avgPrice: 780000,
       keyStreets: ['Desert Foothills Dr', 'Foothills Way', 'Desert Ridge Dr'],
       characteristics: ['Established', 'Mature Trees', 'Family Friendly'],
-      seoKeywords: ['Desert Foothills Drive homes', 'Foothills area real estate', 'Desert Foothills neighborhood']
+      seoKeywords: [
+        'Desert Foothills Drive homes',
+        'Foothills area real estate',
+        'Desert Foothills neighborhood',
+      ],
     },
     {
       id: 'mountain-vista-sections',
@@ -177,7 +263,11 @@ export const microNeighborhoods = {
       avgPrice: 950000,
       keyStreets: ['Mountain Vista Way', 'Vista Ridge Dr', 'Mountain View Ln'],
       characteristics: ['Premium Views', 'Higher Elevation', 'Luxury Homes'],
-      seoKeywords: ['Mountain Vista homes', 'View lots Mountain Vista', 'Mountain Vista real estate']
+      seoKeywords: [
+        'Mountain Vista homes',
+        'View lots Mountain Vista',
+        'Mountain Vista real estate',
+      ],
     },
     {
       id: 'tule-springs-road-neighborhoods',
@@ -185,8 +275,16 @@ export const microNeighborhoods = {
       description: 'Active adult and family communities along Tule Springs',
       avgPrice: 750000,
       keyStreets: ['Tule Springs Rd', 'Tule Springs Dr', 'Springs View Way'],
-      characteristics: ['Active Adult', 'Family Communities', 'Resort Amenities'],
-      seoKeywords: ['Tule Springs Road homes', 'Tule Springs neighborhoods', 'Tule Springs real estate']
+      characteristics: [
+        'Active Adult',
+        'Family Communities',
+        'Resort Amenities',
+      ],
+      seoKeywords: [
+        'Tule Springs Road homes',
+        'Tule Springs neighborhoods',
+        'Tule Springs real estate',
+      ],
     },
     {
       id: 'grand-montecito-parkway-area',
@@ -194,9 +292,17 @@ export const microNeighborhoods = {
       description: 'Luxury corridor with high-end homes and amenities',
       avgPrice: 1100000,
       keyStreets: ['Grand Montecito Pkwy', 'Montecito Way', 'Grand View Dr'],
-      characteristics: ['Luxury Homes', 'High-End Amenities', 'Premium Location'],
-      seoKeywords: ['Grand Montecito Parkway homes', 'Luxury homes Grand Montecito', 'Grand Montecito real estate']
-    }
+      characteristics: [
+        'Luxury Homes',
+        'High-End Amenities',
+        'Premium Location',
+      ],
+      seoKeywords: [
+        'Grand Montecito Parkway homes',
+        'Luxury homes Grand Montecito',
+        'Grand Montecito real estate',
+      ],
+    },
   ],
 
   // Age-Specific Communities
@@ -204,39 +310,91 @@ export const microNeighborhoods = {
     {
       id: 'active-adult-55-plus',
       name: 'Active Adult 55+ Communities',
-      subdivisions: ['Tule Springs Village', 'Desert Vista Estates (55+ section)'],
+      subdivisions: [
+        'Tule Springs Village',
+        'Desert Vista Estates (55+ section)',
+      ],
       avgPrice: 750000,
-      characteristics: ['55+ Age Restricted', 'Low Maintenance', 'Resort Amenities'],
-      amenities: ['Clubhouse', 'Fitness Center', 'Social Activities', 'Golf Access'],
-      seoKeywords: ['55+ communities Lone Mountain Heights', 'Active adult homes Las Vegas', 'Senior living Lone Mountain Heights']
+      characteristics: [
+        '55+ Age Restricted',
+        'Low Maintenance',
+        'Resort Amenities',
+      ],
+      amenities: [
+        'Clubhouse',
+        'Fitness Center',
+        'Social Activities',
+        'Golf Access',
+      ],
+      seoKeywords: [
+        '55+ communities Lone Mountain Heights',
+        'Active adult homes Las Vegas',
+        'Senior living Lone Mountain Heights',
+      ],
     },
     {
       id: 'family-neighborhoods',
       name: 'Family Neighborhoods',
-      subdivisions: ['Desert Vista Estates', 'Mountain\'s Edge North', 'Providence Communities'],
+      subdivisions: [
+        'Desert Vista Estates',
+        "Mountain's Edge North",
+        'Providence Communities',
+      ],
       avgPrice: 800000,
       characteristics: ['Family Focus', 'Good Schools', 'Safe Streets'],
       amenities: ['Parks', 'Playgrounds', 'Walking Trails', 'Community Events'],
-      seoKeywords: ['Family homes Lone Mountain Heights', 'Kid-friendly neighborhoods', 'Family communities Las Vegas']
+      seoKeywords: [
+        'Family homes Lone Mountain Heights',
+        'Kid-friendly neighborhoods',
+        'Family communities Las Vegas',
+      ],
     },
     {
       id: 'newer-construction',
       name: 'Newer Construction Areas',
-      subdivisions: ['Lone Mountain Ranch', 'Mountain\'s Edge North', 'Tule Springs Village'],
+      subdivisions: [
+        'Lone Mountain Ranch',
+        "Mountain's Edge North",
+        'Tule Springs Village',
+      ],
       avgPrice: 850000,
-      characteristics: ['Modern Features', 'Energy Efficient', 'Open Floor Plans'],
-      amenities: ['Smart Home Features', 'Modern Kitchens', 'Energy Efficiency'],
-      seoKeywords: ['New construction Lone Mountain Heights', 'New homes Las Vegas', 'Modern homes Lone Mountain Heights']
+      characteristics: [
+        'Modern Features',
+        'Energy Efficient',
+        'Open Floor Plans',
+      ],
+      amenities: [
+        'Smart Home Features',
+        'Modern Kitchens',
+        'Energy Efficiency',
+      ],
+      seoKeywords: [
+        'New construction Lone Mountain Heights',
+        'New homes Las Vegas',
+        'Modern homes Lone Mountain Heights',
+      ],
     },
     {
       id: 'established-areas',
       name: 'Established Areas',
-      subdivisions: ['Desert Foothills', 'Desert Vista Estates', 'Canyon Gate Country Club'],
+      subdivisions: [
+        'Desert Foothills',
+        'Desert Vista Estates',
+        'Canyon Gate Country Club',
+      ],
       avgPrice: 900000,
-      characteristics: ['Mature Landscaping', 'Established Community', 'Proven Values'],
+      characteristics: [
+        'Mature Landscaping',
+        'Established Community',
+        'Proven Values',
+      ],
       amenities: ['Mature Trees', 'Established HOA', 'Community History'],
-      seoKeywords: ['Established neighborhoods Lone Mountain Heights', 'Mature communities Las Vegas', 'Established homes Lone Mountain Heights']
-    }
+      seoKeywords: [
+        'Established neighborhoods Lone Mountain Heights',
+        'Mature communities Las Vegas',
+        'Established homes Lone Mountain Heights',
+      ],
+    },
   ],
 
   // Geographic Pockets
@@ -245,10 +403,18 @@ export const microNeighborhoods = {
       id: 'view-lot-communities',
       name: 'View Lot Communities',
       description: 'Properties with mountain or city views',
-      subdivisions: ['Mountain Crest', 'Mountain Vista Sections', 'Canyon Gate Country Club'],
+      subdivisions: [
+        'Mountain Crest',
+        'Mountain Vista Sections',
+        'Canyon Gate Country Club',
+      ],
       avgPrice: 1100000,
       characteristics: ['Premium Views', 'Higher Elevation', 'Luxury Features'],
-      seoKeywords: ['View lots Lone Mountain Heights', 'Mountain view homes Las Vegas', 'City view homes Lone Mountain Heights']
+      seoKeywords: [
+        'View lots Lone Mountain Heights',
+        'Mountain view homes Las Vegas',
+        'City view homes Lone Mountain Heights',
+      ],
     },
     {
       id: 'golf-course-adjacent',
@@ -257,69 +423,93 @@ export const microNeighborhoods = {
       subdivisions: ['Canyon Gate Country Club', 'Tule Springs Village'],
       avgPrice: 1200000,
       characteristics: ['Golf Access', 'Premium Location', 'Resort Amenities'],
-      seoKeywords: ['Golf course homes Lone Mountain Heights', 'Golf course properties Las Vegas', 'Golf course real estate']
+      seoKeywords: [
+        'Golf course homes Lone Mountain Heights',
+        'Golf course properties Las Vegas',
+        'Golf course real estate',
+      ],
     },
     {
       id: 'corner-lot-premium',
       name: 'Corner Lot Premium Sections',
       description: 'Premium corner lot properties',
-      subdivisions: ['Lone Mountain Ranch', 'Mountain Crest', 'Desert Vista Estates'],
+      subdivisions: [
+        'Lone Mountain Ranch',
+        'Mountain Crest',
+        'Desert Vista Estates',
+      ],
       avgPrice: 950000,
       characteristics: ['Corner Lots', 'Extra Privacy', 'Larger Yards'],
-      seoKeywords: ['Corner lot homes Lone Mountain Heights', 'Premium lots Las Vegas', 'Corner lot properties']
+      seoKeywords: [
+        'Corner lot homes Lone Mountain Heights',
+        'Premium lots Las Vegas',
+        'Corner lot properties',
+      ],
     },
     {
       id: 'cul-de-sac-neighborhoods',
       name: 'Cul-de-Sac Neighborhoods',
       description: 'Quiet cul-de-sac communities',
-      subdivisions: ['Desert Foothills', 'Mountain\'s Edge North', 'Providence Communities'],
+      subdivisions: [
+        'Desert Foothills',
+        "Mountain's Edge North",
+        'Providence Communities',
+      ],
       avgPrice: 800000,
       characteristics: ['Low Traffic', 'Family Friendly', 'Quiet Streets'],
-      seoKeywords: ['Cul-de-sac homes Lone Mountain Heights', 'Quiet street homes Las Vegas', 'Cul-de-sac properties']
-    }
-  ]
+      seoKeywords: [
+        'Cul-de-sac homes Lone Mountain Heights',
+        'Quiet street homes Las Vegas',
+        'Cul-de-sac properties',
+      ],
+    },
+  ],
 };
 
 // Helper functions for micro-neighborhood data
 export function getSubdivisionById(id) {
-  return microNeighborhoods.subdivisions.find(sub => sub.id === id);
+  return microNeighborhoods.subdivisions.find((sub) => sub.id === id);
 }
 
 export function getStreetClusterById(id) {
-  return microNeighborhoods.streetClusters.find(cluster => cluster.id === id);
+  return microNeighborhoods.streetClusters.find((cluster) => cluster.id === id);
 }
 
 export function getAgeSpecificCommunityById(id) {
-  return microNeighborhoods.ageSpecific.find(community => community.id === id);
+  return microNeighborhoods.ageSpecific.find(
+    (community) => community.id === id,
+  );
 }
 
 export function getGeographicPocketById(id) {
-  return microNeighborhoods.geographicPockets.find(pocket => pocket.id === id);
+  return microNeighborhoods.geographicPockets.find(
+    (pocket) => pocket.id === id,
+  );
 }
 
 export function getAllSubdivisionNames() {
-  return microNeighborhoods.subdivisions.map(sub => sub.name);
+  return microNeighborhoods.subdivisions.map((sub) => sub.name);
 }
 
 export function getAllStreetClusters() {
-  return microNeighborhoods.streetClusters.map(cluster => cluster.name);
+  return microNeighborhoods.streetClusters.map((cluster) => cluster.name);
 }
 
 export function getSubdivisionsByPriceRange(minPrice, maxPrice) {
-  return microNeighborhoods.subdivisions.filter(sub => 
-    sub.avgPrice >= minPrice && sub.avgPrice <= maxPrice
+  return microNeighborhoods.subdivisions.filter(
+    (sub) => sub.avgPrice >= minPrice && sub.avgPrice <= maxPrice,
   );
 }
 
 export function getSubdivisionsByHomeStyle(style) {
-  return microNeighborhoods.subdivisions.filter(sub => 
-    sub.homeStyles.includes(style)
+  return microNeighborhoods.subdivisions.filter((sub) =>
+    sub.homeStyles.includes(style),
   );
 }
 
 export function getSubdivisionsByAmenity(amenity) {
-  return microNeighborhoods.subdivisions.filter(sub => 
-    sub.amenities.includes(amenity)
+  return microNeighborhoods.subdivisions.filter((sub) =>
+    sub.amenities.includes(amenity),
   );
 }
 
@@ -330,17 +520,22 @@ export function generateMicroNeighborhoodKeywords(subdivision) {
     `${subdivision.name} real estate`,
     `Homes in ${subdivision.name}`,
     `${subdivision.name} Las Vegas homes`,
-    `Lone Mountain Heights ${subdivision.name}`
+    `Lone Mountain Heights ${subdivision.name}`,
   ];
-  
+
   const priceKeywords = [
     `Homes under $${subdivision.priceRange.max.toLocaleString()} in ${subdivision.name}`,
-    `Homes over $${subdivision.priceRange.min.toLocaleString()} in ${subdivision.name}`
+    `Homes over $${subdivision.priceRange.min.toLocaleString()} in ${subdivision.name}`,
   ];
-  
-  const styleKeywords = subdivision.homeStyles.map(style => 
-    `${style} homes in ${subdivision.name}`
+
+  const styleKeywords = subdivision.homeStyles.map(
+    (style) => `${style} homes in ${subdivision.name}`,
   );
-  
-  return [...baseKeywords, ...priceKeywords, ...styleKeywords, ...subdivision.seoKeywords];
+
+  return [
+    ...baseKeywords,
+    ...priceKeywords,
+    ...styleKeywords,
+    ...subdivision.seoKeywords,
+  ];
 }

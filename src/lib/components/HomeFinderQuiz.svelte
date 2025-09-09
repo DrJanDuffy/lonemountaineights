@@ -1,175 +1,299 @@
 <script>
-	import { onMount } from 'svelte';
-	
-	// Quiz state
-	let currentStep = 0;
-	let answers = {};
-	let isComplete = false;
-	let recommendations = [];
-	let showResults = false;
-	
-	// Quiz questions
-	const questions = [
-		{
-			id: 'budget',
-			question: 'What\'s your budget range?',
-			options: [
-				{ value: 'under-500k', label: 'Under $500,000', description: 'Starter homes and condos' },
-				{ value: '500k-700k', label: '$500,000 - $700,000', description: 'Family homes and townhouses' },
-				{ value: '700k-900k', label: '$700,000 - $900,000', description: 'Luxury single-family homes' },
-				{ value: '900k-plus', label: '$900,000+', description: 'Executive and custom homes' }
-			]
-		},
-		{
-			id: 'bedrooms',
-			question: 'How many bedrooms do you need?',
-			options: [
-				{ value: '2', label: '2 Bedrooms', description: 'Perfect for couples or small families' },
-				{ value: '3', label: '3 Bedrooms', description: 'Ideal for growing families' },
-				{ value: '4', label: '4 Bedrooms', description: 'Great for larger families' },
-				{ value: '5-plus', label: '5+ Bedrooms', description: 'Spacious luxury homes' }
-			]
-		},
-		{
-			id: 'lifestyle',
-			question: 'What describes your lifestyle best?',
-			options: [
-				{ value: 'active', label: 'Active & Outdoor', description: 'Love hiking, golf, and outdoor activities' },
-				{ value: 'family', label: 'Family-Focused', description: 'Need great schools and family amenities' },
-				{ value: 'luxury', label: 'Luxury Living', description: 'Want premium finishes and exclusive features' },
-				{ value: 'low-maintenance', label: 'Low Maintenance', description: 'Prefer easy-care living' }
-			]
-		},
-		{
-			id: 'amenities',
-			question: 'Which amenities are most important?',
-			options: [
-				{ value: 'pool', label: 'Swimming Pool', description: 'Private or community pool access' },
-				{ value: 'golf', label: 'Golf Course', description: 'Golf course views or membership' },
-				{ value: 'mountain-views', label: 'Mountain Views', description: 'Stunning Lone Mountain vistas' },
-				{ value: 'privacy', label: 'Privacy & Space', description: 'Large lots and quiet streets' }
-			]
-		},
-		{
-			id: 'timeline',
-			question: 'When are you looking to move?',
-			options: [
-				{ value: 'immediately', label: 'Immediately', description: 'Ready to buy now' },
-				{ value: '3-months', label: 'Within 3 months', description: 'Actively searching' },
-				{ value: '6-months', label: 'Within 6 months', description: 'Planning ahead' },
-				{ value: 'flexible', label: 'Flexible timeline', description: 'Waiting for the right home' }
-			]
-		}
-	];
-	
-	// Neighborhood recommendations based on answers
-	const neighborhoodData = {
-		'lone-mountain-ranch': {
-			name: 'Lone Mountain Ranch',
-			priceRange: '$700,000 - $1,200,000',
-			description: 'Gated community with golf course access and luxury amenities',
-			features: ['Golf Course Views', 'Gated Security', 'Luxury Finishes', 'Mountain Views'],
-			bestFor: ['luxury', 'golf', 'privacy'],
-			image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
-		},
-		'desert-vista-estates': {
-			name: 'Desert Vista Estates',
-			priceRange: '$500,000 - $800,000',
-			description: 'Family-friendly community with excellent schools and parks',
-			features: ['Top-Rated Schools', 'Community Pool', 'Parks & Trails', 'Family Amenities'],
-			bestFor: ['family', 'active', 'low-maintenance'],
-			image: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
-		},
-		'mountain-view-heights': {
-			name: 'Mountain View Heights',
-			priceRange: '$600,000 - $900,000',
-			description: 'Stunning mountain views with modern homes and great amenities',
-			features: ['Mountain Views', 'Modern Design', 'Community Center', 'Walking Trails'],
-			bestFor: ['mountain-views', 'luxury', 'active'],
-			image: 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
-		},
-		'sunset-ridge': {
-			name: 'Sunset Ridge',
-			priceRange: '$400,000 - $700,000',
-			description: 'Affordable luxury with great value and community feel',
-			features: ['Great Value', 'Community Pool', 'Low HOA Fees', 'Family Friendly'],
-			bestFor: ['low-maintenance', 'family', 'pool'],
-			image: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
-		}
-	};
-	
-	// Answer question
-	function answerQuestion(questionId, answer) {
-		answers[questionId] = answer;
-		
-		if (currentStep < questions.length - 1) {
-			currentStep++;
-		} else {
-			completeQuiz();
-		}
-	}
-	
-	// Complete quiz and generate recommendations
-	function completeQuiz() {
-		isComplete = true;
-		generateRecommendations();
-		showResults = true;
-	}
-	
-	// Generate personalized recommendations
-	function generateRecommendations() {
-		const scoredNeighborhoods = Object.entries(neighborhoodData).map(([key, neighborhood]) => {
-			let score = 0;
-			
-			// Score based on budget
-			const budget = answers.budget;
-			if (budget === 'under-500k' && neighborhood.priceRange.includes('400,000')) score += 3;
-			else if (budget === '500k-700k' && neighborhood.priceRange.includes('500,000')) score += 3;
-			else if (budget === '700k-900k' && neighborhood.priceRange.includes('700,000')) score += 3;
-			else if (budget === '900k-plus' && neighborhood.priceRange.includes('1,200,000')) score += 3;
-			
-			// Score based on lifestyle
-			const lifestyle = answers.lifestyle;
-			if (neighborhood.bestFor.includes(lifestyle)) score += 2;
-			
-			// Score based on amenities
-			const amenities = answers.amenities;
-			if (neighborhood.bestFor.includes(amenities)) score += 2;
-			
-			// Score based on bedrooms (general match)
-			const bedrooms = answers.bedrooms;
-			if (bedrooms === '2' && neighborhood.name.includes('Sunset')) score += 1;
-			else if (bedrooms === '3' && neighborhood.name.includes('Desert')) score += 1;
-			else if (bedrooms === '4' && neighborhood.name.includes('Mountain')) score += 1;
-			else if (bedrooms === '5-plus' && neighborhood.name.includes('Ranch')) score += 1;
-			
-			return { key, ...neighborhood, score };
-		});
-		
-		// Sort by score and take top 3
-		recommendations = scoredNeighborhoods
-			.sort((a, b) => b.score - a.score)
-			.slice(0, 3);
-	}
-	
-	// Restart quiz
-	function restartQuiz() {
-		currentStep = 0;
-		answers = {};
-		isComplete = false;
-		recommendations = [];
-		showResults = false;
-	}
-	
-	// Go to previous question
-	function previousQuestion() {
-		if (currentStep > 0) {
-			currentStep--;
-		}
-	}
-	
-	// Get progress percentage
-	$: progress = ((currentStep + 1) / questions.length) * 100;
+// Quiz state
+let currentStep = 0;
+let answers = {};
+let isComplete = false;
+let recommendations = [];
+let showResults = false;
+
+// Quiz questions
+const questions = [
+  {
+    id: 'budget',
+    question: "What's your budget range?",
+    options: [
+      {
+        value: 'under-500k',
+        label: 'Under $500,000',
+        description: 'Starter homes and condos',
+      },
+      {
+        value: '500k-700k',
+        label: '$500,000 - $700,000',
+        description: 'Family homes and townhouses',
+      },
+      {
+        value: '700k-900k',
+        label: '$700,000 - $900,000',
+        description: 'Luxury single-family homes',
+      },
+      {
+        value: '900k-plus',
+        label: '$900,000+',
+        description: 'Executive and custom homes',
+      },
+    ],
+  },
+  {
+    id: 'bedrooms',
+    question: 'How many bedrooms do you need?',
+    options: [
+      {
+        value: '2',
+        label: '2 Bedrooms',
+        description: 'Perfect for couples or small families',
+      },
+      {
+        value: '3',
+        label: '3 Bedrooms',
+        description: 'Ideal for growing families',
+      },
+      {
+        value: '4',
+        label: '4 Bedrooms',
+        description: 'Great for larger families',
+      },
+      {
+        value: '5-plus',
+        label: '5+ Bedrooms',
+        description: 'Spacious luxury homes',
+      },
+    ],
+  },
+  {
+    id: 'lifestyle',
+    question: 'What describes your lifestyle best?',
+    options: [
+      {
+        value: 'active',
+        label: 'Active & Outdoor',
+        description: 'Love hiking, golf, and outdoor activities',
+      },
+      {
+        value: 'family',
+        label: 'Family-Focused',
+        description: 'Need great schools and family amenities',
+      },
+      {
+        value: 'luxury',
+        label: 'Luxury Living',
+        description: 'Want premium finishes and exclusive features',
+      },
+      {
+        value: 'low-maintenance',
+        label: 'Low Maintenance',
+        description: 'Prefer easy-care living',
+      },
+    ],
+  },
+  {
+    id: 'amenities',
+    question: 'Which amenities are most important?',
+    options: [
+      {
+        value: 'pool',
+        label: 'Swimming Pool',
+        description: 'Private or community pool access',
+      },
+      {
+        value: 'golf',
+        label: 'Golf Course',
+        description: 'Golf course views or membership',
+      },
+      {
+        value: 'mountain-views',
+        label: 'Mountain Views',
+        description: 'Stunning Lone Mountain vistas',
+      },
+      {
+        value: 'privacy',
+        label: 'Privacy & Space',
+        description: 'Large lots and quiet streets',
+      },
+    ],
+  },
+  {
+    id: 'timeline',
+    question: 'When are you looking to move?',
+    options: [
+      {
+        value: 'immediately',
+        label: 'Immediately',
+        description: 'Ready to buy now',
+      },
+      {
+        value: '3-months',
+        label: 'Within 3 months',
+        description: 'Actively searching',
+      },
+      {
+        value: '6-months',
+        label: 'Within 6 months',
+        description: 'Planning ahead',
+      },
+      {
+        value: 'flexible',
+        label: 'Flexible timeline',
+        description: 'Waiting for the right home',
+      },
+    ],
+  },
+];
+
+// Neighborhood recommendations based on answers
+const neighborhoodData = {
+  'lone-mountain-ranch': {
+    name: 'Lone Mountain Ranch',
+    priceRange: '$700,000 - $1,200,000',
+    description: 'Gated community with golf course access and luxury amenities',
+    features: [
+      'Golf Course Views',
+      'Gated Security',
+      'Luxury Finishes',
+      'Mountain Views',
+    ],
+    bestFor: ['luxury', 'golf', 'privacy'],
+    image:
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+  },
+  'desert-vista-estates': {
+    name: 'Desert Vista Estates',
+    priceRange: '$500,000 - $800,000',
+    description: 'Family-friendly community with excellent schools and parks',
+    features: [
+      'Top-Rated Schools',
+      'Community Pool',
+      'Parks & Trails',
+      'Family Amenities',
+    ],
+    bestFor: ['family', 'active', 'low-maintenance'],
+    image:
+      'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+  },
+  'mountain-view-heights': {
+    name: 'Mountain View Heights',
+    priceRange: '$600,000 - $900,000',
+    description:
+      'Stunning mountain views with modern homes and great amenities',
+    features: [
+      'Mountain Views',
+      'Modern Design',
+      'Community Center',
+      'Walking Trails',
+    ],
+    bestFor: ['mountain-views', 'luxury', 'active'],
+    image:
+      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+  },
+  'sunset-ridge': {
+    name: 'Sunset Ridge',
+    priceRange: '$400,000 - $700,000',
+    description: 'Affordable luxury with great value and community feel',
+    features: [
+      'Great Value',
+      'Community Pool',
+      'Low HOA Fees',
+      'Family Friendly',
+    ],
+    bestFor: ['low-maintenance', 'family', 'pool'],
+    image:
+      'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+  },
+};
+
+// Answer question
+function answerQuestion(questionId, answer) {
+  answers[questionId] = answer;
+
+  if (currentStep < questions.length - 1) {
+    currentStep++;
+  } else {
+    completeQuiz();
+  }
+}
+
+// Complete quiz and generate recommendations
+function completeQuiz() {
+  isComplete = true;
+  generateRecommendations();
+  showResults = true;
+}
+
+// Generate personalized recommendations
+function generateRecommendations() {
+  const scoredNeighborhoods = Object.entries(neighborhoodData).map(
+    ([key, neighborhood]) => {
+      let score = 0;
+
+      // Score based on budget
+      const budget = answers.budget;
+      if (
+        budget === 'under-500k' &&
+        neighborhood.priceRange.includes('400,000')
+      )
+        score += 3;
+      else if (
+        budget === '500k-700k' &&
+        neighborhood.priceRange.includes('500,000')
+      )
+        score += 3;
+      else if (
+        budget === '700k-900k' &&
+        neighborhood.priceRange.includes('700,000')
+      )
+        score += 3;
+      else if (
+        budget === '900k-plus' &&
+        neighborhood.priceRange.includes('1,200,000')
+      )
+        score += 3;
+
+      // Score based on lifestyle
+      const lifestyle = answers.lifestyle;
+      if (neighborhood.bestFor.includes(lifestyle)) score += 2;
+
+      // Score based on amenities
+      const amenities = answers.amenities;
+      if (neighborhood.bestFor.includes(amenities)) score += 2;
+
+      // Score based on bedrooms (general match)
+      const bedrooms = answers.bedrooms;
+      if (bedrooms === '2' && neighborhood.name.includes('Sunset')) score += 1;
+      else if (bedrooms === '3' && neighborhood.name.includes('Desert'))
+        score += 1;
+      else if (bedrooms === '4' && neighborhood.name.includes('Mountain'))
+        score += 1;
+      else if (bedrooms === '5-plus' && neighborhood.name.includes('Ranch'))
+        score += 1;
+
+      return { key, ...neighborhood, score };
+    },
+  );
+
+  // Sort by score and take top 3
+  recommendations = scoredNeighborhoods
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3);
+}
+
+// Restart quiz
+function restartQuiz() {
+  currentStep = 0;
+  answers = {};
+  isComplete = false;
+  recommendations = [];
+  showResults = false;
+}
+
+// Go to previous question
+function previousQuestion() {
+  if (currentStep > 0) {
+    currentStep--;
+  }
+}
+
+// Get progress percentage
+$: progress = ((currentStep + 1) / questions.length) * 100;
 </script>
 
 <div class="home-finder-quiz">

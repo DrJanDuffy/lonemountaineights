@@ -1,68 +1,72 @@
 <script>
-	import OptimizedImage from './OptimizedImage.svelte';
-	
-	// Market trend data
-	const marketTrends = {
-		priceAppreciation: {
-			title: 'Price Appreciation Trend',
-			current: 5.2,
-			previous: 3.8,
-			change: '+1.4%',
-			direction: 'up',
-			description: 'Year-over-year home price appreciation in Lone Mountain Heights'
-		},
-		inventoryLevels: {
-			title: 'Inventory Levels',
-			current: 45,
-			previous: 52,
-			change: '-13.5%',
-			direction: 'down',
-			description: 'Active listings compared to last quarter'
-		},
-		daysOnMarket: {
-			title: 'Days on Market',
-			current: 28,
-			previous: 35,
-			change: '-20%',
-			direction: 'down',
-			description: 'Average time from listing to sale'
-		},
-		salesVolume: {
-			title: 'Sales Volume',
-			current: 127,
-			previous: 98,
-			change: '+29.6%',
-			direction: 'up',
-			description: 'Total sales in the last 12 months'
-		}
-	};
-	
-	// Price range distribution
-	const priceDistribution = [
-		{ range: 'Under $600k', count: 8, percentage: 18, color: '#3b82f6' },
-		{ range: '$600k - $800k', count: 15, percentage: 33, color: '#10b981' },
-		{ range: '$800k - $1M', count: 12, percentage: 27, color: '#f59e0b' },
-		{ range: '$1M - $1.5M', count: 7, percentage: 16, color: '#ef4444' },
-		{ range: 'Over $1.5M', count: 3, percentage: 6, color: '#8b5cf6' }
-	];
-	
-	// Market forecast
-	const marketForecast = [
-		{ month: 'Jan 2025', price: 850, inventory: 45, sales: 12 },
-		{ month: 'Feb 2025', price: 865, inventory: 42, sales: 15 },
-		{ month: 'Mar 2025', price: 880, inventory: 48, sales: 18 },
-		{ month: 'Apr 2025', price: 895, inventory: 52, sales: 22 },
-		{ month: 'May 2025', price: 910, inventory: 55, sales: 25 },
-		{ month: 'Jun 2025', price: 925, inventory: 58, sales: 28 }
-	];
-	
-	// Neighborhood performance
-	const neighborhoodPerformance = [
-		{ name: 'Lone Mountain Ranch', avgPrice: 950, appreciation: 6.2, sales: 18 },
-		{ name: 'Desert Vista Estates', avgPrice: 725, appreciation: 4.8, sales: 22 },
-		{ name: 'Canyon Gate Country Club', avgPrice: 1200, appreciation: 7.1, sales: 12 },
-		{ name: 'Mountain Crest', avgPrice: 680, appreciation: 3.9, sales: 15 }
-	];
+// Market trend data
+const marketTrends = {
+  priceAppreciation: {
+    title: 'Price Appreciation Trend',
+    current: 5.2,
+    previous: 3.8,
+    change: '+1.4%',
+    direction: 'up',
+    description:
+      'Year-over-year home price appreciation in Lone Mountain Heights',
+  },
+  inventoryLevels: {
+    title: 'Inventory Levels',
+    current: 45,
+    previous: 52,
+    change: '-13.5%',
+    direction: 'down',
+    description: 'Active listings compared to last quarter',
+  },
+  daysOnMarket: {
+    title: 'Days on Market',
+    current: 28,
+    previous: 35,
+    change: '-20%',
+    direction: 'down',
+    description: 'Average time from listing to sale',
+  },
+  salesVolume: {
+    title: 'Sales Volume',
+    current: 127,
+    previous: 98,
+    change: '+29.6%',
+    direction: 'up',
+    description: 'Total sales in the last 12 months',
+  },
+};
+
+// Price range distribution
+const priceDistribution = [
+  { range: 'Under $600k', count: 8, percentage: 18, color: '#3b82f6' },
+  { range: '$600k - $800k', count: 15, percentage: 33, color: '#10b981' },
+  { range: '$800k - $1M', count: 12, percentage: 27, color: '#f59e0b' },
+  { range: '$1M - $1.5M', count: 7, percentage: 16, color: '#ef4444' },
+  { range: 'Over $1.5M', count: 3, percentage: 6, color: '#8b5cf6' },
+];
+
+// Market forecast
+const marketForecast = [
+  { month: 'Jan 2025', price: 850, inventory: 45, sales: 12 },
+  { month: 'Feb 2025', price: 865, inventory: 42, sales: 15 },
+  { month: 'Mar 2025', price: 880, inventory: 48, sales: 18 },
+  { month: 'Apr 2025', price: 895, inventory: 52, sales: 22 },
+  { month: 'May 2025', price: 910, inventory: 55, sales: 25 },
+  { month: 'Jun 2025', price: 925, inventory: 58, sales: 28 },
+];
+
+// Neighborhood performance
+const neighborhoodPerformance = [
+  { name: 'Lone Mountain Ranch', avgPrice: 950, appreciation: 6.2, sales: 18 },
+  { name: 'Desert Vista Estates', avgPrice: 725, appreciation: 4.8, sales: 22 },
+  {
+    name: 'Canyon Gate Country Club',
+    avgPrice: 1200,
+    appreciation: 7.1,
+    sales: 12,
+  },
+  { name: 'Mountain Crest', avgPrice: 680, appreciation: 3.9, sales: 15 },
+];
 </script>
 
 <div class="market-infographics">

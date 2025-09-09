@@ -1,71 +1,82 @@
 <script>
-	// Mortgage calculator state
-	let mortgage = {
-		homePrice: 850000,
-		downPayment: 170000,
-		loanTerm: 30,
-		interestRate: 6.5,
-		propertyTax: 8500,
-		homeInsurance: 1200,
-		hoaFees: 150,
-		pmi: 0
-	};
-	
-	let monthlyPayment = null;
-	let showBreakdown = false;
-	
-	// Calculate mortgage payment
-	function calculateMortgage() {
-		const principal = mortgage.homePrice - mortgage.downPayment;
-		const monthlyRate = mortgage.interestRate / 100 / 12;
-		const numPayments = mortgage.loanTerm * 12;
-		
-		// Calculate PMI if down payment is less than 20%
-		const downPaymentPercent = (mortgage.downPayment / mortgage.homePrice) * 100;
-		if (downPaymentPercent < 20) {
-			mortgage.pmi = Math.round(principal * 0.005 / 12); // 0.5% annually
-		} else {
-			mortgage.pmi = 0;
-		}
-		
-		// Calculate monthly principal and interest
-		const monthlyPI = principal * (monthlyRate * Math.pow(1 + monthlyRate, numPayments)) / 
-			(Math.pow(1 + monthlyRate, numPayments) - 1);
-		
-		// Calculate monthly property tax
-		const monthlyPropertyTax = mortgage.propertyTax / 12;
-		
-		// Calculate monthly home insurance
-		const monthlyInsurance = mortgage.homeInsurance / 12;
-		
-		// Calculate total monthly payment
-		const totalMonthly = monthlyPI + monthlyPropertyTax + monthlyInsurance + mortgage.hoaFees + mortgage.pmi;
-		
-		monthlyPayment = {
-			principalAndInterest: Math.round(monthlyPI),
-			propertyTax: Math.round(monthlyPropertyTax),
-			homeInsurance: Math.round(monthlyInsurance),
-			hoaFees: mortgage.hoaFees,
-			pmi: mortgage.pmi,
-			total: Math.round(totalMonthly),
-			downPaymentPercent: Math.round(downPaymentPercent),
-			totalInterest: Math.round((monthlyPI * numPayments) - principal),
-			totalCost: Math.round((monthlyPI * numPayments) + mortgage.downPayment)
-		};
-		
-		showBreakdown = true;
-	}
-	
-	// Calculate down payment percentage
-	$: downPaymentPercent = (mortgage.downPayment / mortgage.homePrice) * 100;
-	
-	// Calculate loan amount
-	$: loanAmount = mortgage.homePrice - mortgage.downPayment;
-	
-	// Auto-calculate when values change
-	$: if (mortgage.homePrice && mortgage.downPayment && mortgage.loanTerm && mortgage.interestRate) {
-		calculateMortgage();
-	}
+// Mortgage calculator state
+const mortgage = {
+  homePrice: 850000,
+  downPayment: 170000,
+  loanTerm: 30,
+  interestRate: 6.5,
+  propertyTax: 8500,
+  homeInsurance: 1200,
+  hoaFees: 150,
+  pmi: 0,
+};
+
+let monthlyPayment = null;
+let showBreakdown = false;
+
+// Calculate mortgage payment
+function calculateMortgage() {
+  const principal = mortgage.homePrice - mortgage.downPayment;
+  const monthlyRate = mortgage.interestRate / 100 / 12;
+  const numPayments = mortgage.loanTerm * 12;
+
+  // Calculate PMI if down payment is less than 20%
+  const downPaymentPercent = (mortgage.downPayment / mortgage.homePrice) * 100;
+  if (downPaymentPercent < 20) {
+    mortgage.pmi = Math.round((principal * 0.005) / 12); // 0.5% annually
+  } else {
+    mortgage.pmi = 0;
+  }
+
+  // Calculate monthly principal and interest
+  const monthlyPI =
+    (principal * (monthlyRate * (1 + monthlyRate) ** numPayments)) /
+    ((1 + monthlyRate) ** numPayments - 1);
+
+  // Calculate monthly property tax
+  const monthlyPropertyTax = mortgage.propertyTax / 12;
+
+  // Calculate monthly home insurance
+  const monthlyInsurance = mortgage.homeInsurance / 12;
+
+  // Calculate total monthly payment
+  const totalMonthly =
+    monthlyPI +
+    monthlyPropertyTax +
+    monthlyInsurance +
+    mortgage.hoaFees +
+    mortgage.pmi;
+
+  monthlyPayment = {
+    principalAndInterest: Math.round(monthlyPI),
+    propertyTax: Math.round(monthlyPropertyTax),
+    homeInsurance: Math.round(monthlyInsurance),
+    hoaFees: mortgage.hoaFees,
+    pmi: mortgage.pmi,
+    total: Math.round(totalMonthly),
+    downPaymentPercent: Math.round(downPaymentPercent),
+    totalInterest: Math.round(monthlyPI * numPayments - principal),
+    totalCost: Math.round(monthlyPI * numPayments + mortgage.downPayment),
+  };
+
+  showBreakdown = true;
+}
+
+// Calculate down payment percentage
+$: downPaymentPercent = (mortgage.downPayment / mortgage.homePrice) * 100;
+
+// Calculate loan amount
+$: loanAmount = mortgage.homePrice - mortgage.downPayment;
+
+// Auto-calculate when values change
+$: if (
+  mortgage.homePrice &&
+  mortgage.downPayment &&
+  mortgage.loanTerm &&
+  mortgage.interestRate
+) {
+  calculateMortgage();
+}
 </script>
 
 <div class="mortgage-calculator">

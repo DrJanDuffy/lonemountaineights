@@ -1,30 +1,33 @@
 <script>
-	import { generateBreadcrumbSchema } from '$lib/schema.js';
-	
-	const breadcrumbSchema = generateBreadcrumbSchema([
-		{ name: 'Home', url: 'https://www.lonemountainheights.com' },
-		{ name: 'Locations', url: 'https://www.lonemountainheights.com/locations' },
-		{ name: 'Desert Vista Estates', url: 'https://www.lonemountainheights.com/locations/desert-vista-estates' }
-	]);
-	
-	const propertyStats = {
-		averagePrice: '$750,000',
-		priceRange: '$550,000 - $950,000',
-		bedrooms: '3-4',
-		squareFootage: '1,800 - 3,200',
-		yearBuilt: '1995-2005',
-		lotSize: '0.2 - 0.4 acres'
-	};
-	
-	const amenities = [
-		'Desert Landscaping',
-		'Private Pools',
-		'Two-Car Garages',
-		'Community Pool',
-		'Walking Trails',
-		'Mountain Views',
-		'Low HOA Fees'
-	];
+import { generateBreadcrumbSchema } from '$lib/schema.js';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.lonemountainheights.com' },
+  { name: 'Locations', url: 'https://www.lonemountainheights.com/locations' },
+  {
+    name: 'Desert Vista Estates',
+    url: 'https://www.lonemountainheights.com/locations/desert-vista-estates',
+  },
+]);
+
+const propertyStats = {
+  averagePrice: '$750,000',
+  priceRange: '$550,000 - $950,000',
+  bedrooms: '3-4',
+  squareFootage: '1,800 - 3,200',
+  yearBuilt: '1995-2005',
+  lotSize: '0.2 - 0.4 acres',
+};
+
+const amenities = [
+  'Desert Landscaping',
+  'Private Pools',
+  'Two-Car Garages',
+  'Community Pool',
+  'Walking Trails',
+  'Mountain Views',
+  'Low HOA Fees',
+];
 </script>
 
 <svelte:head>

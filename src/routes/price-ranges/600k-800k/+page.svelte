@@ -1,31 +1,37 @@
 <script>
-	import { generateBreadcrumbSchema } from '$lib/schema.js';
-	
-	const breadcrumbSchema = generateBreadcrumbSchema([
-		{ name: 'Home', url: 'https://www.lonemountainheights.com' },
-		{ name: 'Price Ranges', url: 'https://www.lonemountainheights.com/price-ranges' },
-		{ name: '$600k - $800k', url: 'https://www.lonemountainheights.com/price-ranges/600k-800k' }
-	]);
-	
-	const propertyStats = {
-		averagePrice: '$725,000',
-		priceRange: '$600,000 - $800,000',
-		bedrooms: '3-4',
-		squareFootage: '2,000 - 3,200',
-		yearBuilt: '1995-2015',
-		lotSize: '0.25 - 0.5 acres'
-	};
-	
-	const features = [
-		'Updated Kitchens',
-		'Master Suite',
-		'Two-Car Garage',
-		'Private Backyard',
-		'Hardwood Floors',
-		'Modern Appliances',
-		'Energy Efficient',
-		'Low HOA Fees'
-	];
+import { generateBreadcrumbSchema } from '$lib/schema.js';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.lonemountainheights.com' },
+  {
+    name: 'Price Ranges',
+    url: 'https://www.lonemountainheights.com/price-ranges',
+  },
+  {
+    name: '$600k - $800k',
+    url: 'https://www.lonemountainheights.com/price-ranges/600k-800k',
+  },
+]);
+
+const propertyStats = {
+  averagePrice: '$725,000',
+  priceRange: '$600,000 - $800,000',
+  bedrooms: '3-4',
+  squareFootage: '2,000 - 3,200',
+  yearBuilt: '1995-2015',
+  lotSize: '0.25 - 0.5 acres',
+};
+
+const features = [
+  'Updated Kitchens',
+  'Master Suite',
+  'Two-Car Garage',
+  'Private Backyard',
+  'Hardwood Floors',
+  'Modern Appliances',
+  'Energy Efficient',
+  'Low HOA Fees',
+];
 </script>
 
 <svelte:head>

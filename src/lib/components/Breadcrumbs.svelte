@@ -1,5 +1,5 @@
 <script>
-  export let breadcrumbs = [];
+export const breadcrumbs = [];
 </script>
 
 <nav aria-label="Breadcrumb" class="breadcrumbs">

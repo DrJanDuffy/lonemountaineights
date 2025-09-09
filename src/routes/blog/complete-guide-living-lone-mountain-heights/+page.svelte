@@ -1,112 +1,149 @@
 <script>
-	import { generateBreadcrumbSchema } from '$lib/schema.js';
-	
-	const breadcrumbSchema = generateBreadcrumbSchema([
-		{ name: 'Home', url: 'https://www.lonemountainheights.com' },
-		{ name: 'Blog', url: 'https://www.lonemountainheights.com/blog' },
-		{ name: 'Complete Guide to Living in Lone Mountain Heights', url: 'https://www.lonemountainheights.com/blog/complete-guide-living-lone-mountain-heights' }
-	]);
-	
-	// Table of contents
-	const tableOfContents = [
-		{ id: 'overview', title: 'Community Overview', anchor: '#overview' },
-		{ id: 'neighborhoods', title: 'Neighborhoods & Subdivisions', anchor: '#neighborhoods' },
-		{ id: 'schools', title: 'Schools & Education', anchor: '#schools' },
-		{ id: 'amenities', title: 'Amenities & Recreation', anchor: '#amenities' },
-		{ id: 'shopping', title: 'Shopping & Dining', anchor: '#shopping' },
-		{ id: 'transportation', title: 'Transportation & Commuting', anchor: '#transportation' },
-		{ id: 'real-estate', title: 'Real Estate Market', anchor: '#real-estate' },
-		{ id: 'cost-of-living', title: 'Cost of Living', anchor: '#cost-of-living' },
-		{ id: 'pros-cons', title: 'Pros & Cons', anchor: '#pros-cons' },
-		{ id: 'moving-guide', title: 'Moving to Lone Mountain Heights', anchor: '#moving-guide' }
-	];
-	
-	// Neighborhood data
-	const neighborhoods = [
-		{
-			name: 'Lone Mountain Ranch',
-			description: 'Gated community with golf course access and luxury homes',
-			priceRange: '$650,000 - $1,200,000',
-			features: ['Gated Community', 'Golf Course Views', 'Luxury Homes', 'Mountain Views'],
-			image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
-		},
-		{
-			name: 'Desert Vista Estates',
-			description: 'Family-friendly community with desert landscaping',
-			priceRange: '$550,000 - $950,000',
-			features: ['Family-Friendly', 'Desert Landscaping', 'Community Pool', 'Walking Trails'],
-			image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
-		},
-		{
-			name: 'Canyon Gate Country Club',
-			description: 'Exclusive golf course community with luxury amenities',
-			priceRange: '$800,000 - $2,500,000',
-			features: ['Golf Course', 'Country Club', 'Luxury Amenities', 'Exclusive Access'],
-			image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'
-		}
-	];
-	
-	// School data
-	const schools = [
-		{
-			name: 'William G. Geer Elementary',
-			type: 'Elementary',
-			rating: '9/10',
-			description: 'Highly-rated elementary school serving Lone Mountain Heights',
-			features: ['High Academic Performance', 'Small Class Sizes', 'Extracurricular Activities']
-		},
-		{
-			name: 'Sig Rogich Middle School',
-			type: 'Middle School',
-			rating: '8/10',
-			description: 'Excellent middle school with strong academic programs',
-			features: ['STEM Programs', 'Sports Teams', 'Music & Arts']
-		},
-		{
-			name: 'Liberty High School',
-			type: 'High School',
-			rating: '8/10',
-			description: 'Top-performing high school with college prep programs',
-			features: ['AP Courses', 'Honors Programs', 'College Preparation']
-		}
-	];
-	
-	// Amenities data
-	const amenities = [
-		{
-			category: 'Recreation',
-			items: [
-				'Canyon Gate Country Club Golf Course',
-				'Community Swimming Pools',
-				'Walking & Jogging Trails',
-				'Parks & Playgrounds',
-				'Tennis Courts',
-				'Fitness Centers'
-			]
-		},
-		{
-			category: 'Shopping',
-			items: [
-				'Summerlin Shopping Centers',
-				'Downtown Summerlin',
-				'Red Rock Resort & Casino',
-							'Whole Foods Market',
-				'Target & Walmart',
-				'Boutique Shops'
-			]
-		},
-		{
-			category: 'Dining',
-			items: [
-				'Fine Dining Restaurants',
-				'Casual Family Restaurants',
-				'Coffee Shops & Cafes',
-				'Fast Food Options',
-				'Food Trucks',
-				'Grocery Stores'
-			]
-		}
-	];
+import { generateBreadcrumbSchema } from '$lib/schema.js';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.lonemountainheights.com' },
+  { name: 'Blog', url: 'https://www.lonemountainheights.com/blog' },
+  {
+    name: 'Complete Guide to Living in Lone Mountain Heights',
+    url: 'https://www.lonemountainheights.com/blog/complete-guide-living-lone-mountain-heights',
+  },
+]);
+
+// Table of contents
+const tableOfContents = [
+  { id: 'overview', title: 'Community Overview', anchor: '#overview' },
+  {
+    id: 'neighborhoods',
+    title: 'Neighborhoods & Subdivisions',
+    anchor: '#neighborhoods',
+  },
+  { id: 'schools', title: 'Schools & Education', anchor: '#schools' },
+  { id: 'amenities', title: 'Amenities & Recreation', anchor: '#amenities' },
+  { id: 'shopping', title: 'Shopping & Dining', anchor: '#shopping' },
+  {
+    id: 'transportation',
+    title: 'Transportation & Commuting',
+    anchor: '#transportation',
+  },
+  { id: 'real-estate', title: 'Real Estate Market', anchor: '#real-estate' },
+  { id: 'cost-of-living', title: 'Cost of Living', anchor: '#cost-of-living' },
+  { id: 'pros-cons', title: 'Pros & Cons', anchor: '#pros-cons' },
+  {
+    id: 'moving-guide',
+    title: 'Moving to Lone Mountain Heights',
+    anchor: '#moving-guide',
+  },
+];
+
+// Neighborhood data
+const neighborhoods = [
+  {
+    name: 'Lone Mountain Ranch',
+    description: 'Gated community with golf course access and luxury homes',
+    priceRange: '$650,000 - $1,200,000',
+    features: [
+      'Gated Community',
+      'Golf Course Views',
+      'Luxury Homes',
+      'Mountain Views',
+    ],
+    image:
+      'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    name: 'Desert Vista Estates',
+    description: 'Family-friendly community with desert landscaping',
+    priceRange: '$550,000 - $950,000',
+    features: [
+      'Family-Friendly',
+      'Desert Landscaping',
+      'Community Pool',
+      'Walking Trails',
+    ],
+    image:
+      'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+  },
+  {
+    name: 'Canyon Gate Country Club',
+    description: 'Exclusive golf course community with luxury amenities',
+    priceRange: '$800,000 - $2,500,000',
+    features: [
+      'Golf Course',
+      'Country Club',
+      'Luxury Amenities',
+      'Exclusive Access',
+    ],
+    image:
+      'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+  },
+];
+
+// School data
+const schools = [
+  {
+    name: 'William G. Geer Elementary',
+    type: 'Elementary',
+    rating: '9/10',
+    description: 'Highly-rated elementary school serving Lone Mountain Heights',
+    features: [
+      'High Academic Performance',
+      'Small Class Sizes',
+      'Extracurricular Activities',
+    ],
+  },
+  {
+    name: 'Sig Rogich Middle School',
+    type: 'Middle School',
+    rating: '8/10',
+    description: 'Excellent middle school with strong academic programs',
+    features: ['STEM Programs', 'Sports Teams', 'Music & Arts'],
+  },
+  {
+    name: 'Liberty High School',
+    type: 'High School',
+    rating: '8/10',
+    description: 'Top-performing high school with college prep programs',
+    features: ['AP Courses', 'Honors Programs', 'College Preparation'],
+  },
+];
+
+// Amenities data
+const amenities = [
+  {
+    category: 'Recreation',
+    items: [
+      'Canyon Gate Country Club Golf Course',
+      'Community Swimming Pools',
+      'Walking & Jogging Trails',
+      'Parks & Playgrounds',
+      'Tennis Courts',
+      'Fitness Centers',
+    ],
+  },
+  {
+    category: 'Shopping',
+    items: [
+      'Summerlin Shopping Centers',
+      'Downtown Summerlin',
+      'Red Rock Resort & Casino',
+      'Whole Foods Market',
+      'Target & Walmart',
+      'Boutique Shops',
+    ],
+  },
+  {
+    category: 'Dining',
+    items: [
+      'Fine Dining Restaurants',
+      'Casual Family Restaurants',
+      'Coffee Shops & Cafes',
+      'Fast Food Options',
+      'Food Trucks',
+      'Grocery Stores',
+    ],
+  },
+];
 </script>
 
 <svelte:head>

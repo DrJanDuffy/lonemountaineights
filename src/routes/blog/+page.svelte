@@ -1,90 +1,97 @@
 <script>
-	import { generateBreadcrumbSchema } from '$lib/schema.js';
-	
-	const breadcrumbSchema = generateBreadcrumbSchema([
-		{ name: 'Home', url: 'https://www.lonemountainheights.com' },
-		{ name: 'Blog', url: 'https://www.lonemountainheights.com/blog' }
-	]);
-	
-	// Blog categories
-	const categories = [
-		{
-			id: 'this-week',
-			name: 'This Week in Lone Mountain Heights',
-			description: 'Recent sales, market updates, and neighborhood news',
-			icon: '📊',
-			color: 'var(--accent-color)'
-		},
-		{
-			id: 'neighborhood-spotlight',
-			name: 'Neighborhood Spotlight',
-			description: 'Local amenities, schools, restaurants, and community features',
-			icon: '🏘️',
-			color: 'var(--primary-color)'
-		},
-		{
-			id: 'market-analysis',
-			name: 'Market Analysis',
-			description: 'Pricing trends, inventory levels, and market insights',
-			icon: '📈',
-			color: 'var(--success-green)'
-		},
-		{
-			id: 'homeowner-tips',
-			name: 'Homeowner Tips',
-			description: 'Maintenance, staging, selling advice, and home improvement',
-			icon: '🏠',
-			color: 'var(--tertiary-color)'
-		}
-	];
-	
-	// Recent blog posts (in a real app, this would come from a CMS)
-	const recentPosts = [
-		{
-			id: 'weekly-market-update-dec-2024',
-			title: 'This Week in Lone Mountain Heights: December 2024 Market Update',
-			excerpt: 'Lone Mountain Heights sees strong end-of-year activity with 12 new listings and 8 sales closed this week. Average home price remains steady at $850,000.',
-			category: 'this-week',
-			date: '2024-12-19',
-			readTime: '3 min read',
-			featured: true
-		},
-		{
-			id: 'canyon-gate-country-club-spotlight',
-			title: 'Neighborhood Spotlight: Canyon Gate Country Club Living',
-			excerpt: 'Discover the exclusive lifestyle at Canyon Gate Country Club, featuring championship golf, luxury amenities, and stunning mountain views.',
-			category: 'neighborhood-spotlight',
-			date: '2024-12-15',
-			readTime: '5 min read',
-			featured: false
-		},
-		{
-			id: 'winter-home-staging-tips',
-			title: 'Homeowner Tips: Winter Staging Strategies for Maximum Appeal',
-			excerpt: 'Learn how to make your Lone Mountain Heights home shine during the winter months with these expert staging tips from Dr. Jan Duffy.',
-			category: 'homeowner-tips',
-			date: '2024-12-12',
-			readTime: '4 min read',
-			featured: false
-		},
-		{
-			id: 'november-market-analysis',
-			title: 'Market Analysis: November 2024 Lone Mountain Heights Report',
-			excerpt: 'Deep dive into November market trends, including inventory levels, price movements, and what to expect in the coming months.',
-			category: 'market-analysis',
-			date: '2024-12-08',
-			readTime: '6 min read',
-			featured: false
-		}
-	];
-	
-	// Featured content
-	const featuredContent = {
-		title: 'Complete Guide to Living in Lone Mountain Heights',
-		description: 'Everything you need to know about this premier Las Vegas community',
-		url: '/blog/complete-guide-living-lone-mountain-heights',
-		image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-	};
+import { generateBreadcrumbSchema } from '$lib/schema.js';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://www.lonemountainheights.com' },
+  { name: 'Blog', url: 'https://www.lonemountainheights.com/blog' },
+]);
+
+// Blog categories
+const categories = [
+  {
+    id: 'this-week',
+    name: 'This Week in Lone Mountain Heights',
+    description: 'Recent sales, market updates, and neighborhood news',
+    icon: '📊',
+    color: 'var(--accent-color)',
+  },
+  {
+    id: 'neighborhood-spotlight',
+    name: 'Neighborhood Spotlight',
+    description:
+      'Local amenities, schools, restaurants, and community features',
+    icon: '🏘️',
+    color: 'var(--primary-color)',
+  },
+  {
+    id: 'market-analysis',
+    name: 'Market Analysis',
+    description: 'Pricing trends, inventory levels, and market insights',
+    icon: '📈',
+    color: 'var(--success-green)',
+  },
+  {
+    id: 'homeowner-tips',
+    name: 'Homeowner Tips',
+    description: 'Maintenance, staging, selling advice, and home improvement',
+    icon: '🏠',
+    color: 'var(--tertiary-color)',
+  },
+];
+
+// Recent blog posts (in a real app, this would come from a CMS)
+const recentPosts = [
+  {
+    id: 'weekly-market-update-dec-2024',
+    title: 'This Week in Lone Mountain Heights: December 2024 Market Update',
+    excerpt:
+      'Lone Mountain Heights sees strong end-of-year activity with 12 new listings and 8 sales closed this week. Average home price remains steady at $850,000.',
+    category: 'this-week',
+    date: '2024-12-19',
+    readTime: '3 min read',
+    featured: true,
+  },
+  {
+    id: 'canyon-gate-country-club-spotlight',
+    title: 'Neighborhood Spotlight: Canyon Gate Country Club Living',
+    excerpt:
+      'Discover the exclusive lifestyle at Canyon Gate Country Club, featuring championship golf, luxury amenities, and stunning mountain views.',
+    category: 'neighborhood-spotlight',
+    date: '2024-12-15',
+    readTime: '5 min read',
+    featured: false,
+  },
+  {
+    id: 'winter-home-staging-tips',
+    title: 'Homeowner Tips: Winter Staging Strategies for Maximum Appeal',
+    excerpt:
+      'Learn how to make your Lone Mountain Heights home shine during the winter months with these expert staging tips from Dr. Jan Duffy.',
+    category: 'homeowner-tips',
+    date: '2024-12-12',
+    readTime: '4 min read',
+    featured: false,
+  },
+  {
+    id: 'november-market-analysis',
+    title: 'Market Analysis: November 2024 Lone Mountain Heights Report',
+    excerpt:
+      'Deep dive into November market trends, including inventory levels, price movements, and what to expect in the coming months.',
+    category: 'market-analysis',
+    date: '2024-12-08',
+    readTime: '6 min read',
+    featured: false,
+  },
+];
+
+// Featured content
+const featuredContent = {
+  title: 'Complete Guide to Living in Lone Mountain Heights',
+  description:
+    'Everything you need to know about this premier Las Vegas community',
+  url: '/blog/complete-guide-living-lone-mountain-heights',
+  image:
+    'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+};
 </script>
 
 <svelte:head>

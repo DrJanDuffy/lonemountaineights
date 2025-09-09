@@ -1,76 +1,76 @@
 <script>
-	// Neighborhood guide data
-	const neighborhoodInfo = {
-		bestStreets: [
-			{
-				name: 'Mountain Ridge Dr',
-				description: 'Premium location with mountain views and larger lots',
-				avgPrice: 950000,
-				lotSize: '0.35+ acres',
-				features: ['Mountain views', 'Corner lots available', 'Larger homes']
-			},
-			{
-				name: 'Desert View Ln',
-				description: 'Great value with updated homes and good resale potential',
-				avgPrice: 750000,
-				lotSize: '0.20-0.25 acres',
-				features: ['Updated kitchens', 'Pool-friendly lots', 'Family-friendly']
-			},
-			{
-				name: 'Canyon Heights Blvd',
-				description: 'Quiet cul-de-sac location perfect for families',
-				avgPrice: 680000,
-				lotSize: '0.15-0.20 acres',
-				features: ['Cul-de-sac', 'Low traffic', 'Starter homes']
-			}
-		],
-		schools: [
-			{
-				name: 'Lone Mountain Elementary',
-				rating: 9,
-				distance: '0.5 miles',
-				grades: 'K-5'
-			},
-			{
-				name: 'Desert Ridge Middle School',
-				rating: 8,
-				distance: '1.2 miles',
-				grades: '6-8'
-			},
-			{
-				name: 'Shadow Ridge High School',
-				rating: 9,
-				distance: '2.1 miles',
-				grades: '9-12'
-			}
-		],
-		commuteTimes: {
-			strip: '25 minutes',
-			downtown: '20 minutes',
-			henderson: '15 minutes',
-			airport: '30 minutes'
-		},
-		amenities: [
-			{
-				name: 'Lone Mountain Park',
-				type: 'Recreation',
-				distance: '0.3 miles',
-				features: ['Playground', 'Walking trails', 'Picnic areas']
-			},
-			{
-				name: 'Desert Ridge Marketplace',
-				type: 'Shopping',
-				distance: '1.5 miles',
-				features: ['Target', 'Whole Foods', 'Restaurants']
-			},
-			{
-				name: 'Sun City Summerlin',
-				type: 'Golf',
-				distance: '2.0 miles',
-				features: ['Golf course', 'Country club', 'Dining']
-			}
-		]
-	};
+// Neighborhood guide data
+const neighborhoodInfo = {
+  bestStreets: [
+    {
+      name: 'Mountain Ridge Dr',
+      description: 'Premium location with mountain views and larger lots',
+      avgPrice: 950000,
+      lotSize: '0.35+ acres',
+      features: ['Mountain views', 'Corner lots available', 'Larger homes'],
+    },
+    {
+      name: 'Desert View Ln',
+      description: 'Great value with updated homes and good resale potential',
+      avgPrice: 750000,
+      lotSize: '0.20-0.25 acres',
+      features: ['Updated kitchens', 'Pool-friendly lots', 'Family-friendly'],
+    },
+    {
+      name: 'Canyon Heights Blvd',
+      description: 'Quiet cul-de-sac location perfect for families',
+      avgPrice: 680000,
+      lotSize: '0.15-0.20 acres',
+      features: ['Cul-de-sac', 'Low traffic', 'Starter homes'],
+    },
+  ],
+  schools: [
+    {
+      name: 'Lone Mountain Elementary',
+      rating: 9,
+      distance: '0.5 miles',
+      grades: 'K-5',
+    },
+    {
+      name: 'Desert Ridge Middle School',
+      rating: 8,
+      distance: '1.2 miles',
+      grades: '6-8',
+    },
+    {
+      name: 'Shadow Ridge High School',
+      rating: 9,
+      distance: '2.1 miles',
+      grades: '9-12',
+    },
+  ],
+  commuteTimes: {
+    strip: '25 minutes',
+    downtown: '20 minutes',
+    henderson: '15 minutes',
+    airport: '30 minutes',
+  },
+  amenities: [
+    {
+      name: 'Lone Mountain Park',
+      type: 'Recreation',
+      distance: '0.3 miles',
+      features: ['Playground', 'Walking trails', 'Picnic areas'],
+    },
+    {
+      name: 'Desert Ridge Marketplace',
+      type: 'Shopping',
+      distance: '1.5 miles',
+      features: ['Target', 'Whole Foods', 'Restaurants'],
+    },
+    {
+      name: 'Sun City Summerlin',
+      type: 'Golf',
+      distance: '2.0 miles',
+      features: ['Golf course', 'Country club', 'Dining'],
+    },
+  ],
+};
 </script>
 
 <svelte:head>

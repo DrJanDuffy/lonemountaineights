@@ -1,82 +1,82 @@
 <script>
-	import { generateBreadcrumbSchema } from '$lib/schema.js';
-	
-	let formData = {
-		name: '',
-		email: '',
-		phone: '',
-		message: '',
-		interest: 'buying',
-		subdivision: '',
-		priceRange: '',
-		timeline: ''
-	};
-	
-	let isSubmitting = false;
-	let submitMessage = '';
-	
-	// Subdivision options for dropdown
-	const subdivisions = [
-		'Lone Mountain Ranch',
-		'Desert Vista Estates', 
-		'Mountain Crest',
-		'Tule Springs Village',
-		'Desert Foothills',
-		'Canyon Gate Country Club',
-		'Mountain\'s Edge North',
-		'Providence Communities',
-		'Not Sure Yet'
-	];
-	
-	// Price range options
-	const priceRanges = [
-		'Under $600,000',
-		'$600,000 - $750,000',
-		'$750,000 - $900,000',
-		'$900,000 - $1,100,000',
-		'$1,100,000 - $1,500,000',
-		'Over $1,500,000',
-		'Not Sure Yet'
-	];
-	
-	// Timeline options
-	const timelines = [
-		'Immediately',
-		'Within 1 month',
-		'Within 3 months',
-		'Within 6 months',
-		'Just exploring',
-		'Not sure'
-	];
-	
-	async function handleSubmit() {
-		isSubmitting = true;
-		submitMessage = '';
-		
-		// Simulate form submission
-		await new Promise(resolve => setTimeout(resolve, 1000));
-		
-		submitMessage = 'Thank you! Dr. Jan will contact you within 24 hours.';
-		isSubmitting = false;
-		
-		// Reset form
-		formData = {
-			name: '',
-			email: '',
-			phone: '',
-			message: '',
-			interest: 'buying',
-			subdivision: '',
-			priceRange: '',
-			timeline: ''
-		};
-	}
-	
-	// Generate breadcrumb schema
-	const breadcrumbSchema = generateBreadcrumbSchema([
-		{ name: 'Home', url: 'https://lonemountainheights.com' },
-		{ name: 'Contact', url: 'https://lonemountainheights.com/contact' }
-	]);
+import { generateBreadcrumbSchema } from '$lib/schema.js';
+
+let formData = {
+  name: '',
+  email: '',
+  phone: '',
+  message: '',
+  interest: 'buying',
+  subdivision: '',
+  priceRange: '',
+  timeline: '',
+};
+
+let isSubmitting = false;
+let submitMessage = '';
+
+// Subdivision options for dropdown
+const subdivisions = [
+  'Lone Mountain Ranch',
+  'Desert Vista Estates',
+  'Mountain Crest',
+  'Tule Springs Village',
+  'Desert Foothills',
+  'Canyon Gate Country Club',
+  "Mountain's Edge North",
+  'Providence Communities',
+  'Not Sure Yet',
+];
+
+// Price range options
+const priceRanges = [
+  'Under $600,000',
+  '$600,000 - $750,000',
+  '$750,000 - $900,000',
+  '$900,000 - $1,100,000',
+  '$1,100,000 - $1,500,000',
+  'Over $1,500,000',
+  'Not Sure Yet',
+];
+
+// Timeline options
+const timelines = [
+  'Immediately',
+  'Within 1 month',
+  'Within 3 months',
+  'Within 6 months',
+  'Just exploring',
+  'Not sure',
+];
+
+async function handleSubmit() {
+  isSubmitting = true;
+  submitMessage = '';
+
+  // Simulate form submission
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+
+  submitMessage = 'Thank you! Dr. Jan will contact you within 24 hours.';
+  isSubmitting = false;
+
+  // Reset form
+  formData = {
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+    interest: 'buying',
+    subdivision: '',
+    priceRange: '',
+    timeline: '',
+  };
+}
+
+// Generate breadcrumb schema
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://lonemountainheights.com' },
+  { name: 'Contact', url: 'https://lonemountainheights.com/contact' },
+]);
 </script>
 
 <svelte:head>

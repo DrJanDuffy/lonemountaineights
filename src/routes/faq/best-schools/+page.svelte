@@ -1,77 +1,87 @@
 <script>
-	import { onMount } from 'svelte';
-	
-	let schools = [
-		{
-			name: "Sandy Valley Elementary School",
-			grade: "K-5",
-			rating: 8,
-			ratingText: "Great Schools Rating: 8/10",
-			distance: "0.8 miles",
-			walkTime: "15 minutes",
-			highlights: ["High academic performance", "Strong parent involvement", "Excellent teachers"],
-			address: "4600 S. Buffalo Dr, Las Vegas, NV 89147"
-		},
-		{
-			name: "Sandy Valley Middle School", 
-			grade: "6-8",
-			rating: 7,
-			ratingText: "Great Schools Rating: 7/10",
-			distance: "0.8 miles",
-			walkTime: "15 minutes",
-			highlights: ["STEM programs", "Sports teams", "Music and arts"],
-			address: "4600 S. Buffalo Dr, Las Vegas, NV 89147"
-		},
-		{
-			name: "Desert Oasis High School",
-			grade: "9-12", 
-			rating: 8,
-			ratingText: "Great Schools Rating: 8/10",
-			distance: "2.1 miles",
-			driveTime: "5 minutes",
-			highlights: ["AP courses", "Honors programs", "College prep", "Sports"],
-			address: "5950 W. Desert Oasis Dr, Las Vegas, NV 89147"
-		},
-		{
-			name: "Sandy Valley High School",
-			grade: "9-12",
-			rating: 7,
-			ratingText: "Great Schools Rating: 7/10", 
-			distance: "1.2 miles",
-			driveTime: "3 minutes",
-			highlights: ["Career technical programs", "Smaller class sizes", "Individual attention"],
-			address: "4600 S. Buffalo Dr, Las Vegas, NV 89147"
-		}
-	];
+const schools = [
+  {
+    name: 'Sandy Valley Elementary School',
+    grade: 'K-5',
+    rating: 8,
+    ratingText: 'Great Schools Rating: 8/10',
+    distance: '0.8 miles',
+    walkTime: '15 minutes',
+    highlights: [
+      'High academic performance',
+      'Strong parent involvement',
+      'Excellent teachers',
+    ],
+    address: '4600 S. Buffalo Dr, Las Vegas, NV 89147',
+  },
+  {
+    name: 'Sandy Valley Middle School',
+    grade: '6-8',
+    rating: 7,
+    ratingText: 'Great Schools Rating: 7/10',
+    distance: '0.8 miles',
+    walkTime: '15 minutes',
+    highlights: ['STEM programs', 'Sports teams', 'Music and arts'],
+    address: '4600 S. Buffalo Dr, Las Vegas, NV 89147',
+  },
+  {
+    name: 'Desert Oasis High School',
+    grade: '9-12',
+    rating: 8,
+    ratingText: 'Great Schools Rating: 8/10',
+    distance: '2.1 miles',
+    driveTime: '5 minutes',
+    highlights: ['AP courses', 'Honors programs', 'College prep', 'Sports'],
+    address: '5950 W. Desert Oasis Dr, Las Vegas, NV 89147',
+  },
+  {
+    name: 'Sandy Valley High School',
+    grade: '9-12',
+    rating: 7,
+    ratingText: 'Great Schools Rating: 7/10',
+    distance: '1.2 miles',
+    driveTime: '3 minutes',
+    highlights: [
+      'Career technical programs',
+      'Smaller class sizes',
+      'Individual attention',
+    ],
+    address: '4600 S. Buffalo Dr, Las Vegas, NV 89147',
+  },
+];
 
-	let privateSchools = [
-		{
-			name: "The Meadows School",
-			grade: "PreK-12",
-			rating: 9,
-			ratingText: "Private, College Prep",
-			distance: "3.5 miles",
-			driveTime: "8 minutes",
-			highlights: ["Elite college prep", "Small class sizes", "Advanced academics"],
-			tuition: "$25,000+ annually"
-		},
-		{
-			name: "Faith Lutheran Middle & High School",
-			grade: "6-12",
-			rating: 8,
-			ratingText: "Private, Christian",
-			distance: "4.2 miles", 
-			driveTime: "10 minutes",
-			highlights: ["Strong academics", "Christian values", "Sports programs"],
-			tuition: "$15,000+ annually"
-		}
-	];
+const privateSchools = [
+  {
+    name: 'The Meadows School',
+    grade: 'PreK-12',
+    rating: 9,
+    ratingText: 'Private, College Prep',
+    distance: '3.5 miles',
+    driveTime: '8 minutes',
+    highlights: [
+      'Elite college prep',
+      'Small class sizes',
+      'Advanced academics',
+    ],
+    tuition: '$25,000+ annually',
+  },
+  {
+    name: 'Faith Lutheran Middle & High School',
+    grade: '6-12',
+    rating: 8,
+    ratingText: 'Private, Christian',
+    distance: '4.2 miles',
+    driveTime: '10 minutes',
+    highlights: ['Strong academics', 'Christian values', 'Sports programs'],
+    tuition: '$15,000+ annually',
+  },
+];
 
-	let schoolBoundaries = {
-		elementary: "Sandy Valley Elementary School",
-		middle: "Sandy Valley Middle School", 
-		high: "Desert Oasis High School (primary) / Sandy Valley High School (alternative)"
-	};
+const schoolBoundaries = {
+  elementary: 'Sandy Valley Elementary School',
+  middle: 'Sandy Valley Middle School',
+  high: 'Desert Oasis High School (primary) / Sandy Valley High School (alternative)',
+};
 </script>
 
 <svelte:head>

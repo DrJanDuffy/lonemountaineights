@@ -1,50 +1,56 @@
 <script>
-	import { generateBreadcrumbSchema } from '$lib/schema.js';
-	
-	const breadcrumbSchema = generateBreadcrumbSchema([
-		{ name: 'Home', url: 'https://lonemountainheights.com' },
-		{ name: 'About', url: 'https://lonemountainheights.com/about' }
-	]);
-	
-	const berkshireAdvantages = [
-		{
-			title: 'Data-Driven Valuations',
-			description: 'Advanced valuation technology provides data-backed home price estimates, trends, and comparable sales in any neighborhood.',
-			icon: '📊'
-		},
-		{
-			title: 'Luxury Market Focus',
-			description: 'Access to global luxury reports and resources for affluent buyers and sellers, positioning listings with maximum visibility and prestige.',
-			icon: '🏆'
-		},
-		{
-			title: 'Forever Agent Commitment',
-			description: 'Every agent is trained to support clients\' long-term real estate needs, emphasizing lifelong service, not just sales.',
-			icon: '🤝'
-		},
-		{
-			title: 'Advanced Marketing Tools',
-			description: 'Leverages digital marketing platforms like Zillow Showcase, delivering up to 75% more page views for listings and accelerating the sales process.',
-			icon: '📈'
-		},
-		{
-			title: 'Global Network Access',
-			description: '1,600+ offices across 13 countries and 4 continents, representing over 50,000 real estate professionals with $154.7 billion in sales volume.',
-			icon: '🌍'
-		},
-		{
-			title: 'Community Impact',
-			description: 'Involved in charitable initiatives such as supporting young cancer patients, reinforcing a commitment to service within their regions.',
-			icon: '❤️'
-		}
-	];
-	
-	const networkStats = {
-		offices: '1,600+',
-		countries: '13',
-		professionals: '50,000+',
-		salesVolume: '$154.7B'
-	};
+import { generateBreadcrumbSchema } from '$lib/schema.js';
+
+const breadcrumbSchema = generateBreadcrumbSchema([
+  { name: 'Home', url: 'https://lonemountainheights.com' },
+  { name: 'About', url: 'https://lonemountainheights.com/about' },
+]);
+
+const berkshireAdvantages = [
+  {
+    title: 'Data-Driven Valuations',
+    description:
+      'Advanced valuation technology provides data-backed home price estimates, trends, and comparable sales in any neighborhood.',
+    icon: '📊',
+  },
+  {
+    title: 'Luxury Market Focus',
+    description:
+      'Access to global luxury reports and resources for affluent buyers and sellers, positioning listings with maximum visibility and prestige.',
+    icon: '🏆',
+  },
+  {
+    title: 'Forever Agent Commitment',
+    description:
+      "Every agent is trained to support clients' long-term real estate needs, emphasizing lifelong service, not just sales.",
+    icon: '🤝',
+  },
+  {
+    title: 'Advanced Marketing Tools',
+    description:
+      'Leverages digital marketing platforms like Zillow Showcase, delivering up to 75% more page views for listings and accelerating the sales process.',
+    icon: '📈',
+  },
+  {
+    title: 'Global Network Access',
+    description:
+      '1,600+ offices across 13 countries and 4 continents, representing over 50,000 real estate professionals with $154.7 billion in sales volume.',
+    icon: '🌍',
+  },
+  {
+    title: 'Community Impact',
+    description:
+      'Involved in charitable initiatives such as supporting young cancer patients, reinforcing a commitment to service within their regions.',
+    icon: '❤️',
+  },
+];
+
+const networkStats = {
+  offices: '1,600+',
+  countries: '13',
+  professionals: '50,000+',
+  salesVolume: '$154.7B',
+};
 </script>
 
 <svelte:head>

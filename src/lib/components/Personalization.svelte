@@ -1,292 +1,312 @@
 <script>
-	import { onMount } from 'svelte';
-	
-	// Personalization state
-	let userProfile = {
-		name: '',
-		email: '',
-		phone: '',
-		preferences: {
-			budget: '',
-			bedrooms: '',
-			bathrooms: '',
-			neighborhoods: [],
-			amenities: [],
-			propertyType: '',
-			timeline: ''
-		},
-		favorites: [],
-		searchHistory: [],
-		lastVisit: null,
-		visitCount: 0,
-		interests: []
-	};
-	
-	let isLoggedIn = false;
-	let showWelcomeBack = false;
-	let personalizedContent = {};
-	let recommendedHomes = [];
-	let savedSearches = [];
-	
-	// Load user data on mount
-	onMount(() => {
-		loadUserData();
-		loadPersonalizedContent();
-		loadRecommendations();
-		loadSavedSearches();
-	});
-	
-	// Initialize arrays to prevent undefined errors during SSR
-	userProfile.favorites = userProfile.favorites || [];
-	userProfile.searchHistory = userProfile.searchHistory || [];
-	userProfile.interests = userProfile.interests || [];
-	recommendedHomes = recommendedHomes || [];
-	savedSearches = savedSearches || [];
-	
-	function loadUserData() {
-		if (typeof window !== 'undefined') {
-			const savedProfile = localStorage.getItem('userProfile');
-			if (savedProfile) {
-				userProfile = { ...userProfile, ...JSON.parse(savedProfile) };
-				isLoggedIn = true;
-				showWelcomeBack = true;
-			}
-			
-			// Load favorites
-			const savedFavorites = localStorage.getItem('favoriteHomes');
-			if (savedFavorites) {
-				userProfile.favorites = JSON.parse(savedFavorites);
-			}
-			
-			// Load search history
-			const savedHistory = localStorage.getItem('searchHistory');
-			if (savedHistory) {
-				userProfile.searchHistory = JSON.parse(savedHistory);
-			}
-			
-			// Update visit count
-			userProfile.visitCount = (userProfile.visitCount || 0) + 1;
-			userProfile.lastVisit = new Date().toISOString();
-			saveUserData();
-		}
-	}
-	
-	function loadPersonalizedContent() {
-		// Generate personalized content based on user profile
-		personalizedContent = {
-			greeting: generateGreeting(),
-			marketInsights: generateMarketInsights(),
-			neighborhoodSpotlight: generateNeighborhoodSpotlight(),
-			homeownerTips: generateHomeownerTips(),
-			marketAlerts: generateMarketAlerts()
-		};
-	}
-	
-	function loadRecommendations() {
-		// Generate home recommendations based on preferences
-		recommendedHomes = generateHomeRecommendations();
-	}
-	
-	function loadSavedSearches() {
-		// Load saved searches from localStorage
-		if (typeof window !== 'undefined') {
-			const saved = localStorage.getItem('savedSearches');
-			if (saved) {
-				savedSearches = JSON.parse(saved);
-			}
-		}
-	}
-	
-	function generateGreeting() {
-		const hour = new Date().getHours();
-		const timeOfDay = hour < 12 ? 'morning' : hour < 17 ? 'afternoon' : 'evening';
-		
-		if (userProfile.name) {
-			return `Good ${timeOfDay}, ${userProfile.name}!`;
-		} else {
-			return `Good ${timeOfDay}!`;
-		}
-	}
-	
-	function generateMarketInsights() {
-		const insights = [
-			{
-				title: 'Lone Mountain Heights Market Update',
-				content: 'Home prices have increased 5.2% this quarter, with average days on market dropping to 23 days.',
-				relevance: 'high'
-			},
-			{
-				title: 'New Listings Alert',
-				content: '3 new homes matching your criteria were listed this week in your preferred neighborhoods.',
-				relevance: 'high'
-			},
-			{
-				title: 'Interest Rate Impact',
-				content: 'Current rates are creating opportunities for buyers, with more negotiating power available.',
-				relevance: 'medium'
-			}
-		];
-		
-		return insights.filter(insight => insight.relevance === 'high' || Math.random() > 0.5);
-	}
-	
-	function generateNeighborhoodSpotlight() {
-		const neighborhoods = [
-			{
-				name: 'Lone Mountain Ranch',
-				description: 'Luxury gated community with golf course access',
-				avgPrice: '$850,000',
-				features: ['Golf Course', 'Gated Security', 'Mountain Views'],
-				image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
-			},
-			{
-				name: 'Desert Vista Estates',
-				description: 'Family-friendly community with top-rated schools',
-				avgPrice: '$650,000',
-				features: ['Top Schools', 'Community Pool', 'Parks'],
-				image: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'
-			}
-		];
-		
-		return neighborhoods[Math.floor(Math.random() * neighborhoods.length)];
-	}
-	
-	function generateHomeownerTips() {
-		const tips = [
-			{
-				title: 'Spring Home Maintenance Checklist',
-				content: 'Prepare your home for the selling season with these essential maintenance tasks.',
-				category: 'maintenance'
-			},
-			{
-				title: 'Staging Tips for Quick Sale',
-				content: 'Learn how to stage your home to sell faster and for more money.',
-				category: 'staging'
-			},
-			{
-				title: 'Market Timing Strategies',
-				content: 'Discover the best times to list your home in Lone Mountain Heights.',
-				category: 'marketing'
-			}
-		];
-		
-		return tips[Math.floor(Math.random() * tips.length)];
-	}
-	
-	function generateMarketAlerts() {
-		const alerts = [
-			{
-				type: 'price_reduction',
-				message: '2 homes in your saved searches have reduced their prices',
-				action: 'View Reduced Prices',
-				url: '/homes?filter=price_reduced'
-			},
-			{
-				type: 'new_listing',
-				message: 'New listing matches your 3-bedroom, 2-bathroom criteria',
-				action: 'View New Listing',
-				url: '/homes?filter=new'
-			},
-			{
-				type: 'market_opportunity',
-				message: 'Interest rates dropped 0.25% - great time to buy!',
-				action: 'Get Pre-Approved',
-				url: '/contact'
-			}
-		];
-		
-		return alerts.filter(() => Math.random() > 0.3); // Show 70% of alerts
-	}
-	
-	function generateHomeRecommendations() {
-		// Mock home recommendations based on user preferences
-		return [
-			{
-				id: 1,
-				address: '1234 Mountain View Dr',
-				price: 785000,
-				bedrooms: 4,
-				bathrooms: 3,
-				sqft: 2500,
-				neighborhood: 'Lone Mountain Ranch',
-				image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-				matchScore: 95,
-				features: ['Mountain Views', 'Updated Kitchen', 'Pool']
-			},
-			{
-				id: 2,
-				address: '5678 Desert Vista Way',
-				price: 650000,
-				bedrooms: 3,
-				bathrooms: 2,
-				sqft: 2200,
-				neighborhood: 'Desert Vista Estates',
-				image: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-				matchScore: 88,
-				features: ['Great Schools', 'Community Pool', 'Garage']
-			}
-		];
-	}
-	
-	function saveUserData() {
-		if (typeof window !== 'undefined') {
-			localStorage.setItem('userProfile', JSON.stringify(userProfile));
-		}
-	}
-	
-	function updatePreferences(newPreferences) {
-		userProfile.preferences = { ...userProfile.preferences, ...newPreferences };
-		saveUserData();
-		loadPersonalizedContent();
-		loadRecommendations();
-	}
-	
-	function addToFavorites(home) {
-		if (!userProfile.favorites.find(fav => fav.id === home.id)) {
-			userProfile.favorites = [...userProfile.favorites, home];
-			if (typeof window !== 'undefined') {
-				localStorage.setItem('favoriteHomes', JSON.stringify(userProfile.favorites));
-			}
-		}
-	}
-	
-	function removeFromFavorites(homeId) {
-		userProfile.favorites = userProfile.favorites.filter(fav => fav.id !== homeId);
-		if (typeof window !== 'undefined') {
-			localStorage.setItem('favoriteHomes', JSON.stringify(userProfile.favorites));
-		}
-	}
-	
-	function saveSearch(searchCriteria) {
-		const search = {
-			id: Date.now(),
-			criteria: searchCriteria,
-			date: new Date().toISOString(),
-			results: 0 // Would be populated with actual search results
-		};
-		
-		savedSearches = [search, ...savedSearches.slice(0, 9)]; // Keep last 10 searches
-		if (typeof window !== 'undefined') {
-			localStorage.setItem('savedSearches', JSON.stringify(savedSearches));
-		}
-	}
-	
-	function trackInterest(category, item) {
-		const interest = {
-			category,
-			item,
-			timestamp: new Date().toISOString()
-		};
-		
-		userProfile.interests = [interest, ...userProfile.interests.slice(0, 49)]; // Keep last 50 interests
-		saveUserData();
-	}
-	
-	function dismissAlert(alertIndex) {
-		if (personalizedContent.marketAlerts) {
-			personalizedContent.marketAlerts.splice(alertIndex, 1);
-		}
-	}
+import { onMount } from 'svelte';
+
+// Personalization state
+let userProfile = {
+  name: '',
+  email: '',
+  phone: '',
+  preferences: {
+    budget: '',
+    bedrooms: '',
+    bathrooms: '',
+    neighborhoods: [],
+    amenities: [],
+    propertyType: '',
+    timeline: '',
+  },
+  favorites: [],
+  searchHistory: [],
+  lastVisit: null,
+  visitCount: 0,
+  interests: [],
+};
+
+let isLoggedIn = false;
+let showWelcomeBack = false;
+let personalizedContent = {};
+let recommendedHomes = [];
+let savedSearches = [];
+
+// Load user data on mount
+onMount(() => {
+  loadUserData();
+  loadPersonalizedContent();
+  loadRecommendations();
+  loadSavedSearches();
+});
+
+// Initialize arrays to prevent undefined errors during SSR
+userProfile.favorites = userProfile.favorites || [];
+userProfile.searchHistory = userProfile.searchHistory || [];
+userProfile.interests = userProfile.interests || [];
+recommendedHomes = recommendedHomes || [];
+savedSearches = savedSearches || [];
+
+function loadUserData() {
+  if (typeof window !== 'undefined') {
+    const savedProfile = localStorage.getItem('userProfile');
+    if (savedProfile) {
+      userProfile = { ...userProfile, ...JSON.parse(savedProfile) };
+      isLoggedIn = true;
+      showWelcomeBack = true;
+    }
+
+    // Load favorites
+    const savedFavorites = localStorage.getItem('favoriteHomes');
+    if (savedFavorites) {
+      userProfile.favorites = JSON.parse(savedFavorites);
+    }
+
+    // Load search history
+    const savedHistory = localStorage.getItem('searchHistory');
+    if (savedHistory) {
+      userProfile.searchHistory = JSON.parse(savedHistory);
+    }
+
+    // Update visit count
+    userProfile.visitCount = (userProfile.visitCount || 0) + 1;
+    userProfile.lastVisit = new Date().toISOString();
+    saveUserData();
+  }
+}
+
+function loadPersonalizedContent() {
+  // Generate personalized content based on user profile
+  personalizedContent = {
+    greeting: generateGreeting(),
+    marketInsights: generateMarketInsights(),
+    neighborhoodSpotlight: generateNeighborhoodSpotlight(),
+    homeownerTips: generateHomeownerTips(),
+    marketAlerts: generateMarketAlerts(),
+  };
+}
+
+function loadRecommendations() {
+  // Generate home recommendations based on preferences
+  recommendedHomes = generateHomeRecommendations();
+}
+
+function loadSavedSearches() {
+  // Load saved searches from localStorage
+  if (typeof window !== 'undefined') {
+    const saved = localStorage.getItem('savedSearches');
+    if (saved) {
+      savedSearches = JSON.parse(saved);
+    }
+  }
+}
+
+function generateGreeting() {
+  const hour = new Date().getHours();
+  const timeOfDay = hour < 12 ? 'morning' : hour < 17 ? 'afternoon' : 'evening';
+
+  if (userProfile.name) {
+    return `Good ${timeOfDay}, ${userProfile.name}!`;
+  } else {
+    return `Good ${timeOfDay}!`;
+  }
+}
+
+function generateMarketInsights() {
+  const insights = [
+    {
+      title: 'Lone Mountain Heights Market Update',
+      content:
+        'Home prices have increased 5.2% this quarter, with average days on market dropping to 23 days.',
+      relevance: 'high',
+    },
+    {
+      title: 'New Listings Alert',
+      content:
+        '3 new homes matching your criteria were listed this week in your preferred neighborhoods.',
+      relevance: 'high',
+    },
+    {
+      title: 'Interest Rate Impact',
+      content:
+        'Current rates are creating opportunities for buyers, with more negotiating power available.',
+      relevance: 'medium',
+    },
+  ];
+
+  return insights.filter(
+    (insight) => insight.relevance === 'high' || Math.random() > 0.5,
+  );
+}
+
+function generateNeighborhoodSpotlight() {
+  const neighborhoods = [
+    {
+      name: 'Lone Mountain Ranch',
+      description: 'Luxury gated community with golf course access',
+      avgPrice: '$850,000',
+      features: ['Golf Course', 'Gated Security', 'Mountain Views'],
+      image:
+        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+    },
+    {
+      name: 'Desert Vista Estates',
+      description: 'Family-friendly community with top-rated schools',
+      avgPrice: '$650,000',
+      features: ['Top Schools', 'Community Pool', 'Parks'],
+      image:
+        'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+    },
+  ];
+
+  return neighborhoods[Math.floor(Math.random() * neighborhoods.length)];
+}
+
+function generateHomeownerTips() {
+  const tips = [
+    {
+      title: 'Spring Home Maintenance Checklist',
+      content:
+        'Prepare your home for the selling season with these essential maintenance tasks.',
+      category: 'maintenance',
+    },
+    {
+      title: 'Staging Tips for Quick Sale',
+      content:
+        'Learn how to stage your home to sell faster and for more money.',
+      category: 'staging',
+    },
+    {
+      title: 'Market Timing Strategies',
+      content:
+        'Discover the best times to list your home in Lone Mountain Heights.',
+      category: 'marketing',
+    },
+  ];
+
+  return tips[Math.floor(Math.random() * tips.length)];
+}
+
+function generateMarketAlerts() {
+  const alerts = [
+    {
+      type: 'price_reduction',
+      message: '2 homes in your saved searches have reduced their prices',
+      action: 'View Reduced Prices',
+      url: '/homes?filter=price_reduced',
+    },
+    {
+      type: 'new_listing',
+      message: 'New listing matches your 3-bedroom, 2-bathroom criteria',
+      action: 'View New Listing',
+      url: '/homes?filter=new',
+    },
+    {
+      type: 'market_opportunity',
+      message: 'Interest rates dropped 0.25% - great time to buy!',
+      action: 'Get Pre-Approved',
+      url: '/contact',
+    },
+  ];
+
+  return alerts.filter(() => Math.random() > 0.3); // Show 70% of alerts
+}
+
+function generateHomeRecommendations() {
+  // Mock home recommendations based on user preferences
+  return [
+    {
+      id: 1,
+      address: '1234 Mountain View Dr',
+      price: 785000,
+      bedrooms: 4,
+      bathrooms: 3,
+      sqft: 2500,
+      neighborhood: 'Lone Mountain Ranch',
+      image:
+        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      matchScore: 95,
+      features: ['Mountain Views', 'Updated Kitchen', 'Pool'],
+    },
+    {
+      id: 2,
+      address: '5678 Desert Vista Way',
+      price: 650000,
+      bedrooms: 3,
+      bathrooms: 2,
+      sqft: 2200,
+      neighborhood: 'Desert Vista Estates',
+      image:
+        'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+      matchScore: 88,
+      features: ['Great Schools', 'Community Pool', 'Garage'],
+    },
+  ];
+}
+
+function saveUserData() {
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('userProfile', JSON.stringify(userProfile));
+  }
+}
+
+function updatePreferences(newPreferences) {
+  userProfile.preferences = { ...userProfile.preferences, ...newPreferences };
+  saveUserData();
+  loadPersonalizedContent();
+  loadRecommendations();
+}
+
+function addToFavorites(home) {
+  if (!userProfile.favorites.find((fav) => fav.id === home.id)) {
+    userProfile.favorites = [...userProfile.favorites, home];
+    if (typeof window !== 'undefined') {
+      localStorage.setItem(
+        'favoriteHomes',
+        JSON.stringify(userProfile.favorites),
+      );
+    }
+  }
+}
+
+function removeFromFavorites(homeId) {
+  userProfile.favorites = userProfile.favorites.filter(
+    (fav) => fav.id !== homeId,
+  );
+  if (typeof window !== 'undefined') {
+    localStorage.setItem(
+      'favoriteHomes',
+      JSON.stringify(userProfile.favorites),
+    );
+  }
+}
+
+function saveSearch(searchCriteria) {
+  const search = {
+    id: Date.now(),
+    criteria: searchCriteria,
+    date: new Date().toISOString(),
+    results: 0, // Would be populated with actual search results
+  };
+
+  savedSearches = [search, ...savedSearches.slice(0, 9)]; // Keep last 10 searches
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('savedSearches', JSON.stringify(savedSearches));
+  }
+}
+
+function trackInterest(category, item) {
+  const interest = {
+    category,
+    item,
+    timestamp: new Date().toISOString(),
+  };
+
+  userProfile.interests = [interest, ...userProfile.interests.slice(0, 49)]; // Keep last 50 interests
+  saveUserData();
+}
+
+function dismissAlert(alertIndex) {
+  if (personalizedContent.marketAlerts) {
+    personalizedContent.marketAlerts.splice(alertIndex, 1);
+  }
+}
 </script>
 
 <div class="personalization">

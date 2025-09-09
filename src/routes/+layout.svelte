@@ -1,15 +1,17 @@
 <script>
-import Navigation from '$lib/Navigation.svelte';
-import { webVitals } from '$lib/vitals';
 import { browser } from '$app/env';
-import { page } from '$app/stores';
-import { generateLocalBusinessSchema, generateFAQSchema, realEstateFAQs } from '$lib/schema.js';
-import { initPerformanceOptimizations } from '$lib/performance.js';
 import { initAccessibility } from '$lib/accessibility.js';
+import { initPerformanceOptimizations } from '$lib/performance.js';
+import {
+  generateFAQSchema,
+  generateLocalBusinessSchema,
+  realEstateFAQs,
+} from '$lib/schema.js';
+import { webVitals } from '$lib/vitals';
 import '../app.css';
 import '../lib/ranchStyles.css';
 
-let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
+const analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
 
 // Generate schema markup for the main site
 const localBusinessSchema = generateLocalBusinessSchema();

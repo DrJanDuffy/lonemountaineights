@@ -6,19 +6,19 @@
 export function initAccessibility() {
   // Skip to main content link
   createSkipLink();
-  
+
   // Focus management
   initFocusManagement();
-  
+
   // Keyboard navigation
   initKeyboardNavigation();
-  
+
   // Screen reader announcements
   initScreenReaderSupport();
-  
+
   // High contrast mode detection
   initHighContrastMode();
-  
+
   // Reduced motion support
   initReducedMotion();
 }
@@ -43,15 +43,15 @@ function createSkipLink() {
     border-radius: 4px;
     transition: top 0.3s;
   `;
-  
+
   skipLink.addEventListener('focus', () => {
     skipLink.style.top = '6px';
   });
-  
+
   skipLink.addEventListener('blur', () => {
     skipLink.style.top = '-40px';
   });
-  
+
   document.body.insertBefore(skipLink, document.body.firstChild);
 }
 
@@ -68,14 +68,14 @@ function initFocusManagement() {
       }
     }
   });
-  
+
   // Focus visible elements
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Tab') {
       document.body.classList.add('keyboard-navigation');
     }
   });
-  
+
   document.addEventListener('mousedown', () => {
     document.body.classList.remove('keyboard-navigation');
   });
@@ -88,12 +88,12 @@ function initKeyboardNavigation() {
   // Arrow key navigation for custom components
   document.addEventListener('keydown', (e) => {
     const { key, target } = e;
-    
+
     // Handle arrow key navigation in custom dropdowns
     if (target.classList.contains('dropdown-trigger')) {
       handleDropdownNavigation(e);
     }
-    
+
     // Handle arrow key navigation in custom tabs
     if (target.classList.contains('tab-trigger')) {
       handleTabNavigation(e);
@@ -109,18 +109,21 @@ function handleDropdownNavigation(e) {
   const dropdown = target.closest('.dropdown');
   const items = dropdown.querySelectorAll('.dropdown-item');
   const currentIndex = Array.from(items).indexOf(target);
-  
+
   switch (key) {
-    case 'ArrowDown':
+    case 'ArrowDown': {
       e.preventDefault();
       const nextIndex = (currentIndex + 1) % items.length;
       items[nextIndex].focus();
       break;
-    case 'ArrowUp':
+    }
+    case 'ArrowUp': {
       e.preventDefault();
-      const prevIndex = currentIndex === 0 ? items.length - 1 : currentIndex - 1;
+      const prevIndex =
+        currentIndex === 0 ? items.length - 1 : currentIndex - 1;
       items[prevIndex].focus();
       break;
+    }
     case 'Enter':
     case ' ':
       e.preventDefault();
@@ -140,18 +143,20 @@ function handleTabNavigation(e) {
   const tabList = target.closest('.tab-list');
   const tabs = tabList.querySelectorAll('.tab-trigger');
   const currentIndex = Array.from(tabs).indexOf(target);
-  
+
   switch (key) {
-    case 'ArrowRight':
+    case 'ArrowRight': {
       e.preventDefault();
       const nextIndex = (currentIndex + 1) % tabs.length;
       tabs[nextIndex].focus();
       break;
-    case 'ArrowLeft':
+    }
+    case 'ArrowLeft': {
       e.preventDefault();
       const prevIndex = currentIndex === 0 ? tabs.length - 1 : currentIndex - 1;
       tabs[prevIndex].focus();
       break;
+    }
     case 'Home':
       e.preventDefault();
       tabs[0].focus();
@@ -174,16 +179,19 @@ function initScreenReaderSupport() {
   liveRegion.className = 'sr-only';
   liveRegion.id = 'live-region';
   document.body.appendChild(liveRegion);
-  
+
   // Announce page changes
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
-      if (mutation.type === 'childList' && mutation.target.id === 'main-content') {
+      if (
+        mutation.type === 'childList' &&
+        mutation.target.id === 'main-content'
+      ) {
         announceToScreenReader('Page content updated');
       }
     });
   });
-  
+
   const mainContent = document.getElementById('main-content');
   if (mainContent) {
     observer.observe(mainContent, { childList: true, subtree: true });
@@ -210,7 +218,7 @@ export function announceToScreenReader(message) {
 function initHighContrastMode() {
   if (window.matchMedia) {
     const highContrastQuery = window.matchMedia('(prefers-contrast: high)');
-    
+
     const handleHighContrastChange = (e) => {
       if (e.matches) {
         document.body.classList.add('high-contrast');
@@ -218,7 +226,7 @@ function initHighContrastMode() {
         document.body.classList.remove('high-contrast');
       }
     };
-    
+
     highContrastQuery.addListener(handleHighContrastChange);
     handleHighContrastChange(highContrastQuery);
   }
@@ -229,8 +237,10 @@ function initHighContrastMode() {
  */
 function initReducedMotion() {
   if (window.matchMedia) {
-    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    
+    const reducedMotionQuery = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    );
+
     const handleReducedMotionChange = (e) => {
       if (e.matches) {
         document.body.classList.add('reduced-motion');
@@ -249,7 +259,7 @@ function initReducedMotion() {
         document.body.classList.remove('reduced-motion');
       }
     };
-    
+
     reducedMotionQuery.addListener(handleReducedMotionChange);
     handleReducedMotionChange(reducedMotionQuery);
   }
@@ -271,29 +281,33 @@ function closeModal(modal) {
  */
 export function validateFormAccessibility(form) {
   const errors = [];
-  
+
   // Check for required labels
   const inputs = form.querySelectorAll('input, textarea, select');
-  inputs.forEach(input => {
+  inputs.forEach((input) => {
     const id = input.id;
     const label = form.querySelector(`label[for="${id}"]`);
-    
-    if (!label && !input.getAttribute('aria-label') && !input.getAttribute('aria-labelledby')) {
+
+    if (
+      !label &&
+      !input.getAttribute('aria-label') &&
+      !input.getAttribute('aria-labelledby')
+    ) {
       errors.push(`Input with id "${id}" is missing a label`);
     }
   });
-  
+
   // Check for error associations
   const errorMessages = form.querySelectorAll('.error-message');
-  errorMessages.forEach(error => {
+  errorMessages.forEach((error) => {
     const inputId = error.getAttribute('aria-describedby');
     const input = form.querySelector(`#${inputId}`);
-    
+
     if (!input) {
       errors.push(`Error message is not properly associated with an input`);
     }
   });
-  
+
   return errors;
 }
 
@@ -330,27 +344,27 @@ export function createAccessibleButton(text, options = {}) {
   const button = document.createElement('button');
   button.textContent = text;
   button.type = options.type || 'button';
-  
+
   if (options.ariaLabel) {
     button.setAttribute('aria-label', options.ariaLabel);
   }
-  
+
   if (options.ariaDescribedBy) {
     button.setAttribute('aria-describedby', options.ariaDescribedBy);
   }
-  
+
   if (options.ariaExpanded !== undefined) {
     button.setAttribute('aria-expanded', options.ariaExpanded);
   }
-  
+
   if (options.ariaControls) {
     button.setAttribute('aria-controls', options.ariaControls);
   }
-  
+
   if (options.className) {
     button.className = options.className;
   }
-  
+
   return button;
 }
 
@@ -361,21 +375,21 @@ export function createAccessibleLink(text, href, options = {}) {
   const link = document.createElement('a');
   link.textContent = text;
   link.href = href;
-  
+
   if (options.ariaLabel) {
     link.setAttribute('aria-label', options.ariaLabel);
   }
-  
+
   if (options.target === '_blank') {
     link.setAttribute('target', '_blank');
     link.setAttribute('rel', 'noopener noreferrer');
     link.setAttribute('aria-label', `${text} (opens in new tab)`);
   }
-  
+
   if (options.className) {
     link.className = options.className;
   }
-  
+
   return link;
 }
 

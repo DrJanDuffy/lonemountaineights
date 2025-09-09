@@ -1,87 +1,87 @@
 <script>
-	import { onMount } from 'svelte';
-	
-	// CTA state
-	let urgencyMessage = '';
-	let inventoryCount = 0;
-	let lastUpdated = '';
-	let showUrgency = false;
-	
-	// CTA variants
-	export let variant = 'primary'; // 'primary', 'secondary', 'urgent', 'floating'
-	export let size = 'large'; // 'small', 'medium', 'large'
-	export let showPhone = true;
-	export let showEmail = true;
-	export let showText = true;
-	export let showForm = false;
-	
-	// Urgency data
-	let urgencyData = {
-		activeListings: 0,
-		avgDaysOnMarket: 0,
-		priceReductions: 0,
-		newListings: 0
-	};
-	
-	onMount(() => {
-		loadUrgencyData();
-		updateUrgencyMessage();
-		
-		// Update every 30 minutes
-		const interval = setInterval(() => {
-			loadUrgencyData();
-			updateUrgencyMessage();
-		}, 1800000);
-		
-		return () => clearInterval(interval);
-	});
-	
-	function loadUrgencyData() {
-		// Simulate real-time data
-		urgencyData = {
-			activeListings: Math.floor(Math.random() * (150 - 100 + 1)) + 100,
-			avgDaysOnMarket: Math.floor(Math.random() * (30 - 15 + 1)) + 15,
-			priceReductions: Math.floor(Math.random() * (20 - 5 + 1)) + 5,
-			newListings: Math.floor(Math.random() * (15 - 3 + 1)) + 3
-		};
-		
-		inventoryCount = urgencyData.activeListings;
-		lastUpdated = new Date().toLocaleTimeString();
-		showUrgency = urgencyData.activeListings < 120;
-	}
-	
-	function updateUrgencyMessage() {
-		const messages = [
-			`Only ${inventoryCount} homes available in Lone Mountain Heights`,
-			`Average ${urgencyData.avgDaysOnMarket} days on market - homes selling fast!`,
-			`${urgencyData.newListings} new listings this week - limited time to view`,
-			`${urgencyData.priceReductions} price reductions - great deals available`
-		];
-		
-		urgencyMessage = messages[Math.floor(Math.random() * messages.length)];
-	}
-	
-	// Click tracking
-	function trackCTAClick(action, method) {
-		// In a real app, this would send analytics data
-		console.log(`CTA clicked: ${action} via ${method}`);
-		
-		// Track in localStorage for personalization
-		const ctaClicks = JSON.parse(localStorage.getItem('ctaClicks') || '[]');
-		ctaClicks.push({
-			action,
-			method,
-			timestamp: new Date().toISOString(),
-			page: window.location.pathname
-		});
-		localStorage.setItem('ctaClicks', JSON.stringify(ctaClicks.slice(-50))); // Keep last 50 clicks
-	}
-	
-	// Get CTA classes
-	$: ctaClasses = `cta cta-${variant} cta-${size} ${showUrgency ? 'cta-urgent' : ''}`;
-	
-	// Get button classes
-	$: buttonClasses = `btn btn-${variant} btn-${size}`;
+import { onMount } from 'svelte';
+
+// CTA state
+let urgencyMessage = '';
+let inventoryCount = 0;
+let lastUpdated = '';
+let showUrgency = false;
+
+// CTA variants
+export const variant = 'primary'; // 'primary', 'secondary', 'urgent', 'floating'
+export const size = 'large'; // 'small', 'medium', 'large'
+export const showPhone = true;
+export const showEmail = true;
+export const showText = true;
+export const showForm = false;
+
+// Urgency data
+let urgencyData = {
+  activeListings: 0,
+  avgDaysOnMarket: 0,
+  priceReductions: 0,
+  newListings: 0,
+};
+
+onMount(() => {
+  loadUrgencyData();
+  updateUrgencyMessage();
+
+  // Update every 30 minutes
+  const interval = setInterval(() => {
+    loadUrgencyData();
+    updateUrgencyMessage();
+  }, 1800000);
+
+  return () => clearInterval(interval);
+});
+
+function loadUrgencyData() {
+  // Simulate real-time data
+  urgencyData = {
+    activeListings: Math.floor(Math.random() * (150 - 100 + 1)) + 100,
+    avgDaysOnMarket: Math.floor(Math.random() * (30 - 15 + 1)) + 15,
+    priceReductions: Math.floor(Math.random() * (20 - 5 + 1)) + 5,
+    newListings: Math.floor(Math.random() * (15 - 3 + 1)) + 3,
+  };
+
+  inventoryCount = urgencyData.activeListings;
+  lastUpdated = new Date().toLocaleTimeString();
+  showUrgency = urgencyData.activeListings < 120;
+}
+
+function updateUrgencyMessage() {
+  const messages = [
+    `Only ${inventoryCount} homes available in Lone Mountain Heights`,
+    `Average ${urgencyData.avgDaysOnMarket} days on market - homes selling fast!`,
+    `${urgencyData.newListings} new listings this week - limited time to view`,
+    `${urgencyData.priceReductions} price reductions - great deals available`,
+  ];
+
+  urgencyMessage = messages[Math.floor(Math.random() * messages.length)];
+}
+
+// Click tracking
+function trackCTAClick(action, method) {
+  // In a real app, this would send analytics data
+  console.log(`CTA clicked: ${action} via ${method}`);
+
+  // Track in localStorage for personalization
+  const ctaClicks = JSON.parse(localStorage.getItem('ctaClicks') || '[]');
+  ctaClicks.push({
+    action,
+    method,
+    timestamp: new Date().toISOString(),
+    page: window.location.pathname,
+  });
+  localStorage.setItem('ctaClicks', JSON.stringify(ctaClicks.slice(-50))); // Keep last 50 clicks
+}
+
+// Get CTA classes
+$: ctaClasses = `cta cta-${variant} cta-${size} ${showUrgency ? 'cta-urgent' : ''}`;
+
+// Get button classes
+$: buttonClasses = `btn btn-${variant} btn-${size}`;
 </script>
 
 <div class={ctaClasses}>

@@ -1,33 +1,31 @@
 <script>
-	import { onMount } from 'svelte';
-	
-	let currentYear = new Date().getFullYear();
-	let hoaData = {
-		baseFee: 85,
-		range: "75-95",
-		coverage: [
-			"Landscaping maintenance",
-			"Common area upkeep", 
-			"Security gate maintenance",
-			"Street lighting",
-			"Community amenities"
-		],
-		paymentSchedule: "Monthly",
-		lateFees: 25,
-		assessmentHistory: [
-			{ year: 2024, amount: 85, change: "+5" },
-			{ year: 2023, amount: 80, change: "+0" },
-			{ year: 2022, amount: 80, change: "+10" },
-			{ year: 2021, amount: 70, change: "+5" }
-		]
-	};
-	
-	let recentSales = [
-		{ address: "123 Mountain View Dr", price: 875000, hoa: 85, sqft: 3200 },
-		{ address: "456 Desert Vista Way", price: 920000, hoa: 90, sqft: 3500 },
-		{ address: "789 Lone Mountain Blvd", price: 798000, hoa: 80, sqft: 2800 },
-		{ address: "321 Canyon Ridge Ct", price: 1100000, hoa: 95, sqft: 4200 }
-	];
+const currentYear = new Date().getFullYear();
+const hoaData = {
+  baseFee: 85,
+  range: '75-95',
+  coverage: [
+    'Landscaping maintenance',
+    'Common area upkeep',
+    'Security gate maintenance',
+    'Street lighting',
+    'Community amenities',
+  ],
+  paymentSchedule: 'Monthly',
+  lateFees: 25,
+  assessmentHistory: [
+    { year: 2024, amount: 85, change: '+5' },
+    { year: 2023, amount: 80, change: '+0' },
+    { year: 2022, amount: 80, change: '+10' },
+    { year: 2021, amount: 70, change: '+5' },
+  ],
+};
+
+const recentSales = [
+  { address: '123 Mountain View Dr', price: 875000, hoa: 85, sqft: 3200 },
+  { address: '456 Desert Vista Way', price: 920000, hoa: 90, sqft: 3500 },
+  { address: '789 Lone Mountain Blvd', price: 798000, hoa: 80, sqft: 2800 },
+  { address: '321 Canyon Ridge Ct', price: 1100000, hoa: 95, sqft: 4200 },
+];
 </script>
 
 <svelte:head>

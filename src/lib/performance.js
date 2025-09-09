@@ -4,7 +4,7 @@
 export function initLazyLoading() {
   if ('IntersectionObserver' in window) {
     const imageObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const img = entry.target;
           img.src = img.dataset.src;
@@ -16,7 +16,7 @@ export function initLazyLoading() {
     });
 
     // Observe all lazy-loaded images
-    document.querySelectorAll('img[data-src]').forEach(img => {
+    document.querySelectorAll('img[data-src]').forEach((img) => {
       imageObserver.observe(img);
     });
   }
@@ -50,10 +50,10 @@ export function preloadCriticalResources() {
   // Preload critical fonts
   const fontPreloads = [
     'https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2',
-    'https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZ9hiJ-Ek-_EeA.woff2'
+    'https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZ9hiJ-Ek-_EeA.woff2',
   ];
 
-  fontPreloads.forEach(fontUrl => {
+  fontPreloads.forEach((fontUrl) => {
     const link = document.createElement('link');
     link.rel = 'preload';
     link.href = fontUrl;
@@ -65,10 +65,10 @@ export function preloadCriticalResources() {
 
   // Preload critical images
   const criticalImages = [
-    'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1973&q=80'
+    'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1973&q=80',
   ];
 
-  criticalImages.forEach(imageUrl => {
+  criticalImages.forEach((imageUrl) => {
     const link = document.createElement('link');
     link.rel = 'preload';
     link.href = imageUrl;
@@ -81,18 +81,19 @@ export function preloadCriticalResources() {
 export function optimizeImages() {
   // Add loading="lazy" to non-critical images
   document.querySelectorAll('img:not([loading])').forEach((img, index) => {
-    if (index > 0) { // Skip first image (likely LCP)
+    if (index > 0) {
+      // Skip first image (likely LCP)
       img.loading = 'lazy';
     }
   });
 
   // Add proper alt text for accessibility
-  document.querySelectorAll('img:not([alt])').forEach(img => {
+  document.querySelectorAll('img:not([alt])').forEach((img) => {
     img.alt = 'Lone Mountain Heights real estate image';
   });
 
   // Add width and height attributes to prevent layout shift
-  document.querySelectorAll('img:not([width]):not([height])').forEach(img => {
+  document.querySelectorAll('img:not([width]):not([height])').forEach((img) => {
     img.addEventListener('load', () => {
       img.width = img.naturalWidth;
       img.height = img.naturalHeight;
@@ -104,12 +105,12 @@ export function optimizeImages() {
 export function preventLayoutShift() {
   // Reserve space for dynamic content
   const dynamicElements = document.querySelectorAll('[data-dynamic]');
-  dynamicElements.forEach(el => {
-    el.style.minHeight = el.offsetHeight + 'px';
+  dynamicElements.forEach((el) => {
+    el.style.minHeight = `${el.offsetHeight}px`;
   });
 
   // Add aspect ratio containers for images
-  document.querySelectorAll('img').forEach(img => {
+  document.querySelectorAll('img').forEach((img) => {
     if (!img.parentElement.classList.contains('aspect-container')) {
       const container = document.createElement('div');
       container.className = 'aspect-container';
@@ -125,7 +126,7 @@ export function preventLayoutShift() {
 export function optimizeJavaScript() {
   // Defer non-critical JavaScript
   const scripts = document.querySelectorAll('script[data-defer]');
-  scripts.forEach(script => {
+  scripts.forEach((script) => {
     script.defer = true;
   });
 
@@ -163,11 +164,12 @@ export function initWebVitals() {
 export function initServiceWorker() {
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js')
-        .then(registration => {
+      navigator.serviceWorker
+        .register('/sw.js')
+        .then((registration) => {
           console.log('SW registered: ', registration);
         })
-        .catch(registrationError => {
+        .catch((registrationError) => {
           console.log('SW registration failed: ', registrationError);
         });
     });
@@ -178,25 +180,25 @@ export function initServiceWorker() {
 export function initPerformanceOptimizations() {
   // Load critical CSS immediately
   loadCriticalCSS();
-  
+
   // Preload critical resources
   preloadCriticalResources();
-  
+
   // Optimize images
   optimizeImages();
-  
+
   // Prevent layout shift
   preventLayoutShift();
-  
+
   // Initialize lazy loading
   initLazyLoading();
-  
+
   // Optimize JavaScript execution
   optimizeJavaScript();
-  
+
   // Initialize Web Vitals monitoring
   initWebVitals();
-  
+
   // Initialize Service Worker
   initServiceWorker();
 }
@@ -205,13 +207,14 @@ export function initPerformanceOptimizations() {
 export function optimizeForMobile() {
   // Add touch-friendly classes
   document.body.classList.add('touch-device');
-  
+
   // Optimize viewport
   const viewport = document.querySelector('meta[name="viewport"]');
   if (viewport) {
-    viewport.content = 'width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes';
+    viewport.content =
+      'width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes';
   }
-  
+
   // Add mobile-specific CSS
   const mobileCSS = document.createElement('style');
   mobileCSS.textContent = `

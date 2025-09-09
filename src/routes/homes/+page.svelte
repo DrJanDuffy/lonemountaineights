@@ -1,9 +1,6 @@
 <script>
-import { onMount } from 'svelte';
-import { generatePropertySchema, generateBreadcrumbSchema } from '$lib/schema.js';
-
 // Mock data - in production this would come from MLS API
-let allHomes = [
+const allHomes = [
   {
     id: 1,
     address: '1234 Mountain View Dr',
@@ -135,8 +132,10 @@ let allHomes = [
     sqft: 1250,
     lotSize: 'N/A',
     daysOnMarket: 5,
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-    insight: 'Low-maintenance living with mountain views - perfect for first-time buyers',
+    image:
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight:
+      'Low-maintenance living with mountain views - perfect for first-time buyers',
     homeStyle: 'Condo',
     yearBuilt: 2019,
     garage: 1,
@@ -155,7 +154,8 @@ let allHomes = [
     sqft: 1650,
     lotSize: '0.05 acres',
     daysOnMarket: 10,
-    image: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image:
+      'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
     insight: 'End-unit townhouse with private patio - great for families',
     homeStyle: 'Townhouse',
     yearBuilt: 2017,
@@ -176,7 +176,8 @@ let allHomes = [
     sqft: 4200,
     lotSize: '0.75 acres',
     daysOnMarket: 2,
-    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image:
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
     insight: 'Blue Heron mini-estate with custom finishes and panoramic views',
     homeStyle: 'Custom',
     yearBuilt: 2022,
@@ -196,8 +197,10 @@ let allHomes = [
     sqft: 3800,
     lotSize: '0.60 acres',
     daysOnMarket: 7,
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-    insight: 'William Ramsey designed mid-century modern revival with architectural significance',
+    image:
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight:
+      'William Ramsey designed mid-century modern revival with architectural significance',
     homeStyle: 'Mid-Century Modern',
     yearBuilt: 2021,
     garage: 3,
@@ -217,8 +220,10 @@ let allHomes = [
     sqft: 2100,
     lotSize: '0.30 acres',
     daysOnMarket: 14,
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-    insight: 'Resort-style pool with spa and outdoor kitchen - perfect for entertaining',
+    image:
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight:
+      'Resort-style pool with spa and outdoor kitchen - perfect for entertaining',
     homeStyle: 'Two Story',
     yearBuilt: 2018,
     garage: 2,
@@ -238,8 +243,10 @@ let allHomes = [
     sqft: 1550,
     lotSize: '0.15 acres',
     daysOnMarket: 25,
-    image: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-    insight: 'Great value in Lone Mountain Heights - needs some TLC but solid bones',
+    image:
+      'https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight:
+      'Great value in Lone Mountain Heights - needs some TLC but solid bones',
     homeStyle: 'Single Story',
     yearBuilt: 2010,
     garage: 2,
@@ -259,8 +266,10 @@ let allHomes = [
     sqft: 2400,
     lotSize: '0.25 acres',
     daysOnMarket: 1,
-    image: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-    insight: 'Brand new construction with modern amenities and energy efficiency',
+    image:
+      'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight:
+      'Brand new construction with modern amenities and energy efficiency',
     homeStyle: 'Two Story',
     yearBuilt: 2024,
     garage: 2,
@@ -280,8 +289,10 @@ let allHomes = [
     sqft: 1800,
     lotSize: '0.20 acres',
     daysOnMarket: 12,
-    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-    insight: 'Single-story ranch perfect for aging in place or accessibility needs',
+    image:
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight:
+      'Single-story ranch perfect for aging in place or accessibility needs',
     homeStyle: 'Ranch',
     yearBuilt: 2014,
     garage: 2,
@@ -301,8 +312,10 @@ let allHomes = [
     sqft: 0,
     lotSize: '0.50 acres',
     daysOnMarket: 30,
-    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-    insight: 'Prime lot with mountain views - perfect for custom home construction',
+    image:
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight:
+      'Prime lot with mountain views - perfect for custom home construction',
     homeStyle: 'Land',
     yearBuilt: 0,
     garage: 0,
@@ -311,7 +324,7 @@ let allHomes = [
     propertyType: 'Land',
     isNewListing: false,
     isLuxury: false,
-  }
+  },
 ];
 
 let filteredHomes = allHomes;
@@ -329,12 +342,12 @@ let filters = {
   propertyType: '',
   isNewListing: false,
   isLuxury: false,
-  hasPool: false
+  hasPool: false,
 };
 
-let sortBy = 'price';
-let viewMode = 'grid'; // 'grid' or 'list'
-let showFilters = false;
+const sortBy = 'price';
+const viewMode = 'grid'; // 'grid' or 'list'
+const showFilters = false;
 
 function formatPrice(price) {
   return new Intl.NumberFormat('en-US', {
@@ -347,29 +360,28 @@ function formatPrice(price) {
 
 function applyFilters() {
   filteredHomes = allHomes.filter((home) => {
-    if (filters.minPrice && home.price < parseInt(filters.minPrice))
+    if (filters.minPrice && home.price < parseInt(filters.minPrice, 10))
       return false;
-    if (filters.maxPrice && home.price > parseInt(filters.maxPrice))
+    if (filters.maxPrice && home.price > parseInt(filters.maxPrice, 10))
       return false;
-    if (filters.bedrooms && home.bedrooms !== parseInt(filters.bedrooms))
+    if (filters.bedrooms && home.bedrooms !== parseInt(filters.bedrooms, 10))
       return false;
-    if (filters.bathrooms && home.bathrooms !== parseInt(filters.bathrooms))
+    if (filters.bathrooms && home.bathrooms !== parseInt(filters.bathrooms, 10))
       return false;
-    if (filters.minSqft && home.sqft < parseInt(filters.minSqft)) return false;
-    if (filters.maxSqft && home.sqft > parseInt(filters.maxSqft)) return false;
+    if (filters.minSqft && home.sqft < parseInt(filters.minSqft, 10))
+      return false;
+    if (filters.maxSqft && home.sqft > parseInt(filters.maxSqft, 10))
+      return false;
     if (filters.homeStyle && home.homeStyle !== filters.homeStyle) return false;
     if (filters.pool && home.pool !== (filters.pool === 'yes')) return false;
     if (filters.view && home.view !== filters.view) return false;
-    if (filters.garage && home.garage !== parseInt(filters.garage))
+    if (filters.garage && home.garage !== parseInt(filters.garage, 10))
       return false;
     if (filters.propertyType && home.propertyType !== filters.propertyType)
       return false;
-    if (filters.isNewListing && !home.isNewListing)
-      return false;
-    if (filters.isLuxury && !home.isLuxury)
-      return false;
-    if (filters.hasPool && !home.pool)
-      return false;
+    if (filters.isNewListing && !home.isNewListing) return false;
+    if (filters.isLuxury && !home.isLuxury) return false;
+    if (filters.hasPool && !home.pool) return false;
     return true;
   });
 

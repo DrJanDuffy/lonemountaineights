@@ -10,10 +10,10 @@ const BASE_URL = 'https://www.lonemountainheights.com';
 export function generateCanonicalUrl(path) {
   // Remove leading slash if present
   const cleanPath = path.startsWith('/') ? path.slice(1) : path;
-  
+
   // Ensure path doesn't end with trailing slash (except for root)
   const finalPath = cleanPath === '' ? '' : cleanPath.replace(/\/$/, '');
-  
+
   return `${BASE_URL}/${finalPath}`;
 }
 
@@ -67,9 +67,11 @@ export function generatePriceRangeCanonicalUrl(priceRange) {
 export function isCanonicalUrl(url) {
   try {
     const urlObj = new URL(url);
-    return urlObj.hostname === 'www.lonemountainheights.com' && 
-           !urlObj.pathname.endsWith('/') && 
-           urlObj.pathname !== '/';
+    return (
+      urlObj.hostname === 'www.lonemountainheights.com' &&
+      !urlObj.pathname.endsWith('/') &&
+      urlObj.pathname !== '/'
+    );
   } catch {
     return false;
   }
@@ -85,74 +87,74 @@ export function getAllCanonicalUrls() {
       url: generateCanonicalUrl('/'),
       priority: 1.0,
       changefreq: 'weekly',
-      lastmod: new Date().toISOString().split('T')[0]
+      lastmod: new Date().toISOString().split('T')[0],
     },
     {
       url: generateCanonicalUrl('/homes'),
       priority: 0.95,
       changefreq: 'daily',
-      lastmod: new Date().toISOString().split('T')[0]
+      lastmod: new Date().toISOString().split('T')[0],
     },
     {
       url: generateCanonicalUrl('/neighborhoods'),
       priority: 0.9,
       changefreq: 'weekly',
-      lastmod: new Date().toISOString().split('T')[0]
+      lastmod: new Date().toISOString().split('T')[0],
     },
     {
       url: generateCanonicalUrl('/market-report'),
       priority: 0.85,
       changefreq: 'weekly',
-      lastmod: new Date().toISOString().split('T')[0]
+      lastmod: new Date().toISOString().split('T')[0],
     },
     {
       url: generateCanonicalUrl('/sales'),
       priority: 0.8,
       changefreq: 'weekly',
-      lastmod: new Date().toISOString().split('T')[0]
+      lastmod: new Date().toISOString().split('T')[0],
     },
     {
       url: generateCanonicalUrl('/valuation'),
       priority: 0.8,
       changefreq: 'weekly',
-      lastmod: new Date().toISOString().split('T')[0]
+      lastmod: new Date().toISOString().split('T')[0],
     },
     {
       url: generateCanonicalUrl('/contact'),
       priority: 0.8,
       changefreq: 'monthly',
-      lastmod: new Date().toISOString().split('T')[0]
+      lastmod: new Date().toISOString().split('T')[0],
     },
     {
       url: generateCanonicalUrl('/about'),
       priority: 0.75,
       changefreq: 'monthly',
-      lastmod: new Date().toISOString().split('T')[0]
+      lastmod: new Date().toISOString().split('T')[0],
     },
     {
       url: generateCanonicalUrl('/amenities'),
       priority: 0.7,
       changefreq: 'monthly',
-      lastmod: new Date().toISOString().split('T')[0]
+      lastmod: new Date().toISOString().split('T')[0],
     },
     {
       url: generateCanonicalUrl('/schools'),
       priority: 0.7,
       changefreq: 'monthly',
-      lastmod: new Date().toISOString().split('T')[0]
+      lastmod: new Date().toISOString().split('T')[0],
     },
     {
       url: generateCanonicalUrl('/guide'),
       priority: 0.65,
       changefreq: 'monthly',
-      lastmod: new Date().toISOString().split('T')[0]
+      lastmod: new Date().toISOString().split('T')[0],
     },
     {
       url: generateCanonicalUrl('/blog'),
       priority: 0.8,
       changefreq: 'daily',
-      lastmod: new Date().toISOString().split('T')[0]
-    }
+      lastmod: new Date().toISOString().split('T')[0],
+    },
   ];
 
   // Add location-specific URLs
@@ -161,15 +163,15 @@ export function getAllCanonicalUrls() {
     'desert-vista-estates',
     'mountain-view-estates',
     'sunset-ridge',
-    'eagle-canyon'
+    'eagle-canyon',
   ];
 
-  locations.forEach(location => {
+  locations.forEach((location) => {
     urls.push({
       url: generateLocationCanonicalUrl(location),
       priority: 0.8,
       changefreq: 'weekly',
-      lastmod: new Date().toISOString().split('T')[0]
+      lastmod: new Date().toISOString().split('T')[0],
     });
   });
 
@@ -181,32 +183,27 @@ export function getAllCanonicalUrls() {
     'luxury-homes',
     'corner-lot-homes',
     'single-story-homes',
-    'homes-with-mountain-views'
+    'homes-with-mountain-views',
   ];
 
-  propertyTypes.forEach(type => {
+  propertyTypes.forEach((type) => {
     urls.push({
       url: generatePropertyTypeCanonicalUrl(type),
       priority: 0.75,
       changefreq: 'weekly',
-      lastmod: new Date().toISOString().split('T')[0]
+      lastmod: new Date().toISOString().split('T')[0],
     });
   });
 
   // Add price range URLs
-  const priceRanges = [
-    '400k-600k',
-    '600k-800k',
-    '800k-1m',
-    '1m-plus'
-  ];
+  const priceRanges = ['400k-600k', '600k-800k', '800k-1m', '1m-plus'];
 
-  priceRanges.forEach(range => {
+  priceRanges.forEach((range) => {
     urls.push({
       url: generatePriceRangeCanonicalUrl(range),
       priority: 0.75,
       changefreq: 'weekly',
-      lastmod: new Date().toISOString().split('T')[0]
+      lastmod: new Date().toISOString().split('T')[0],
     });
   });
 
@@ -239,11 +236,11 @@ Crawl-delay: 1`;
  */
 export function generateSitemapXml() {
   const urls = getAllCanonicalUrls();
-  
+
   let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
 
-  urls.forEach(urlData => {
+  urls.forEach((urlData) => {
     sitemap += `
   <url>
     <loc>${urlData.url}</loc>

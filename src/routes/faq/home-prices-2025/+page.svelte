@@ -1,78 +1,124 @@
 <script>
-	import { onMount } from 'svelte';
-	
-	let currentYear = new Date().getFullYear();
-	let marketData = {
-		avgPrice: 847000,
-		medianPrice: 825000,
-		priceRange: {
-			low: 650000,
-			high: 1200000
-		},
-		pricePerSqFt: 265,
-		yearOverYearChange: 4.2,
-		monthlyChange: 0.8,
-		daysOnMarket: 12,
-		inventory: 47,
-		salesThisYear: 156
-	};
+const currentYear = new Date().getFullYear();
+const marketData = {
+  avgPrice: 847000,
+  medianPrice: 825000,
+  priceRange: {
+    low: 650000,
+    high: 1200000,
+  },
+  pricePerSqFt: 265,
+  yearOverYearChange: 4.2,
+  monthlyChange: 0.8,
+  daysOnMarket: 12,
+  inventory: 47,
+  salesThisYear: 156,
+};
 
-	let priceRanges = [
-		{ range: "$650k - $750k", count: 12, percentage: 25.5 },
-		{ range: "$750k - $850k", count: 18, percentage: 38.3 },
-		{ range: "$850k - $950k", count: 10, percentage: 21.3 },
-		{ range: "$950k+", count: 7, percentage: 14.9 }
-	];
+const priceRanges = [
+  { range: '$650k - $750k', count: 12, percentage: 25.5 },
+  { range: '$750k - $850k', count: 18, percentage: 38.3 },
+  { range: '$850k - $950k', count: 10, percentage: 21.3 },
+  { range: '$950k+', count: 7, percentage: 14.9 },
+];
 
-	let recentSales = [
-		{ address: "123 Mountain View Dr", price: 875000, sqft: 3200, pricePerSqFt: 273, bedrooms: 4, bathrooms: 3, daysOnMarket: 8 },
-		{ address: "456 Desert Vista Way", price: 920000, sqft: 3500, pricePerSqFt: 263, bedrooms: 5, bathrooms: 4, daysOnMarket: 15 },
-		{ address: "789 Lone Mountain Blvd", price: 798000, sqft: 2800, pricePerSqFt: 285, bedrooms: 3, bathrooms: 2, daysOnMarket: 5 },
-		{ address: "321 Canyon Ridge Ct", price: 1100000, sqft: 4200, pricePerSqFt: 262, bedrooms: 5, bathrooms: 4, daysOnMarket: 22 },
-		{ address: "654 Summit Peak Ln", price: 725000, sqft: 2600, pricePerSqFt: 279, bedrooms: 3, bathrooms: 3, daysOnMarket: 12 }
-	];
+const recentSales = [
+  {
+    address: '123 Mountain View Dr',
+    price: 875000,
+    sqft: 3200,
+    pricePerSqFt: 273,
+    bedrooms: 4,
+    bathrooms: 3,
+    daysOnMarket: 8,
+  },
+  {
+    address: '456 Desert Vista Way',
+    price: 920000,
+    sqft: 3500,
+    pricePerSqFt: 263,
+    bedrooms: 5,
+    bathrooms: 4,
+    daysOnMarket: 15,
+  },
+  {
+    address: '789 Lone Mountain Blvd',
+    price: 798000,
+    sqft: 2800,
+    pricePerSqFt: 285,
+    bedrooms: 3,
+    bathrooms: 2,
+    daysOnMarket: 5,
+  },
+  {
+    address: '321 Canyon Ridge Ct',
+    price: 1100000,
+    sqft: 4200,
+    pricePerSqFt: 262,
+    bedrooms: 5,
+    bathrooms: 4,
+    daysOnMarket: 22,
+  },
+  {
+    address: '654 Summit Peak Ln',
+    price: 725000,
+    sqft: 2600,
+    pricePerSqFt: 279,
+    bedrooms: 3,
+    bathrooms: 3,
+    daysOnMarket: 12,
+  },
+];
 
-	let marketTrends = [
-		{ month: "Jan 2024", avgPrice: 812000, sales: 14 },
-		{ month: "Feb 2024", avgPrice: 825000, sales: 18 },
-		{ month: "Mar 2024", avgPrice: 835000, sales: 22 },
-		{ month: "Apr 2024", avgPrice: 845000, sales: 19 },
-		{ month: "May 2024", avgPrice: 850000, sales: 25 },
-		{ month: "Jun 2024", avgPrice: 855000, sales: 28 },
-		{ month: "Jul 2024", avgPrice: 840000, sales: 24 },
-		{ month: "Aug 2024", avgPrice: 845000, sales: 26 },
-		{ month: "Sep 2024", avgPrice: 850000, sales: 23 },
-		{ month: "Oct 2024", avgPrice: 855000, sales: 21 },
-		{ month: "Nov 2024", avgPrice: 860000, sales: 19 },
-		{ month: "Dec 2024", avgPrice: 847000, sales: 16 }
-	];
+const marketTrends = [
+  { month: 'Jan 2024', avgPrice: 812000, sales: 14 },
+  { month: 'Feb 2024', avgPrice: 825000, sales: 18 },
+  { month: 'Mar 2024', avgPrice: 835000, sales: 22 },
+  { month: 'Apr 2024', avgPrice: 845000, sales: 19 },
+  { month: 'May 2024', avgPrice: 850000, sales: 25 },
+  { month: 'Jun 2024', avgPrice: 855000, sales: 28 },
+  { month: 'Jul 2024', avgPrice: 840000, sales: 24 },
+  { month: 'Aug 2024', avgPrice: 845000, sales: 26 },
+  { month: 'Sep 2024', avgPrice: 850000, sales: 23 },
+  { month: 'Oct 2024', avgPrice: 855000, sales: 21 },
+  { month: 'Nov 2024', avgPrice: 860000, sales: 19 },
+  { month: 'Dec 2024', avgPrice: 847000, sales: 16 },
+];
 
-	let factors = [
-		{
-			title: "Location & Views",
-			impact: "High",
-			description: "Homes with mountain views command 15-25% premium",
-			examples: ["Corner lots", "Cul-de-sac locations", "Mountain-facing properties"]
-		},
-		{
-			title: "Home Size & Layout",
-			impact: "High", 
-			description: "Price per square foot varies by bedroom count and layout",
-			examples: ["Open floor plans", "Master suite size", "Kitchen upgrades"]
-		},
-		{
-			title: "Condition & Updates",
-			impact: "Medium",
-			description: "Updated homes sell 10-20% faster and for higher prices",
-			examples: ["Kitchen renovations", "Bathroom updates", "Flooring quality"]
-		},
-		{
-			title: "Market Timing",
-			impact: "Medium",
-			description: "Seasonal trends and market conditions affect pricing",
-			examples: ["Spring selling season", "Interest rate changes", "Inventory levels"]
-		}
-	];
+const factors = [
+  {
+    title: 'Location & Views',
+    impact: 'High',
+    description: 'Homes with mountain views command 15-25% premium',
+    examples: [
+      'Corner lots',
+      'Cul-de-sac locations',
+      'Mountain-facing properties',
+    ],
+  },
+  {
+    title: 'Home Size & Layout',
+    impact: 'High',
+    description: 'Price per square foot varies by bedroom count and layout',
+    examples: ['Open floor plans', 'Master suite size', 'Kitchen upgrades'],
+  },
+  {
+    title: 'Condition & Updates',
+    impact: 'Medium',
+    description: 'Updated homes sell 10-20% faster and for higher prices',
+    examples: ['Kitchen renovations', 'Bathroom updates', 'Flooring quality'],
+  },
+  {
+    title: 'Market Timing',
+    impact: 'Medium',
+    description: 'Seasonal trends and market conditions affect pricing',
+    examples: [
+      'Spring selling season',
+      'Interest rate changes',
+      'Inventory levels',
+    ],
+  },
+];
 </script>
 
 <svelte:head>
