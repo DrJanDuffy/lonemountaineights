@@ -232,22 +232,38 @@ import OptimizedCTA from '$lib/components/OptimizedCTA.svelte';
 
 <main>
 	<Hero />
-	<Personalization />
-	<TrustSignals />
-	<HomeValueCalculator />
-	<MortgageCalculator />
-	<HomeFinderQuiz />
-	<MarketStats />
-	<NeighborhoodMap />
-	<MarketInfographics />
-	<SeasonalContent />
-	<StagingGallery />
-	<OptimizedCTA variant="primary" size="large" showPhone={true} showEmail={true} showText={true} showForm={true} />
+	<div class="main-content-container">
+		<Personalization />
+		<TrustSignals />
+		<HomeValueCalculator />
+		<MortgageCalculator />
+		<HomeFinderQuiz />
+		<MarketStats />
+		<NeighborhoodMap />
+		<MarketInfographics />
+		<SeasonalContent />
+		<StagingGallery />
+		<OptimizedCTA variant="primary" size="large" showPhone={true} showEmail={true} showText={true} showForm={true} />
+	</div>
 </main>
 
 <style>
 	main {
 		width: 100%;
 		min-height: 100vh;
+	}
+	
+	.main-content-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+		width: 100%;
+		box-sizing: border-box;
+	}
+	
+	@media (max-width: 768px) {
+		.main-content-container {
+			padding: 0 1rem;
+		}
 	}
 </style>
