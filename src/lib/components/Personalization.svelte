@@ -1,6 +1,5 @@
 <script>
 	import { onMount } from 'svelte';
-	import { browser } from '$app/environment';
 	
 	// Personalization state
 	let userProfile = {
@@ -31,38 +30,38 @@
 	
 	// Load user data on mount
 	onMount(() => {
-		if (browser) {
-			loadUserData();
-			loadPersonalizedContent();
-			loadRecommendations();
-			loadSavedSearches();
-		}
+		loadUserData();
+		loadPersonalizedContent();
+		loadRecommendations();
+		loadSavedSearches();
 	});
 	
 	function loadUserData() {
-		const savedProfile = localStorage.getItem('userProfile');
-		if (savedProfile) {
-			userProfile = { ...userProfile, ...JSON.parse(savedProfile) };
-			isLoggedIn = true;
-			showWelcomeBack = true;
+		if (typeof window !== 'undefined') {
+			const savedProfile = localStorage.getItem('userProfile');
+			if (savedProfile) {
+				userProfile = { ...userProfile, ...JSON.parse(savedProfile) };
+				isLoggedIn = true;
+				showWelcomeBack = true;
+			}
+			
+			// Load favorites
+			const savedFavorites = localStorage.getItem('favoriteHomes');
+			if (savedFavorites) {
+				userProfile.favorites = JSON.parse(savedFavorites);
+			}
+			
+			// Load search history
+			const savedHistory = localStorage.getItem('searchHistory');
+			if (savedHistory) {
+				userProfile.searchHistory = JSON.parse(savedHistory);
+			}
+			
+			// Update visit count
+			userProfile.visitCount = (userProfile.visitCount || 0) + 1;
+			userProfile.lastVisit = new Date().toISOString();
+			saveUserData();
 		}
-		
-		// Load favorites
-		const savedFavorites = localStorage.getItem('favoriteHomes');
-		if (savedFavorites) {
-			userProfile.favorites = JSON.parse(savedFavorites);
-		}
-		
-		// Load search history
-		const savedHistory = localStorage.getItem('searchHistory');
-		if (savedHistory) {
-			userProfile.searchHistory = JSON.parse(savedHistory);
-		}
-		
-		// Update visit count
-		userProfile.visitCount = (userProfile.visitCount || 0) + 1;
-		userProfile.lastVisit = new Date().toISOString();
-		saveUserData();
 	}
 	
 	function loadPersonalizedContent() {
@@ -83,9 +82,11 @@
 	
 	function loadSavedSearches() {
 		// Load saved searches from localStorage
-		const saved = localStorage.getItem('savedSearches');
-		if (saved) {
-			savedSearches = JSON.parse(saved);
+		if (typeof window !== 'undefined') {
+			const saved = localStorage.getItem('savedSearches');
+			if (saved) {
+				savedSearches = JSON.parse(saved);
+			}
 		}
 	}
 	
@@ -221,7 +222,7 @@
 	}
 	
 	function saveUserData() {
-		if (browser) {
+		if (typeof window !== 'undefined') {
 			localStorage.setItem('userProfile', JSON.stringify(userProfile));
 		}
 	}
@@ -236,13 +237,17 @@
 	function addToFavorites(home) {
 		if (!userProfile.favorites.find(fav => fav.id === home.id)) {
 			userProfile.favorites = [...userProfile.favorites, home];
-			localStorage.setItem('favoriteHomes', JSON.stringify(userProfile.favorites));
+			if (typeof window !== 'undefined') {
+				localStorage.setItem('favoriteHomes', JSON.stringify(userProfile.favorites));
+			}
 		}
 	}
 	
 	function removeFromFavorites(homeId) {
 		userProfile.favorites = userProfile.favorites.filter(fav => fav.id !== homeId);
-		localStorage.setItem('favoriteHomes', JSON.stringify(userProfile.favorites));
+		if (typeof window !== 'undefined') {
+			localStorage.setItem('favoriteHomes', JSON.stringify(userProfile.favorites));
+		}
 	}
 	
 	function saveSearch(searchCriteria) {
@@ -254,7 +259,9 @@
 		};
 		
 		savedSearches = [search, ...savedSearches.slice(0, 9)]; // Keep last 10 searches
-		localStorage.setItem('savedSearches', JSON.stringify(savedSearches));
+		if (typeof window !== 'undefined') {
+			localStorage.setItem('savedSearches', JSON.stringify(savedSearches));
+		}
 	}
 	
 	function trackInterest(category, item) {
