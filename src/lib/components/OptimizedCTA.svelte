@@ -155,7 +155,7 @@
 				class="{buttonClasses} cta-search"
 				target="_blank" 
 				rel="noopener noreferrer"
-				on:click={() => trackCTAClick('search_homes', 'realscout')}
+				on:click={() => trackCTAClick('search_homes', 'lone_mountain')}
 			>
 				<span class="btn-icon">🔍</span>
 				<span class="btn-text">Search All Homes</span>

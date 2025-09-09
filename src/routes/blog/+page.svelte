@@ -182,17 +182,17 @@
 				</div>
 			</section>
 			
-			<!-- RealScout Search CTA -->
-			<section class="realscout-cta-section">
-				<div class="realscout-cta-card">
+			<!-- Lone Mountain Heights Search CTA -->
+			<section class="lone-mountain-cta-section">
+				<div class="lone-mountain-cta-card">
 					<h2>🔍 Ready to Search for Your Dream Home?</h2>
 					<p>Access our complete MLS database with advanced search filters and real-time updates</p>
 					<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" 
-					   class="btn btn-primary realscout-btn" 
+					   class="btn btn-primary lone-mountain-btn" 
 					   target="_blank" 
 					   rel="noopener noreferrer">
 						<span class="btn-icon">🏠</span>
-						<span class="btn-text">Search All Homes on RealScout</span>
+						<span class="btn-text">Search All Homes in Lone Mountain Heights</span>
 						<span class="btn-arrow">→</span>
 					</a>
 				</div>
@@ -398,11 +398,11 @@
 		text-decoration: underline;
 	}
 	
-	.realscout-cta-section {
+	.lone-mountain-cta-section {
 		margin: 3rem 0;
 	}
-	
-	.realscout-cta-card {
+
+	.lone-mountain-cta-card {
 		text-align: center;
 		background: var(--accent-color);
 		color: white;
@@ -410,20 +410,20 @@
 		border-radius: 12px;
 		box-shadow: 0 8px 25px rgba(30, 58, 138, 0.2);
 	}
-	
-	.realscout-cta-card h2 {
+
+	.lone-mountain-cta-card h2 {
 		font-size: 1.8rem;
 		margin: 0 0 0.5rem 0;
 		font-weight: 700;
 	}
-	
-	.realscout-cta-card p {
+
+	.lone-mountain-cta-card p {
 		font-size: 1.1rem;
 		margin: 0 0 1.5rem 0;
 		opacity: 0.9;
 	}
-	
-	.realscout-btn {
+
+	.lone-mountain-btn {
 		background: white;
 		color: var(--accent-color);
 		padding: 1rem 2rem;
@@ -437,23 +437,23 @@
 		transition: all 0.3s ease;
 		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 	}
-	
-	.realscout-btn:hover {
+
+	.lone-mountain-btn:hover {
 		transform: translateY(-2px);
 		box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 		background: var(--warm-cream);
 	}
-	
+
 	.btn-icon {
 		font-size: 1.2rem;
 	}
-	
+
 	.btn-arrow {
 		font-size: 1.2rem;
 		transition: transform 0.3s ease;
 	}
-	
-	.realscout-btn:hover .btn-arrow {
+
+	.lone-mountain-btn:hover .btn-arrow {
 		transform: translateX(4px);
 	}
 	
