@@ -283,18 +283,20 @@
 	}
 	
 	function dismissAlert(alertIndex) {
-		personalizedContent.marketAlerts.splice(alertIndex, 1);
+		if (personalizedContent.marketAlerts) {
+			personalizedContent.marketAlerts.splice(alertIndex, 1);
+		}
 	}
 </script>
 
 <div class="personalization">
 	{#if showWelcomeBack}
 		<div class="welcome-back">
-			<div class="welcome-content">
-				<h3>{personalizedContent.greeting}</h3>
-				<p>Welcome back! Here's what's new in Lone Mountain Heights since your last visit.</p>
-				<button class="dismiss-btn" on:click={() => showWelcomeBack = false}>×</button>
-			</div>
+		<div class="welcome-content">
+			<h3>{personalizedContent.greeting || 'Welcome back!'}</h3>
+			<p>Welcome back! Here's what's new in Lone Mountain Heights since your last visit.</p>
+			<button class="dismiss-btn" on:click={() => showWelcomeBack = false}>×</button>
+		</div>
 		</div>
 	{/if}
 	
@@ -377,9 +379,9 @@
 				<img src={personalizedContent.neighborhoodSpotlight?.image || '/placeholder-neighborhood.jpg'} alt={personalizedContent.neighborhoodSpotlight?.name || 'Neighborhood'} loading="lazy" />
 			</div>
 			<div class="spotlight-content">
-				<h5>{personalizedContent.neighborhoodSpotlight.name}</h5>
-				<p>{personalizedContent.neighborhoodSpotlight.description}</p>
-				<div class="spotlight-price">Avg Price: {personalizedContent.neighborhoodSpotlight.avgPrice}</div>
+				<h5>{personalizedContent.neighborhoodSpotlight?.name || 'Neighborhood'}</h5>
+				<p>{personalizedContent.neighborhoodSpotlight?.description || 'Beautiful neighborhood in Lone Mountain Heights'}</p>
+				<div class="spotlight-price">Avg Price: {personalizedContent.neighborhoodSpotlight?.avgPrice || 'Contact for pricing'}</div>
 				<div class="spotlight-features">
 					{#each (personalizedContent.neighborhoodSpotlight?.features || []) as feature}
 						<span class="feature-tag">{feature}</span>
@@ -393,8 +395,8 @@
 	<div class="homeowner-tips">
 		<h4>Homeowner Tips</h4>
 		<div class="tip-card">
-			<h5>{personalizedContent.homeownerTips.title}</h5>
-			<p>{personalizedContent.homeownerTips.content}</p>
+			<h5>{personalizedContent.homeownerTips?.title || 'Homeowner Tips'}</h5>
+			<p>{personalizedContent.homeownerTips?.content || 'Get expert advice on maintaining your Lone Mountain Heights home.'}</p>
 			<a href="/guide" class="tip-link">Read More →</a>
 		</div>
 	</div>
