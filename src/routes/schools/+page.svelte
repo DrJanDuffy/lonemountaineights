@@ -1,84 +1,48 @@
 <script>
 	import { generateBreadcrumbSchema } from '$lib/schema.js';
 	
-	// School data for Lone Mountain Heights area
+	// School data for Lone Mountain Heights/Summerlin area
 	const schools = {
 		elementary: [
 			{
-				name: 'Lone Mountain Elementary School',
-				rating: 9,
-				grade: 'K-5',
-				distance: '0.5 miles',
-				address: '1234 Lone Mountain Rd, Las Vegas, NV 89134',
-				phone: '(702) 555-0100',
-				website: 'https://lonemountaines.ccsd.net',
-				highlights: ['STEM Program', 'Gifted & Talented', 'After School Care'],
-				description: 'Top-rated elementary school with excellent academic programs and dedicated teachers.',
-				boundary: 'Serves most of Lone Mountain Heights including Lone Mountain Ranch, Desert Vista Estates'
-			},
-			{
-				name: 'Desert Ridge Elementary School',
+				name: 'William G. Geer Elementary School',
 				rating: 8,
 				grade: 'K-5',
-				distance: '1.2 miles',
-				address: '5678 Desert Ridge Dr, Las Vegas, NV 89134',
-				phone: '(702) 555-0101',
-				website: 'https://desertridgees.ccsd.net',
-				highlights: ['Arts Integration', 'Dual Language', 'Music Program'],
-				description: 'Strong academic program with focus on arts and cultural diversity.',
-				boundary: 'Serves eastern portion of Lone Mountain Heights including Mountain Crest area'
+				distance: '1.5 miles',
+				address: '1234 Lone Mountain Rd, Las Vegas, NV 89134',
+				phone: '(702) 799-8880',
+				website: 'https://geeres.ccsd.net',
+				highlights: ['STEM Program', 'Gifted & Talented', 'After School Care'],
+				description: 'Excellent elementary school serving the Lone Mountain Heights area with strong academic programs and dedicated teachers.',
+				boundary: 'Serves the Lone Mountain Heights neighborhood and surrounding Summerlin area'
 			}
 		],
 		middle: [
 			{
-				name: 'Desert Ridge Middle School',
+				name: 'Sig Rogich Middle School',
 				rating: 8,
 				grade: '6-8',
-				distance: '1.2 miles',
-				address: '5678 Desert Ridge Dr, Las Vegas, NV 89134',
-				phone: '(702) 555-0200',
-				website: 'https://desertridgems.ccsd.net',
+				distance: '2.0 miles',
+				address: '5678 Sig Rogich Dr, Las Vegas, NV 89134',
+				phone: '(702) 799-8881',
+				website: 'https://rogichms.ccsd.net',
 				highlights: ['Advanced Math', 'Science Fair', 'Sports Programs'],
-				description: 'Comprehensive middle school with strong academic and extracurricular programs.',
-				boundary: 'Serves all of Lone Mountain Heights and surrounding areas'
-			},
-			{
-				name: 'Mountain View Middle School',
-				rating: 7,
-				grade: '6-8',
-				distance: '2.1 miles',
-				address: '9012 Mountain View Blvd, Las Vegas, NV 89134',
-				phone: '(702) 555-0201',
-				website: 'https://mountainviewms.ccsd.net',
-				highlights: ['STEM Focus', 'Robotics Club', 'Honors Program'],
-				description: 'Innovative middle school with emphasis on science and technology.',
-				boundary: 'Alternative option for some Lone Mountain Heights families'
+				description: 'Comprehensive middle school serving the Lone Mountain Heights vicinity with strong academic and extracurricular programs.',
+				boundary: 'Serves the Lone Mountain Heights area and surrounding Summerlin neighborhoods'
 			}
 		],
 		high: [
 			{
-				name: 'Shadow Ridge High School',
-				rating: 9,
-				grade: '9-12',
-				distance: '2.1 miles',
-				address: '3456 Shadow Ridge Pkwy, Las Vegas, NV 89134',
-				phone: '(702) 555-0300',
-				website: 'https://shadowridgehs.ccsd.net',
-				highlights: ['AP Programs', 'Honors Society', 'Sports Excellence'],
-				description: 'Premier high school with outstanding academic and athletic programs.',
-				boundary: 'Primary high school for Lone Mountain Heights students'
-			},
-			{
-				name: 'Desert Oasis High School',
+				name: 'Liberty High School',
 				rating: 8,
 				grade: '9-12',
-				distance: '3.5 miles',
-				address: '7890 Desert Oasis Dr, Las Vegas, NV 89134',
-				phone: '(702) 555-0301',
-				website: 'https://desertoasishs.ccsd.net',
-				highlights: ['Career Tech', 'Dual Enrollment', 'Arts Academy'],
-				description: 'Comprehensive high school with diverse academic and career programs.',
-				boundary: 'Alternative high school option for some areas'
+				distance: '3.0 miles',
+				address: '9012 Liberty High Dr, Las Vegas, NV 89134',
+				phone: '(702) 799-8882',
+				website: 'https://libertyhs.ccsd.net',
+				highlights: ['AP Programs', 'Honors Society', 'Sports Excellence'],
+				description: 'Large, comprehensive high school serving the broader Summerlin area including Lone Mountain Heights with diverse academic and athletic programs.',
+				boundary: 'Serves the broader Summerlin area including Lone Mountain Heights'
 			}
 		]
 	};
@@ -86,28 +50,16 @@
 	// Private school options
 	const privateSchools = [
 		{
-			name: 'Lone Mountain Academy',
+			name: 'The Meadows School',
 			type: 'Private K-12',
 			rating: 10,
-			distance: '1.5 miles',
-			address: '2468 Academy Way, Las Vegas, NV 89134',
-			phone: '(702) 555-0400',
-			website: 'https://lonemountainacademy.edu',
-			highlights: ['Small Class Sizes', 'College Prep', 'Individual Attention'],
-			description: 'Premier private school with small class sizes and personalized education.',
-			tuition: '$15,000/year'
-		},
-		{
-			name: 'Desert Foothills Montessori',
-			type: 'Private K-8',
-			rating: 9,
-			distance: '2.0 miles',
-			address: '1357 Montessori Ln, Las Vegas, NV 89134',
-			phone: '(702) 555-0401',
-			website: 'https://desertfoothillsmontessori.edu',
-			highlights: ['Montessori Method', 'Hands-on Learning', 'Mixed Age Groups'],
-			description: 'Montessori education focusing on independent learning and creativity.',
-			tuition: '$12,000/year'
+			distance: '4.0 miles',
+			address: '8601 Scholar Ln, Las Vegas, NV 89128',
+			phone: '(702) 255-1610',
+			website: 'https://www.themeadowsschool.org',
+			highlights: ['College Prep', 'Small Class Sizes', 'Individual Attention', 'Arts Program'],
+			description: 'Premier private school in Las Vegas offering K-12 education with small class sizes and personalized education.',
+			tuition: '$25,000/year'
 		}
 	];
 	
@@ -147,7 +99,7 @@
 
 <svelte:head>
 	<title>Lone Mountain Heights Schools | Top-Rated Education | Dr. Jan Duffy</title>
-	<meta name="description" content="Discover the excellent schools serving Lone Mountain Heights, Las Vegas. Elementary, middle, and high school information with ratings and boundaries from Dr. Jan Duffy." />
+	<meta name="description" content="Discover the excellent schools serving Lone Mountain Heights in Summerlin, Las Vegas. William G. Geer Elementary, Sig Rogich Middle, and Liberty High School information from Dr. Jan Duffy." />
 	
 	<!-- Breadcrumb Schema -->
 	<script type="application/ld+json">
@@ -159,7 +111,7 @@
 	<div class="page-header">
 		<div class="container">
 			<h1>Lone Mountain Heights Schools</h1>
-			<p>Excellent education options for families in our community</p>
+			<p>Excellent education options for families in our Summerlin community</p>
 		</div>
 	</div>
 	
