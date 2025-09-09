@@ -4,7 +4,7 @@
   export let width = null;
   export let height = null;
   export let loading = 'lazy';
-  export let className: string = '';
+  export let className = '';
   
   // Add fallback for missing images
   $: imageSrc = src || '/svelte-welcome.png';
