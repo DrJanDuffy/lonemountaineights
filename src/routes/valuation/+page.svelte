@@ -1,171 +1,206 @@
 <script>
-	import { onMount } from 'svelte';
-	
-	let formData = {
-		address: '',
-		bedrooms: '',
-		bathrooms: '',
-		sqft: '',
-		homeStyle: '',
-		yearBuilt: '',
-		lotSize: '',
-		pool: false,
-		garage: '',
-		view: '',
-		upgrades: []
-	};
-	
-	let valuationResult = null;
-	let isCalculating = false;
-	let showResults = false;
-	
-	const homeStyles = ['Single Story', 'Two Story', 'Townhome', 'Condo'];
-	const views = ['Mountain', 'Golf Course', 'Desert', 'Neighborhood', 'City'];
-	const upgradeOptions = [
-		'Updated Kitchen',
-		'Updated Bathrooms',
-		'New Roof',
-		'Solar Panels',
-		'Pool/Spa',
-		'Landscaping',
-		'Hardwood Floors',
-		'Granite Countertops',
-		'Stainless Appliances',
-		'Smart Home Features'
-	];
-	
-	// Mock comparable sales data
-	const comparableSales = [
-		{ address: "4567 Mountain Ridge Dr", price: 875000, sqft: 2450, daysOnMarket: 5, soldDate: "2024-01-15" },
-		{ address: "7890 Desert View Ln", price: 725000, sqft: 1890, daysOnMarket: 12, soldDate: "2024-01-12" },
-		{ address: "2345 Lone Mountain Way", price: 950000, sqft: 3200, daysOnMarket: 8, soldDate: "2024-01-10" },
-		{ address: "6789 Canyon Heights Blvd", price: 680000, sqft: 1750, daysOnMarket: 18, soldDate: "2024-01-08" }
-	];
-	
-	function formatPrice(price) {
-		return new Intl.NumberFormat('en-US', {
-			style: 'currency',
-			currency: 'USD',
-			minimumFractionDigits: 0,
-			maximumFractionDigits: 0
-		}).format(price);
-	}
-	
-	function formatDate(dateString) {
-		return new Date(dateString).toLocaleDateString('en-US', {
-			month: 'short',
-			day: 'numeric',
-			year: 'numeric'
-		});
-	}
-	
-	async function calculateValuation() {
-		if (!formData.address || !formData.bedrooms || !formData.bathrooms || !formData.sqft) {
-			alert('Please fill in all required fields');
-			return;
-		}
-		
-		isCalculating = true;
-		showResults = false;
-		
-		// Simulate API call
-		await new Promise(resolve => setTimeout(resolve, 2000));
-		
-		// Mock valuation calculation
-		const basePrice = parseInt(formData.sqft) * 345; // $345 per sqft base
-		let adjustments = 0;
-		
-		// Bedroom adjustment
-		if (parseInt(formData.bedrooms) >= 4) adjustments += 15000;
-		if (parseInt(formData.bedrooms) >= 5) adjustments += 25000;
-		
-		// Bathroom adjustment
-		if (parseInt(formData.bathrooms) >= 3) adjustments += 10000;
-		if (parseInt(formData.bathrooms) >= 4) adjustments += 20000;
-		
-		// Home style adjustment
-		if (formData.homeStyle === 'Two Story') adjustments += 20000;
-		if (formData.homeStyle === 'Townhome') adjustments -= 30000;
-		
-		// Pool adjustment
-		if (formData.pool) adjustments += 25000;
-		
-		// Garage adjustment
-		if (parseInt(formData.garage) >= 2) adjustments += 10000;
-		if (parseInt(formData.garage) >= 3) adjustments += 20000;
-		
-		// View adjustment
-		if (formData.view === 'Mountain') adjustments += 30000;
-		if (formData.view === 'Golf Course') adjustments += 20000;
-		
-		// Upgrades adjustment
-		adjustments += formData.upgrades.length * 5000;
-		
-		// Year built adjustment
-		const currentYear = new Date().getFullYear();
-		const age = currentYear - parseInt(formData.yearBuilt);
-		if (age < 5) adjustments += 15000;
-		else if (age < 10) adjustments += 5000;
-		else if (age > 20) adjustments -= 10000;
-		
-		const estimatedValue = basePrice + adjustments;
-		const lowEstimate = estimatedValue * 0.95;
-		const highEstimate = estimatedValue * 1.05;
-		
-		valuationResult = {
-			estimatedValue,
-			lowEstimate,
-			highEstimate,
-			pricePerSqft: Math.round(estimatedValue / parseInt(formData.sqft)),
-			confidence: 'High',
-			marketTrend: '+5.2%',
-			daysOnMarket: 12,
-			recommendations: generateRecommendations(estimatedValue, formData)
-		};
-		
-		isCalculating = false;
-		showResults = true;
-	}
-	
-	function generateRecommendations(value, data) {
-		const recommendations = [];
-		
-		if (parseInt(data.sqft) < 2000) {
-			recommendations.push('Consider adding square footage - larger homes sell for more per sqft in this area');
-		}
-		
-		if (!data.pool && value > 800000) {
-			recommendations.push('Pool installation could increase value by $25,000+ in this price range');
-		}
-		
-		if (parseInt(data.yearBuilt) > 2010) {
-			recommendations.push('Recent construction - excellent timing for sale');
-		}
-		
-		if (data.view === 'Mountain') {
-			recommendations.push('Mountain views are highly sought after - premium pricing expected');
-		}
-		
-		return recommendations;
-	}
-	
-	function resetForm() {
-		formData = {
-			address: '',
-			bedrooms: '',
-			bathrooms: '',
-			sqft: '',
-			homeStyle: '',
-			yearBuilt: '',
-			lotSize: '',
-			pool: false,
-			garage: '',
-			view: '',
-			upgrades: []
-		};
-		valuationResult = null;
-		showResults = false;
-	}
+import { onMount } from 'svelte';
+
+let formData = {
+  address: '',
+  bedrooms: '',
+  bathrooms: '',
+  sqft: '',
+  homeStyle: '',
+  yearBuilt: '',
+  lotSize: '',
+  pool: false,
+  garage: '',
+  view: '',
+  upgrades: [],
+};
+
+let valuationResult = null;
+let isCalculating = false;
+let showResults = false;
+
+const homeStyles = ['Single Story', 'Two Story', 'Townhome', 'Condo'];
+const views = ['Mountain', 'Golf Course', 'Desert', 'Neighborhood', 'City'];
+const upgradeOptions = [
+  'Updated Kitchen',
+  'Updated Bathrooms',
+  'New Roof',
+  'Solar Panels',
+  'Pool/Spa',
+  'Landscaping',
+  'Hardwood Floors',
+  'Granite Countertops',
+  'Stainless Appliances',
+  'Smart Home Features',
+];
+
+// Mock comparable sales data
+const comparableSales = [
+  {
+    address: '4567 Mountain Ridge Dr',
+    price: 875000,
+    sqft: 2450,
+    daysOnMarket: 5,
+    soldDate: '2024-01-15',
+  },
+  {
+    address: '7890 Desert View Ln',
+    price: 725000,
+    sqft: 1890,
+    daysOnMarket: 12,
+    soldDate: '2024-01-12',
+  },
+  {
+    address: '2345 Lone Mountain Way',
+    price: 950000,
+    sqft: 3200,
+    daysOnMarket: 8,
+    soldDate: '2024-01-10',
+  },
+  {
+    address: '6789 Canyon Heights Blvd',
+    price: 680000,
+    sqft: 1750,
+    daysOnMarket: 18,
+    soldDate: '2024-01-08',
+  },
+];
+
+function formatPrice(price) {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(price);
+}
+
+function formatDate(dateString) {
+  return new Date(dateString).toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  });
+}
+
+async function calculateValuation() {
+  if (
+    !formData.address ||
+    !formData.bedrooms ||
+    !formData.bathrooms ||
+    !formData.sqft
+  ) {
+    alert('Please fill in all required fields');
+    return;
+  }
+
+  isCalculating = true;
+  showResults = false;
+
+  // Simulate API call
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+
+  // Mock valuation calculation
+  const basePrice = parseInt(formData.sqft) * 345; // $345 per sqft base
+  let adjustments = 0;
+
+  // Bedroom adjustment
+  if (parseInt(formData.bedrooms) >= 4) adjustments += 15000;
+  if (parseInt(formData.bedrooms) >= 5) adjustments += 25000;
+
+  // Bathroom adjustment
+  if (parseInt(formData.bathrooms) >= 3) adjustments += 10000;
+  if (parseInt(formData.bathrooms) >= 4) adjustments += 20000;
+
+  // Home style adjustment
+  if (formData.homeStyle === 'Two Story') adjustments += 20000;
+  if (formData.homeStyle === 'Townhome') adjustments -= 30000;
+
+  // Pool adjustment
+  if (formData.pool) adjustments += 25000;
+
+  // Garage adjustment
+  if (parseInt(formData.garage) >= 2) adjustments += 10000;
+  if (parseInt(formData.garage) >= 3) adjustments += 20000;
+
+  // View adjustment
+  if (formData.view === 'Mountain') adjustments += 30000;
+  if (formData.view === 'Golf Course') adjustments += 20000;
+
+  // Upgrades adjustment
+  adjustments += formData.upgrades.length * 5000;
+
+  // Year built adjustment
+  const currentYear = new Date().getFullYear();
+  const age = currentYear - parseInt(formData.yearBuilt);
+  if (age < 5) adjustments += 15000;
+  else if (age < 10) adjustments += 5000;
+  else if (age > 20) adjustments -= 10000;
+
+  const estimatedValue = basePrice + adjustments;
+  const lowEstimate = estimatedValue * 0.95;
+  const highEstimate = estimatedValue * 1.05;
+
+  valuationResult = {
+    estimatedValue,
+    lowEstimate,
+    highEstimate,
+    pricePerSqft: Math.round(estimatedValue / parseInt(formData.sqft)),
+    confidence: 'High',
+    marketTrend: '+5.2%',
+    daysOnMarket: 12,
+    recommendations: generateRecommendations(estimatedValue, formData),
+  };
+
+  isCalculating = false;
+  showResults = true;
+}
+
+function generateRecommendations(value, data) {
+  const recommendations = [];
+
+  if (parseInt(data.sqft) < 2000) {
+    recommendations.push(
+      'Consider adding square footage - larger homes sell for more per sqft in this area',
+    );
+  }
+
+  if (!data.pool && value > 800000) {
+    recommendations.push(
+      'Pool installation could increase value by $25,000+ in this price range',
+    );
+  }
+
+  if (parseInt(data.yearBuilt) > 2010) {
+    recommendations.push('Recent construction - excellent timing for sale');
+  }
+
+  if (data.view === 'Mountain') {
+    recommendations.push(
+      'Mountain views are highly sought after - premium pricing expected',
+    );
+  }
+
+  return recommendations;
+}
+
+function resetForm() {
+  formData = {
+    address: '',
+    bedrooms: '',
+    bathrooms: '',
+    sqft: '',
+    homeStyle: '',
+    yearBuilt: '',
+    lotSize: '',
+    pool: false,
+    garage: '',
+    view: '',
+    upgrades: [],
+  };
+  valuationResult = null;
+  showResults = false;
+}
 </script>
 
 <svelte:head>

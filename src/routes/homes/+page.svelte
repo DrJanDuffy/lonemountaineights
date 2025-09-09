@@ -1,192 +1,204 @@
 <script>
-	import { onMount } from 'svelte';
-	
-	// Mock data - in production this would come from MLS API
-	let allHomes = [
-		{
-			id: 1,
-			address: "1234 Mountain View Dr",
-			price: 875000,
-			bedrooms: 4,
-			bathrooms: 3,
-			sqft: 2450,
-			lotSize: "0.25 acres",
-			daysOnMarket: 8,
-			image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-			insight: "Corner lot with mountain views - premium location in the neighborhood",
-			homeStyle: "Two Story",
-			yearBuilt: 2018,
-			garage: 2,
-			pool: true,
-			view: "Mountain"
-		},
-		{
-			id: 2,
-			address: "5678 Desert Ridge Ln",
-			price: 725000,
-			bedrooms: 3,
-			bathrooms: 2,
-			sqft: 1890,
-			lotSize: "0.18 acres",
-			daysOnMarket: 15,
-			image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-			insight: "Recently updated kitchen - great value for the area",
-			homeStyle: "Single Story",
-			yearBuilt: 2015,
-			garage: 2,
-			pool: false,
-			view: "Golf Course"
-		},
-		{
-			id: 3,
-			address: "9012 Lone Mountain Blvd",
-			price: 950000,
-			bedrooms: 5,
-			bathrooms: 4,
-			sqft: 3200,
-			lotSize: "0.35 acres",
-			daysOnMarket: 3,
-			image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-			insight: "Luxury finishes throughout - one of the best streets in the area",
-			homeStyle: "Two Story",
-			yearBuilt: 2020,
-			garage: 3,
-			pool: true,
-			view: "Mountain"
-		},
-		{
-			id: 4,
-			address: "3456 Canyon Heights Way",
-			price: 680000,
-			bedrooms: 3,
-			bathrooms: 2,
-			sqft: 1750,
-			lotSize: "0.15 acres",
-			daysOnMarket: 22,
-			image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-			insight: "Great starter home with potential for updates",
-			homeStyle: "Single Story",
-			yearBuilt: 2012,
-			garage: 2,
-			pool: false,
-			view: "Neighborhood"
-		},
-		{
-			id: 5,
-			address: "7890 Desert View Ln",
-			price: 825000,
-			bedrooms: 4,
-			bathrooms: 3,
-			sqft: 2200,
-			lotSize: "0.22 acres",
-			daysOnMarket: 12,
-			image: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-			insight: "Solar panels included - significant energy savings",
-			homeStyle: "Two Story",
-			yearBuilt: 2017,
-			garage: 2,
-			pool: true,
-			view: "Desert"
-		},
-		{
-			id: 6,
-			address: "2345 Mountain Ridge Dr",
-			price: 750000,
-			bedrooms: 3,
-			bathrooms: 2,
-			sqft: 1950,
-			lotSize: "0.20 acres",
-			daysOnMarket: 18,
-			image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-			insight: "Cul-de-sac location - quiet street with minimal traffic",
-			homeStyle: "Single Story",
-			yearBuilt: 2016,
-			garage: 2,
-			pool: false,
-			view: "Mountain"
-		}
-	];
-	
-	let filteredHomes = allHomes;
-	let filters = {
-		minPrice: '',
-		maxPrice: '',
-		bedrooms: '',
-		bathrooms: '',
-		minSqft: '',
-		maxSqft: '',
-		homeStyle: '',
-		pool: '',
-		view: '',
-		garage: ''
-	};
-	
-	let sortBy = 'price';
-	let viewMode = 'grid'; // 'grid' or 'list'
-	let showFilters = false;
-	
-	function formatPrice(price) {
-		return new Intl.NumberFormat('en-US', {
-			style: 'currency',
-			currency: 'USD',
-			minimumFractionDigits: 0,
-			maximumFractionDigits: 0
-		}).format(price);
-	}
-	
-	function applyFilters() {
-		filteredHomes = allHomes.filter(home => {
-			if (filters.minPrice && home.price < parseInt(filters.minPrice)) return false;
-			if (filters.maxPrice && home.price > parseInt(filters.maxPrice)) return false;
-			if (filters.bedrooms && home.bedrooms !== parseInt(filters.bedrooms)) return false;
-			if (filters.bathrooms && home.bathrooms !== parseInt(filters.bathrooms)) return false;
-			if (filters.minSqft && home.sqft < parseInt(filters.minSqft)) return false;
-			if (filters.maxSqft && home.sqft > parseInt(filters.maxSqft)) return false;
-			if (filters.homeStyle && home.homeStyle !== filters.homeStyle) return false;
-			if (filters.pool && home.pool !== (filters.pool === 'yes')) return false;
-			if (filters.view && home.view !== filters.view) return false;
-			if (filters.garage && home.garage !== parseInt(filters.garage)) return false;
-			return true;
-		});
-		
-		// Apply sorting
-		filteredHomes.sort((a, b) => {
-			switch(sortBy) {
-				case 'price':
-					return a.price - b.price;
-				case 'price-desc':
-					return b.price - a.price;
-				case 'sqft':
-					return a.sqft - b.sqft;
-				case 'sqft-desc':
-					return b.sqft - a.sqft;
-				case 'days':
-					return a.daysOnMarket - b.daysOnMarket;
-				case 'days-desc':
-					return b.daysOnMarket - a.daysOnMarket;
-				default:
-					return 0;
-			}
-		});
-	}
-	
-	function clearFilters() {
-		filters = {
-			minPrice: '',
-			maxPrice: '',
-			bedrooms: '',
-			bathrooms: '',
-			minSqft: '',
-			maxSqft: '',
-			homeStyle: '',
-			pool: '',
-			view: '',
-			garage: ''
-		};
-		applyFilters();
-	}
-	
-	$: applyFilters();
+import { onMount } from 'svelte';
+
+// Mock data - in production this would come from MLS API
+let allHomes = [
+  {
+    id: 1,
+    address: '1234 Mountain View Dr',
+    price: 875000,
+    bedrooms: 4,
+    bathrooms: 3,
+    sqft: 2450,
+    lotSize: '0.25 acres',
+    daysOnMarket: 8,
+    image:
+      'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight:
+      'Corner lot with mountain views - premium location in the neighborhood',
+    homeStyle: 'Two Story',
+    yearBuilt: 2018,
+    garage: 2,
+    pool: true,
+    view: 'Mountain',
+  },
+  {
+    id: 2,
+    address: '5678 Desert Ridge Ln',
+    price: 725000,
+    bedrooms: 3,
+    bathrooms: 2,
+    sqft: 1890,
+    lotSize: '0.18 acres',
+    daysOnMarket: 15,
+    image:
+      'https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight: 'Recently updated kitchen - great value for the area',
+    homeStyle: 'Single Story',
+    yearBuilt: 2015,
+    garage: 2,
+    pool: false,
+    view: 'Golf Course',
+  },
+  {
+    id: 3,
+    address: '9012 Lone Mountain Blvd',
+    price: 950000,
+    bedrooms: 5,
+    bathrooms: 4,
+    sqft: 3200,
+    lotSize: '0.35 acres',
+    daysOnMarket: 3,
+    image:
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight: 'Luxury finishes throughout - one of the best streets in the area',
+    homeStyle: 'Two Story',
+    yearBuilt: 2020,
+    garage: 3,
+    pool: true,
+    view: 'Mountain',
+  },
+  {
+    id: 4,
+    address: '3456 Canyon Heights Way',
+    price: 680000,
+    bedrooms: 3,
+    bathrooms: 2,
+    sqft: 1750,
+    lotSize: '0.15 acres',
+    daysOnMarket: 22,
+    image:
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight: 'Great starter home with potential for updates',
+    homeStyle: 'Single Story',
+    yearBuilt: 2012,
+    garage: 2,
+    pool: false,
+    view: 'Neighborhood',
+  },
+  {
+    id: 5,
+    address: '7890 Desert View Ln',
+    price: 825000,
+    bedrooms: 4,
+    bathrooms: 3,
+    sqft: 2200,
+    lotSize: '0.22 acres',
+    daysOnMarket: 12,
+    image:
+      'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight: 'Solar panels included - significant energy savings',
+    homeStyle: 'Two Story',
+    yearBuilt: 2017,
+    garage: 2,
+    pool: true,
+    view: 'Desert',
+  },
+  {
+    id: 6,
+    address: '2345 Mountain Ridge Dr',
+    price: 750000,
+    bedrooms: 3,
+    bathrooms: 2,
+    sqft: 1950,
+    lotSize: '0.20 acres',
+    daysOnMarket: 18,
+    image:
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight: 'Cul-de-sac location - quiet street with minimal traffic',
+    homeStyle: 'Single Story',
+    yearBuilt: 2016,
+    garage: 2,
+    pool: false,
+    view: 'Mountain',
+  },
+];
+
+let filteredHomes = allHomes;
+let filters = {
+  minPrice: '',
+  maxPrice: '',
+  bedrooms: '',
+  bathrooms: '',
+  minSqft: '',
+  maxSqft: '',
+  homeStyle: '',
+  pool: '',
+  view: '',
+  garage: '',
+};
+
+let sortBy = 'price';
+let viewMode = 'grid'; // 'grid' or 'list'
+let showFilters = false;
+
+function formatPrice(price) {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(price);
+}
+
+function applyFilters() {
+  filteredHomes = allHomes.filter((home) => {
+    if (filters.minPrice && home.price < parseInt(filters.minPrice))
+      return false;
+    if (filters.maxPrice && home.price > parseInt(filters.maxPrice))
+      return false;
+    if (filters.bedrooms && home.bedrooms !== parseInt(filters.bedrooms))
+      return false;
+    if (filters.bathrooms && home.bathrooms !== parseInt(filters.bathrooms))
+      return false;
+    if (filters.minSqft && home.sqft < parseInt(filters.minSqft)) return false;
+    if (filters.maxSqft && home.sqft > parseInt(filters.maxSqft)) return false;
+    if (filters.homeStyle && home.homeStyle !== filters.homeStyle) return false;
+    if (filters.pool && home.pool !== (filters.pool === 'yes')) return false;
+    if (filters.view && home.view !== filters.view) return false;
+    if (filters.garage && home.garage !== parseInt(filters.garage))
+      return false;
+    return true;
+  });
+
+  // Apply sorting
+  filteredHomes.sort((a, b) => {
+    switch (sortBy) {
+      case 'price':
+        return a.price - b.price;
+      case 'price-desc':
+        return b.price - a.price;
+      case 'sqft':
+        return a.sqft - b.sqft;
+      case 'sqft-desc':
+        return b.sqft - a.sqft;
+      case 'days':
+        return a.daysOnMarket - b.daysOnMarket;
+      case 'days-desc':
+        return b.daysOnMarket - a.daysOnMarket;
+      default:
+        return 0;
+    }
+  });
+}
+
+function clearFilters() {
+  filters = {
+    minPrice: '',
+    maxPrice: '',
+    bedrooms: '',
+    bathrooms: '',
+    minSqft: '',
+    maxSqft: '',
+    homeStyle: '',
+    pool: '',
+    view: '',
+    garage: '',
+  };
+  applyFilters();
+}
+
+$: applyFilters();
 </script>
 
 <svelte:head>

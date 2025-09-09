@@ -1,52 +1,56 @@
 <script>
-	// Mock data - in production this would come from MLS API
-	const featuredHomes = [
-		{
-			id: 1,
-			address: "1234 Mountain View Dr",
-			price: 875000,
-			bedrooms: 4,
-			bathrooms: 3,
-			sqft: 2450,
-			lotSize: "0.25 acres",
-			daysOnMarket: 8,
-			image: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-			insight: "Corner lot with mountain views - premium location in the neighborhood"
-		},
-		{
-			id: 2,
-			address: "5678 Desert Ridge Ln",
-			price: 725000,
-			bedrooms: 3,
-			bathrooms: 2,
-			sqft: 1890,
-			lotSize: "0.18 acres",
-			daysOnMarket: 15,
-			image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-			insight: "Recently updated kitchen - great value for the area"
-		},
-		{
-			id: 3,
-			address: "9012 Lone Mountain Blvd",
-			price: 950000,
-			bedrooms: 5,
-			bathrooms: 4,
-			sqft: 3200,
-			lotSize: "0.35 acres",
-			daysOnMarket: 3,
-			image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-			insight: "Luxury finishes throughout - one of the best streets in the area"
-		}
-	];
-	
-	function formatPrice(price) {
-		return new Intl.NumberFormat('en-US', {
-			style: 'currency',
-			currency: 'USD',
-			minimumFractionDigits: 0,
-			maximumFractionDigits: 0
-		}).format(price);
-	}
+// Mock data - in production this would come from MLS API
+const featuredHomes = [
+  {
+    id: 1,
+    address: '1234 Mountain View Dr',
+    price: 875000,
+    bedrooms: 4,
+    bathrooms: 3,
+    sqft: 2450,
+    lotSize: '0.25 acres',
+    daysOnMarket: 8,
+    image:
+      'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight:
+      'Corner lot with mountain views - premium location in the neighborhood',
+  },
+  {
+    id: 2,
+    address: '5678 Desert Ridge Ln',
+    price: 725000,
+    bedrooms: 3,
+    bathrooms: 2,
+    sqft: 1890,
+    lotSize: '0.18 acres',
+    daysOnMarket: 15,
+    image:
+      'https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight: 'Recently updated kitchen - great value for the area',
+  },
+  {
+    id: 3,
+    address: '9012 Lone Mountain Blvd',
+    price: 950000,
+    bedrooms: 5,
+    bathrooms: 4,
+    sqft: 3200,
+    lotSize: '0.35 acres',
+    daysOnMarket: 3,
+    image:
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight: 'Luxury finishes throughout - one of the best streets in the area',
+  },
+];
+
+function formatPrice(price) {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(price);
+}
 </script>
 
 <section class="featured-homes">

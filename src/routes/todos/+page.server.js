@@ -21,14 +21,14 @@ export const load = async ({ locals }) => {
     // start with an empty array
     return {
       /** @type {Todo[]} */
-      todos: []
+      todos: [],
     };
   }
 
   if (response.status === 200) {
     return {
       /** @type {Todo[]} */
-      todos: await response.json()
+      todos: await response.json(),
     };
   }
 
@@ -40,7 +40,7 @@ export const POST = async ({ request, locals }) => {
   const form = await request.formData();
 
   await api('POST', `todos/${locals.userid}`, {
-    text: form.get('text')
+    text: form.get('text'),
   });
 };
 
@@ -50,7 +50,7 @@ export const PATCH = async ({ request, locals }) => {
 
   await api('PATCH', `todos/${locals.userid}/${form.get('uid')}`, {
     text: form.has('text') ? form.get('text') : undefined,
-    done: form.has('done') ? !!form.get('done') : undefined
+    done: form.has('done') ? !!form.get('done') : undefined,
   });
 };
 

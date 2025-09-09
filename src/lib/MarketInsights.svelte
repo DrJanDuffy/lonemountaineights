@@ -1,39 +1,63 @@
 <script>
-	// Mock market data - in production this would come from real estate APIs
-	const marketData = {
-		averagePrice: 847000,
-		medianPrice: 825000,
-		pricePerSqft: 345,
-		daysOnMarket: 12,
-		inventory: 47,
-		monthsSupply: 1.8,
-		priceChange: 5.2,
-		yearOverYear: 8.7
-	};
-	
-	const recentSales = [
-		{ address: "4567 Mountain Ridge Dr", price: 875000, sqft: 2450, daysOnMarket: 5, soldDate: "2024-01-15" },
-		{ address: "7890 Desert View Ln", price: 725000, sqft: 1890, daysOnMarket: 12, soldDate: "2024-01-12" },
-		{ address: "2345 Lone Mountain Way", price: 950000, sqft: 3200, daysOnMarket: 8, soldDate: "2024-01-10" },
-		{ address: "6789 Canyon Heights Blvd", price: 680000, sqft: 1750, daysOnMarket: 18, soldDate: "2024-01-08" }
-	];
-	
-	function formatPrice(price) {
-		return new Intl.NumberFormat('en-US', {
-			style: 'currency',
-			currency: 'USD',
-			minimumFractionDigits: 0,
-			maximumFractionDigits: 0
-		}).format(price);
-	}
-	
-	function formatDate(dateString) {
-		return new Date(dateString).toLocaleDateString('en-US', {
-			month: 'short',
-			day: 'numeric',
-			year: 'numeric'
-		});
-	}
+// Mock market data - in production this would come from real estate APIs
+const marketData = {
+  averagePrice: 847000,
+  medianPrice: 825000,
+  pricePerSqft: 345,
+  daysOnMarket: 12,
+  inventory: 47,
+  monthsSupply: 1.8,
+  priceChange: 5.2,
+  yearOverYear: 8.7,
+};
+
+const recentSales = [
+  {
+    address: '4567 Mountain Ridge Dr',
+    price: 875000,
+    sqft: 2450,
+    daysOnMarket: 5,
+    soldDate: '2024-01-15',
+  },
+  {
+    address: '7890 Desert View Ln',
+    price: 725000,
+    sqft: 1890,
+    daysOnMarket: 12,
+    soldDate: '2024-01-12',
+  },
+  {
+    address: '2345 Lone Mountain Way',
+    price: 950000,
+    sqft: 3200,
+    daysOnMarket: 8,
+    soldDate: '2024-01-10',
+  },
+  {
+    address: '6789 Canyon Heights Blvd',
+    price: 680000,
+    sqft: 1750,
+    daysOnMarket: 18,
+    soldDate: '2024-01-08',
+  },
+];
+
+function formatPrice(price) {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(price);
+}
+
+function formatDate(dateString) {
+  return new Date(dateString).toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  });
+}
 </script>
 
 <section class="market-insights">

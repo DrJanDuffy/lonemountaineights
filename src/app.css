@@ -1,33 +1,34 @@
-@import '@fontsource/fira-mono';
+@import "@fontsource/fira-mono";
 
 :root {
-	font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-	--font-mono: 'Fira Mono', monospace;
-	--pure-white: #ffffff;
-	
-	/* Desert-themed color palette */
-	--primary-color: #8B4513; /* Saddle Brown - terra cotta */
-	--secondary-color: #9CAF88; /* Sage Green */
-	--tertiary-color: #F5F5DC; /* Beige */
-	--accent-color: #1E3A8A; /* Deep Blue */
-	--accent-light: #3B82F6; /* Blue accent */
-	--warm-cream: #FFF8DC; /* Cornsilk */
-	--desert-sand: #F4E4BC; /* Desert sand */
-	--mountain-gray: #6B7280; /* Mountain gray */
-	
-	--heading-color: #1F2937; /* Dark gray for headings */
-	--text-color: #374151; /* Medium gray for text */
-	--text-light: #6B7280; /* Light gray for secondary text */
-	--background-without-opacity: rgba(255, 248, 220, 0.9);
-	--column-width: 42rem;
-	--column-margin-top: 4rem;
-	
-	/* Real estate specific colors */
-	--success-green: #10B981;
-	--warning-orange: #F59E0B;
-	--error-red: #EF4444;
-	--info-blue: #3B82F6;
+  font-family:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --font-mono: "Fira Mono", monospace;
+  --pure-white: #ffffff;
+
+  /* Desert-themed color palette */
+  --primary-color: #8b4513; /* Saddle Brown - terra cotta */
+  --secondary-color: #9caf88; /* Sage Green */
+  --tertiary-color: #f5f5dc; /* Beige */
+  --accent-color: #1e3a8a; /* Deep Blue */
+  --accent-light: #3b82f6; /* Blue accent */
+  --warm-cream: #fff8dc; /* Cornsilk */
+  --desert-sand: #f4e4bc; /* Desert sand */
+  --mountain-gray: #6b7280; /* Mountain gray */
+
+  --heading-color: #1f2937; /* Dark gray for headings */
+  --text-color: #374151; /* Medium gray for text */
+  --text-light: #6b7280; /* Light gray for secondary text */
+  --background-without-opacity: rgba(255, 248, 220, 0.9);
+  --column-width: 42rem;
+  --column-margin-top: 4rem;
+
+  /* Real estate specific colors */
+  --success-green: #10b981;
+  --warning-orange: #f59e0b;
+  --error-red: #ef4444;
+  --info-blue: #3b82f6;
 }
 
 body {
@@ -44,7 +45,7 @@ body {
 }
 
 body::before {
-  content: '';
+  content: "";
   width: 80vw;
   height: 100vh;
   position: absolute;

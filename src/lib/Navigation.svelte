@@ -1,15 +1,15 @@
 <script>
-	import { page } from '$app/stores';
-	
-	let mobileMenuOpen = false;
-	
-	function toggleMobileMenu() {
-		mobileMenuOpen = !mobileMenuOpen;
-	}
-	
-	function closeMobileMenu() {
-		mobileMenuOpen = false;
-	}
+import { page } from '$app/stores';
+
+let mobileMenuOpen = false;
+
+function toggleMobileMenu() {
+  mobileMenuOpen = !mobileMenuOpen;
+}
+
+function closeMobileMenu() {
+  mobileMenuOpen = false;
+}
 </script>
 
 <header class="navigation">

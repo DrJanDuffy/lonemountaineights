@@ -1,58 +1,58 @@
 <script>
-	const testimonials = [
-		{
-			id: 1,
-			name: "Sarah & Mike Chen",
-			address: "Lone Mountain Heights",
-			text: "Dr. Jan knew exactly which street would give us the best resale value. She found us a corner lot with mountain views that we never would have considered. Sold it 2 years later for $50K more than we paid!",
-			rating: 5,
-			transaction: "Buyer & Seller"
-		},
-		{
-			id: 2,
-			name: "Jennifer Martinez",
-			address: "Mountain View Dr",
-			text: "Sold our home in 8 days for $15K over asking! Dr. Jan's pricing strategy was spot-on and her staging advice made all the difference. She knows this neighborhood like the back of her hand.",
-			rating: 5,
-			transaction: "Seller"
-		},
-		{
-			id: 3,
-			name: "David Thompson",
-			address: "Desert Ridge Ln",
-			text: "She knew about the solar installation before it hit MLS. Dr. Jan's connections and local knowledge saved us thousands. We got the house we wanted before other buyers even knew it was available.",
-			rating: 5,
-			transaction: "Buyer"
-		},
-		{
-			id: 4,
-			name: "Lisa & Robert Kim",
-			address: "Canyon Heights Blvd",
-			text: "Dr. Jan's market analysis showed us exactly when to list. We waited 3 months based on her advice and sold for $25K more than the spring market would have brought. Her timing is impeccable.",
-			rating: 5,
-			transaction: "Seller"
-		},
-		{
-			id: 5,
-			name: "Michael Rodriguez",
-			address: "Lone Mountain Way",
-			text: "As first-time buyers, we were overwhelmed. Dr. Jan explained every step and helped us understand the local market. She found us a great home in our budget and negotiated a fantastic deal.",
-			rating: 5,
-			transaction: "Buyer"
-		},
-		{
-			id: 6,
-			name: "Amanda Foster",
-			address: "Mountain Ridge Dr",
-			text: "Dr. Jan's neighborhood expertise is unmatched. She knew about upcoming developments, school boundary changes, and market trends that affected our decision. We couldn't have made a better choice.",
-			rating: 5,
-			transaction: "Buyer"
-		}
-	];
-	
-	function getStars(rating) {
-		return '★'.repeat(rating);
-	}
+const testimonials = [
+  {
+    id: 1,
+    name: 'Sarah & Mike Chen',
+    address: 'Lone Mountain Heights',
+    text: 'Dr. Jan knew exactly which street would give us the best resale value. She found us a corner lot with mountain views that we never would have considered. Sold it 2 years later for $50K more than we paid!',
+    rating: 5,
+    transaction: 'Buyer & Seller',
+  },
+  {
+    id: 2,
+    name: 'Jennifer Martinez',
+    address: 'Mountain View Dr',
+    text: "Sold our home in 8 days for $15K over asking! Dr. Jan's pricing strategy was spot-on and her staging advice made all the difference. She knows this neighborhood like the back of her hand.",
+    rating: 5,
+    transaction: 'Seller',
+  },
+  {
+    id: 3,
+    name: 'David Thompson',
+    address: 'Desert Ridge Ln',
+    text: "She knew about the solar installation before it hit MLS. Dr. Jan's connections and local knowledge saved us thousands. We got the house we wanted before other buyers even knew it was available.",
+    rating: 5,
+    transaction: 'Buyer',
+  },
+  {
+    id: 4,
+    name: 'Lisa & Robert Kim',
+    address: 'Canyon Heights Blvd',
+    text: "Dr. Jan's market analysis showed us exactly when to list. We waited 3 months based on her advice and sold for $25K more than the spring market would have brought. Her timing is impeccable.",
+    rating: 5,
+    transaction: 'Seller',
+  },
+  {
+    id: 5,
+    name: 'Michael Rodriguez',
+    address: 'Lone Mountain Way',
+    text: 'As first-time buyers, we were overwhelmed. Dr. Jan explained every step and helped us understand the local market. She found us a great home in our budget and negotiated a fantastic deal.',
+    rating: 5,
+    transaction: 'Buyer',
+  },
+  {
+    id: 6,
+    name: 'Amanda Foster',
+    address: 'Mountain Ridge Dr',
+    text: "Dr. Jan's neighborhood expertise is unmatched. She knew about upcoming developments, school boundary changes, and market trends that affected our decision. We couldn't have made a better choice.",
+    rating: 5,
+    transaction: 'Buyer',
+  },
+];
+
+function getStars(rating) {
+  return '★'.repeat(rating);
+}
 </script>
 
 <section class="testimonials">

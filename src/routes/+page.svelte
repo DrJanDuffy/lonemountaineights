@@ -1,8 +1,8 @@
 <script>
-	import Hero from '$lib/Hero.svelte';
-	import FeaturedHomes from '$lib/FeaturedHomes.svelte';
-	import MarketInsights from '$lib/MarketInsights.svelte';
-	import Testimonials from '$lib/Testimonials.svelte';
+import Hero from '$lib/Hero.svelte';
+import FeaturedHomes from '$lib/FeaturedHomes.svelte';
+import MarketInsights from '$lib/MarketInsights.svelte';
+import Testimonials from '$lib/Testimonials.svelte';
 </script>
 
 <svelte:head>

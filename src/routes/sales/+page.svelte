@@ -1,159 +1,174 @@
 <script>
-	// Mock recent sales data - in production this would come from MLS API
-	const recentSales = [
-		{
-			id: 1,
-			address: "4567 Mountain Ridge Dr",
-			price: 875000,
-			sqft: 2450,
-			bedrooms: 4,
-			bathrooms: 3,
-			daysOnMarket: 5,
-			soldDate: "2024-01-15",
-			pricePerSqft: 357,
-			homeStyle: "Two Story",
-			yearBuilt: 2018,
-			insight: "Corner lot with mountain views - sold above asking due to premium location",
-			drJanComment: "This home had multiple offers within 48 hours. The mountain views and corner lot location made it highly desirable."
-		},
-		{
-			id: 2,
-			address: "7890 Desert View Ln",
-			price: 725000,
-			sqft: 1890,
-			bedrooms: 3,
-			bathrooms: 2,
-			daysOnMarket: 12,
-			soldDate: "2024-01-12",
-			pricePerSqft: 383,
-			homeStyle: "Single Story",
-			yearBuilt: 2015,
-			insight: "Recently updated kitchen - great value for the area",
-			drJanComment: "The updated kitchen was the key selling point. Buyers loved the modern finishes and open concept."
-		},
-		{
-			id: 3,
-			address: "2345 Lone Mountain Way",
-			price: 950000,
-			sqft: 3200,
-			bedrooms: 5,
-			bathrooms: 4,
-			daysOnMarket: 8,
-			soldDate: "2024-01-10",
-			pricePerSqft: 297,
-			homeStyle: "Two Story",
-			yearBuilt: 2020,
-			insight: "Luxury finishes throughout - one of the best streets in the area",
-			drJanComment: "This was a luxury home with premium finishes. The buyers were specifically looking for this level of quality."
-		},
-		{
-			id: 4,
-			address: "6789 Canyon Heights Blvd",
-			price: 680000,
-			sqft: 1750,
-			bedrooms: 3,
-			bathrooms: 2,
-			daysOnMarket: 18,
-			soldDate: "2024-01-08",
-			pricePerSqft: 389,
-			homeStyle: "Single Story",
-			yearBuilt: 2012,
-			insight: "Great starter home with potential for updates",
-			drJanComment: "First-time buyers loved the potential and the quiet cul-de-sac location. Great investment opportunity."
-		},
-		{
-			id: 5,
-			address: "3456 Desert Ridge Ln",
-			price: 825000,
-			sqft: 2200,
-			bedrooms: 4,
-			bathrooms: 3,
-			daysOnMarket: 15,
-			soldDate: "2024-01-05",
-			pricePerSqft: 375,
-			homeStyle: "Two Story",
-			yearBuilt: 2017,
-			insight: "Solar panels included - significant energy savings",
-			drJanComment: "The solar panels were a major selling point. Buyers appreciated the long-term energy savings."
-		},
-		{
-			id: 6,
-			address: "1234 Mountain View Dr",
-			price: 750000,
-			sqft: 1950,
-			bedrooms: 3,
-			bathrooms: 2,
-			daysOnMarket: 22,
-			soldDate: "2024-01-03",
-			pricePerSqft: 385,
-			homeStyle: "Single Story",
-			yearBuilt: 2016,
-			insight: "Cul-de-sac location - quiet street with minimal traffic",
-			drJanComment: "The cul-de-sac location attracted families with young children. Safety and quiet were top priorities."
-		}
-	];
-	
-	let sortBy = 'soldDate';
-	let filterBy = 'all';
-	
-	function formatPrice(price) {
-		return new Intl.NumberFormat('en-US', {
-			style: 'currency',
-			currency: 'USD',
-			minimumFractionDigits: 0,
-			maximumFractionDigits: 0
-		}).format(price);
-	}
-	
-	function formatDate(dateString) {
-		return new Date(dateString).toLocaleDateString('en-US', {
-			month: 'short',
-			day: 'numeric',
-			year: 'numeric'
-		});
-	}
-	
-	function getDaysOnMarketClass(days) {
-		if (days <= 10) return 'fast';
-		if (days <= 20) return 'normal';
-		return 'slow';
-	}
-	
-	$: filteredAndSortedSales = recentSales
-		.filter(sale => {
-			if (filterBy === 'all') return true;
-			if (filterBy === 'fast') return sale.daysOnMarket <= 10;
-			if (filterBy === 'recent') {
-				const saleDate = new Date(sale.soldDate);
-				const thirtyDaysAgo = new Date();
-				thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
-				return saleDate >= thirtyDaysAgo;
-			}
-			return true;
-		})
-		.sort((a, b) => {
-			switch(sortBy) {
-				case 'soldDate':
-					return new Date(b.soldDate).getTime() - new Date(a.soldDate).getTime();
-				case 'price':
-					return b.price - a.price;
-				case 'priceAsc':
-					return a.price - b.price;
-				case 'daysOnMarket':
-					return a.daysOnMarket - b.daysOnMarket;
-				case 'sqft':
-					return b.sqft - a.sqft;
-				default:
-					return 0;
-			}
-		});
-	
-	$: marketStats = {
-		averagePrice: Math.round(recentSales.reduce((sum, sale) => sum + sale.price, 0) / recentSales.length),
-		averageDaysOnMarket: Math.round(recentSales.reduce((sum, sale) => sum + sale.daysOnMarket, 0) / recentSales.length),
-		averagePricePerSqft: Math.round(recentSales.reduce((sum, sale) => sum + sale.pricePerSqft, 0) / recentSales.length),
-		totalSales: recentSales.length
-	};
+// Mock recent sales data - in production this would come from MLS API
+const recentSales = [
+  {
+    id: 1,
+    address: '4567 Mountain Ridge Dr',
+    price: 875000,
+    sqft: 2450,
+    bedrooms: 4,
+    bathrooms: 3,
+    daysOnMarket: 5,
+    soldDate: '2024-01-15',
+    pricePerSqft: 357,
+    homeStyle: 'Two Story',
+    yearBuilt: 2018,
+    insight:
+      'Corner lot with mountain views - sold above asking due to premium location',
+    drJanComment:
+      'This home had multiple offers within 48 hours. The mountain views and corner lot location made it highly desirable.',
+  },
+  {
+    id: 2,
+    address: '7890 Desert View Ln',
+    price: 725000,
+    sqft: 1890,
+    bedrooms: 3,
+    bathrooms: 2,
+    daysOnMarket: 12,
+    soldDate: '2024-01-12',
+    pricePerSqft: 383,
+    homeStyle: 'Single Story',
+    yearBuilt: 2015,
+    insight: 'Recently updated kitchen - great value for the area',
+    drJanComment:
+      'The updated kitchen was the key selling point. Buyers loved the modern finishes and open concept.',
+  },
+  {
+    id: 3,
+    address: '2345 Lone Mountain Way',
+    price: 950000,
+    sqft: 3200,
+    bedrooms: 5,
+    bathrooms: 4,
+    daysOnMarket: 8,
+    soldDate: '2024-01-10',
+    pricePerSqft: 297,
+    homeStyle: 'Two Story',
+    yearBuilt: 2020,
+    insight: 'Luxury finishes throughout - one of the best streets in the area',
+    drJanComment:
+      'This was a luxury home with premium finishes. The buyers were specifically looking for this level of quality.',
+  },
+  {
+    id: 4,
+    address: '6789 Canyon Heights Blvd',
+    price: 680000,
+    sqft: 1750,
+    bedrooms: 3,
+    bathrooms: 2,
+    daysOnMarket: 18,
+    soldDate: '2024-01-08',
+    pricePerSqft: 389,
+    homeStyle: 'Single Story',
+    yearBuilt: 2012,
+    insight: 'Great starter home with potential for updates',
+    drJanComment:
+      'First-time buyers loved the potential and the quiet cul-de-sac location. Great investment opportunity.',
+  },
+  {
+    id: 5,
+    address: '3456 Desert Ridge Ln',
+    price: 825000,
+    sqft: 2200,
+    bedrooms: 4,
+    bathrooms: 3,
+    daysOnMarket: 15,
+    soldDate: '2024-01-05',
+    pricePerSqft: 375,
+    homeStyle: 'Two Story',
+    yearBuilt: 2017,
+    insight: 'Solar panels included - significant energy savings',
+    drJanComment:
+      'The solar panels were a major selling point. Buyers appreciated the long-term energy savings.',
+  },
+  {
+    id: 6,
+    address: '1234 Mountain View Dr',
+    price: 750000,
+    sqft: 1950,
+    bedrooms: 3,
+    bathrooms: 2,
+    daysOnMarket: 22,
+    soldDate: '2024-01-03',
+    pricePerSqft: 385,
+    homeStyle: 'Single Story',
+    yearBuilt: 2016,
+    insight: 'Cul-de-sac location - quiet street with minimal traffic',
+    drJanComment:
+      'The cul-de-sac location attracted families with young children. Safety and quiet were top priorities.',
+  },
+];
+
+let sortBy = 'soldDate';
+let filterBy = 'all';
+
+function formatPrice(price) {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(price);
+}
+
+function formatDate(dateString) {
+  return new Date(dateString).toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  });
+}
+
+function getDaysOnMarketClass(days) {
+  if (days <= 10) return 'fast';
+  if (days <= 20) return 'normal';
+  return 'slow';
+}
+
+$: filteredAndSortedSales = recentSales
+  .filter((sale) => {
+    if (filterBy === 'all') return true;
+    if (filterBy === 'fast') return sale.daysOnMarket <= 10;
+    if (filterBy === 'recent') {
+      const saleDate = new Date(sale.soldDate);
+      const thirtyDaysAgo = new Date();
+      thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+      return saleDate >= thirtyDaysAgo;
+    }
+    return true;
+  })
+  .sort((a, b) => {
+    switch (sortBy) {
+      case 'soldDate':
+        return new Date(b.soldDate).getTime() - new Date(a.soldDate).getTime();
+      case 'price':
+        return b.price - a.price;
+      case 'priceAsc':
+        return a.price - b.price;
+      case 'daysOnMarket':
+        return a.daysOnMarket - b.daysOnMarket;
+      case 'sqft':
+        return b.sqft - a.sqft;
+      default:
+        return 0;
+    }
+  });
+
+$: marketStats = {
+  averagePrice: Math.round(
+    recentSales.reduce((sum, sale) => sum + sale.price, 0) / recentSales.length,
+  ),
+  averageDaysOnMarket: Math.round(
+    recentSales.reduce((sum, sale) => sum + sale.daysOnMarket, 0) /
+      recentSales.length,
+  ),
+  averagePricePerSqft: Math.round(
+    recentSales.reduce((sum, sale) => sum + sale.pricePerSqft, 0) /
+      recentSales.length,
+  ),
+  totalSales: recentSales.length,
+};
 </script>
 
 <svelte:head>
