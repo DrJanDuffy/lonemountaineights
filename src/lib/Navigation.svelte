@@ -23,6 +23,10 @@ function handleNavKeydown(event) {
     toggleMobileMenu();
   }
 }
+
+function handleNavLinkClick() {
+  closeMobileMenu();
+}
 </script>
 
 <header class="navigation">
@@ -42,34 +46,34 @@ function handleNavKeydown(event) {
 		<nav class="nav-menu" class:mobile-open={mobileMenuOpen} aria-label="Main navigation">
 			<ul class="nav-list" role="menubar">
 				<li class="nav-item" role="none">
-					<a href="/" class="nav-link" class:active={$page.url.pathname === '/'} role="menuitem" aria-current={$page.url.pathname === '/' ? 'page' : undefined}>Home</a>
+					<a href="/" class="nav-link" class:active={$page.url.pathname === '/'} role="menuitem" aria-current={$page.url.pathname === '/' ? 'page' : undefined} on:click={handleNavLinkClick}>Home</a>
 				</li>
 				<li class="nav-item" role="none">
-					<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-link" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="Search Homes in Lone Mountain Heights (opens in new tab)">Search Homes</a>
+					<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-link" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="Search Homes in Lone Mountain Heights (opens in new tab)" on:click={handleNavLinkClick}>Search Homes</a>
 				</li>
 			<li class="nav-item" role="none">
-				<a href="/homes" class="nav-link" class:active={$page.url.pathname.startsWith('/homes')} role="menuitem" aria-current={$page.url.pathname.startsWith('/homes') ? 'page' : undefined}>Browse Listings</a>
+				<a href="/homes" class="nav-link" class:active={$page.url.pathname.startsWith('/homes')} role="menuitem" aria-current={$page.url.pathname.startsWith('/homes') ? 'page' : undefined} on:click={handleNavLinkClick}>Browse Listings</a>
 			</li>
 			<li class="nav-item" role="none">
-				<a href="/sales" class="nav-link" class:active={$page.url.pathname.startsWith('/sales')} role="menuitem" aria-current={$page.url.pathname.startsWith('/sales') ? 'page' : undefined}>Recent Sales</a>
+				<a href="/sales" class="nav-link" class:active={$page.url.pathname.startsWith('/sales')} role="menuitem" aria-current={$page.url.pathname.startsWith('/sales') ? 'page' : undefined} on:click={handleNavLinkClick}>Recent Sales</a>
 			</li>
 			<li class="nav-item" role="none">
-				<a href="/neighborhoods" class="nav-link" class:active={$page.url.pathname.startsWith('/neighborhoods')} role="menuitem" aria-current={$page.url.pathname.startsWith('/neighborhoods') ? 'page' : undefined}>Micro-Neighborhoods</a>
+				<a href="/neighborhoods" class="nav-link" class:active={$page.url.pathname.startsWith('/neighborhoods')} role="menuitem" aria-current={$page.url.pathname.startsWith('/neighborhoods') ? 'page' : undefined} on:click={handleNavLinkClick}>Micro-Neighborhoods</a>
 			</li>
 			<li class="nav-item" role="none">
-				<a href="/guide" class="nav-link" class:active={$page.url.pathname.startsWith('/guide')} role="menuitem" aria-current={$page.url.pathname.startsWith('/guide') ? 'page' : undefined}>Neighborhood Guide</a>
+				<a href="/guide" class="nav-link" class:active={$page.url.pathname.startsWith('/guide')} role="menuitem" aria-current={$page.url.pathname.startsWith('/guide') ? 'page' : undefined} on:click={handleNavLinkClick}>Neighborhood Guide</a>
 			</li>
 			<li class="nav-item" role="none">
-				<a href="/market-report" class="nav-link" class:active={$page.url.pathname.startsWith('/market-report')} role="menuitem" aria-current={$page.url.pathname.startsWith('/market-report') ? 'page' : undefined}>Market Report</a>
+				<a href="/market-report" class="nav-link" class:active={$page.url.pathname.startsWith('/market-report')} role="menuitem" aria-current={$page.url.pathname.startsWith('/market-report') ? 'page' : undefined} on:click={handleNavLinkClick}>Market Report</a>
 			</li>
 			<li class="nav-item" role="none">
-				<a href="/valuation" class="nav-link" class:active={$page.url.pathname.startsWith('/valuation')} role="menuitem" aria-current={$page.url.pathname.startsWith('/valuation') ? 'page' : undefined}>Home Valuation</a>
+				<a href="/valuation" class="nav-link" class:active={$page.url.pathname.startsWith('/valuation')} role="menuitem" aria-current={$page.url.pathname.startsWith('/valuation') ? 'page' : undefined} on:click={handleNavLinkClick}>Home Valuation</a>
 			</li>
 		<li class="nav-item" role="none">
-			<a href="/about" class="nav-link" class:active={$page.url.pathname.startsWith('/about')} role="menuitem" aria-current={$page.url.pathname.startsWith('/about') ? 'page' : undefined}>About Dr. Jan</a>
+			<a href="/about" class="nav-link" class:active={$page.url.pathname.startsWith('/about')} role="menuitem" aria-current={$page.url.pathname.startsWith('/about') ? 'page' : undefined} on:click={handleNavLinkClick}>About Dr. Jan</a>
 		</li>
 		<li class="nav-item" role="none">
-			<a href="/contact" class="nav-link" class:active={$page.url.pathname.startsWith('/contact')} role="menuitem" aria-current={$page.url.pathname.startsWith('/contact') ? 'page' : undefined}>Contact</a>
+			<a href="/contact" class="nav-link" class:active={$page.url.pathname.startsWith('/contact')} role="menuitem" aria-current={$page.url.pathname.startsWith('/contact') ? 'page' : undefined} on:click={handleNavLinkClick}>Contact</a>
 		</li>
 			</ul>
 		</nav>
@@ -367,14 +371,6 @@ function handleNavKeydown(event) {
 		}
 		
 		.nav-menu {
-			display: none;
-		}
-		
-		.nav-contact {
-			display: none;
-		}
-		
-		.nav-menu.mobile-open {
 			position: absolute;
 			top: 100%;
 			left: 0;
@@ -385,12 +381,29 @@ function handleNavKeydown(event) {
 			opacity: 0;
 			visibility: hidden;
 			transition: all 0.3s ease;
+			display: block;
 		}
 		
 		.nav-menu.mobile-open {
 			transform: translateY(0);
 			opacity: 1;
 			visibility: visible;
+		}
+		
+		.nav-contact {
+			display: none;
+		}
+		
+		.mobile-menu-toggle {
+			display: block;
+		}
+		
+		.brand-name {
+			font-size: 1.1rem;
+		}
+		
+		.brand-tagline {
+			font-size: 0.7rem;
 		}
 		
 		.nav-list {
@@ -401,6 +414,14 @@ function handleNavKeydown(event) {
 		
 		.nav-item {
 			border-bottom: 1px solid var(--tertiary-color);
+		}
+		
+		.nav-link {
+			padding: 1rem 0;
+			font-size: 1.1rem;
+			min-height: 44px;
+			display: flex;
+			align-items: center;
 		}
 		
 		.nav-item:last-child {
