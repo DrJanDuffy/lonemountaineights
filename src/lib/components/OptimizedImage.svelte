@@ -4,7 +4,7 @@
   export let width = null;
   export let height = null;
   export let loading = 'lazy';
-  export let class: string = '';
+  export let className: string = '';
   
   // Add fallback for missing images
   $: imageSrc = src || '/svelte-welcome.png';
@@ -16,7 +16,7 @@
   {width}
   {height}
   {loading}
-  class={class}
+  class={className}
   on:error={() => {
     // Fallback to default image on error
     if (src !== '/svelte-welcome.png') {
