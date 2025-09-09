@@ -390,7 +390,7 @@
 				<h2>Questions About Schools?</h2>
 				<p>Dr. Jan Duffy can help you understand school boundaries and find the perfect home in the right school zone.</p>
 				<div class="cta-buttons">
-					<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Search All Homes</a>
+					<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Search All Homes in Lone Mountain Heights</a>
 					<a href="tel:702-222-1964" class="btn btn-secondary">Call 702-222-1964</a>
 					<a href="/contact" class="btn btn-secondary">Contact Dr. Jan</a>
 					<a href="/homes" class="btn btn-secondary">Browse Listings</a>

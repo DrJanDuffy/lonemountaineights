@@ -32,7 +32,7 @@ function closeMobileMenu() {
 					<a href="/" class="nav-link" class:active={$page.url.pathname === '/'}>Home</a>
 				</li>
 				<li class="nav-item">
-					<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-link" target="_blank" rel="noopener noreferrer">Search Homes</a>
+					<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-link" target="_blank" rel="noopener noreferrer">Search Homes in Lone Mountain Heights</a>
 				</li>
 				<li class="nav-item">
 					<a href="/homes" class="nav-link" class:active={$page.url.pathname.startsWith('/homes')}>Browse Listings</a>
