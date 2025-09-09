@@ -1,6 +1,7 @@
 <script>
 import { browser } from '$app/env';
 import { page } from '$app/stores';
+import { onMount } from 'svelte';
 import { initAccessibility } from '$lib/accessibility.js';
 import { initPerformanceOptimizations } from '$lib/performance.js';
 import {
@@ -32,6 +33,19 @@ $: if (browser && analyticsId) {
     analyticsId,
   });
 }
+
+// Widget Tracker Code - only runs in browser
+onMount(() => {
+  if (typeof document !== 'undefined') {
+    (function(w,i,d,g,e,t){w["WidgetTrackerObject"]=g;(w[g]=w[g]||function()
+    {(w[g].q=w[g].q||[]).push(arguments);}),(w[g].ds=1*new Date());(e="script"),
+    (t=d.createElement(e)),(e=d.getElementsByTagName(e)[0]);t.async=1;t.src=i;
+    e.parentNode.insertBefore(t,e);})
+    (window,"https://widgetbe.com/agent",d,"widgetTracker");
+    window.widgetTracker("create", "WT-XQHVYQWW");
+    window.widgetTracker("send", "pageview");
+  }
+});
 </script>
 
 <!-- Schema Markup for SEO -->
@@ -88,23 +102,7 @@ $: if (browser && analyticsId) {
 		{JSON.stringify(faqSchema)}
 	</script>
 	
-	<!-- begin Widget Tracker Code -->
-	{#if browser}
-		<script>
-		(function(){
-			if (typeof document !== 'undefined') {
-				(function(w,i,d,g,e,t){w["WidgetTrackerObject"]=g;(w[g]=w[g]||function()
-				{(w[g].q=w[g].q||[]).push(arguments);}),(w[g].ds=1*new Date());(e="script"),
-				(t=d.createElement(e)),(e=d.getElementsByTagName(e)[0]);t.async=1;t.src=i;
-				e.parentNode.insertBefore(t,e);})
-				(window,"https://widgetbe.com/agent",d,"widgetTracker");
-				window.widgetTracker("create", "WT-XQHVYQWW");
-				window.widgetTracker("send", "pageview");
-			}
-		})();
-		</script>
-	{/if}
-	<!-- end Widget Tracker Code -->
+	<!-- Widget Tracker Code will be loaded in onMount -->
 </svelte:head>
 
 <Navigation />
