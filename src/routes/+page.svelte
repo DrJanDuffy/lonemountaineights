@@ -8,6 +8,12 @@ import SeasonalContent from '$lib/components/SeasonalContent.svelte';
 import NeighborhoodMap from '$lib/components/NeighborhoodMap.svelte';
 import MarketInfographics from '$lib/components/MarketInfographics.svelte';
 import StagingGallery from '$lib/components/StagingGallery.svelte';
+import HomeValueCalculator from '$lib/components/HomeValueCalculator.svelte';
+import MortgageCalculator from '$lib/components/MortgageCalculator.svelte';
+import HomeFinderQuiz from '$lib/components/HomeFinderQuiz.svelte';
+import TrustSignals from '$lib/components/TrustSignals.svelte';
+import OptimizedCTA from '$lib/components/OptimizedCTA.svelte';
+import Personalization from '$lib/components/Personalization.svelte';
 </script>
 
 <svelte:head>
@@ -229,6 +235,11 @@ import StagingGallery from '$lib/components/StagingGallery.svelte';
 
 <main>
 	<Hero />
+	<Personalization />
+	<TrustSignals />
+	<HomeValueCalculator />
+	<MortgageCalculator />
+	<HomeFinderQuiz />
 	<MarketStats />
 	<NeighborhoodMap />
 	<MarketInfographics />
@@ -237,6 +248,7 @@ import StagingGallery from '$lib/components/StagingGallery.svelte';
 	<FeaturedHomes />
 	<MarketInsights />
 	<Testimonials />
+	<OptimizedCTA variant="primary" size="large" showPhone={true} showEmail={true} showText={true} showForm={true} />
 </main>
 
 <style>
