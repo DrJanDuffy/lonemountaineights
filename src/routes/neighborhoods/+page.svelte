@@ -1,7 +1,7 @@
 <script>
 import { generateBreadcrumbSchema } from '$lib/schema.js';
 
-const selectedCategory = 'subdivisions';
+let selectedCategory = 'subdivisions';
 let selectedSubdivision = null;
 
 function formatPrice(price) {

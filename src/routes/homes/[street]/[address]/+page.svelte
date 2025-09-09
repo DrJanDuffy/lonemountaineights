@@ -1,4 +1,7 @@
 <script>
+import { page } from '$app/stores';
+import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
+
 // Get route parameters
 $: street = $page.params.street;
 $: address = $page.params.address;
