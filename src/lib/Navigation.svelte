@@ -33,7 +33,7 @@ function closeMobileMenu() {
 	function toggleDropdown(dropdownName) {
 		// Close other dropdowns when opening a new one
 		activeDropdown = activeDropdown === dropdownName ? null : dropdownName;
-		console.log('Toggling dropdown:', dropdownName, 'Active:', activeDropdown);
+		console.log('Dropdown toggled:', dropdownName, 'Active:', activeDropdown);
 	}
 
 	function closeDropdown() {
@@ -53,7 +53,7 @@ function closeMobileMenu() {
 		if (event.key === 'Escape') {
 			closeDropdown();
 		}
-	}
+}
 </script>
 
 <header class="navigation" on:click={handleClickOutside} on:keydown={handleDropdownKeydown}>
@@ -94,7 +94,7 @@ function closeMobileMenu() {
 					>
 						Properties <span class="dropdown-arrow">▼</span>
 					</button>
-					<ul class="nav-dropdown nav-dropdown-wide" class:active={activeDropdown === 'properties'} role="menu">
+					<ul class="nav-dropdown nav-dropdown-wide nav-dropdown-properties" class:active={activeDropdown === 'properties'} role="menu">
 						<li role="none">
 							<a href="/homes" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Browse All Listings</a>
 						</li>
@@ -223,10 +223,10 @@ function closeMobileMenu() {
 						</li>
 						<li class="nav-item" role="none">
 							<a href="/property-types/3-bedroom-homes" class="nav-link" class:active={$page.url.pathname.startsWith('/property-types')} role="menuitem" aria-current={$page.url.pathname.startsWith('/property-types') ? 'page' : undefined} on:click={handleNavLinkClick}>3 Bedroom Homes</a>
-						</li>
+				</li>
 						<li class="nav-item" role="none">
 							<a href="/price-ranges/600k-800k" class="nav-link" class:active={$page.url.pathname.startsWith('/price-ranges')} role="menuitem" aria-current={$page.url.pathname.startsWith('/price-ranges') ? 'page' : undefined} on:click={handleNavLinkClick}>Homes $600K-$800K</a>
-						</li>
+				</li>
 					</ul>
 				</div>
 				
@@ -235,19 +235,19 @@ function closeMobileMenu() {
 					<ul class="nav-list" role="menubar">
 						<li class="nav-item" role="none">
 							<a href="/amenities" class="nav-link" class:active={$page.url.pathname.startsWith('/amenities')} role="menuitem" aria-current={$page.url.pathname.startsWith('/amenities') ? 'page' : undefined} on:click={handleNavLinkClick}>Amenities</a>
-						</li>
+				</li>
 						<li class="nav-item" role="none">
 							<a href="/schools" class="nav-link" class:active={$page.url.pathname.startsWith('/schools')} role="menuitem" aria-current={$page.url.pathname.startsWith('/schools') ? 'page' : undefined} on:click={handleNavLinkClick}>Schools</a>
-						</li>
+				</li>
 						<li class="nav-item" role="none">
 							<a href="/tools" class="nav-link" class:active={$page.url.pathname.startsWith('/tools')} role="menuitem" aria-current={$page.url.pathname.startsWith('/tools') ? 'page' : undefined} on:click={handleNavLinkClick}>Home Value Calculator</a>
-						</li>
+				</li>
 						<li class="nav-item" role="none">
 							<a href="/market-intelligence" class="nav-link" class:active={$page.url.pathname.startsWith('/market-intelligence')} role="menuitem" aria-current={$page.url.pathname.startsWith('/market-intelligence') ? 'page' : undefined} on:click={handleNavLinkClick}>Market Data</a>
-						</li>
+				</li>
 						<li class="nav-item" role="none">
 							<a href="/faq/hoa-fees" class="nav-link" class:active={$page.url.pathname.startsWith('/faq/hoa-fees')} role="menuitem" aria-current={$page.url.pathname.startsWith('/faq/hoa-fees') ? 'page' : undefined} on:click={handleNavLinkClick}>HOA Information</a>
-						</li>
+				</li>
 					</ul>
 				</div>
 				
@@ -296,6 +296,7 @@ function closeMobileMenu() {
 		position: sticky;
 		top: 0;
 		z-index: 1000;
+		overflow: visible;
 	}
 	
 	.nav-container {
@@ -306,6 +307,7 @@ function closeMobileMenu() {
 		align-items: center;
 		justify-content: space-between;
 		height: 60px;
+		overflow: visible;
 	}
 	
 	.nav-brand {
@@ -353,6 +355,7 @@ function closeMobileMenu() {
 	.nav-menu {
 		display: flex;
 		align-items: center;
+		overflow: visible;
 	}
 	
 	.mobile-menu-toggle {
@@ -408,10 +411,11 @@ function closeMobileMenu() {
 		list-style: none;
 		margin: 0;
 		padding: 0;
-		gap: 0.25rem;
+		gap: 0.5rem;
 		align-items: center;
 		flex: 1;
 		justify-content: center;
+		flex-wrap: nowrap;
 	}
 	
 	.nav-link-primary {
@@ -465,6 +469,8 @@ function closeMobileMenu() {
 
 	.nav-dropdown-toggle.active {
 		color: var(--accent-color);
+		background: rgba(58, 141, 222, 0.1);
+		border-radius: 4px;
 	}
 
 	.dropdown-arrow {
@@ -478,7 +484,7 @@ function closeMobileMenu() {
 
 	.nav-dropdown {
 		position: absolute;
-		top: calc(100% + 8px);
+		top: calc(100% + 4px);
 		left: 0;
 		background: white;
 		border: 1px solid #E2E8F0;
@@ -487,16 +493,23 @@ function closeMobileMenu() {
 		min-width: 180px;
 		opacity: 0;
 		visibility: hidden;
-		transform: translateY(-10px);
+		transform: translateY(-5px);
 		transition: all 0.2s ease;
-		z-index: 1000;
+		z-index: 1001;
 		list-style: none;
 		margin: 0;
 		padding: 0.25rem 0;
+		white-space: nowrap;
 	}
 	
 	.nav-dropdown-wide {
 		min-width: 220px;
+	}
+	
+	/* Right-aligned dropdown for Properties to prevent cutoff */
+	.nav-dropdown-properties {
+		left: auto;
+		right: 0;
 	}
 
 	.nav-dropdown.active {
