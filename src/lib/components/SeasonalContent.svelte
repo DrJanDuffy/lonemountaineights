@@ -155,6 +155,9 @@ $: seasonalContent = seasonalData[currentSeason];
 		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 		margin-bottom: 2rem;
 		border-top: 4px solid var(--season-color);
+		width: 100%;
+		max-width: none;
+		overflow: visible;
 	}
 	
 	.seasonal-header {
@@ -203,6 +206,8 @@ $: seasonalContent = seasonalData[currentSeason];
 		background: var(--warm-cream);
 		padding: 1.5rem;
 		border-radius: 8px;
+		min-width: 0;
+		overflow: visible;
 	}
 	
 	.tips-section h4,
@@ -226,6 +231,10 @@ $: seasonalContent = seasonalData[currentSeason];
 		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 		position: relative;
 		padding-left: 1.5rem;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+		white-space: normal;
+		line-height: 1.5;
 	}
 	
 	.tips-list li::before {
