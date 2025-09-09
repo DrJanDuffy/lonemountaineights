@@ -4,6 +4,8 @@ import { webVitals } from '$lib/vitals';
 import { browser } from '$app/env';
 import { page } from '$app/stores';
 import { generateLocalBusinessSchema, generateFAQSchema, realEstateFAQs } from '$lib/schema.js';
+import { initPerformanceOptimizations } from '$lib/performance.js';
+import { initAccessibility } from '$lib/accessibility.js';
 import '../app.css';
 import '../lib/ranchStyles.css';
 
@@ -12,6 +14,12 @@ let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
 // Generate schema markup for the main site
 const localBusinessSchema = generateLocalBusinessSchema();
 const faqSchema = generateFAQSchema(realEstateFAQs);
+
+// Initialize performance optimizations and accessibility
+if (browser) {
+  initPerformanceOptimizations();
+  initAccessibility();
+}
 
 $: if (browser && analyticsId) {
   webVitals({
@@ -24,6 +32,51 @@ $: if (browser && analyticsId) {
 
 <!-- Schema Markup for SEO -->
 <svelte:head>
+	<!-- Critical CSS for Core Web Vitals -->
+	<style>
+		/* Critical CSS inline for fastest rendering */
+		* { box-sizing: border-box; }
+		body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+		.hero { background: linear-gradient(135deg, #F7F9FC 0%, #F4F1EB 100%); padding: 4rem 2rem; min-height: 80vh; }
+		.hero-content { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; max-width: 1200px; margin: 0 auto; }
+		.hero-text h1 { font-size: 3.5rem; font-weight: 700; color: #1A202C; margin: 0 0 1rem 0; line-height: 1.1; }
+		.btn { padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: inline-block; }
+		.btn-primary { background: #3A8DDE; color: white; border: 2px solid #3A8DDE; }
+		.btn-primary:hover { background: #5BA0E8; transform: translateY(-2px); }
+		@media (max-width: 768px) { .hero-content { grid-template-columns: 1fr; } .hero-text h1 { font-size: 2.5rem; } }
+	</style>
+	
+	<!-- Performance and SEO Meta Tags -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+	<meta name="theme-color" content="#3A8DDE">
+	<meta name="color-scheme" content="light dark">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+	<meta name="googlebot" content="index, follow">
+	
+	<!-- Preconnect to external domains -->
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+	<link rel="preconnect" href="https://drjanduffy.realscout.com" crossorigin>
+	
+	<!-- Preload critical resources -->
+	<link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="preload" href="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1973&q=80" as="image">
+	
+	<!-- DNS Prefetch for performance -->
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//www.google-analytics.com">
+	
+	<!-- Web App Manifest -->
+	<link rel="manifest" href="/manifest.json">
+	
+	<!-- Apple Touch Icons -->
+	<link rel="apple-touch-icon" sizes="180x180" href="/icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="shortcut icon" href="/favicon.ico">
+	
+	<!-- Schema Markup -->
 	<script type="application/ld+json">
 		{JSON.stringify(localBusinessSchema)}
 	</script>
@@ -34,7 +87,7 @@ $: if (browser && analyticsId) {
 
 <Navigation />
 
-<main>
+<main id="main-content" role="main">
 	<slot />
 </main>
 

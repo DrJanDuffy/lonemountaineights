@@ -1,0 +1,288 @@
+/* Critical CSS for above-the-fold content */
+/* This CSS is inlined in the HTML head for fastest rendering */
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: #333;
+  background: #f8f9fa;
+}
+
+/* CSS Variables for consistent theming */
+:root {
+  --primary-color: #0A2540;
+  --accent-color: #3A8DDE;
+  --accent-light: #5BA0E8;
+  --warm-cream: #F7F9FC;
+  --desert-sand: #F4F1EB;
+  --tertiary-color: #16B286;
+  --success-color: #16B286;
+  --error-color: #E53E3E;
+  --heading-color: #1A202C;
+  --text-color: #4A5568;
+  --text-light: #718096;
+  --border-color: #E2E8F0;
+}
+
+/* Critical layout styles */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Navigation - critical for LCP */
+nav {
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--heading-color);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--accent-color);
+}
+
+/* Hero section - most critical for LCP */
+.hero {
+  background: linear-gradient(135deg, var(--warm-cream) 0%, var(--desert-sand) 100%);
+  padding: 4rem 2rem;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-text h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin: 0 0 1rem 0;
+  line-height: 1.1;
+}
+
+.hero-text h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  margin: 0 0 1.5rem 0;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-color);
+  margin: 0 0 2rem 0;
+  line-height: 1.6;
+  max-width: 500px;
+}
+
+/* Critical button styles */
+.btn {
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-align: center;
+  min-width: 200px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--accent-color);
+  color: white;
+  border: 2px solid var(--accent-color);
+}
+
+.btn-primary:hover {
+  background: var(--accent-light);
+  border-color: var(--accent-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(30, 58, 138, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--accent-color);
+  border: 2px solid var(--accent-color);
+}
+
+.btn-secondary:hover {
+  background: var(--accent-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(30, 58, 138, 0.2);
+}
+
+/* CTA buttons container */
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Hero image optimization */
+.hero-image {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.hero-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Contact info - critical for conversion */
+.contact-info {
+  margin-top: 1rem;
+}
+
+.phone-link {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.phone-link:hover {
+  color: var(--accent-color);
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem 1rem;
+    min-height: 70vh;
+  }
+  
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-text h2 {
+    font-size: 1.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .cta-buttons {
+    justify-content: center;
+  }
+  
+  .btn {
+    min-width: 180px;
+  }
+  
+  .nav-list {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* Preload critical resources */
+.hero-image img {
+  content-visibility: auto;
+  contain-intrinsic-size: 400px;
+}
+
+/* Reduce layout shift */
+.hero-text,
+.hero-image {
+  contain: layout;
+}
+
+/* Optimize font loading */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZ9hiJ-Ek-_EeA.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuFuYAZ9hiJ-Ek-_EeA.woff2') format('woff2');
+}
+
+/* Apply Inter font */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
