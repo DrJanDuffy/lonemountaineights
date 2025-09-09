@@ -249,13 +249,5 @@ export function optimizeForMobile() {
 }
 
 // Initialize all optimizations when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initPerformanceOptimizations);
-} else {
-  initPerformanceOptimizations();
-}
-
-// Initialize mobile optimizations
-if (window.innerWidth <= 768) {
-  optimizeForMobile();
-}
+// Note: This should be called from onMount() in components
+// Removed module-level execution to prevent SSR errors

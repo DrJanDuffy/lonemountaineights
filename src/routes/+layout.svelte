@@ -20,11 +20,11 @@ const analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
 const localBusinessSchema = generateLocalBusinessSchema();
 const faqSchema = generateFAQSchema(realEstateFAQs);
 
-// Initialize performance optimizations and accessibility
-if (browser) {
+// Initialize performance optimizations and accessibility in onMount
+onMount(() => {
   initPerformanceOptimizations();
   initAccessibility();
-}
+});
 
 $: if (browser && analyticsId) {
   webVitals({

@@ -395,9 +395,6 @@ export function createAccessibleLink(text, href, options = {}) {
 
 /**
  * Initialize accessibility when DOM is ready
+ * Note: This should be called from onMount() in components
  */
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initAccessibility);
-} else {
-  initAccessibility();
-}
+// Removed module-level execution to prevent SSR errors
