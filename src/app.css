@@ -1,30 +1,45 @@
 @import '@fontsource/fira-mono';
 
 :root {
-  font-family: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  --font-mono: 'Fira Mono', monospace;
-  --pure-white: #ffffff;
-  --primary-color: #b9c6d2;
-  --secondary-color: #d0dde9;
-  --tertiary-color: #edf0f8;
-  --accent-color: #ff3e00;
-  --heading-color: rgba(0, 0, 0, 0.7);
-  --text-color: #444444;
-  --background-without-opacity: rgba(255, 255, 255, 0.7);
-  --column-width: 42rem;
-  --column-margin-top: 4rem;
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+		Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	--font-mono: 'Fira Mono', monospace;
+	--pure-white: #ffffff;
+	
+	/* Desert-themed color palette */
+	--primary-color: #8B4513; /* Saddle Brown - terra cotta */
+	--secondary-color: #9CAF88; /* Sage Green */
+	--tertiary-color: #F5F5DC; /* Beige */
+	--accent-color: #1E3A8A; /* Deep Blue */
+	--accent-light: #3B82F6; /* Blue accent */
+	--warm-cream: #FFF8DC; /* Cornsilk */
+	--desert-sand: #F4E4BC; /* Desert sand */
+	--mountain-gray: #6B7280; /* Mountain gray */
+	
+	--heading-color: #1F2937; /* Dark gray for headings */
+	--text-color: #374151; /* Medium gray for text */
+	--text-light: #6B7280; /* Light gray for secondary text */
+	--background-without-opacity: rgba(255, 248, 220, 0.9);
+	--column-width: 42rem;
+	--column-margin-top: 4rem;
+	
+	/* Real estate specific colors */
+	--success-green: #10B981;
+	--warning-orange: #F59E0B;
+	--error-red: #EF4444;
+	--info-blue: #3B82F6;
 }
 
 body {
   min-height: 100vh;
   margin: 0;
-  background-color: var(--primary-color);
+  background-color: var(--warm-cream);
   background: linear-gradient(
     180deg,
-    var(--primary-color) 0%,
-    var(--secondary-color) 10.45%,
-    var(--tertiary-color) 41.35%
+    var(--warm-cream) 0%,
+    var(--desert-sand) 20%,
+    var(--tertiary-color) 60%,
+    var(--pure-white) 100%
   );
 }
 

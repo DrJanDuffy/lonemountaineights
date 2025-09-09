@@ -1,5 +1,5 @@
 <script>
-	import Header from '$lib/header/Header.svelte';
+	import Navigation from '$lib/Navigation.svelte';
   import { webVitals } from '$lib/vitals';
   import { browser } from '$app/env';
   import { page } from '$app/stores';
@@ -16,14 +16,45 @@
   }
 </script>
 
-<Header />
+<Navigation />
 
 <main>
 	<slot />
 </main>
 
 <footer>
-	<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
+	<div class="footer-content">
+		<div class="footer-section">
+			<h4>Dr. Jan Duffy</h4>
+			<p>Lone Mountain Heights Real Estate Expert</p>
+			<p>500+ Las Vegas Transactions</p>
+		</div>
+		
+		<div class="footer-section">
+			<h4>Contact</h4>
+			<p><a href="tel:702-222-1964">📞 702-222-1964</a></p>
+			<p><a href="mailto:jan@lonemountainheights.com">✉️ jan@lonemountainheights.com</a></p>
+		</div>
+		
+		<div class="footer-section">
+			<h4>Quick Links</h4>
+			<p><a href="/homes">Available Homes</a></p>
+			<p><a href="/sales">Recent Sales</a></p>
+			<p><a href="/valuation">Home Valuation</a></p>
+			<p><a href="/market-report">Market Report</a></p>
+		</div>
+		
+		<div class="footer-section">
+			<h4>Neighborhood</h4>
+			<p><a href="/guide">Living in Lone Mountain Heights</a></p>
+			<p><a href="/schools">School Information</a></p>
+			<p><a href="/amenities">Local Amenities</a></p>
+		</div>
+	</div>
+	
+	<div class="footer-bottom">
+		<p>&copy; 2024 Dr. Jan Duffy - Lone Mountain Heights Real Estate Expert. All rights reserved.</p>
+	</div>
 </footer>
 
 <style>
@@ -31,28 +62,63 @@
 		flex: 1;
 		display: flex;
 		flex-direction: column;
-		padding: 1rem;
 		width: 100%;
-		max-width: 1024px;
-		margin: 0 auto;
-		box-sizing: border-box;
+		min-height: 100vh;
 	}
 
 	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 40px;
+		background: var(--heading-color);
+		color: white;
+		padding: 3rem 2rem 1rem;
 	}
 
-	footer a {
-		font-weight: bold;
+	.footer-content {
+		max-width: 1200px;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 2rem;
+		margin-bottom: 2rem;
 	}
 
-	@media (min-width: 480px) {
+	.footer-section h4 {
+		font-size: 1.2rem;
+		font-weight: 700;
+		margin: 0 0 1rem 0;
+		color: var(--warm-cream);
+	}
+
+	.footer-section p {
+		margin: 0.5rem 0;
+		color: rgba(255, 255, 255, 0.8);
+	}
+
+	.footer-section a {
+		color: var(--warm-cream);
+		text-decoration: none;
+		transition: color 0.3s ease;
+	}
+
+	.footer-section a:hover {
+		color: white;
+	}
+
+	.footer-bottom {
+		border-top: 1px solid rgba(255, 255, 255, 0.2);
+		padding-top: 1rem;
+		text-align: center;
+		color: rgba(255, 255, 255, 0.6);
+		font-size: 0.9rem;
+	}
+
+	@media (max-width: 768px) {
 		footer {
-			padding: 40px 0;
+			padding: 2rem 1rem 1rem;
+		}
+		
+		.footer-content {
+			grid-template-columns: 1fr;
+			gap: 1.5rem;
 		}
 	}
 </style>

@@ -1,0 +1,337 @@
+<script>
+	import { page } from '$app/stores';
+	
+	let mobileMenuOpen = false;
+	
+	function toggleMobileMenu() {
+		mobileMenuOpen = !mobileMenuOpen;
+	}
+	
+	function closeMobileMenu() {
+		mobileMenuOpen = false;
+	}
+</script>
+
+<header class="navigation">
+	<div class="nav-container">
+		<div class="nav-brand">
+			<a href="/" class="brand-link">
+				<div class="brand-logo">
+					<span class="logo-icon">🏔️</span>
+					<div class="brand-text">
+						<span class="brand-name">Dr. Jan Duffy</span>
+						<span class="brand-tagline">Lone Mountain Heights Expert</span>
+					</div>
+				</div>
+			</a>
+		</div>
+		
+		<nav class="nav-menu" class:mobile-open={mobileMenuOpen}>
+			<ul class="nav-list">
+				<li class="nav-item">
+					<a href="/" class="nav-link" class:active={$page.url.pathname === '/'}>Home</a>
+				</li>
+				<li class="nav-item">
+					<a href="/homes" class="nav-link" class:active={$page.url.pathname.startsWith('/homes')}>Available Homes</a>
+				</li>
+				<li class="nav-item">
+					<a href="/sales" class="nav-link" class:active={$page.url.pathname.startsWith('/sales')}>Recent Sales</a>
+				</li>
+				<li class="nav-item">
+					<a href="/guide" class="nav-link" class:active={$page.url.pathname.startsWith('/guide')}>Neighborhood Guide</a>
+				</li>
+				<li class="nav-item">
+					<a href="/market-report" class="nav-link" class:active={$page.url.pathname.startsWith('/market-report')}>Market Report</a>
+				</li>
+				<li class="nav-item">
+					<a href="/valuation" class="nav-link" class:active={$page.url.pathname.startsWith('/valuation')}>Home Valuation</a>
+				</li>
+			</ul>
+		</nav>
+		
+		<div class="nav-contact">
+			<a href="tel:702-222-1964" class="contact-phone">
+				<span class="phone-icon">📞</span>
+				<span class="phone-text">702-222-1964</span>
+			</a>
+		</div>
+		
+		<button class="mobile-menu-toggle" on:click={toggleMobileMenu} aria-label="Toggle mobile menu">
+			<span class="hamburger" class:active={mobileMenuOpen}></span>
+		</button>
+	</div>
+</header>
+
+<style>
+	.navigation {
+		background: white;
+		box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+		position: sticky;
+		top: 0;
+		z-index: 1000;
+	}
+	
+	.nav-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 80px;
+	}
+	
+	.nav-brand {
+		flex-shrink: 0;
+	}
+	
+	.brand-link {
+		text-decoration: none;
+		color: inherit;
+		display: flex;
+		align-items: center;
+	}
+	
+	.brand-logo {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+	
+	.logo-icon {
+		font-size: 2rem;
+	}
+	
+	.brand-text {
+		display: flex;
+		flex-direction: column;
+		line-height: 1.2;
+	}
+	
+	.brand-name {
+		font-size: 1.3rem;
+		font-weight: 700;
+		color: var(--heading-color);
+	}
+	
+	.brand-tagline {
+		font-size: 0.8rem;
+		color: var(--text-light);
+		font-weight: 500;
+	}
+	
+	.nav-menu {
+		display: flex;
+		align-items: center;
+	}
+	
+	.nav-list {
+		display: flex;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		gap: 2rem;
+	}
+	
+	.nav-item {
+		position: relative;
+	}
+	
+	.nav-link {
+		text-decoration: none;
+		color: var(--text-color);
+		font-weight: 500;
+		font-size: 1rem;
+		padding: 0.5rem 0;
+		transition: color 0.3s ease;
+		position: relative;
+	}
+	
+	.nav-link:hover {
+		color: var(--accent-color);
+	}
+	
+	.nav-link.active {
+		color: var(--accent-color);
+		font-weight: 600;
+	}
+	
+	.nav-link.active::after {
+		content: '';
+		position: absolute;
+		bottom: -2px;
+		left: 0;
+		right: 0;
+		height: 2px;
+		background: var(--accent-color);
+	}
+	
+	.nav-contact {
+		flex-shrink: 0;
+	}
+	
+	.contact-phone {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		background: var(--accent-color);
+		color: white;
+		padding: 0.75rem 1.5rem;
+		border-radius: 25px;
+		text-decoration: none;
+		font-weight: 600;
+		transition: all 0.3s ease;
+		box-shadow: 0 2px 10px rgba(30, 58, 138, 0.2);
+	}
+	
+	.contact-phone:hover {
+		background: var(--accent-light);
+		transform: translateY(-2px);
+		box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+	}
+	
+	.phone-icon {
+		font-size: 1.1rem;
+	}
+	
+	.phone-text {
+		font-size: 1rem;
+	}
+	
+	.mobile-menu-toggle {
+		display: none;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0.5rem;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 40px;
+		height: 40px;
+	}
+	
+	.hamburger {
+		width: 25px;
+		height: 3px;
+		background: var(--heading-color);
+		transition: all 0.3s ease;
+		position: relative;
+	}
+	
+	.hamburger::before,
+	.hamburger::after {
+		content: '';
+		position: absolute;
+		width: 25px;
+		height: 3px;
+		background: var(--heading-color);
+		transition: all 0.3s ease;
+	}
+	
+	.hamburger::before {
+		top: -8px;
+	}
+	
+	.hamburger::after {
+		top: 8px;
+	}
+	
+	.hamburger.active {
+		background: transparent;
+	}
+	
+	.hamburger.active::before {
+		top: 0;
+		transform: rotate(45deg);
+	}
+	
+	.hamburger.active::after {
+		top: 0;
+		transform: rotate(-45deg);
+	}
+	
+	@media (max-width: 768px) {
+		.nav-container {
+			padding: 0 1rem;
+			height: 70px;
+		}
+		
+		.nav-menu {
+			position: absolute;
+			top: 100%;
+			left: 0;
+			right: 0;
+			background: white;
+			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+			transform: translateY(-100%);
+			opacity: 0;
+			visibility: hidden;
+			transition: all 0.3s ease;
+		}
+		
+		.nav-menu.mobile-open {
+			transform: translateY(0);
+			opacity: 1;
+			visibility: visible;
+		}
+		
+		.nav-list {
+			flex-direction: column;
+			padding: 2rem;
+			gap: 0;
+		}
+		
+		.nav-item {
+			border-bottom: 1px solid var(--tertiary-color);
+		}
+		
+		.nav-item:last-child {
+			border-bottom: none;
+		}
+		
+		.nav-link {
+			display: block;
+			padding: 1rem 0;
+			font-size: 1.1rem;
+		}
+		
+		.nav-contact {
+			display: none;
+		}
+		
+		.mobile-menu-toggle {
+			display: flex;
+		}
+		
+		.brand-name {
+			font-size: 1.1rem;
+		}
+		
+		.brand-tagline {
+			font-size: 0.7rem;
+		}
+	}
+	
+	@media (max-width: 480px) {
+		.nav-container {
+			height: 60px;
+		}
+		
+		.brand-logo {
+			gap: 0.5rem;
+		}
+		
+		.logo-icon {
+			font-size: 1.5rem;
+		}
+		
+		.brand-name {
+			font-size: 1rem;
+		}
+		
+		.brand-tagline {
+			font-size: 0.65rem;
+		}
+	}
+</style>
