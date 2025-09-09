@@ -42,8 +42,8 @@ $: if (browser && analyticsId) {
 		<div class="footer-section">
 			<h4>Dr. Jan Duffy</h4>
 			<p>Berkshire Hathaway HomeServices</p>
-			<p>Forever Agent • Lone Mountain Heights Expert</p>
-			<p>500+ Las Vegas Transactions</p>
+			<p>Team Head • Lone Mountain Heights</p>
+			<p>500+ Lone Mountain Transactions</p>
 			<p>Global Network • 1,600+ Offices</p>
 		</div>
 		

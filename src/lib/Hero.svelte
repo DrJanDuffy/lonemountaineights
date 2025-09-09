@@ -12,10 +12,14 @@ let heroImage =
 				<span class="berkshire-logo">Berkshire Hathaway</span>
 				<span class="homeservices">HomeServices</span>
 			</div>
+			<div class="team-leadership">
+				<span class="team-head">Team Head</span>
+				<span class="lone-mountain-team">Lone Mountain Heights</span>
+			</div>
 			<h1>Lone Mountain Heights Homes for Sale</h1>
 			<h2>Gated Community in Las Vegas 89129</h2>
 			<p class="hero-subtitle">
-				Quiet, gated community developed 2001-2005 with 3-5 bedroom homes (2,500-4,400 sq ft) featuring mature landscaping and spectacular mountain views. Dr. Jan Duffy, your Forever Agent, knows every sale, every street, every opportunity in Lone Mountain Heights.
+				Quiet, gated community developed 2001-2005 with 3-5 bedroom homes (2,500-4,400 sq ft) featuring mature landscaping and spectacular mountain views. Dr. Jan Duffy, Head of the Berkshire Hathaway HomeServices Team, leads 500+ successful transactions in the Lone Mountain area.
 			</p>
 			
 			<div class="cta-buttons">
@@ -34,8 +38,8 @@ let heroImage =
 			<img src={heroImage} alt="Lone Mountain Heights neighborhood with mountain views" />
 			<div class="image-overlay">
 				<div class="expertise-badge">
-					<span class="badge-text">500+ Las Vegas Transactions</span>
-					<span class="badge-subtext">Forever Agent • Global Network</span>
+					<span class="badge-text">500+ Lone Mountain Transactions</span>
+					<span class="badge-subtext">Team Head • Berkshire Hathaway HomeServices</span>
 				</div>
 			</div>
 		</div>
@@ -115,6 +119,29 @@ let heroImage =
 	.homeservices {
 		display: block;
 		font-size: 0.8rem;
+		opacity: 0.9;
+	}
+	
+	.team-leadership {
+		display: inline-block;
+		background: var(--primary-color);
+		color: white;
+		padding: 0.4rem 0.8rem;
+		border-radius: 4px;
+		margin-bottom: 1rem;
+		font-size: 0.8rem;
+		font-weight: 600;
+	}
+	
+	.team-head {
+		display: block;
+		font-weight: 700;
+		font-size: 0.9rem;
+	}
+	
+	.lone-mountain-team {
+		display: block;
+		font-size: 0.7rem;
 		opacity: 0.9;
 	}
 	

@@ -48,8 +48,8 @@
 </script>
 
 <svelte:head>
-	<title>About Dr. Jan Duffy | Berkshire Hathaway HomeServices | Lone Mountain Heights Expert</title>
-	<meta name="description" content="Learn about Dr. Jan Duffy, your Forever Agent with Berkshire Hathaway HomeServices. 500+ Las Vegas transactions, global network access, and data-driven expertise." />
+	<title>About Dr. Jan Duffy | Team Head | Berkshire Hathaway HomeServices</title>
+	<meta name="description" content="Learn about Dr. Jan Duffy, Head of Berkshire Hathaway HomeServices Team for Lone Mountain Heights. 500+ Lone Mountain transactions, team leadership, and global network access." />
 	
 	<!-- Breadcrumb Schema -->
 	<script type="application/ld+json">
@@ -64,8 +64,12 @@
 				<span class="berkshire-logo">Berkshire Hathaway</span>
 				<span class="homeservices">HomeServices</span>
 			</div>
+			<div class="team-leadership">
+				<span class="team-head">Team Head</span>
+				<span class="lone-mountain-team">Lone Mountain Heights</span>
+			</div>
 			<h1>About Dr. Jan Duffy</h1>
-			<p>Your Forever Agent with Global Network Access</p>
+			<p>Head of Berkshire Hathaway HomeServices Team for Lone Mountain Heights</p>
 		</div>
 	</div>
 	
@@ -75,18 +79,20 @@
 			<section class="agent-profile">
 				<div class="profile-content">
 					<div class="profile-text">
-						<h2>Meet Your Forever Agent</h2>
-						<p>Dr. Jan Duffy is your dedicated Forever Agent with Berkshire Hathaway HomeServices, committed to supporting your long-term real estate needs throughout your lifetime. With over 500 successful Las Vegas transactions, Dr. Jan brings unparalleled local expertise combined with the power of a global network.</p>
+						<h2>Meet Your Team Head & Forever Agent</h2>
+						<p>Dr. Jan Duffy leads the Berkshire Hathaway HomeServices Team for Lone Mountain Heights, overseeing 500+ successful transactions in the Lone Mountain area. As your dedicated Forever Agent, Dr. Jan is committed to supporting your long-term real estate needs throughout your lifetime, bringing unparalleled local expertise combined with the power of a global network and team resources.</p>
 						
 						<div class="credentials">
 							<h3>Credentials & Expertise</h3>
 							<ul>
-								<li>500+ Successful Las Vegas Transactions</li>
+								<li>Head of Berkshire Hathaway HomeServices Team</li>
+								<li>500+ Lone Mountain Area Transactions</li>
 								<li>Lone Mountain Heights Neighborhood Expert</li>
-								<li>Berkshire Hathaway HomeServices Forever Agent</li>
+								<li>Team Leadership & Management</li>
 								<li>Data-Driven Market Analysis Specialist</li>
 								<li>Luxury Real Estate Specialist</li>
 								<li>Advanced Valuation Technology Certified</li>
+								<li>Global Network Access & Resources</li>
 							</ul>
 						</div>
 					</div>
@@ -174,7 +180,7 @@
 				</div>
 			</section>
 		</div>
-	</div>
+</div>
 </main>
 
 <style>
@@ -215,6 +221,29 @@
 	.homeservices {
 		display: block;
 		font-size: 0.8rem;
+		opacity: 0.9;
+	}
+	
+	.team-leadership {
+		display: inline-block;
+		background: var(--primary-color);
+		color: white;
+		padding: 0.4rem 0.8rem;
+		border-radius: 4px;
+		margin-bottom: 1rem;
+		font-size: 0.8rem;
+		font-weight: 600;
+	}
+	
+	.team-head {
+		display: block;
+		font-weight: 700;
+		font-size: 0.9rem;
+	}
+	
+	.lone-mountain-team {
+		display: block;
+		font-size: 0.7rem;
 		opacity: 0.9;
 	}
 	

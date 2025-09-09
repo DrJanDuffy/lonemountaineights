@@ -6,8 +6,8 @@ import Testimonials from '$lib/Testimonials.svelte';
 </script>
 
 <svelte:head>
-	<title>Lone Mountain Heights Real Estate - Dr. Jan Duffy | Las Vegas Neighborhood Expert</title>
-	<meta name="description" content="Dr. Jan Duffy knows every sale, every street, every opportunity in Lone Mountain Heights, Las Vegas. Your trusted neighborhood real estate expert." />
+	<title>Lone Mountain Heights Real Estate - Dr. Jan Duffy | Team Head</title>
+	<meta name="description" content="Dr. Jan Duffy, Head of Berkshire Hathaway HomeServices Team for Lone Mountain Heights. 500+ Lone Mountain transactions, team leadership, and global network access." />
 </svelte:head>
 
 <main>
