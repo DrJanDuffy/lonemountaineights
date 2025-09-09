@@ -33,7 +33,6 @@ function closeMobileMenu() {
 	function toggleDropdown(dropdownName) {
 		// Close other dropdowns when opening a new one
 		activeDropdown = activeDropdown === dropdownName ? null : dropdownName;
-		console.log('Dropdown toggled:', dropdownName, 'Active:', activeDropdown);
 	}
 
 	function closeDropdown() {
@@ -71,18 +70,14 @@ function closeMobileMenu() {
 		</div>
 		
 		<nav class="nav-menu" class:mobile-open={mobileMenuOpen} aria-label="Main navigation">
-			<!-- Desktop Navigation - Clean with Dropdowns -->
+			<!-- Desktop Navigation - 5 Menu Structure -->
 			<ul class="nav-list nav-list-desktop" role="menubar">
+				<!-- 1. Home -->
 				<li class="nav-item" role="none">
 					<a href="/" class="nav-link" class:active={$page.url.pathname === '/'} role="menuitem" aria-current={$page.url.pathname === '/' ? 'page' : undefined}>Home</a>
 				</li>
 				
-				<!-- Search Homes - Primary Action -->
-				<li class="nav-item" role="none">
-					<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-link nav-link-primary" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="Search Homes in Lone Mountain Heights (opens in new tab)">Search Homes</a>
-				</li>
-				
-				<!-- Properties Dropdown - Consolidated -->
+				<!-- 2. Properties Dropdown -->
 				<li class="nav-item nav-item-dropdown" role="none">
 					<button 
 						class="nav-link nav-dropdown-toggle" 
@@ -94,7 +89,10 @@ function closeMobileMenu() {
 					>
 						Properties <span class="dropdown-arrow">▼</span>
 					</button>
-					<ul class="nav-dropdown nav-dropdown-wide nav-dropdown-properties" class:active={activeDropdown === 'properties'} role="menu">
+					<ul class="nav-dropdown nav-dropdown-wide" class:active={activeDropdown === 'properties'} role="menu">
+						<li role="none">
+							<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-dropdown-link nav-dropdown-primary" target="_blank" rel="noopener noreferrer" role="menuitem" on:click={handleNavLinkClick}>🔍 Search All Homes</a>
+						</li>
 						<li role="none">
 							<a href="/homes" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Browse All Listings</a>
 						</li>
@@ -110,7 +108,7 @@ function closeMobileMenu() {
 					</ul>
 				</li>
 				
-				<!-- Neighborhoods Dropdown - Consolidated -->
+				<!-- 3. Neighborhoods Dropdown -->
 				<li class="nav-item nav-item-dropdown" role="none">
 					<button 
 						class="nav-link nav-dropdown-toggle" 
@@ -138,7 +136,7 @@ function closeMobileMenu() {
 					</ul>
 				</li>
 				
-				<!-- Resources Dropdown - Consolidated -->
+				<!-- 4. Resources Dropdown -->
 				<li class="nav-item nav-item-dropdown" role="none">
 					<button 
 						class="nav-link nav-dropdown-toggle" 
@@ -169,12 +167,12 @@ function closeMobileMenu() {
 					</ul>
 				</li>
 				
-				<!-- About - Single Link -->
+				<!-- 5. About -->
 				<li class="nav-item" role="none">
 					<a href="/about" class="nav-link" class:active={$page.url.pathname.startsWith('/about')} role="menuitem" aria-current={$page.url.pathname.startsWith('/about') ? 'page' : undefined}>About</a>
 				</li>
 				
-				<!-- Contact - Single Link -->
+				<!-- 6. Contact - Prominent Button -->
 				<li class="nav-item" role="none">
 					<a href="/contact" class="nav-link nav-link-contact" class:active={$page.url.pathname.startsWith('/contact')} role="menuitem" aria-current={$page.url.pathname.startsWith('/contact') ? 'page' : undefined}>Contact</a>
 				</li>
@@ -411,11 +409,13 @@ function closeMobileMenu() {
 		list-style: none;
 		margin: 0;
 		padding: 0;
-		gap: 0.5rem;
+		gap: 1rem;
 		align-items: center;
 		flex: 1;
-		justify-content: center;
+		justify-content: space-between;
 		flex-wrap: nowrap;
+		max-width: 1000px;
+		margin: 0 auto;
 	}
 	
 	.nav-link-primary {
@@ -485,7 +485,6 @@ function closeMobileMenu() {
 	.nav-dropdown {
 		position: absolute;
 		top: calc(100% + 4px);
-		left: 0;
 		background: white;
 		border: 1px solid #E2E8F0;
 		border-radius: 6px;
@@ -493,7 +492,6 @@ function closeMobileMenu() {
 		min-width: 180px;
 		opacity: 0;
 		visibility: hidden;
-		transform: translateY(-5px);
 		transition: all 0.2s ease;
 		z-index: 1001;
 		list-style: none;
@@ -506,16 +504,16 @@ function closeMobileMenu() {
 		min-width: 220px;
 	}
 	
-	/* Right-aligned dropdown for Properties to prevent cutoff */
-	.nav-dropdown-properties {
-		left: auto;
-		right: 0;
+	/* Center dropdowns for better positioning */
+	.nav-dropdown {
+		left: 50%;
+		transform: translateX(-50%) translateY(-5px);
 	}
 
 	.nav-dropdown.active {
 		opacity: 1;
 		visibility: visible;
-		transform: translateY(0);
+		transform: translateX(-50%) translateY(0);
 	}
 
 	.nav-dropdown li {
@@ -536,6 +534,19 @@ function closeMobileMenu() {
 		background: #F7F9FC;
 		color: var(--accent-color);
 		text-decoration: none;
+	}
+	
+	.nav-dropdown-primary {
+		background: var(--accent-color);
+		color: white !important;
+		font-weight: 600;
+		margin-bottom: 0.25rem;
+		border-radius: 4px;
+	}
+	
+	.nav-dropdown-primary:hover {
+		background: var(--accent-light);
+		color: white !important;
 	}
 
 	.nav-dropdown-link:focus {
