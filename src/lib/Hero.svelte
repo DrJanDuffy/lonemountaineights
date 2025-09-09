@@ -45,19 +45,35 @@ function handleKeydown(event) {
 			</div>
 			
 			<div class="search-form">
-				<div class="search-input-container">
-					<span class="search-icon">🏠</span>
-					<input 
-						type="text" 
-						class="search-input"
-						placeholder="Search by Address, City, Zip, Neighborhood, School or MLS#"
-						bind:value={searchValue}
-						on:keydown={handleKeydown}
-					/>
-					<button class="search-button" on:click={handleSearch}>
-						<span class="search-icon">🔍</span>
-					</button>
-				</div>
+				{#if activeTab === 'search'}
+					<div class="search-input-container">
+						<span class="search-icon">🏠</span>
+						<input 
+							type="text" 
+							class="search-input"
+							placeholder="Search by Address, City, Zip, Neighborhood, School or MLS#"
+							bind:value={searchValue}
+							on:keydown={handleKeydown}
+						/>
+						<button class="search-button" on:click={handleSearch}>
+							<span class="search-icon">🔍</span>
+						</button>
+					</div>
+				{:else}
+					<div class="search-input-container">
+						<span class="search-icon">💰</span>
+						<input 
+							type="text" 
+							class="search-input"
+							placeholder="Enter your home address for a free valuation"
+							bind:value={searchValue}
+							on:keydown={handleKeydown}
+						/>
+						<button class="search-button" on:click={handleSearch}>
+							<span class="search-icon">📊</span>
+						</button>
+					</div>
+				{/if}
 			</div>
 		</div>
 		

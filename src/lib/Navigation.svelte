@@ -143,7 +143,7 @@
 					>
 						SEARCH <span class="dropdown-arrow">▼</span>
 					</button>
-					<ul class="nav-dropdown" class:active={activeDropdown === 'search'} role="menu">
+					<ul class="nav-dropdown nav-dropdown-wide" class:active={activeDropdown === 'search'} role="menu">
 						<li role="none">
 							<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-dropdown-link nav-dropdown-primary" target="_blank" rel="noopener noreferrer" role="menuitem" on:click={handleNavLinkClick}>🔍 Search All Homes</a>
 						</li>
