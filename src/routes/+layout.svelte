@@ -1,5 +1,6 @@
 <script>
 import { browser } from '$app/env';
+import { page } from '$app/stores';
 import { initAccessibility } from '$lib/accessibility.js';
 import { initPerformanceOptimizations } from '$lib/performance.js';
 import {
@@ -8,6 +9,7 @@ import {
   realEstateFAQs,
 } from '$lib/schema.js';
 import { webVitals } from '$lib/vitals';
+import Navigation from '$lib/Navigation.svelte';
 import '../app.css';
 import '../lib/ranchStyles.css';
 
