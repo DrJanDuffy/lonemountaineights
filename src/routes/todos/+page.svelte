@@ -1,5 +1,5 @@
 <script>
-import { enhance } from '$app/forms';
+// import { enhance } from '$app/forms'; // Not available in this SvelteKit version
 import { scale, flip } from 'svelte/transition';
 import { fly } from 'svelte/animate';
 
@@ -19,11 +19,6 @@ export let data;
 		class="new"
 		action="/todos"
 		method="post"
-		use:enhance={{
-			result: async ({ form }) => {
-				form.reset();
-			}
-		}}
 	>
 		<input name="text" aria-label="Add todo" placeholder="+ tap to add a todo" />
 	</form>
@@ -35,33 +30,25 @@ export let data;
 			transition:scale|local={{ start: 0.7 }}
 			animate:flip={{ duration: 200 }}
 		>
-			<form
-				action="/todos?_method=PATCH"
-				method="post"
-				use:enhance={{
-					pending: ({ data }) => {
-						todo.done = !!data.get('done');
-					}
-				}}
-			>
+		<form
+			action="/todos?_method=PATCH"
+			method="post"
+		>
 				<input type="hidden" name="uid" value={todo.uid} />
 				<input type="hidden" name="done" value={todo.done ? '' : 'true'} />
 				<button class="toggle" aria-label="Mark todo as {todo.done ? 'not done' : 'done'}" />
 			</form>
 
-			<form class="text" action="/todos?_method=PATCH" method="post" use:enhance>
+			<form class="text" action="/todos?_method=PATCH" method="post">
 				<input type="hidden" name="uid" value={todo.uid} />
 				<input aria-label="Edit todo" type="text" name="text" value={todo.text} />
 				<button class="save" aria-label="Save todo" />
 			</form>
 
-			<form
-				action="/todos?_method=DELETE"
-				method="post"
-				use:enhance={{
-					pending: () => (todo.pending_delete = true)
-				}}
-			>
+		<form
+			action="/todos?_method=DELETE"
+			method="post"
+		>
 				<input type="hidden" name="uid" value={todo.uid} />
 				<button class="delete" aria-label="Delete todo" disabled={todo.pending_delete} />
 			</form>
