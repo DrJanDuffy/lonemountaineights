@@ -1,25 +1,25 @@
-<script lang="ts">
+<script>
 import { page } from '$app/stores';
 
-let mobileMenuOpen = false;
-	let activeDropdown: string | null = null;
+	let mobileMenuOpen = false;
+	let activeDropdown = null;
 
-function toggleMobileMenu() {
-  mobileMenuOpen = !mobileMenuOpen;
-}
+	function toggleMobileMenu() {
+		mobileMenuOpen = !mobileMenuOpen;
+	}
 
-function closeMobileMenu() {
-  mobileMenuOpen = false;
-}
+	function closeMobileMenu() {
+		mobileMenuOpen = false;
+	}
 
-	function handleKeydown(event: KeyboardEvent) {
+	function handleKeydown(event) {
 		if (event.key === 'Escape') {
 			closeMobileMenu();
 			activeDropdown = null;
 		}
 	}
 
-	function handleNavKeydown(event: KeyboardEvent) {
+	function handleNavKeydown(event) {
 		if (event.key === 'Enter' || event.key === ' ') {
 			event.preventDefault();
 			toggleMobileMenu();
@@ -30,7 +30,7 @@ function closeMobileMenu() {
 		closeMobileMenu();
 	}
 
-	function toggleDropdown(dropdownName: string) {
+	function toggleDropdown(dropdownName) {
 		// Close other dropdowns when opening a new one
 		activeDropdown = activeDropdown === dropdownName ? null : dropdownName;
 	}
@@ -40,19 +40,19 @@ function closeMobileMenu() {
 	}
 
 	// Close dropdown when clicking outside
-	function handleClickOutside(event: MouseEvent) {
-		const target = event.target as HTMLElement;
+	function handleClickOutside(event) {
+		const target = event.target;
 		if (!target.closest('.nav-item-dropdown')) {
 			closeDropdown();
 		}
 	}
 
 	// Handle keyboard navigation
-	function handleDropdownKeydown(event: KeyboardEvent) {
+	function handleDropdownKeydown(event) {
 		if (event.key === 'Escape') {
 			closeDropdown();
 		}
-}
+	}
 </script>
 
 <header class="navigation" on:click={handleClickOutside} on:keydown={handleDropdownKeydown}>
