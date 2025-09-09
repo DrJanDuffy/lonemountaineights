@@ -33,6 +33,7 @@ function closeMobileMenu() {
 	function toggleDropdown(dropdownName) {
 		// Close other dropdowns when opening a new one
 		activeDropdown = activeDropdown === dropdownName ? null : dropdownName;
+		console.log('Toggling dropdown:', dropdownName, 'Active:', activeDropdown);
 	}
 
 	function closeDropdown() {
@@ -477,16 +478,16 @@ function closeMobileMenu() {
 
 	.nav-dropdown {
 		position: absolute;
-		top: calc(100% + 4px);
-		left: 50%;
-		transform: translateX(-50%) translateY(-5px);
+		top: calc(100% + 8px);
+		left: 0;
 		background: white;
 		border: 1px solid #E2E8F0;
 		border-radius: 6px;
-		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 		min-width: 180px;
 		opacity: 0;
 		visibility: hidden;
+		transform: translateY(-10px);
 		transition: all 0.2s ease;
 		z-index: 1000;
 		list-style: none;
@@ -501,7 +502,7 @@ function closeMobileMenu() {
 	.nav-dropdown.active {
 		opacity: 1;
 		visibility: visible;
-		transform: translateX(-50%) translateY(0);
+		transform: translateY(0);
 	}
 
 	.nav-dropdown li {
