@@ -1,7 +1,7 @@
 <script>
 // import { enhance } from '$app/forms'; // Not available in this SvelteKit version
 import { scale } from 'svelte/transition';
-import { fly, flip } from 'svelte/animate';
+import { flip } from 'svelte/animate';
 
 /** @type {import('./$types').PageData} */
 export let data;

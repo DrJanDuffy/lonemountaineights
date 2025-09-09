@@ -90,12 +90,12 @@ function closeMobileMenu() {
 	<div class="utility-bar">
 		<div class="utility-container">
 			<div class="utility-left">
-				<div class="social-links">
-					<a href="#" class="social-link" aria-label="Facebook">f</a>
-					<a href="#" class="social-link" aria-label="Twitter">X</a>
-					<a href="#" class="social-link" aria-label="YouTube">▶</a>
-					<a href="#" class="social-link" aria-label="LinkedIn">in</a>
-				</div>
+        <div class="social-links">
+          <a href="https://facebook.com" class="social-link" aria-label="Facebook" target="_blank" rel="noopener noreferrer">f</a>
+          <a href="https://twitter.com" class="social-link" aria-label="Twitter" target="_blank" rel="noopener noreferrer">X</a>
+          <a href="https://youtube.com" class="social-link" aria-label="YouTube" target="_blank" rel="noopener noreferrer">▶</a>
+          <a href="https://linkedin.com" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
+        </div>
 				<div class="phone-utility">
 					<span class="phone-icon">📞</span>
 					<span class="phone-text">(702) 222-1964</span>
@@ -533,9 +533,6 @@ function closeMobileMenu() {
 		gap: 0.75rem;
 	}
 	
-	.logo-icon {
-		font-size: 1.75rem;
-	}
 	
 	.brand-text {
 		display: flex;
@@ -735,37 +732,6 @@ function closeMobileMenu() {
 		will-change: transform, opacity;
 	}
 	
-	.nav-dropdown-wide {
-		min-width: 220px;
-	}
-
-	.nav-dropdown-mega {
-		min-width: 600px;
-		left: 50%;
-		transform: translateX(-50%) translateY(-5px);
-	}
-
-	.mega-dropdown-content {
-		display: flex;
-		gap: 2rem;
-		padding: 1.5rem;
-	}
-
-	.mega-column {
-		flex: 1;
-		min-width: 0;
-	}
-
-	.mega-title {
-		font-size: 0.9rem;
-		font-weight: 700;
-		color: #1a365d;
-		margin: 0 0 1rem 0;
-		padding-bottom: 0.5rem;
-		border-bottom: 2px solid #3A8DDE;
-		text-transform: uppercase;
-		letter-spacing: 0.5px;
-	}
 
 	.nav-dropdown.active {
 		opacity: 1;
@@ -804,26 +770,6 @@ function closeMobileMenu() {
 		outline-offset: -2px;
 	}
 	
-	.nav-dropdown-primary {
-		background: var(--accent-color);
-		color: white !important;
-		font-weight: 600;
-		margin: 0.25rem;
-		border-radius: 6px;
-		box-shadow: 0 2px 4px rgba(58, 141, 222, 0.2);
-	}
-
-	.nav-dropdown-primary:hover {
-		background: var(--accent-light);
-		color: white !important;
-		transform: translateY(-1px);
-		box-shadow: 0 4px 8px rgba(58, 141, 222, 0.3);
-	}
-
-	.nav-dropdown-primary:focus {
-		outline: 2px solid white;
-		outline-offset: -2px;
-	}
 	
 	/* Mobile Navigation Groups */
 	.nav-groups-mobile {
@@ -1222,9 +1168,6 @@ function closeMobileMenu() {
 			gap: 0.5rem;
 		}
 		
-		.logo-icon {
-			font-size: 1.5rem;
-		}
 		
 		.brand-name {
 			font-size: 1rem;
