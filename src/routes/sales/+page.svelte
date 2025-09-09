@@ -100,7 +100,7 @@ const recentSales = [
   },
 ];
 
-const sortBy = 'soldDate';
+let sortBy = 'soldDate';
 let filterBy = 'all';
 
 function formatPrice(price) {
