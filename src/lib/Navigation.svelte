@@ -145,16 +145,16 @@ function closeMobileMenu() {
 					</button>
 					<ul class="nav-dropdown" class:active={activeDropdown === 'resources'} role="menu">
 						<li role="none">
-							<a href="/amenities" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Amenities</a>
-						</li>
-						<li role="none">
-							<a href="/schools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Schools</a>
+							<a href="/tools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Home Value Calculator</a>
 						</li>
 						<li role="none">
 							<a href="/market-intelligence" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Market Data</a>
 						</li>
 						<li role="none">
-							<a href="/tools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Home Value Calculator</a>
+							<a href="/amenities" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Amenities</a>
+						</li>
+						<li role="none">
+							<a href="/schools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Schools</a>
 						</li>
 						<li role="none">
 							<a href="/faq/hoa-fees" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>HOA Information</a>
@@ -220,7 +220,7 @@ function closeMobileMenu() {
 						</li>
 						<li class="nav-item" role="none">
 							<a href="/sales" class="nav-link" class:active={$page.url.pathname.startsWith('/sales')} role="menuitem" aria-current={$page.url.pathname.startsWith('/sales') ? 'page' : undefined} on:click={handleNavLinkClick}>Recent Sales</a>
-						</li>
+				</li>
 						<li class="nav-item" role="none">
 							<a href="/property-types/3-bedroom-homes" class="nav-link" class:active={$page.url.pathname.startsWith('/property-types')} role="menuitem" aria-current={$page.url.pathname.startsWith('/property-types') ? 'page' : undefined} on:click={handleNavLinkClick}>3 Bedroom Homes</a>
 				</li>
@@ -234,20 +234,20 @@ function closeMobileMenu() {
 					<h4 class="nav-group-title">Resources</h4>
 					<ul class="nav-list" role="menubar">
 						<li class="nav-item" role="none">
-							<a href="/amenities" class="nav-link" class:active={$page.url.pathname.startsWith('/amenities')} role="menuitem" aria-current={$page.url.pathname.startsWith('/amenities') ? 'page' : undefined} on:click={handleNavLinkClick}>Amenities</a>
-				</li>
-						<li class="nav-item" role="none">
-							<a href="/schools" class="nav-link" class:active={$page.url.pathname.startsWith('/schools')} role="menuitem" aria-current={$page.url.pathname.startsWith('/schools') ? 'page' : undefined} on:click={handleNavLinkClick}>Schools</a>
-				</li>
-						<li class="nav-item" role="none">
 							<a href="/tools" class="nav-link" class:active={$page.url.pathname.startsWith('/tools')} role="menuitem" aria-current={$page.url.pathname.startsWith('/tools') ? 'page' : undefined} on:click={handleNavLinkClick}>Home Value Calculator</a>
 				</li>
 						<li class="nav-item" role="none">
 							<a href="/market-intelligence" class="nav-link" class:active={$page.url.pathname.startsWith('/market-intelligence')} role="menuitem" aria-current={$page.url.pathname.startsWith('/market-intelligence') ? 'page' : undefined} on:click={handleNavLinkClick}>Market Data</a>
 				</li>
 						<li class="nav-item" role="none">
-							<a href="/faq/hoa-fees" class="nav-link" class:active={$page.url.pathname.startsWith('/faq/hoa-fees')} role="menuitem" aria-current={$page.url.pathname.startsWith('/faq/hoa-fees') ? 'page' : undefined} on:click={handleNavLinkClick}>HOA Information</a>
+							<a href="/amenities" class="nav-link" class:active={$page.url.pathname.startsWith('/amenities')} role="menuitem" aria-current={$page.url.pathname.startsWith('/amenities') ? 'page' : undefined} on:click={handleNavLinkClick}>Amenities</a>
 				</li>
+						<li class="nav-item" role="none">
+							<a href="/schools" class="nav-link" class:active={$page.url.pathname.startsWith('/schools')} role="menuitem" aria-current={$page.url.pathname.startsWith('/schools') ? 'page' : undefined} on:click={handleNavLinkClick}>Schools</a>
+				</li>
+						<li class="nav-item" role="none">
+							<a href="/faq/hoa-fees" class="nav-link" class:active={$page.url.pathname.startsWith('/faq/hoa-fees')} role="menuitem" aria-current={$page.url.pathname.startsWith('/faq/hoa-fees') ? 'page' : undefined} on:click={handleNavLinkClick}>HOA Information</a>
+		</li>
 					</ul>
 				</div>
 				
@@ -256,8 +256,8 @@ function closeMobileMenu() {
 					<ul class="nav-list" role="menubar">
 						<li class="nav-item" role="none">
 							<a href="/about" class="nav-link" class:active={$page.url.pathname.startsWith('/about')} role="menuitem" aria-current={$page.url.pathname.startsWith('/about') ? 'page' : undefined} on:click={handleNavLinkClick}>About Dr. Jan</a>
-						</li>
-					</ul>
+		</li>
+			</ul>
 				</div>
 			</div>
 		</nav>
