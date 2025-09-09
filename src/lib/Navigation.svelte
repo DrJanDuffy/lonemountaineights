@@ -1,16 +1,23 @@
 <script>
-import { page } from '$app/stores';
+	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
 
-let mobileMenuOpen = false;
+	let mobileMenuOpen = false;
 	let activeDropdown = null;
+	let navContainer;
 
-function toggleMobileMenu() {
-  mobileMenuOpen = !mobileMenuOpen;
-}
+	// Optimized functions with better performance
+	function toggleMobileMenu() {
+		mobileMenuOpen = !mobileMenuOpen;
+		// Close dropdowns when mobile menu opens
+		if (mobileMenuOpen) {
+			activeDropdown = null;
+		}
+	}
 
-function closeMobileMenu() {
-  mobileMenuOpen = false;
-}
+	function closeMobileMenu() {
+		mobileMenuOpen = false;
+	}
 
 	function handleKeydown(event) {
 		if (event.key === 'Escape') {
@@ -28,6 +35,7 @@ function closeMobileMenu() {
 
 	function handleNavLinkClick() {
 		closeMobileMenu();
+		activeDropdown = null; // Close dropdowns when navigating
 	}
 
 	function toggleDropdown(dropdownName) {
@@ -39,23 +47,45 @@ function closeMobileMenu() {
 		activeDropdown = null;
 	}
 
-	// Close dropdown when clicking outside
+	// Optimized click outside handler
 	function handleClickOutside(event) {
-		const target = event.target;
-		if (!target.closest('.nav-item-dropdown')) {
+		if (navContainer && !navContainer.contains(event.target)) {
 			closeDropdown();
 		}
 	}
 
-	// Handle keyboard navigation
+	// Handle keyboard navigation for dropdowns
 	function handleDropdownKeydown(event) {
 		if (event.key === 'Escape') {
 			closeDropdown();
 		}
-}
+	}
+
+	// Handle dropdown arrow key navigation
+	function handleDropdownArrowKeys(event, dropdownName) {
+		if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+			event.preventDefault();
+			if (activeDropdown !== dropdownName) {
+				activeDropdown = dropdownName;
+			}
+		}
+	}
+
+	// Close mobile menu on route change
+	$: if ($page) {
+		closeMobileMenu();
+	}
+
+	onMount(() => {
+		// Add global click listener for better performance
+		document.addEventListener('click', handleClickOutside);
+		return () => {
+			document.removeEventListener('click', handleClickOutside);
+		};
+	});
 </script>
 
-<header class="navigation" on:click={handleClickOutside} on:keydown={handleDropdownKeydown}>
+<header class="navigation" bind:this={navContainer} on:keydown={handleDropdownKeydown}>
 	<div class="nav-container">
 		<div class="nav-brand">
 			<a href="/" class="brand-link">
@@ -80,6 +110,7 @@ function closeMobileMenu() {
 						aria-expanded={activeDropdown === 'properties'}
 						aria-haspopup="true"
 						on:click={() => toggleDropdown('properties')}
+						on:keydown={(e) => handleDropdownArrowKeys(e, 'properties')}
 						on:blur={() => setTimeout(closeDropdown, 150)}
 					>
 						Properties <span class="dropdown-arrow">▼</span>
@@ -111,6 +142,7 @@ function closeMobileMenu() {
 						aria-expanded={activeDropdown === 'neighborhoods'}
 						aria-haspopup="true"
 						on:click={() => toggleDropdown('neighborhoods')}
+						on:keydown={(e) => handleDropdownArrowKeys(e, 'neighborhoods')}
 						on:blur={() => setTimeout(closeDropdown, 150)}
 					>
 						Neighborhoods <span class="dropdown-arrow">▼</span>
@@ -139,6 +171,7 @@ function closeMobileMenu() {
 						aria-expanded={activeDropdown === 'resources'}
 						aria-haspopup="true"
 						on:click={() => toggleDropdown('resources')}
+						on:keydown={(e) => handleDropdownArrowKeys(e, 'resources')}
 						on:blur={() => setTimeout(closeDropdown, 150)}
 					>
 						Resources <span class="dropdown-arrow">▼</span>
@@ -294,6 +327,8 @@ function closeMobileMenu() {
 		top: 0;
 		z-index: 1000;
 		overflow: visible;
+		backdrop-filter: blur(10px);
+		will-change: transform;
 	}
 	
 	.nav-container {
@@ -460,7 +495,7 @@ function closeMobileMenu() {
 		letter-spacing: 0.5px;
 	}
 
-	/* Dropdown Styles */
+	/* Optimized Dropdown Styles */
 	.nav-item-dropdown {
 		position: relative;
 	}
@@ -472,22 +507,30 @@ function closeMobileMenu() {
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
-		transition: all 0.3s ease;
+		transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+		border-radius: 4px;
+		padding: 0.4rem 0.6rem;
 	}
 
 	.nav-dropdown-toggle:hover {
 		color: var(--accent-color);
+		background: rgba(58, 141, 222, 0.05);
+	}
+
+	.nav-dropdown-toggle:focus {
+		outline: 2px solid var(--accent-color);
+		outline-offset: 2px;
 	}
 
 	.nav-dropdown-toggle.active {
 		color: var(--accent-color);
 		background: rgba(58, 141, 222, 0.1);
-		border-radius: 4px;
 	}
 
 	.dropdown-arrow {
 		font-size: 0.7rem;
-		transition: transform 0.3s ease;
+		transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+		pointer-events: none;
 	}
 
 	.nav-dropdown-toggle.active .dropdown-arrow {
@@ -497,30 +540,27 @@ function closeMobileMenu() {
 	.nav-dropdown {
 		position: absolute;
 		top: calc(100% + 4px);
+		left: 50%;
+		transform: translateX(-50%) translateY(-5px);
 		background: white;
 		border: 1px solid #E2E8F0;
-		border-radius: 6px;
-		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+		border-radius: 8px;
+		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.05);
 		min-width: 180px;
 		opacity: 0;
 		visibility: hidden;
-		transition: all 0.2s ease;
-		z-index: 1001;
+		transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+		z-index: 1002;
 		list-style: none;
 		margin: 0;
-		padding: 0.25rem 0;
+		padding: 0.5rem 0;
 		white-space: nowrap;
+		backdrop-filter: blur(10px);
+		will-change: transform, opacity;
 	}
 	
 	.nav-dropdown-wide {
 		min-width: 220px;
-	}
-	
-	/* Center dropdowns for better positioning */
-	.nav-dropdown {
-		left: 50%;
-		transform: translateX(-50%) translateY(-5px);
-		z-index: 1002;
 	}
 
 	.nav-dropdown.active {
@@ -535,37 +575,50 @@ function closeMobileMenu() {
 
 	.nav-dropdown-link {
 		display: block;
-		padding: 0.5rem 0.75rem;
+		padding: 0.75rem 1rem;
 		color: #4A5568;
 		text-decoration: none;
-		transition: all 0.2s ease;
-		font-size: 0.85rem;
+		transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+		font-size: 0.9rem;
 		white-space: nowrap;
+		border-radius: 4px;
+		margin: 0 0.25rem;
+		position: relative;
 	}
 
 	.nav-dropdown-link:hover {
 		background: #F7F9FC;
 		color: var(--accent-color);
 		text-decoration: none;
+		transform: translateX(2px);
+	}
+
+	.nav-dropdown-link:focus {
+		background: #F7F9FC;
+		color: var(--accent-color);
+		outline: 2px solid var(--accent-color);
+		outline-offset: -2px;
 	}
 	
 	.nav-dropdown-primary {
 		background: var(--accent-color);
 		color: white !important;
 		font-weight: 600;
-		margin-bottom: 0.25rem;
-		border-radius: 4px;
+		margin: 0.25rem;
+		border-radius: 6px;
+		box-shadow: 0 2px 4px rgba(58, 141, 222, 0.2);
 	}
-	
+
 	.nav-dropdown-primary:hover {
 		background: var(--accent-light);
 		color: white !important;
+		transform: translateY(-1px);
+		box-shadow: 0 4px 8px rgba(58, 141, 222, 0.3);
 	}
 
-	.nav-dropdown-link:focus {
-		background: #F7F9FC;
-		color: var(--accent-color);
-		outline: none;
+	.nav-dropdown-primary:focus {
+		outline: 2px solid white;
+		outline-offset: -2px;
 	}
 	
 	/* Mobile Navigation Groups */
@@ -756,6 +809,14 @@ function closeMobileMenu() {
 			flex-direction: column;
 			gap: 1.5rem;
 			padding: 1.5rem;
+			transform: translateY(-10px);
+			opacity: 0;
+			transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		}
+		
+		.nav-menu.mobile-open .nav-groups-mobile {
+			transform: translateY(0);
+			opacity: 1;
 		}
 		
 		.nav-group {
@@ -781,16 +842,29 @@ function closeMobileMenu() {
 			display: flex;
 			align-items: center;
 			justify-content: flex-start;
+			transition: all 0.2s ease;
+			border-radius: 6px;
+		}
+		
+		.nav-link:hover {
+			background: rgba(58, 141, 222, 0.05);
+			transform: translateX(4px);
 		}
 		
 		.nav-link-phone {
 			justify-content: center;
 			font-size: 1.1rem;
+			background: #16B286;
+			color: white !important;
+			margin: 0.5rem 0;
 		}
 		
 		.nav-link-primary {
 			justify-content: center;
 			font-size: 1.1rem;
+			background: var(--accent-color);
+			color: white !important;
+			margin: 0.5rem 0;
 		}
 	}
 	
