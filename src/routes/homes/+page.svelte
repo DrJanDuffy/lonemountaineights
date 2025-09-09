@@ -346,7 +346,7 @@ let filters = {
 };
 
 const sortBy = 'price';
-const viewMode = 'grid'; // 'grid' or 'list'
+let viewMode = 'grid'; // 'grid' or 'list'
 const showFilters = false;
 
 function formatPrice(price) {
