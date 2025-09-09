@@ -456,10 +456,10 @@ $: applyFilters();
 		<div class="container">
 			<div class="content-layout">
 				<!-- Filters Sidebar -->
-				<aside class="filters-sidebar" class:mobile-open={showFilters}>
+				<aside class="filters-sidebar ranch-filters" class:mobile-open={showFilters}>
 					<div class="filters-header">
 						<h3>Filter Homes</h3>
-						<button class="clear-filters" on:click={clearFilters}>Clear All</button>
+						<button class="clear-filters ranch-btn" on:click={clearFilters}>Clear All</button>
 					</div>
 					
 					<div class="filter-group">
@@ -578,13 +578,13 @@ $: applyFilters();
 				<div class="main-content">
 					<div class="content-header">
 						<div class="quick-filters">
-							<button class="quick-filter-btn" on:click={() => { filters.propertyType = 'Condo'; applyFilters(); }}>Condos</button>
-							<button class="quick-filter-btn" on:click={() => { filters.propertyType = 'Townhouse'; applyFilters(); }}>Townhouses</button>
-							<button class="quick-filter-btn" on:click={() => { filters.isLuxury = true; applyFilters(); }}>Luxury Homes</button>
-							<button class="quick-filter-btn" on:click={() => { filters.hasPool = true; applyFilters(); }}>Homes with Pools</button>
-							<button class="quick-filter-btn" on:click={() => { filters.isNewListing = true; applyFilters(); }}>New Listings</button>
-							<button class="quick-filter-btn" on:click={() => { filters.homeStyle = 'Single Story'; applyFilters(); }}>Single Story</button>
-							<button class="quick-filter-btn" on:click={() => { filters.propertyType = 'Land'; applyFilters(); }}>Land for Sale</button>
+							<button class="quick-filter-btn ranch-btn" on:click={() => { filters.propertyType = 'Condo'; applyFilters(); }}>Condos</button>
+							<button class="quick-filter-btn ranch-btn" on:click={() => { filters.propertyType = 'Townhouse'; applyFilters(); }}>Townhouses</button>
+							<button class="quick-filter-btn estate-btn" on:click={() => { filters.isLuxury = true; applyFilters(); }}>Luxury Homes</button>
+							<button class="quick-filter-btn ranch-btn" on:click={() => { filters.hasPool = true; applyFilters(); }}>Homes with Pools</button>
+							<button class="quick-filter-btn ranch-btn" on:click={() => { filters.isNewListing = true; applyFilters(); }}>New Listings</button>
+							<button class="quick-filter-btn ranch-btn" on:click={() => { filters.homeStyle = 'Single Story'; applyFilters(); }}>Single Story</button>
+							<button class="quick-filter-btn ranch-btn" on:click={() => { filters.propertyType = 'Land'; applyFilters(); }}>Land for Sale</button>
 						</div>
 					<div class="sort-controls">
 						<label for="sort-select">Sort by:</label>
@@ -605,9 +605,9 @@ $: applyFilters();
 					
 					<div class="homes-container" class:list-view={viewMode === 'list'}>
 						{#each filteredHomes as home}
-							<div class="home-card">
+							<div class="home-card {home.propertyType === 'Luxury' ? 'estate-home-card' : 'ranch-home-card'}">
 								<div class="home-image">
-									<img src={home.image} alt={home.address} />
+									<img src={home.image} alt={home.address} class="{home.propertyType === 'Luxury' ? 'estate-property-image' : 'ranch-property-image'}" />
 									<div class="home-badges">
 										<span class="days-badge">{home.daysOnMarket} days</span>
 										{#if home.pool}
@@ -617,23 +617,41 @@ $: applyFilters();
 									<div class="home-price">{formatPrice(home.price)}</div>
 								</div>
 								
-								<div class="home-details">
+								<div class="home-details {home.propertyType === 'Luxury' ? 'estate-property-details' : 'ranch-property-details'}">
 									<h3 class="home-address">{home.address}</h3>
-									<div class="home-specs">
-										<span class="spec">{home.bedrooms} bed</span>
-										<span class="spec">{home.bathrooms} bath</span>
-										<span class="spec">{home.sqft.toLocaleString()} sqft</span>
-										<span class="spec">{home.lotSize}</span>
+									<div class="home-specs {home.propertyType === 'Luxury' ? 'estate-stats' : 'ranch-stats'}">
+										<div class="{home.propertyType === 'Luxury' ? 'estate-stat' : 'ranch-stat'}">
+											<span class="value">{home.bedrooms}</span>
+											<span class="label">Bedrooms</span>
+										</div>
+										<div class="{home.propertyType === 'Luxury' ? 'estate-stat' : 'ranch-stat'}">
+											<span class="value">{home.bathrooms}</span>
+											<span class="label">Bathrooms</span>
+										</div>
+										<div class="{home.propertyType === 'Luxury' ? 'estate-stat' : 'ranch-stat'}">
+											<span class="value">{home.sqft.toLocaleString()}</span>
+											<span class="label">Sq Ft</span>
+										</div>
+										<div class="{home.propertyType === 'Luxury' ? 'estate-stat' : 'ranch-stat'}">
+											<span class="value">{home.lotSize}</span>
+											<span class="label">Lot Size</span>
+										</div>
 									</div>
 									
-									<div class="home-features">
-										<span class="feature">{home.homeStyle}</span>
-										<span class="feature">{home.yearBuilt}</span>
-										<span class="feature">{home.garage} car garage</span>
-										<span class="feature">{home.view} view</span>
+									<div class="home-features {home.propertyType === 'Luxury' ? 'estate-features' : 'ranch-features'}">
+										<span class="{home.propertyType === 'Luxury' ? 'estate-feature' : 'ranch-feature'}">{home.homeStyle}</span>
+										<span class="{home.propertyType === 'Luxury' ? 'estate-feature' : 'ranch-feature'}">{home.yearBuilt}</span>
+										<span class="{home.propertyType === 'Luxury' ? 'estate-feature' : 'ranch-feature'}">{home.garage} car garage</span>
+										<span class="{home.propertyType === 'Luxury' ? 'estate-feature' : 'ranch-feature'}">{home.view} view</span>
+										{#if home.isNewListing}
+											<span class="{home.propertyType === 'Luxury' ? 'estate-feature' : 'ranch-feature'}">New Listing</span>
+										{/if}
+										{#if home.isLuxury}
+											<span class="estate-feature">Luxury</span>
+										{/if}
 									</div>
 									
-									<div class="dr-jan-insight">
+									<div class="dr-jan-insight {home.propertyType === 'Luxury' ? 'estate-insight' : 'ranch-insight'}">
 										<div class="insight-header">
 											<span class="insight-icon">💡</span>
 											<span class="insight-title">Dr. Jan's Insight</span>
@@ -642,8 +660,8 @@ $: applyFilters();
 									</div>
 									
 									<div class="home-actions">
-										<button class="btn-details">View Details</button>
-										<button class="btn-schedule">Schedule Tour</button>
+										<button class="btn-details {home.propertyType === 'Luxury' ? 'estate-btn' : 'ranch-btn'}">View Details</button>
+										<button class="btn-schedule {home.propertyType === 'Luxury' ? 'estate-btn' : 'ranch-btn'}">Schedule Tour</button>
 									</div>
 								</div>
 							</div>

@@ -5,6 +5,7 @@ import { browser } from '$app/env';
 import { page } from '$app/stores';
 import { generateLocalBusinessSchema, generateFAQSchema, realEstateFAQs } from '$lib/schema.js';
 import '../app.css';
+import '../lib/ranchStyles.css';
 
 let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
 
@@ -79,7 +80,7 @@ $: if (browser && analyticsId) {
 	</div>
 	
 	<div class="footer-bottom">
-		<p>&copy; 2024 Dr. Jan Duffy - Lone Mountain Heights Real Estate Expert. All rights reserved.</p>
+		<p>&copy; 2024 Lone Mountain Heights | Homes by Dr. Jan Duffy S.0197614. All rights reserved.</p>
 	</div>
 </footer>
 

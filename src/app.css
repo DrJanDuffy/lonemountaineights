@@ -28,6 +28,35 @@
   --success-green: #10b981;
   --warning-orange: #f59e0b;
   --error-red: #ef4444;
+  
+  /* Ranch Style Colors */
+  --ranch-terracotta: #C65D07;
+  --ranch-sage: #87A96B;
+  --ranch-cream: #F5F5DC;
+  --ranch-adobe: #D2B48C;
+  --ranch-sandstone: #F4E4BC;
+  --ranch-slate: #708090;
+  --ranch-charcoal: #36454F;
+  --ranch-burgundy: #800020;
+  --ranch-gold: #DAA520;
+  --ranch-copper: #B87333;
+  
+  /* Estate Colors */
+  --estate-gold: #FFD700;
+  --estate-silver: #C0C0C0;
+  --estate-bronze: #CD7F32;
+  --estate-marble: #F8F8FF;
+  --estate-granite: #696969;
+  
+  /* Ranch Architecture Shadows */
+  --ranch-shadow-light: 0 2px 8px rgba(198, 93, 7, 0.1);
+  --ranch-shadow-medium: 0 4px 16px rgba(198, 93, 7, 0.15);
+  --ranch-shadow-heavy: 0 8px 32px rgba(198, 93, 7, 0.2);
+  
+  /* Estate Shadows */
+  --estate-shadow-light: 0 2px 8px rgba(255, 215, 0, 0.1);
+  --estate-shadow-medium: 0 4px 16px rgba(255, 215, 0, 0.15);
+  --estate-shadow-heavy: 0 8px 32px rgba(255, 215, 0, 0.2);
   --info-blue: #3b82f6;
 }
 
