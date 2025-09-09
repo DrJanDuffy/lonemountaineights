@@ -3,6 +3,8 @@ import Hero from '$lib/Hero.svelte';
 import FeaturedHomes from '$lib/FeaturedHomes.svelte';
 import MarketInsights from '$lib/MarketInsights.svelte';
 import Testimonials from '$lib/Testimonials.svelte';
+import MarketStats from '$lib/components/MarketStats.svelte';
+import SeasonalContent from '$lib/components/SeasonalContent.svelte';
 </script>
 
 <svelte:head>
@@ -224,6 +226,8 @@ import Testimonials from '$lib/Testimonials.svelte';
 
 <main>
 	<Hero />
+	<MarketStats />
+	<SeasonalContent />
 	<FeaturedHomes />
 	<MarketInsights />
 	<Testimonials />
