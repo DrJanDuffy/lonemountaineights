@@ -93,7 +93,10 @@
 	]);
 	
 	function getStars(rating) {
-		return '★'.repeat(rating) + '☆'.repeat(5 - rating);
+		const validRating = Math.max(0, Math.min(10, rating || 0));
+		const filledStars = Math.floor(validRating / 2);
+		const emptyStars = 5 - filledStars;
+		return '★'.repeat(filledStars) + '☆'.repeat(Math.max(0, emptyStars));
 	}
 </script>
 

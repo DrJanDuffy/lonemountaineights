@@ -97,6 +97,9 @@ $: if (browser && analyticsId) {
 		background: var(--heading-color);
 		color: white;
 		padding: 3rem 2rem 1rem;
+		display: block;
+		width: 100%;
+		box-sizing: border-box;
 	}
 
 	.footer-content {
@@ -108,16 +111,24 @@ $: if (browser && analyticsId) {
 		margin-bottom: 0;
 	}
 
+	.footer-section {
+		display: block;
+		margin-bottom: 1rem;
+	}
+
 	.footer-section h4 {
 		font-size: 1.2rem;
 		font-weight: 700;
 		margin: 0 0 1rem 0;
 		color: var(--warm-cream);
+		display: block;
 	}
 
 	.footer-section p {
 		margin: 0.5rem 0;
 		color: rgba(255, 255, 255, 0.8);
+		display: block;
+		line-height: 1.4;
 	}
 
 	.footer-section a {
