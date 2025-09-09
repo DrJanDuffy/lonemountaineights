@@ -414,8 +414,8 @@ $: applyFilters();
 </script>
 
 <svelte:head>
-	<title>Available Homes in Lone Mountain Heights | Dr. Jan Duffy Real Estate</title>
-	<meta name="description" content="Browse available homes for sale in Lone Mountain Heights, Las Vegas. Dr. Jan Duffy provides expert insights on every listing in the neighborhood." />
+	<title>Lone Mountain Heights Homes for Sale | Las Vegas 89129 | Dr. Jan Duffy</title>
+	<meta name="description" content="Browse 15+ exclusive homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy's expert insights on every listing. Luxury homes, condos, townhouses available." />
 	
 	<!-- Schema Markup for Real Estate Listings -->
 	{#each filteredHomes as property}
@@ -426,18 +426,32 @@ $: applyFilters();
 	
 	<!-- Breadcrumb Schema -->
 	<script type="application/ld+json">
-		{JSON.stringify(generateBreadcrumbSchema([
-			{ name: 'Home', url: 'https://lonemountainheights.com' },
-			{ name: 'Available Homes', url: 'https://lonemountainheights.com/homes' }
-		]))}
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Home",
+					"item": "https://www.lonemountainheights.com"
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"name": "Homes for Sale",
+					"item": "https://www.lonemountainheights.com/homes"
+				}
+			]
+		}
 	</script>
 </svelte:head>
 
 <main class="homes-page">
 	<div class="page-header">
 		<div class="container">
-			<h1>Available Homes in Lone Mountain Heights</h1>
-			<p>Hand-picked by Dr. Jan Duffy - your neighborhood real estate expert</p>
+			<h1>Lone Mountain Heights Homes for Sale | Las Vegas 89129</h1>
+			<p>Exclusive listings hand-picked by Dr. Jan Duffy - 500+ transaction expert</p>
 			<div class="results-summary">
 				<span class="results-count">{filteredHomes.length} homes found</span>
 				<div class="view-controls">

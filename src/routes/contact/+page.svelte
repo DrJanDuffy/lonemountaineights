@@ -80,20 +80,67 @@
 </script>
 
 <svelte:head>
-	<title>Contact Dr. Jan Duffy | Lone Mountain Heights Real Estate Expert | 702-222-1964</title>
-	<meta name="description" content="Contact Dr. Jan Duffy for expert real estate services in Lone Mountain Heights, Las Vegas. Call 702-222-1964 or use our contact form for immediate assistance." />
+	<title>Contact Dr. Jan Duffy | Lone Mountain Heights Expert | Las Vegas 89129</title>
+	<meta name="description" content="Contact Dr. Jan Duffy for expert real estate services in Lone Mountain Heights, Las Vegas 89129. Call 702-222-1964 or use our contact form for immediate assistance." />
 	
+	<!-- ContactPage Schema -->
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "ContactPage",
+			"name": "Contact Dr. Jan Duffy - Lone Mountain Heights Real Estate Expert",
+			"description": "Contact Dr. Jan Duffy for expert real estate services in Lone Mountain Heights, Las Vegas 89129. Call 702-222-1964 or use our contact form.",
+			"url": "https://www.lonemountainheights.com/contact",
+			"mainEntity": {
+				"@type": "RealEstateAgent",
+				"name": "Dr. Jan Duffy",
+				"telephone": "702-222-1964",
+				"email": "jan@lonemountainheights.com",
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": "Lone Mountain Heights",
+					"addressLocality": "Las Vegas",
+					"addressRegion": "NV",
+					"postalCode": "89129",
+					"addressCountry": "US"
+				},
+				"areaServed": {
+					"@type": "City",
+					"name": "Las Vegas"
+				},
+				"openingHours": "Mo-Su 00:00-23:59"
+			}
+		}
+	</script>
+
 	<!-- Breadcrumb Schema -->
 	<script type="application/ld+json">
-		{JSON.stringify(breadcrumbSchema)}
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Home",
+					"item": "https://www.lonemountainheights.com"
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"name": "Contact",
+					"item": "https://www.lonemountainheights.com/contact"
+				}
+			]
+		}
 	</script>
 </svelte:head>
 
 <main class="contact-page">
 	<div class="page-header">
 		<div class="container">
-			<h1>Contact Dr. Jan Duffy</h1>
-			<p>Ready to buy or sell in Lone Mountain Heights? Let's talk!</p>
+			<h1>Contact Dr. Jan Duffy | Lone Mountain Heights Expert</h1>
+			<p>Ready to buy or sell in Lone Mountain Heights, Las Vegas 89129? Let's talk!</p>
 		</div>
 	</div>
 	

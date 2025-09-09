@@ -204,8 +204,30 @@ function resetForm() {
 </script>
 
 <svelte:head>
-	<title>Home Valuation Tool | Lone Mountain Heights Real Estate | Dr. Jan Duffy</title>
-	<meta name="description" content="Get an instant home valuation for your Lone Mountain Heights property. Dr. Jan Duffy provides expert market analysis and pricing strategy." />
+	<title>Lone Mountain Heights Home Valuation | Las Vegas 89129 | Dr. Jan Duffy</title>
+	<meta name="description" content="Get instant home valuation for Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy's expert market analysis and pricing strategy for your property." />
+	
+	<!-- Breadcrumb Schema -->
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Home",
+					"item": "https://www.lonemountainheights.com"
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"name": "Home Valuation",
+					"item": "https://www.lonemountainheights.com/valuation"
+				}
+			]
+		}
+	</script>
 </svelte:head>
 
 <main class="valuation-page">
@@ -215,8 +237,8 @@ function resetForm() {
 				<span class="berkshire-logo">Berkshire Hathaway</span>
 				<span class="homeservices">HomeServices</span>
 			</div>
-			<h1>What's Your Lone Mountain Heights Home Worth?</h1>
-			<p>Get an instant valuation with Dr. Jan Duffy's data-driven market analysis powered by advanced valuation technology</p>
+			<h1>Lone Mountain Heights Home Valuation | Las Vegas 89129</h1>
+			<p>Instant home valuation with Dr. Jan Duffy's expert market analysis and advanced technology</p>
 		</div>
 	</div>
 	

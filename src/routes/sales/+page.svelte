@@ -172,15 +172,37 @@ $: marketStats = {
 </script>
 
 <svelte:head>
-	<title>Recent Sales in Lone Mountain Heights | Dr. Jan Duffy Real Estate</title>
-	<meta name="description" content="View recent home sales in Lone Mountain Heights, Las Vegas. Dr. Jan Duffy provides expert analysis on every transaction in the neighborhood." />
+	<title>Lone Mountain Heights Recent Sales | Las Vegas 89129 | Dr. Jan Duffy</title>
+	<meta name="description" content="Recent home sales in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy's expert analysis on every transaction with market insights and pricing data." />
+	
+	<!-- Breadcrumb Schema -->
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Home",
+					"item": "https://www.lonemountainheights.com"
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"name": "Recent Sales",
+					"item": "https://www.lonemountainheights.com/sales"
+				}
+			]
+		}
+	</script>
 </svelte:head>
 
 <main class="sales-page">
 	<div class="page-header">
 		<div class="container">
-			<h1>Recent Sales in Lone Mountain Heights</h1>
-			<p>Transparent market data with Dr. Jan Duffy's expert insights</p>
+			<h1>Lone Mountain Heights Recent Sales | Las Vegas 89129</h1>
+			<p>Transparent market data with Dr. Jan Duffy's expert transaction insights</p>
 		</div>
 	</div>
 	

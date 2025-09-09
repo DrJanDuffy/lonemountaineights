@@ -30,20 +30,37 @@
 </script>
 
 <svelte:head>
-	<title>Lone Mountain Heights Micro-Neighborhoods | Subdivisions & Communities | Dr. Jan Duffy</title>
-	<meta name="description" content="Explore Lone Mountain Heights micro-neighborhoods and subdivisions. Detailed information on each community from Dr. Jan Duffy, your local real estate expert." />
+	<title>Lone Mountain Heights Neighborhoods | Las Vegas 89129 | Dr. Jan Duffy</title>
+	<meta name="description" content="Discover Lone Mountain Heights micro-neighborhoods in Las Vegas 89129. Dr. Jan Duffy's expert guide to subdivisions, communities, and local amenities." />
 	
 	<!-- Breadcrumb Schema -->
 	<script type="application/ld+json">
-		{JSON.stringify(breadcrumbSchema)}
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Home",
+					"item": "https://www.lonemountainheights.com"
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"name": "Neighborhoods",
+					"item": "https://www.lonemountainheights.com/neighborhoods"
+				}
+			]
+		}
 	</script>
 </svelte:head>
 
 <main class="neighborhoods-page">
 	<div class="page-header">
 		<div class="container">
-			<h1>Lone Mountain Heights Micro-Neighborhoods</h1>
-			<p>Discover the unique character of each subdivision and community</p>
+			<h1>Lone Mountain Heights Neighborhoods | Las Vegas 89129</h1>
+			<p>Expert guide to micro-neighborhoods, subdivisions, and communities by Dr. Jan Duffy</p>
 		</div>
 	</div>
 	

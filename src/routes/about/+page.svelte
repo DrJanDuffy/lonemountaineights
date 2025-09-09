@@ -48,12 +48,109 @@
 </script>
 
 <svelte:head>
-		<title>About Dr. Jan Duffy | Head of Lone Mountain Heights Team | Berkshire Hathaway HomeServices</title>
-		<meta name="description" content="Learn about Dr. Jan Duffy, Head of the Berkshire Hathaway HomeServices Lone Mountain Heights Team. 500+ Lone Mountain transactions, team leadership, and global network access." />
+	<title>About Dr. Jan Duffy | Lone Mountain Heights Expert | Las Vegas 89129</title>
+	<meta name="description" content="Meet Dr. Jan Duffy, Lone Mountain Heights real estate expert in Las Vegas 89129. 500+ transactions, Berkshire Hathaway team leader, and local market specialist." />
 	
+	<!-- Person Schema for Dr. Jan Duffy -->
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": "Dr. Jan Duffy",
+			"jobTitle": "Head of Berkshire Hathaway HomeServices Lone Mountain Heights Team",
+			"description": "Real estate expert specializing in Lone Mountain Heights, Las Vegas 89129 with 500+ successful transactions.",
+			"url": "https://www.lonemountainheights.com/about",
+			"telephone": "702-222-1964",
+			"email": "jan@lonemountainheights.com",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "Lone Mountain Heights",
+				"addressLocality": "Las Vegas",
+				"addressRegion": "NV",
+				"postalCode": "89129",
+				"addressCountry": "US"
+			},
+			"worksFor": {
+				"@type": "Organization",
+				"name": "Berkshire Hathaway HomeServices",
+				"url": "https://www.berkshirehathawayhomeservices.com"
+			},
+			"knowsAbout": [
+				"Lone Mountain Heights Real Estate",
+				"Las Vegas 89129 Properties",
+				"Luxury Home Sales",
+				"Market Analysis",
+				"Home Valuation",
+				"Real Estate Investment",
+				"Berkshire Hathaway HomeServices"
+			],
+			"hasCredential": [
+				"Real Estate License",
+				"Berkshire Hathaway HomeServices Certification",
+				"Luxury Home Specialist",
+				"Market Analysis Expert"
+			],
+			"award": "500+ Lone Mountain Heights Transactions",
+			"image": "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+		}
+	</script>
+
+	<!-- Organization Schema for Berkshire Hathaway Team -->
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"name": "Berkshire Hathaway HomeServices Lone Mountain Heights Team",
+			"description": "Premier real estate team specializing in Lone Mountain Heights, Las Vegas 89129",
+			"url": "https://www.lonemountainheights.com",
+			"telephone": "702-222-1964",
+			"email": "jan@lonemountainheights.com",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "Lone Mountain Heights",
+				"addressLocality": "Las Vegas",
+				"addressRegion": "NV",
+				"postalCode": "89129",
+				"addressCountry": "US"
+			},
+			"parentOrganization": {
+				"@type": "Organization",
+				"name": "Berkshire Hathaway HomeServices",
+				"url": "https://www.berkshirehathawayhomeservices.com"
+			},
+			"founder": {
+				"@type": "Person",
+				"name": "Dr. Jan Duffy"
+			},
+			"numberOfEmployees": "1",
+			"areaServed": {
+				"@type": "City",
+				"name": "Las Vegas"
+			},
+			"serviceType": "Real Estate Services"
+		}
+	</script>
+
 	<!-- Breadcrumb Schema -->
 	<script type="application/ld+json">
-		{JSON.stringify(breadcrumbSchema)}
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Home",
+					"item": "https://www.lonemountainheights.com"
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"name": "About",
+					"item": "https://www.lonemountainheights.com/about"
+				}
+			]
+		}
 	</script>
 </svelte:head>
 
@@ -68,8 +165,8 @@
 				<span class="team-head">Head of the Berkshire Hathaway HomeServices</span>
 				<span class="lone-mountain-team">Lone Mountain Heights Team</span>
 			</div>
-			<h1>About Dr. Jan Duffy</h1>
-			<p>Head of the Berkshire Hathaway HomeServices Lone Mountain Heights Team</p>
+			<h1>About Dr. Jan Duffy | Lone Mountain Heights Expert</h1>
+			<p>Berkshire Hathaway HomeServices Lone Mountain Heights Team Leader</p>
 		</div>
 	</div>
 	

@@ -101,12 +101,29 @@
 </script>
 
 <svelte:head>
-	<title>Lone Mountain Heights Schools | Top-Rated Education | Dr. Jan Duffy</title>
-	<meta name="description" content="Discover the excellent schools serving Lone Mountain Heights in Summerlin, Las Vegas. William G. Geer Elementary, Sig Rogich Middle, and Liberty High School information from Dr. Jan Duffy." />
+	<title>Lone Mountain Heights Schools | Las Vegas 89129 | Dr. Jan Duffy</title>
+	<meta name="description" content="Top-rated schools serving Lone Mountain Heights, Las Vegas 89129. William G. Geer Elementary, Sig Rogich Middle, and Liberty High School information from Dr. Jan Duffy." />
 	
 	<!-- Breadcrumb Schema -->
 	<script type="application/ld+json">
-		{JSON.stringify(breadcrumbSchema)}
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Home",
+					"item": "https://www.lonemountainheights.com"
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"name": "Schools",
+					"item": "https://www.lonemountainheights.com/schools"
+				}
+			]
+		}
 	</script>
 </svelte:head>
 

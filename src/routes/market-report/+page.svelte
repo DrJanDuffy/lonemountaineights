@@ -66,15 +66,37 @@
 </script>
 
 <svelte:head>
-	<title>Lone Mountain Heights Market Report | Dr. Jan Duffy Real Estate</title>
-	<meta name="description" content="Latest market data for Lone Mountain Heights, Las Vegas. Price trends, inventory levels, and expert analysis from Dr. Jan Duffy." />
+	<title>Lone Mountain Heights Market Report | Las Vegas 89129 | Dr. Jan Duffy</title>
+	<meta name="description" content="Latest Lone Mountain Heights real estate market data for Las Vegas 89129. Price trends, inventory analysis, and expert insights from Dr. Jan Duffy." />
+	
+	<!-- Breadcrumb Schema -->
+	<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "BreadcrumbList",
+			"itemListElement": [
+				{
+					"@type": "ListItem",
+					"position": 1,
+					"name": "Home",
+					"item": "https://www.lonemountainheights.com"
+				},
+				{
+					"@type": "ListItem",
+					"position": 2,
+					"name": "Market Report",
+					"item": "https://www.lonemountainheights.com/market-report"
+				}
+			]
+		}
+	</script>
 </svelte:head>
 
 <main class="market-report-page">
 	<div class="page-header">
 		<div class="container">
-			<h1>Lone Mountain Heights Market Report</h1>
-			<p>Latest market data and expert analysis from Dr. Jan Duffy</p>
+			<h1>Lone Mountain Heights Market Report | Las Vegas 89129</h1>
+			<p>Expert real estate market analysis and data from Dr. Jan Duffy</p>
 			<span class="report-date">March 2024</span>
 		</div>
 	</div>

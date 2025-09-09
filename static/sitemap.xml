@@ -81,12 +81,43 @@
     <priority>0.7</priority>
   </url>
   
-  <!-- Guide Page - Educational Content -->
-  <url>
-    <loc>https://www.lonemountainheights.com/guide</loc>
-    <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-  </url>
-  
-</urlset>
+         <!-- Guide Page - Educational Content -->
+         <url>
+           <loc>https://www.lonemountainheights.com/guide</loc>
+           <lastmod>2024-12-19</lastmod>
+           <changefreq>monthly</changefreq>
+           <priority>0.65</priority>
+         </url>
+
+         <!-- Location-Specific Pages -->
+         <url>
+           <loc>https://www.lonemountainheights.com/locations/lone-mountain-ranch</loc>
+           <lastmod>2024-12-19</lastmod>
+           <changefreq>weekly</changefreq>
+           <priority>0.8</priority>
+         </url>
+
+         <url>
+           <loc>https://www.lonemountainheights.com/locations/desert-vista-estates</loc>
+           <lastmod>2024-12-19</lastmod>
+           <changefreq>weekly</changefreq>
+           <priority>0.8</priority>
+         </url>
+
+         <!-- Property Type Pages -->
+         <url>
+           <loc>https://www.lonemountainheights.com/property-types/3-bedroom-homes</loc>
+           <lastmod>2024-12-19</lastmod>
+           <changefreq>weekly</changefreq>
+           <priority>0.75</priority>
+         </url>
+
+         <!-- Price Range Pages -->
+         <url>
+           <loc>https://www.lonemountainheights.com/price-ranges/600k-800k</loc>
+           <lastmod>2024-12-19</lastmod>
+           <changefreq>weekly</changefreq>
+           <priority>0.75</priority>
+         </url>
+
+       </urlset>
