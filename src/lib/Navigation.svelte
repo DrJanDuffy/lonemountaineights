@@ -1,16 +1,16 @@
 <script lang="ts">
 import { page } from '$app/stores';
 
-	let mobileMenuOpen = false;
+let mobileMenuOpen = false;
 	let activeDropdown: string | null = null;
 
-	function toggleMobileMenu() {
-		mobileMenuOpen = !mobileMenuOpen;
-	}
+function toggleMobileMenu() {
+  mobileMenuOpen = !mobileMenuOpen;
+}
 
-	function closeMobileMenu() {
-		mobileMenuOpen = false;
-	}
+function closeMobileMenu() {
+  mobileMenuOpen = false;
+}
 
 	function handleKeydown(event: KeyboardEvent) {
 		if (event.key === 'Escape') {
@@ -31,15 +31,31 @@ import { page } from '$app/stores';
 	}
 
 	function toggleDropdown(dropdownName: string) {
+		// Close other dropdowns when opening a new one
 		activeDropdown = activeDropdown === dropdownName ? null : dropdownName;
 	}
 
 	function closeDropdown() {
 		activeDropdown = null;
 	}
+
+	// Close dropdown when clicking outside
+	function handleClickOutside(event: MouseEvent) {
+		const target = event.target as HTMLElement;
+		if (!target.closest('.nav-item-dropdown')) {
+			closeDropdown();
+		}
+	}
+
+	// Handle keyboard navigation
+	function handleDropdownKeydown(event: KeyboardEvent) {
+		if (event.key === 'Escape') {
+			closeDropdown();
+		}
+}
 </script>
 
-<header class="navigation">
+<header class="navigation" on:click={handleClickOutside} on:keydown={handleDropdownKeydown}>
 	<div class="nav-container">
 		<div class="nav-brand">
 			<a href="/" class="brand-link">
@@ -60,6 +76,40 @@ import { page } from '$app/stores';
 					<a href="/" class="nav-link" class:active={$page.url.pathname === '/'} role="menuitem" aria-current={$page.url.pathname === '/' ? 'page' : undefined}>Home</a>
 				</li>
 				
+				<!-- Search Homes - Primary Action -->
+				<li class="nav-item" role="none">
+					<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-link nav-link-primary" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="Search Homes in Lone Mountain Heights (opens in new tab)">Search Homes</a>
+				</li>
+				
+				<!-- Local Areas Dropdown -->
+				<li class="nav-item nav-item-dropdown" role="none">
+					<button 
+						class="nav-link nav-dropdown-toggle" 
+						class:active={activeDropdown === 'areas'}
+						aria-expanded={activeDropdown === 'areas'}
+						aria-haspopup="true"
+						on:click={() => toggleDropdown('areas')}
+						on:blur={() => setTimeout(closeDropdown, 150)}
+					>
+						Local Areas <span class="dropdown-arrow">▼</span>
+					</button>
+					<ul class="nav-dropdown" class:active={activeDropdown === 'areas'} role="menu">
+						<li role="none">
+							<a href="/neighborhood" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Lone Mountain Heights</a>
+						</li>
+						<li role="none">
+							<a href="/locations/lone-mountain-ranch" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Lone Mountain Ranch</a>
+						</li>
+						<li role="none">
+							<a href="/locations/desert-vista-estates" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Desert Vista Estates</a>
+						</li>
+						<li role="none">
+							<a href="/neighborhoods" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>All Micro-Neighborhoods</a>
+						</li>
+					</ul>
+				</li>
+				
+				<!-- Homes for Sale Dropdown -->
 				<li class="nav-item nav-item-dropdown" role="none">
 					<button 
 						class="nav-link nav-dropdown-toggle" 
@@ -69,69 +119,37 @@ import { page } from '$app/stores';
 						on:click={() => toggleDropdown('homes')}
 						on:blur={() => setTimeout(closeDropdown, 150)}
 					>
-						Find Homes <span class="dropdown-arrow">▼</span>
+						Homes for Sale <span class="dropdown-arrow">▼</span>
 					</button>
 					<ul class="nav-dropdown" class:active={activeDropdown === 'homes'} role="menu">
 						<li role="none">
-							<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-dropdown-link" target="_blank" rel="noopener noreferrer" role="menuitem" on:click={handleNavLinkClick}>Search All Homes</a>
-						</li>
-						<li role="none">
-							<a href="/homes" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Browse Listings</a>
+							<a href="/homes" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Browse All Listings</a>
 						</li>
 						<li role="none">
 							<a href="/sales" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Recent Sales</a>
 						</li>
 						<li role="none">
-							<a href="/neighborhoods" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Micro-Neighborhoods</a>
+							<a href="/property-types/3-bedroom-homes" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>3 Bedroom Homes</a>
+						</li>
+						<li role="none">
+							<a href="/price-ranges/600k-800k" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Homes $600K-$800K</a>
 						</li>
 					</ul>
 				</li>
 				
+				<!-- Local Info Dropdown -->
 				<li class="nav-item nav-item-dropdown" role="none">
 					<button 
 						class="nav-link nav-dropdown-toggle" 
-						class:active={activeDropdown === 'learn'}
-						aria-expanded={activeDropdown === 'learn'}
+						class:active={activeDropdown === 'local'}
+						aria-expanded={activeDropdown === 'local'}
 						aria-haspopup="true"
-						on:click={() => toggleDropdown('learn')}
+						on:click={() => toggleDropdown('local')}
 						on:blur={() => setTimeout(closeDropdown, 150)}
 					>
-						Learn <span class="dropdown-arrow">▼</span>
+						Local Info <span class="dropdown-arrow">▼</span>
 					</button>
-					<ul class="nav-dropdown" class:active={activeDropdown === 'learn'} role="menu">
-						<li role="none">
-							<a href="/neighborhood" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Neighborhood Guide</a>
-						</li>
-						<li role="none">
-							<a href="/market-intelligence" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Market Data</a>
-						</li>
-						<li role="none">
-							<a href="/market-report" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Market Report</a>
-						</li>
-						<li role="none">
-							<a href="/tools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Real Estate Tools</a>
-						</li>
-						<li role="none">
-							<a href="/valuation" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Home Valuation</a>
-						</li>
-						<li role="none">
-							<a href="/guide" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Complete Guide</a>
-						</li>
-					</ul>
-				</li>
-				
-				<li class="nav-item nav-item-dropdown" role="none">
-					<button 
-						class="nav-link nav-dropdown-toggle" 
-						class:active={activeDropdown === 'community'}
-						aria-expanded={activeDropdown === 'community'}
-						aria-haspopup="true"
-						on:click={() => toggleDropdown('community')}
-						on:blur={() => setTimeout(closeDropdown, 150)}
-					>
-						Community <span class="dropdown-arrow">▼</span>
-					</button>
-					<ul class="nav-dropdown" class:active={activeDropdown === 'community'} role="menu">
+					<ul class="nav-dropdown" class:active={activeDropdown === 'local'} role="menu">
 						<li role="none">
 							<a href="/amenities" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Amenities</a>
 						</li>
@@ -139,7 +157,10 @@ import { page } from '$app/stores';
 							<a href="/schools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Schools</a>
 						</li>
 						<li role="none">
-							<a href="/blog" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Blog & News</a>
+							<a href="/market-intelligence" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Market Data</a>
+						</li>
+						<li role="none">
+							<a href="/tools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Home Value Calculator</a>
 						</li>
 						<li role="none">
 							<a href="/faq/hoa-fees" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>HOA Information</a>
@@ -147,16 +168,18 @@ import { page } from '$app/stores';
 					</ul>
 				</li>
 				
+				<!-- About - Single Link -->
 				<li class="nav-item" role="none">
 					<a href="/about" class="nav-link" class:active={$page.url.pathname.startsWith('/about')} role="menuitem" aria-current={$page.url.pathname.startsWith('/about') ? 'page' : undefined}>About</a>
 				</li>
 				
+				<!-- Contact - Single Link -->
 				<li class="nav-item" role="none">
-					<a href="/contact" class="nav-link nav-link-primary" class:active={$page.url.pathname.startsWith('/contact')} role="menuitem" aria-current={$page.url.pathname.startsWith('/contact') ? 'page' : undefined}>Contact</a>
+					<a href="/contact" class="nav-link nav-link-contact" class:active={$page.url.pathname.startsWith('/contact')} role="menuitem" aria-current={$page.url.pathname.startsWith('/contact') ? 'page' : undefined}>Contact</a>
 				</li>
 			</ul>
 			
-			<!-- Mobile Navigation - Grouped -->
+			<!-- Mobile Navigation - Local Focused -->
 			<div class="nav-groups nav-groups-mobile">
 				<div class="nav-group">
 					<h4 class="nav-group-title">Main</h4>
@@ -165,46 +188,49 @@ import { page } from '$app/stores';
 							<a href="/" class="nav-link" class:active={$page.url.pathname === '/'} role="menuitem" aria-current={$page.url.pathname === '/' ? 'page' : undefined} on:click={handleNavLinkClick}>Home</a>
 						</li>
 						<li class="nav-item" role="none">
-							<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-link" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="Search Homes in Lone Mountain Heights (opens in new tab)" on:click={handleNavLinkClick}>Search All Homes</a>
+							<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-link nav-link-primary" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="Search Homes in Lone Mountain Heights (opens in new tab)" on:click={handleNavLinkClick}>Search Homes</a>
 						</li>
 					</ul>
 				</div>
 				
 				<div class="nav-group">
-					<h4 class="nav-group-title">Find Homes</h4>
+					<h4 class="nav-group-title">Local Areas</h4>
 					<ul class="nav-list" role="menubar">
 						<li class="nav-item" role="none">
-							<a href="/homes" class="nav-link" class:active={$page.url.pathname.startsWith('/homes')} role="menuitem" aria-current={$page.url.pathname.startsWith('/homes') ? 'page' : undefined} on:click={handleNavLinkClick}>Browse Listings</a>
+							<a href="/neighborhood" class="nav-link" class:active={$page.url.pathname.startsWith('/neighborhood')} role="menuitem" aria-current={$page.url.pathname.startsWith('/neighborhood') ? 'page' : undefined} on:click={handleNavLinkClick}>Lone Mountain Heights</a>
+						</li>
+						<li class="nav-item" role="none">
+							<a href="/locations/lone-mountain-ranch" class="nav-link" class:active={$page.url.pathname.startsWith('/locations/lone-mountain-ranch')} role="menuitem" aria-current={$page.url.pathname.startsWith('/locations/lone-mountain-ranch') ? 'page' : undefined} on:click={handleNavLinkClick}>Lone Mountain Ranch</a>
+						</li>
+						<li class="nav-item" role="none">
+							<a href="/locations/desert-vista-estates" class="nav-link" class:active={$page.url.pathname.startsWith('/locations/desert-vista-estates')} role="menuitem" aria-current={$page.url.pathname.startsWith('/locations/desert-vista-estates') ? 'page' : undefined} on:click={handleNavLinkClick}>Desert Vista Estates</a>
+						</li>
+						<li class="nav-item" role="none">
+							<a href="/neighborhoods" class="nav-link" class:active={$page.url.pathname.startsWith('/neighborhoods')} role="menuitem" aria-current={$page.url.pathname.startsWith('/neighborhoods') ? 'page' : undefined} on:click={handleNavLinkClick}>All Micro-Neighborhoods</a>
+						</li>
+					</ul>
+				</div>
+				
+				<div class="nav-group">
+					<h4 class="nav-group-title">Homes for Sale</h4>
+					<ul class="nav-list" role="menubar">
+						<li class="nav-item" role="none">
+							<a href="/homes" class="nav-link" class:active={$page.url.pathname.startsWith('/homes')} role="menuitem" aria-current={$page.url.pathname.startsWith('/homes') ? 'page' : undefined} on:click={handleNavLinkClick}>Browse All Listings</a>
 						</li>
 						<li class="nav-item" role="none">
 							<a href="/sales" class="nav-link" class:active={$page.url.pathname.startsWith('/sales')} role="menuitem" aria-current={$page.url.pathname.startsWith('/sales') ? 'page' : undefined} on:click={handleNavLinkClick}>Recent Sales</a>
 						</li>
 						<li class="nav-item" role="none">
-							<a href="/neighborhoods" class="nav-link" class:active={$page.url.pathname.startsWith('/neighborhoods')} role="menuitem" aria-current={$page.url.pathname.startsWith('/neighborhoods') ? 'page' : undefined} on:click={handleNavLinkClick}>Micro-Neighborhoods</a>
+							<a href="/property-types/3-bedroom-homes" class="nav-link" class:active={$page.url.pathname.startsWith('/property-types')} role="menuitem" aria-current={$page.url.pathname.startsWith('/property-types') ? 'page' : undefined} on:click={handleNavLinkClick}>3 Bedroom Homes</a>
+						</li>
+						<li class="nav-item" role="none">
+							<a href="/price-ranges/600k-800k" class="nav-link" class:active={$page.url.pathname.startsWith('/price-ranges')} role="menuitem" aria-current={$page.url.pathname.startsWith('/price-ranges') ? 'page' : undefined} on:click={handleNavLinkClick}>Homes $600K-$800K</a>
 						</li>
 					</ul>
 				</div>
 				
 				<div class="nav-group">
-					<h4 class="nav-group-title">Learn</h4>
-					<ul class="nav-list" role="menubar">
-						<li class="nav-item" role="none">
-							<a href="/neighborhood" class="nav-link" class:active={$page.url.pathname.startsWith('/neighborhood')} role="menuitem" aria-current={$page.url.pathname.startsWith('/neighborhood') ? 'page' : undefined} on:click={handleNavLinkClick}>Neighborhood Guide</a>
-						</li>
-						<li class="nav-item" role="none">
-							<a href="/market-intelligence" class="nav-link" class:active={$page.url.pathname.startsWith('/market-intelligence')} role="menuitem" aria-current={$page.url.pathname.startsWith('/market-intelligence') ? 'page' : undefined} on:click={handleNavLinkClick}>Market Data</a>
-						</li>
-						<li class="nav-item" role="none">
-							<a href="/tools" class="nav-link" class:active={$page.url.pathname.startsWith('/tools')} role="menuitem" aria-current={$page.url.pathname.startsWith('/tools') ? 'page' : undefined} on:click={handleNavLinkClick}>Real Estate Tools</a>
-						</li>
-						<li class="nav-item" role="none">
-							<a href="/valuation" class="nav-link" class:active={$page.url.pathname.startsWith('/valuation')} role="menuitem" aria-current={$page.url.pathname.startsWith('/valuation') ? 'page' : undefined} on:click={handleNavLinkClick}>Home Valuation</a>
-						</li>
-					</ul>
-				</div>
-				
-				<div class="nav-group">
-					<h4 class="nav-group-title">Community</h4>
+					<h4 class="nav-group-title">Local Info</h4>
 					<ul class="nav-list" role="menubar">
 						<li class="nav-item" role="none">
 							<a href="/amenities" class="nav-link" class:active={$page.url.pathname.startsWith('/amenities')} role="menuitem" aria-current={$page.url.pathname.startsWith('/amenities') ? 'page' : undefined} on:click={handleNavLinkClick}>Amenities</a>
@@ -213,7 +239,10 @@ import { page } from '$app/stores';
 							<a href="/schools" class="nav-link" class:active={$page.url.pathname.startsWith('/schools')} role="menuitem" aria-current={$page.url.pathname.startsWith('/schools') ? 'page' : undefined} on:click={handleNavLinkClick}>Schools</a>
 						</li>
 						<li class="nav-item" role="none">
-							<a href="/blog" class="nav-link" class:active={$page.url.pathname.startsWith('/blog')} role="menuitem" aria-current={$page.url.pathname.startsWith('/blog') ? 'page' : undefined} on:click={handleNavLinkClick}>Blog & News</a>
+							<a href="/tools" class="nav-link" class:active={$page.url.pathname.startsWith('/tools')} role="menuitem" aria-current={$page.url.pathname.startsWith('/tools') ? 'page' : undefined} on:click={handleNavLinkClick}>Home Value Calculator</a>
+						</li>
+						<li class="nav-item" role="none">
+							<a href="/market-intelligence" class="nav-link" class:active={$page.url.pathname.startsWith('/market-intelligence')} role="menuitem" aria-current={$page.url.pathname.startsWith('/market-intelligence') ? 'page' : undefined} on:click={handleNavLinkClick}>Market Data</a>
 						</li>
 					</ul>
 				</div>
@@ -223,11 +252,11 @@ import { page } from '$app/stores';
 					<ul class="nav-list" role="menubar">
 						<li class="nav-item" role="none">
 							<a href="/about" class="nav-link" class:active={$page.url.pathname.startsWith('/about')} role="menuitem" aria-current={$page.url.pathname.startsWith('/about') ? 'page' : undefined} on:click={handleNavLinkClick}>About Dr. Jan</a>
-						</li>
+		</li>
 						<li class="nav-item" role="none">
 							<a href="/contact" class="nav-link" class:active={$page.url.pathname.startsWith('/contact')} role="menuitem" aria-current={$page.url.pathname.startsWith('/contact') ? 'page' : undefined} on:click={handleNavLinkClick}>Contact</a>
-						</li>
-					</ul>
+		</li>
+			</ul>
 				</div>
 			</div>
 		</nav>
@@ -390,6 +419,20 @@ import { page } from '$app/stores';
 	
 	.nav-link-primary:hover {
 		background: var(--accent-light);
+		transform: translateY(-1px);
+	}
+
+	.nav-link-contact {
+		background: #16B286;
+		color: white !important;
+		padding: 0.5rem 1rem;
+		border-radius: 6px;
+		font-weight: 600;
+		transition: all 0.3s ease;
+	}
+
+	.nav-link-contact:hover {
+		background: #14A078;
 		transform: translateY(-1px);
 	}
 
