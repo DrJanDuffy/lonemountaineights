@@ -84,18 +84,6 @@ $: if (browser && analyticsId) {
 		{JSON.stringify(faqSchema)}
 	</script>
 	
-	<!-- Widget Tracker Code -->
-	<script>
-		if (typeof window !== 'undefined') {
-			(function(w,i,d,g,e,t){w["WidgetTrackerObject"]=g;(w[g]=w[g]||function()
-			{(w[g].q=w[g].q||[]).push(arguments);}),(w[g].ds=1*new Date());(e="script"),
-			(t=d.createElement(e)),(e=d.getElementsByTagName(e)[0]);t.async=1;t.src=i;
-			e.parentNode.insertBefore(t,e);})
-			(window,"https://widgetbe.com/agent",document,"widgetTracker");
-			window.widgetTracker("create", "WT-XQHVYQWW");
-			window.widgetTracker("send", "pageview");
-		}
-	</script>
 </svelte:head>
 
 <Navigation />
@@ -103,6 +91,22 @@ $: if (browser && analyticsId) {
 <main id="main-content">
 	<slot />
 </main>
+
+<!-- begin Widget Tracker Code -->
+{#if browser}
+	<svelte:head>
+		<script>
+		(function(w,i,d,g,e,t){w["WidgetTrackerObject"]=g;(w[g]=w[g]||function()
+		{(w[g].q=w[g].q||[]).push(arguments);}),(w[g].ds=1*new Date());(e="script"),
+		(t=d.createElement(e)),(e=d.getElementsByTagName(e)[0]);t.async=1;t.src=i;
+		e.parentNode.insertBefore(t,e);})
+		(window,"https://widgetbe.com/agent",document,"widgetTracker");
+		window.widgetTracker("create", "WT-XQHVYQWW");
+		window.widgetTracker("send", "pageview");
+		</script>
+	</svelte:head>
+{/if}
+<!-- end Widget Tracker Code -->
 
 <footer>
 	<div class="footer-content">

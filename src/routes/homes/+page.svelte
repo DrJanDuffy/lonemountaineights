@@ -1084,14 +1084,6 @@ $: applyFilters();
 		margin-bottom: 1rem;
 	}
 	
-	.spec {
-		background: var(--tertiary-color);
-		color: var(--text-color);
-		padding: 0.5rem 1rem;
-		border-radius: 20px;
-		font-size: 0.9rem;
-		font-weight: 500;
-	}
 	
 	.home-features {
 		display: flex;
@@ -1100,14 +1092,6 @@ $: applyFilters();
 		margin-bottom: 1rem;
 	}
 	
-	.feature {
-		background: var(--warm-cream);
-		color: var(--text-color);
-		padding: 0.25rem 0.75rem;
-		border-radius: 12px;
-		font-size: 0.8rem;
-		font-weight: 500;
-	}
 	
 	.dr-jan-insight {
 		background: var(--warm-cream);
@@ -1259,9 +1243,5 @@ $: applyFilters();
 			gap: 0.5rem;
 		}
 		
-		.spec {
-			font-size: 0.8rem;
-			padding: 0.4rem 0.8rem;
-		}
 	}
 </style>

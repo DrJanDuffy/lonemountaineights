@@ -276,16 +276,6 @@
 		overflow: hidden;
 	}
 	
-	.staging-photo {
-		width: 100%;
-		height: 200px;
-		object-fit: cover;
-		transition: transform 0.3s ease;
-	}
-	
-	.staging-card:hover .staging-photo {
-		transform: scale(1.05);
-	}
 	
 	.photo-label {
 		position: absolute;
@@ -511,12 +501,6 @@
 		position: relative;
 	}
 	
-	.modal-photo {
-		width: 100%;
-		height: 300px;
-		object-fit: cover;
-		border-radius: 8px;
-	}
 	
 	.modal-label {
 		position: absolute;
