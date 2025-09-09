@@ -70,7 +70,7 @@ function closeMobileMenu() {
 		</div>
 		
 		<nav class="nav-menu" class:mobile-open={mobileMenuOpen} aria-label="Main navigation">
-			<!-- Desktop Navigation - 5 Menu Structure -->
+			<!-- Desktop Navigation - Dropdown Structure -->
 			<ul class="nav-list nav-list-desktop" role="menubar">
 				<!-- 1. Properties Dropdown -->
 				<li class="nav-item nav-item-dropdown" role="none">
