@@ -1,5 +1,6 @@
 <script>
 import { generateBreadcrumbSchema } from '$lib/schema.js';
+import { microNeighborhoods } from '$lib/microNeighborhoods.js';
 
 let selectedCategory = 'subdivisions';
 let selectedSubdivision = null;

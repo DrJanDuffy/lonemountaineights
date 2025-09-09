@@ -101,7 +101,7 @@ const recentSales = [
 ];
 
 const sortBy = 'soldDate';
-const filterBy = 'all';
+let filterBy = 'all';
 
 function formatPrice(price) {
   return new Intl.NumberFormat('en-US', {
