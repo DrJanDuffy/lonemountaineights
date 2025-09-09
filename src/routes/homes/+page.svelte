@@ -345,7 +345,7 @@ let filters = {
   hasPool: false,
 };
 
-const sortBy = 'price';
+let sortBy = 'price';
 let viewMode = 'grid'; // 'grid' or 'list'
 const showFilters = false;
 
