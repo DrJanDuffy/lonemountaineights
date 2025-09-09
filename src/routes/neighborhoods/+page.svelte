@@ -106,7 +106,7 @@
 					
 					<div class="neighborhoods-grid">
 						{#each microNeighborhoods.subdivisions as subdivision}
-							<div class="neighborhood-card" on:click={() => selectSubdivision(subdivision)}>
+              <div class="neighborhood-card" on:click={() => selectSubdivision(subdivision)} on:keydown={(e) => e.key === 'Enter' && selectSubdivision(subdivision)} tabindex="0" role="button" aria-label="View details for {subdivision.name}">
 								<div class="card-header">
 									<h3>{subdivision.name}</h3>
 									<span class="price-range">
@@ -264,8 +264,8 @@
 
 <!-- Subdivision Detail Modal -->
 {#if selectedSubdivision}
-	<div class="modal-overlay" on:click={closeSubdivision}>
-		<div class="modal-content" on:click|stopPropagation>
+  <div class="modal-overlay" on:click={closeSubdivision} on:keydown={(e) => e.key === 'Escape' && closeSubdivision()}>
+    <div class="modal-content" on:click|stopPropagation on:keydown|stopPropagation>
 			<div class="modal-header">
 				<h2>{selectedSubdivision.name}</h2>
 				<button class="close-btn" on:click={closeSubdivision}>×</button>

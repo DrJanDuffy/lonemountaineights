@@ -151,7 +151,7 @@
 				
 				<!-- Points of interest -->
 				{#each pointsOfInterest as point}
-					<g class="point-of-interest" on:click={() => selectPoint(point)}>
+          <g class="point-of-interest" on:click={() => selectPoint(point)} on:keydown={(e) => e.key === 'Enter' && selectPoint(point)} tabindex="0" role="button" aria-label="View details for {point.name}">
 						<circle
 							cx={point.coordinates.x}
 							cy={point.coordinates.y}
@@ -213,8 +213,8 @@
 	
 	<!-- Point details modal -->
 	{#if selectedPoint}
-		<div class="point-details-modal" on:click={closeDetails}>
-			<div class="point-details-content" on:click|stopPropagation>
+    <div class="point-details-modal" on:click={closeDetails} on:keydown={(e) => e.key === 'Escape' && closeDetails()}>
+      <div class="point-details-content" on:click|stopPropagation on:keydown|stopPropagation>
 				<button class="close-button" on:click={closeDetails}>×</button>
 				<div class="point-details-header">
 					<span class="point-icon">{selectedPoint.icon}</span>

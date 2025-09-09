@@ -107,7 +107,7 @@
 	<!-- Before/After Gallery -->
 	<div class="staging-grid">
 		{#each stagingPhotos as photo}
-			<div class="staging-card" on:click={() => openPhoto(photo)}>
+      <div class="staging-card" on:click={() => openPhoto(photo)} on:keydown={(e) => e.key === 'Enter' && openPhoto(photo)} tabindex="0" role="button" aria-label="View staging photos for {photo.title}">
 				<div class="photo-comparison">
 					<div class="before-after">
 						<div class="photo-container">
@@ -173,8 +173,8 @@
 	
 	<!-- Photo Modal -->
 	{#if selectedPhoto}
-		<div class="photo-modal" on:click={closePhoto}>
-			<div class="modal-content" on:click|stopPropagation>
+    <div class="photo-modal" on:click={closePhoto} on:keydown={(e) => e.key === 'Escape' && closePhoto()}>
+      <div class="modal-content" on:click|stopPropagation on:keydown|stopPropagation>
 				<button class="close-button" on:click={closePhoto}>×</button>
 				<div class="modal-photos">
 					<div class="modal-before">
