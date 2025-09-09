@@ -87,7 +87,7 @@ $: if (browser && analyticsId) {
 
 <Navigation />
 
-<main id="main-content" role="main">
+<main id="main-content">
 	<slot />
 </main>
 

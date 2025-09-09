@@ -10,6 +10,19 @@ function toggleMobileMenu() {
 function closeMobileMenu() {
   mobileMenuOpen = false;
 }
+
+function handleKeydown(event) {
+  if (event.key === 'Escape') {
+    closeMobileMenu();
+  }
+}
+
+function handleNavKeydown(event) {
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault();
+    toggleMobileMenu();
+  }
+}
 </script>
 
 <header class="navigation">
@@ -26,40 +39,55 @@ function closeMobileMenu() {
 			</a>
 		</div>
 		
-		<nav class="nav-menu" class:mobile-open={mobileMenuOpen}>
-			<ul class="nav-list">
-				<li class="nav-item">
-					<a href="/" class="nav-link" class:active={$page.url.pathname === '/'}>Home</a>
+		<nav class="nav-menu" class:mobile-open={mobileMenuOpen} aria-label="Main navigation">
+			<ul class="nav-list" role="menubar">
+				<li class="nav-item" role="none">
+					<a href="/" class="nav-link" class:active={$page.url.pathname === '/'} role="menuitem" aria-current={$page.url.pathname === '/' ? 'page' : undefined}>Home</a>
 				</li>
-				<li class="nav-item">
-					<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-link" target="_blank" rel="noopener noreferrer">Search Homes in Lone Mountain Heights</a>
+				<li class="nav-item" role="none">
+					<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-link" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="Search Homes in Lone Mountain Heights (opens in new tab)">Search Homes</a>
 				</li>
-				<li class="nav-item">
-					<a href="/homes" class="nav-link" class:active={$page.url.pathname.startsWith('/homes')}>Browse Listings</a>
-				</li>
-				<li class="nav-item">
-					<a href="/sales" class="nav-link" class:active={$page.url.pathname.startsWith('/sales')}>Recent Sales</a>
-				</li>
-				<li class="nav-item">
-					<a href="/neighborhoods" class="nav-link" class:active={$page.url.pathname.startsWith('/neighborhoods')}>Micro-Neighborhoods</a>
-				</li>
-				<li class="nav-item">
-					<a href="/guide" class="nav-link" class:active={$page.url.pathname.startsWith('/guide')}>Neighborhood Guide</a>
-				</li>
-				<li class="nav-item">
-					<a href="/market-report" class="nav-link" class:active={$page.url.pathname.startsWith('/market-report')}>Market Report</a>
-				</li>
-				<li class="nav-item">
-					<a href="/valuation" class="nav-link" class:active={$page.url.pathname.startsWith('/valuation')}>Home Valuation</a>
-				</li>
-		<li class="nav-item">
-			<a href="/about" class="nav-link" class:active={$page.url.pathname.startsWith('/about')}>About</a>
+			<li class="nav-item" role="none">
+				<a href="/homes" class="nav-link" class:active={$page.url.pathname.startsWith('/homes')} role="menuitem" aria-current={$page.url.pathname.startsWith('/homes') ? 'page' : undefined}>Browse Listings</a>
+			</li>
+			<li class="nav-item" role="none">
+				<a href="/sales" class="nav-link" class:active={$page.url.pathname.startsWith('/sales')} role="menuitem" aria-current={$page.url.pathname.startsWith('/sales') ? 'page' : undefined}>Recent Sales</a>
+			</li>
+			<li class="nav-item" role="none">
+				<a href="/neighborhoods" class="nav-link" class:active={$page.url.pathname.startsWith('/neighborhoods')} role="menuitem" aria-current={$page.url.pathname.startsWith('/neighborhoods') ? 'page' : undefined}>Micro-Neighborhoods</a>
+			</li>
+			<li class="nav-item" role="none">
+				<a href="/guide" class="nav-link" class:active={$page.url.pathname.startsWith('/guide')} role="menuitem" aria-current={$page.url.pathname.startsWith('/guide') ? 'page' : undefined}>Neighborhood Guide</a>
+			</li>
+			<li class="nav-item" role="none">
+				<a href="/market-report" class="nav-link" class:active={$page.url.pathname.startsWith('/market-report')} role="menuitem" aria-current={$page.url.pathname.startsWith('/market-report') ? 'page' : undefined}>Market Report</a>
+			</li>
+			<li class="nav-item" role="none">
+				<a href="/valuation" class="nav-link" class:active={$page.url.pathname.startsWith('/valuation')} role="menuitem" aria-current={$page.url.pathname.startsWith('/valuation') ? 'page' : undefined}>Home Valuation</a>
+			</li>
+		<li class="nav-item" role="none">
+			<a href="/about" class="nav-link" class:active={$page.url.pathname.startsWith('/about')} role="menuitem" aria-current={$page.url.pathname.startsWith('/about') ? 'page' : undefined}>About Dr. Jan</a>
 		</li>
-		<li class="nav-item">
-			<a href="/contact" class="nav-link" class:active={$page.url.pathname.startsWith('/contact')}>Contact</a>
+		<li class="nav-item" role="none">
+			<a href="/contact" class="nav-link" class:active={$page.url.pathname.startsWith('/contact')} role="menuitem" aria-current={$page.url.pathname.startsWith('/contact') ? 'page' : undefined}>Contact</a>
 		</li>
 			</ul>
 		</nav>
+		
+		<button 
+			class="mobile-menu-toggle" 
+			aria-label="Toggle mobile menu"
+			aria-expanded={mobileMenuOpen}
+			aria-controls="nav-menu"
+			on:click={toggleMobileMenu}
+			on:keydown={handleNavKeydown}
+		>
+			<span class="hamburger" class:active={mobileMenuOpen}>
+				<span class="hamburger-line"></span>
+				<span class="hamburger-line"></span>
+				<span class="hamburger-line"></span>
+			</span>
+		</button>
 		
 		<div class="nav-contact">
 			<a href="tel:702-222-1964" class="contact-phone">
@@ -135,6 +163,53 @@ function closeMobileMenu() {
 	.nav-menu {
 		display: flex;
 		align-items: center;
+	}
+	
+	.mobile-menu-toggle {
+		display: none;
+		background: none;
+		border: none;
+		cursor: pointer;
+		padding: 0.5rem;
+		border-radius: 4px;
+		transition: background-color 0.2s ease;
+	}
+	
+	.mobile-menu-toggle:hover {
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+	
+	.mobile-menu-toggle:focus {
+		outline: 2px solid var(--accent-color);
+		outline-offset: 2px;
+	}
+	
+	.hamburger {
+		display: flex;
+		flex-direction: column;
+		width: 24px;
+		height: 18px;
+		justify-content: space-between;
+	}
+	
+	.hamburger-line {
+		width: 100%;
+		height: 2px;
+		background-color: var(--heading-color);
+		transition: all 0.3s ease;
+		border-radius: 1px;
+	}
+	
+	.hamburger.active .hamburger-line:nth-child(1) {
+		transform: rotate(45deg) translate(5px, 5px);
+	}
+	
+	.hamburger.active .hamburger-line:nth-child(2) {
+		opacity: 0;
+	}
+	
+	.hamburger.active .hamburger-line:nth-child(3) {
+		transform: rotate(-45deg) translate(7px, -6px);
 	}
 	
 	.nav-list {
@@ -219,8 +294,19 @@ function closeMobileMenu() {
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		width: 40px;
-		height: 40px;
+		width: 44px;
+		height: 44px;
+		border-radius: 4px;
+		transition: background-color 0.2s ease;
+	}
+	
+	.mobile-menu-toggle:hover {
+		background-color: rgba(0, 0, 0, 0.05);
+	}
+	
+	.mobile-menu-toggle:focus {
+		outline: 2px solid var(--accent-color);
+		outline-offset: 2px;
 	}
 	
 	.hamburger {
