@@ -1,4 +1,6 @@
 <script>
+import { page } from '$app/stores';
+
 let mobileMenuOpen = false;
 
 function toggleMobileMenu() {

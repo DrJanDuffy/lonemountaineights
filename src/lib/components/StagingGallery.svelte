@@ -1,4 +1,6 @@
 <script>
+import OptimizedImage from './OptimizedImage.svelte';
+
 // Before/after staging photos
 const stagingPhotos = [
   {
