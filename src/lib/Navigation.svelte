@@ -1,32 +1,42 @@
-<script>
+<script lang="ts">
 import { page } from '$app/stores';
 
-let mobileMenuOpen = false;
+	let mobileMenuOpen = false;
+	let activeDropdown: string | null = null;
 
-function toggleMobileMenu() {
-  mobileMenuOpen = !mobileMenuOpen;
-}
+	function toggleMobileMenu() {
+		mobileMenuOpen = !mobileMenuOpen;
+	}
 
-function closeMobileMenu() {
-  mobileMenuOpen = false;
-}
+	function closeMobileMenu() {
+		mobileMenuOpen = false;
+	}
 
-function handleKeydown(event: any) {
-  if (event.key === 'Escape') {
-    closeMobileMenu();
-  }
-}
+	function handleKeydown(event: KeyboardEvent) {
+		if (event.key === 'Escape') {
+			closeMobileMenu();
+			activeDropdown = null;
+		}
+	}
 
-function handleNavKeydown(event: any) {
-  if (event.key === 'Enter' || event.key === ' ') {
-    event.preventDefault();
-    toggleMobileMenu();
-  }
-}
+	function handleNavKeydown(event: KeyboardEvent) {
+		if (event.key === 'Enter' || event.key === ' ') {
+			event.preventDefault();
+			toggleMobileMenu();
+		}
+	}
 
-function handleNavLinkClick() {
-  closeMobileMenu();
-}
+	function handleNavLinkClick() {
+		closeMobileMenu();
+	}
+
+	function toggleDropdown(dropdownName: string) {
+		activeDropdown = activeDropdown === dropdownName ? null : dropdownName;
+	}
+
+	function closeDropdown() {
+		activeDropdown = null;
+	}
 </script>
 
 <header class="navigation">
@@ -44,34 +54,105 @@ function handleNavLinkClick() {
 		</div>
 		
 		<nav class="nav-menu" class:mobile-open={mobileMenuOpen} aria-label="Main navigation">
-			<!-- Desktop Navigation - Horizontal -->
+			<!-- Desktop Navigation - Clean with Dropdowns -->
 			<ul class="nav-list nav-list-desktop" role="menubar">
 				<li class="nav-item" role="none">
 					<a href="/" class="nav-link" class:active={$page.url.pathname === '/'} role="menuitem" aria-current={$page.url.pathname === '/' ? 'page' : undefined}>Home</a>
 				</li>
-				<li class="nav-item" role="none">
-					<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-link nav-link-primary" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="Search Homes in Lone Mountain Heights (opens in new tab)">Search Homes</a>
+				
+				<li class="nav-item nav-item-dropdown" role="none">
+					<button 
+						class="nav-link nav-dropdown-toggle" 
+						class:active={activeDropdown === 'homes'}
+						aria-expanded={activeDropdown === 'homes'}
+						aria-haspopup="true"
+						on:click={() => toggleDropdown('homes')}
+						on:blur={() => setTimeout(closeDropdown, 150)}
+					>
+						Find Homes <span class="dropdown-arrow">▼</span>
+					</button>
+					<ul class="nav-dropdown" class:active={activeDropdown === 'homes'} role="menu">
+						<li role="none">
+							<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-dropdown-link" target="_blank" rel="noopener noreferrer" role="menuitem" on:click={handleNavLinkClick}>Search All Homes</a>
+						</li>
+						<li role="none">
+							<a href="/homes" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Browse Listings</a>
+						</li>
+						<li role="none">
+							<a href="/sales" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Recent Sales</a>
+						</li>
+						<li role="none">
+							<a href="/neighborhoods" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Micro-Neighborhoods</a>
+						</li>
+					</ul>
 				</li>
-				<li class="nav-item" role="none">
-					<a href="/homes" class="nav-link" class:active={$page.url.pathname.startsWith('/homes')} role="menuitem" aria-current={$page.url.pathname.startsWith('/homes') ? 'page' : undefined}>Browse Listings</a>
+				
+				<li class="nav-item nav-item-dropdown" role="none">
+					<button 
+						class="nav-link nav-dropdown-toggle" 
+						class:active={activeDropdown === 'learn'}
+						aria-expanded={activeDropdown === 'learn'}
+						aria-haspopup="true"
+						on:click={() => toggleDropdown('learn')}
+						on:blur={() => setTimeout(closeDropdown, 150)}
+					>
+						Learn <span class="dropdown-arrow">▼</span>
+					</button>
+					<ul class="nav-dropdown" class:active={activeDropdown === 'learn'} role="menu">
+						<li role="none">
+							<a href="/neighborhood" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Neighborhood Guide</a>
+						</li>
+						<li role="none">
+							<a href="/market-intelligence" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Market Data</a>
+						</li>
+						<li role="none">
+							<a href="/market-report" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Market Report</a>
+						</li>
+						<li role="none">
+							<a href="/tools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Real Estate Tools</a>
+						</li>
+						<li role="none">
+							<a href="/valuation" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Home Valuation</a>
+						</li>
+						<li role="none">
+							<a href="/guide" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Complete Guide</a>
+						</li>
+					</ul>
 				</li>
-				<li class="nav-item" role="none">
-					<a href="/sales" class="nav-link" class:active={$page.url.pathname.startsWith('/sales')} role="menuitem" aria-current={$page.url.pathname.startsWith('/sales') ? 'page' : undefined}>Recent Sales</a>
+				
+				<li class="nav-item nav-item-dropdown" role="none">
+					<button 
+						class="nav-link nav-dropdown-toggle" 
+						class:active={activeDropdown === 'community'}
+						aria-expanded={activeDropdown === 'community'}
+						aria-haspopup="true"
+						on:click={() => toggleDropdown('community')}
+						on:blur={() => setTimeout(closeDropdown, 150)}
+					>
+						Community <span class="dropdown-arrow">▼</span>
+					</button>
+					<ul class="nav-dropdown" class:active={activeDropdown === 'community'} role="menu">
+						<li role="none">
+							<a href="/amenities" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Amenities</a>
+						</li>
+						<li role="none">
+							<a href="/schools" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Schools</a>
+						</li>
+						<li role="none">
+							<a href="/blog" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Blog & News</a>
+						</li>
+						<li role="none">
+							<a href="/faq/hoa-fees" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>HOA Information</a>
+						</li>
+					</ul>
 				</li>
-				<li class="nav-item" role="none">
-					<a href="/neighborhood" class="nav-link" class:active={$page.url.pathname.startsWith('/neighborhood')} role="menuitem" aria-current={$page.url.pathname.startsWith('/neighborhood') ? 'page' : undefined}>Neighborhood</a>
-				</li>
-				<li class="nav-item" role="none">
-					<a href="/market-intelligence" class="nav-link" class:active={$page.url.pathname.startsWith('/market-intelligence')} role="menuitem" aria-current={$page.url.pathname.startsWith('/market-intelligence') ? 'page' : undefined}>Market Data</a>
-				</li>
-				<li class="nav-item" role="none">
-					<a href="/tools" class="nav-link" class:active={$page.url.pathname.startsWith('/tools')} role="menuitem" aria-current={$page.url.pathname.startsWith('/tools') ? 'page' : undefined}>Tools</a>
-				</li>
+				
 				<li class="nav-item" role="none">
 					<a href="/about" class="nav-link" class:active={$page.url.pathname.startsWith('/about')} role="menuitem" aria-current={$page.url.pathname.startsWith('/about') ? 'page' : undefined}>About</a>
 				</li>
+				
 				<li class="nav-item" role="none">
-					<a href="/contact" class="nav-link" class:active={$page.url.pathname.startsWith('/contact')} role="menuitem" aria-current={$page.url.pathname.startsWith('/contact') ? 'page' : undefined}>Contact</a>
+					<a href="/contact" class="nav-link nav-link-primary" class:active={$page.url.pathname.startsWith('/contact')} role="menuitem" aria-current={$page.url.pathname.startsWith('/contact') ? 'page' : undefined}>Contact</a>
 				</li>
 			</ul>
 			
@@ -84,13 +165,13 @@ function handleNavLinkClick() {
 							<a href="/" class="nav-link" class:active={$page.url.pathname === '/'} role="menuitem" aria-current={$page.url.pathname === '/' ? 'page' : undefined} on:click={handleNavLinkClick}>Home</a>
 						</li>
 						<li class="nav-item" role="none">
-							<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-link" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="Search Homes in Lone Mountain Heights (opens in new tab)" on:click={handleNavLinkClick}>Search Homes</a>
+							<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-link" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="Search Homes in Lone Mountain Heights (opens in new tab)" on:click={handleNavLinkClick}>Search All Homes</a>
 						</li>
 					</ul>
 				</div>
 				
 				<div class="nav-group">
-					<h4 class="nav-group-title">Browse</h4>
+					<h4 class="nav-group-title">Find Homes</h4>
 					<ul class="nav-list" role="menubar">
 						<li class="nav-item" role="none">
 							<a href="/homes" class="nav-link" class:active={$page.url.pathname.startsWith('/homes')} role="menuitem" aria-current={$page.url.pathname.startsWith('/homes') ? 'page' : undefined} on:click={handleNavLinkClick}>Browse Listings</a>
@@ -99,22 +180,40 @@ function handleNavLinkClick() {
 							<a href="/sales" class="nav-link" class:active={$page.url.pathname.startsWith('/sales')} role="menuitem" aria-current={$page.url.pathname.startsWith('/sales') ? 'page' : undefined} on:click={handleNavLinkClick}>Recent Sales</a>
 						</li>
 						<li class="nav-item" role="none">
-							<a href="/neighborhood" class="nav-link" class:active={$page.url.pathname.startsWith('/neighborhood')} role="menuitem" aria-current={$page.url.pathname.startsWith('/neighborhood') ? 'page' : undefined} on:click={handleNavLinkClick}>Neighborhood</a>
+							<a href="/neighborhoods" class="nav-link" class:active={$page.url.pathname.startsWith('/neighborhoods')} role="menuitem" aria-current={$page.url.pathname.startsWith('/neighborhoods') ? 'page' : undefined} on:click={handleNavLinkClick}>Micro-Neighborhoods</a>
 						</li>
 					</ul>
 				</div>
 				
 				<div class="nav-group">
-					<h4 class="nav-group-title">Resources</h4>
+					<h4 class="nav-group-title">Learn</h4>
 					<ul class="nav-list" role="menubar">
+						<li class="nav-item" role="none">
+							<a href="/neighborhood" class="nav-link" class:active={$page.url.pathname.startsWith('/neighborhood')} role="menuitem" aria-current={$page.url.pathname.startsWith('/neighborhood') ? 'page' : undefined} on:click={handleNavLinkClick}>Neighborhood Guide</a>
+						</li>
 						<li class="nav-item" role="none">
 							<a href="/market-intelligence" class="nav-link" class:active={$page.url.pathname.startsWith('/market-intelligence')} role="menuitem" aria-current={$page.url.pathname.startsWith('/market-intelligence') ? 'page' : undefined} on:click={handleNavLinkClick}>Market Data</a>
 						</li>
 						<li class="nav-item" role="none">
-							<a href="/tools" class="nav-link" class:active={$page.url.pathname.startsWith('/tools')} role="menuitem" aria-current={$page.url.pathname.startsWith('/tools') ? 'page' : undefined} on:click={handleNavLinkClick}>Tools</a>
+							<a href="/tools" class="nav-link" class:active={$page.url.pathname.startsWith('/tools')} role="menuitem" aria-current={$page.url.pathname.startsWith('/tools') ? 'page' : undefined} on:click={handleNavLinkClick}>Real Estate Tools</a>
 						</li>
 						<li class="nav-item" role="none">
-							<a href="/guide" class="nav-link" class:active={$page.url.pathname.startsWith('/guide')} role="menuitem" aria-current={$page.url.pathname.startsWith('/guide') ? 'page' : undefined} on:click={handleNavLinkClick}>Guide</a>
+							<a href="/valuation" class="nav-link" class:active={$page.url.pathname.startsWith('/valuation')} role="menuitem" aria-current={$page.url.pathname.startsWith('/valuation') ? 'page' : undefined} on:click={handleNavLinkClick}>Home Valuation</a>
+						</li>
+					</ul>
+				</div>
+				
+				<div class="nav-group">
+					<h4 class="nav-group-title">Community</h4>
+					<ul class="nav-list" role="menubar">
+						<li class="nav-item" role="none">
+							<a href="/amenities" class="nav-link" class:active={$page.url.pathname.startsWith('/amenities')} role="menuitem" aria-current={$page.url.pathname.startsWith('/amenities') ? 'page' : undefined} on:click={handleNavLinkClick}>Amenities</a>
+						</li>
+						<li class="nav-item" role="none">
+							<a href="/schools" class="nav-link" class:active={$page.url.pathname.startsWith('/schools')} role="menuitem" aria-current={$page.url.pathname.startsWith('/schools') ? 'page' : undefined} on:click={handleNavLinkClick}>Schools</a>
+						</li>
+						<li class="nav-item" role="none">
+							<a href="/blog" class="nav-link" class:active={$page.url.pathname.startsWith('/blog')} role="menuitem" aria-current={$page.url.pathname.startsWith('/blog') ? 'page' : undefined} on:click={handleNavLinkClick}>Blog & News</a>
 						</li>
 					</ul>
 				</div>
@@ -292,6 +391,88 @@ function handleNavLinkClick() {
 	.nav-link-primary:hover {
 		background: var(--accent-light);
 		transform: translateY(-1px);
+	}
+
+	/* Dropdown Styles */
+	.nav-item-dropdown {
+		position: relative;
+	}
+
+	.nav-dropdown-toggle {
+		background: none;
+		border: none;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		transition: all 0.3s ease;
+	}
+
+	.nav-dropdown-toggle:hover {
+		color: var(--accent-color);
+	}
+
+	.nav-dropdown-toggle.active {
+		color: var(--accent-color);
+	}
+
+	.dropdown-arrow {
+		font-size: 0.7rem;
+		transition: transform 0.3s ease;
+	}
+
+	.nav-dropdown-toggle.active .dropdown-arrow {
+		transform: rotate(180deg);
+	}
+
+	.nav-dropdown {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		background: white;
+		border: 1px solid #E2E8F0;
+		border-radius: 8px;
+		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+		min-width: 200px;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-10px);
+		transition: all 0.3s ease;
+		z-index: 1000;
+		list-style: none;
+		margin: 0;
+		padding: 0.5rem 0;
+	}
+
+	.nav-dropdown.active {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+
+	.nav-dropdown li {
+		margin: 0;
+	}
+
+	.nav-dropdown-link {
+		display: block;
+		padding: 0.75rem 1rem;
+		color: #4A5568;
+		text-decoration: none;
+		transition: all 0.2s ease;
+		font-size: 0.9rem;
+	}
+
+	.nav-dropdown-link:hover {
+		background: #F7F9FC;
+		color: var(--accent-color);
+		text-decoration: none;
+	}
+
+	.nav-dropdown-link:focus {
+		background: #F7F9FC;
+		color: var(--accent-color);
+		outline: none;
 	}
 	
 	/* Mobile Navigation Groups */
