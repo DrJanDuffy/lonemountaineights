@@ -105,7 +105,7 @@ $: if (browser && analyticsId) {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 		gap: 2rem;
-		margin-bottom: 2rem;
+		margin-bottom: 0;
 	}
 
 	.footer-section h4 {
@@ -132,10 +132,12 @@ $: if (browser && analyticsId) {
 
 	.footer-bottom {
 		border-top: 1px solid rgba(255, 255, 255, 0.2);
-		padding-top: 1rem;
+		padding: 1rem 0;
 		text-align: center;
-		color: rgba(255, 255, 255, 0.6);
+		color: rgba(255, 255, 255, 0.8);
 		font-size: 0.9rem;
+		background: var(--heading-color);
+		margin-top: 1rem;
 	}
 
 	@media (max-width: 768px) {
