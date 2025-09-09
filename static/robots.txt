@@ -5,8 +5,8 @@ Disallow: /api/
 Allow: /
 
 # Sitemaps
-Sitemap: https://lonemountaineights.com/sitemap.xml
-Sitemap: https://lonemountaineights.com/sitemap-index.xml
+Sitemap: https://lonemountainheights.com/sitemap.xml
+Sitemap: https://lonemountainheights.com/sitemap-index.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
