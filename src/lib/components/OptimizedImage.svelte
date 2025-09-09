@@ -11,7 +11,7 @@
 </script>
 
 <img
-  {src: imageSrc}
+  src={imageSrc}
   {alt}
   {width}
   {height}
