@@ -72,12 +72,7 @@ function closeMobileMenu() {
 		<nav class="nav-menu" class:mobile-open={mobileMenuOpen} aria-label="Main navigation">
 			<!-- Desktop Navigation - 5 Menu Structure -->
 			<ul class="nav-list nav-list-desktop" role="menubar">
-				<!-- 1. Home -->
-				<li class="nav-item" role="none">
-					<a href="/" class="nav-link" class:active={$page.url.pathname === '/'} role="menuitem" aria-current={$page.url.pathname === '/' ? 'page' : undefined}>Home</a>
-				</li>
-				
-				<!-- 2. Properties Dropdown -->
+				<!-- 1. Properties Dropdown -->
 				<li class="nav-item nav-item-dropdown" role="none">
 					<button 
 						class="nav-link nav-dropdown-toggle" 
@@ -172,22 +167,31 @@ function closeMobileMenu() {
 					<a href="/about" class="nav-link" class:active={$page.url.pathname.startsWith('/about')} role="menuitem" aria-current={$page.url.pathname.startsWith('/about') ? 'page' : undefined}>About</a>
 				</li>
 				
-				<!-- 6. Contact - Prominent Button -->
+				<!-- 5. Contact - Phone Number -->
 				<li class="nav-item" role="none">
-					<a href="/contact" class="nav-link nav-link-contact" class:active={$page.url.pathname.startsWith('/contact')} role="menuitem" aria-current={$page.url.pathname.startsWith('/contact') ? 'page' : undefined}>Contact</a>
+					<a href="tel:702-222-1964" class="nav-link nav-link-phone" role="menuitem" aria-label="Call Dr. Jan Duffy at 702-222-1964">
+						<span class="phone-icon">📞</span>
+						<span class="phone-number">702-222-1964</span>
+					</a>
 				</li>
 			</ul>
 			
-			<!-- Mobile Navigation - Local Focused -->
+			<!-- Mobile Navigation - Mobile Optimized -->
 			<div class="nav-groups nav-groups-mobile">
 				<div class="nav-group">
-					<h4 class="nav-group-title">Main</h4>
+					<h4 class="nav-group-title">Quick Actions</h4>
 					<ul class="nav-list" role="menubar">
 						<li class="nav-item" role="none">
-							<a href="/" class="nav-link" class:active={$page.url.pathname === '/'} role="menuitem" aria-current={$page.url.pathname === '/' ? 'page' : undefined} on:click={handleNavLinkClick}>Home</a>
+							<a href="/" class="nav-link" class:active={$page.url.pathname === '/'} role="menuitem" aria-current={$page.url.pathname === '/' ? 'page' : undefined} on:click={handleNavLinkClick}>🏠 Home</a>
 						</li>
 						<li class="nav-item" role="none">
-							<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-link nav-link-primary" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="Search Homes in Lone Mountain Heights (opens in new tab)" on:click={handleNavLinkClick}>Search Homes</a>
+							<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="nav-link nav-link-primary" target="_blank" rel="noopener noreferrer" role="menuitem" aria-label="Search Homes in Lone Mountain Heights (opens in new tab)" on:click={handleNavLinkClick}>🔍 Search All Homes</a>
+						</li>
+						<li class="nav-item" role="none">
+							<a href="tel:702-222-1964" class="nav-link nav-link-phone" role="menuitem" aria-label="Call Dr. Jan Duffy at 702-222-1964" on:click={handleNavLinkClick}>
+								<span class="phone-icon">📞</span>
+								<span class="phone-number">Call 702-222-1964</span>
+							</a>
 						</li>
 					</ul>
 				</div>
@@ -254,11 +258,8 @@ function closeMobileMenu() {
 					<ul class="nav-list" role="menubar">
 						<li class="nav-item" role="none">
 							<a href="/about" class="nav-link" class:active={$page.url.pathname.startsWith('/about')} role="menuitem" aria-current={$page.url.pathname.startsWith('/about') ? 'page' : undefined} on:click={handleNavLinkClick}>About Dr. Jan</a>
-		</li>
-						<li class="nav-item" role="none">
-							<a href="/contact" class="nav-link" class:active={$page.url.pathname.startsWith('/contact')} role="menuitem" aria-current={$page.url.pathname.startsWith('/contact') ? 'page' : undefined} on:click={handleNavLinkClick}>Contact</a>
-		</li>
-			</ul>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</nav>
@@ -433,7 +434,7 @@ function closeMobileMenu() {
 		transform: translateY(-1px);
 	}
 
-	.nav-link-contact {
+	.nav-link-phone {
 		background: #16B286;
 		color: white !important;
 		padding: 0.4rem 0.8rem;
@@ -441,11 +442,24 @@ function closeMobileMenu() {
 		font-weight: 600;
 		transition: all 0.3s ease;
 		font-size: 0.85rem;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
 	}
 
-	.nav-link-contact:hover {
+	.nav-link-phone:hover {
 		background: #14A078;
 		transform: translateY(-1px);
+		color: white !important;
+	}
+
+	.phone-icon {
+		font-size: 0.9rem;
+	}
+
+	.phone-number {
+		font-weight: 700;
+		letter-spacing: 0.5px;
 	}
 
 	/* Dropdown Styles */
@@ -558,6 +572,9 @@ function closeMobileMenu() {
 	/* Mobile Navigation Groups */
 	.nav-groups-mobile {
 		display: none;
+		padding: 1rem;
+		background: white;
+		border-top: 1px solid #E2E8F0;
 	}
 	
 	.nav-groups {
@@ -738,7 +755,8 @@ function closeMobileMenu() {
 		.nav-groups-mobile {
 			display: flex;
 			flex-direction: column;
-			gap: 1rem;
+			gap: 1.5rem;
+			padding: 1.5rem;
 		}
 		
 		.nav-group {
@@ -746,14 +764,73 @@ function closeMobileMenu() {
 		}
 		
 		.nav-group-title {
-			font-size: 0.9rem;
-			margin-bottom: 0.5rem;
+			font-size: 1rem;
+			margin-bottom: 0.75rem;
+			font-weight: 600;
+			color: var(--heading-color);
 		}
 		
 		.nav-list {
-			flex-direction: row;
-			flex-wrap: wrap;
-			gap: 1rem;
+			flex-direction: column;
+			gap: 0.5rem;
+		}
+		
+		.nav-link {
+			padding: 0.75rem 1rem;
+			font-size: 1rem;
+			min-height: 44px;
+			display: flex;
+			align-items: center;
+			justify-content: flex-start;
+		}
+		
+		.nav-link-phone {
+			justify-content: center;
+			font-size: 1.1rem;
+		}
+		
+		.nav-link-primary {
+			justify-content: center;
+			font-size: 1.1rem;
+		}
+	}
+	
+	/* iPhone specific optimizations */
+	@media (max-width: 480px) {
+		.nav-container {
+			padding: 0 0.75rem;
+			height: 55px;
+		}
+		
+		.brand-logo {
+			gap: 0.5rem;
+		}
+		
+		.brand-name {
+			font-size: 0.9rem;
+		}
+		
+		.brand-tagline {
+			font-size: 0.6rem;
+		}
+		
+		.nav-groups-mobile {
+			padding: 1rem;
+			gap: 1.25rem;
+		}
+		
+		.nav-link {
+			padding: 0.875rem 1rem;
+			font-size: 1.05rem;
+			min-height: 48px;
+		}
+		
+		.nav-link-phone {
+			font-size: 1.15rem;
+		}
+		
+		.nav-link-primary {
+			font-size: 1.15rem;
 		}
 	}
 	
