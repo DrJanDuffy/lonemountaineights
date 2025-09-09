@@ -422,6 +422,8 @@ function closeMobileMenu() {
 		color: white;
 		padding: 0.5rem 0;
 		font-size: 0.8rem;
+		position: relative;
+		z-index: 1000;
 	}
 
 	.utility-container {
@@ -514,6 +516,10 @@ function closeMobileMenu() {
 		justify-content: space-between;
 		height: 60px;
 		overflow: visible;
+		background: white;
+		border-bottom: 1px solid #e2e8f0;
+		position: relative;
+		z-index: 999;
 	}
 	
 	.nav-brand {
