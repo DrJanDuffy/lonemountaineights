@@ -151,6 +151,17 @@
 			{/if}
 			
 			<a 
+				href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" 
+				class="{buttonClasses} cta-search"
+				target="_blank" 
+				rel="noopener noreferrer"
+				on:click={() => trackCTAClick('search_homes', 'realscout')}
+			>
+				<span class="btn-icon">🔍</span>
+				<span class="btn-text">Search All Homes</span>
+			</a>
+			
+			<a 
 				href="/contact" 
 				class="{buttonClasses} cta-contact"
 				on:click={() => trackCTAClick('contact_form', 'link')}

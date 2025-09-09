@@ -23,7 +23,8 @@ let heroImage =
 			</p>
 			
 			<div class="cta-buttons">
-				<a href="/homes" class="btn btn-primary">See Available Homes</a>
+				<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Search All Homes</a>
+				<a href="/homes" class="btn btn-secondary">Browse Listings</a>
 				<a href="/valuation" class="btn btn-secondary">Get My Home's Value</a>
 			</div>
 			

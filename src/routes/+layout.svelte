@@ -56,7 +56,8 @@ $: if (browser && analyticsId) {
 		
 		<div class="footer-section">
 			<h4>Quick Links</h4>
-			<p><a href="/homes">Available Homes</a></p>
+			<p><a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" target="_blank" rel="noopener noreferrer">🔍 Search All Homes</a></p>
+			<p><a href="/homes">Browse Listings</a></p>
 			<p><a href="/sales">Recent Sales</a></p>
 			<p><a href="/valuation">Home Valuation</a></p>
 			<p><a href="/market-report">Market Report</a></p>

@@ -177,8 +177,9 @@
 				<h2>Ready to Find Your Dream Home in Lone Mountain Ranch?</h2>
 				<p>Dr. Jan Duffy has extensive experience with Lone Mountain Ranch properties and can help you find the perfect home.</p>
 				<div class="cta-buttons">
-					<a href="tel:702-222-1964" class="btn btn-primary">Call 702-222-1964</a>
-					<a href="/homes" class="btn btn-secondary">View All Homes</a>
+					<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Search All Homes</a>
+					<a href="tel:702-222-1964" class="btn btn-secondary">Call 702-222-1964</a>
+					<a href="/homes" class="btn btn-secondary">Browse Listings</a>
 					<a href="/valuation" class="btn btn-secondary">Get Home Valuation</a>
 				</div>
 			</section>

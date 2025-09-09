@@ -452,8 +452,25 @@ $: applyFilters();
 		<div class="container">
 			<h1>Lone Mountain Heights Homes for Sale | Las Vegas 89129</h1>
 			<p>Exclusive listings hand-picked by Dr. Jan Duffy - 500+ transaction expert</p>
+			
+			<!-- RealScout Search CTA -->
+			<div class="realscout-cta">
+				<div class="realscout-content">
+					<h2>🔍 Search All Available Homes</h2>
+					<p>Access our complete MLS database with advanced search filters, saved searches, and real-time updates</p>
+					<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" 
+					   class="btn btn-primary realscout-btn" 
+					   target="_blank" 
+					   rel="noopener noreferrer">
+						<span class="btn-icon">🏠</span>
+						<span class="btn-text">Search All Homes on RealScout</span>
+						<span class="btn-arrow">→</span>
+					</a>
+				</div>
+			</div>
+			
 			<div class="results-summary">
-				<span class="results-count">{filteredHomes.length} homes found</span>
+				<span class="results-count">{filteredHomes.length} featured homes below</span>
 				<div class="view-controls">
 					<button class="view-btn" class:active={viewMode === 'grid'} on:click={() => viewMode = 'grid'}>
 						Grid View
@@ -723,6 +740,62 @@ $: applyFilters();
 		font-size: 1.2rem;
 		margin: 0 0 2rem 0;
 		opacity: 0.9;
+	}
+	
+	.realscout-cta {
+		background: white;
+		color: var(--accent-color);
+		padding: 2rem;
+		border-radius: 12px;
+		margin: 2rem 0;
+		box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+	}
+	
+	.realscout-content h2 {
+		font-size: 1.8rem;
+		margin: 0 0 0.5rem 0;
+		font-weight: 700;
+		color: var(--accent-color);
+	}
+	
+	.realscout-content p {
+		font-size: 1.1rem;
+		margin: 0 0 1.5rem 0;
+		color: var(--text-color);
+	}
+	
+	.realscout-btn {
+		background: var(--accent-color);
+		color: white;
+		padding: 1rem 2rem;
+		border-radius: 8px;
+		text-decoration: none;
+		font-weight: 700;
+		font-size: 1.1rem;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.75rem;
+		transition: all 0.3s ease;
+		box-shadow: 0 4px 15px rgba(30, 58, 138, 0.2);
+	}
+	
+	.realscout-btn:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 25px rgba(30, 58, 138, 0.3);
+		background: var(--accent-light);
+	}
+	
+	.btn-icon {
+		font-size: 1.2rem;
+	}
+	
+	.btn-arrow {
+		font-size: 1.2rem;
+		transition: transform 0.3s ease;
+	}
+	
+	.realscout-btn:hover .btn-arrow {
+		transform: translateX(4px);
 	}
 	
 	.results-summary {
