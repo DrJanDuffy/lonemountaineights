@@ -8,10 +8,14 @@ let heroImage =
 <section class="hero">
 	<div class="hero-content">
 		<div class="hero-text">
+			<div class="brand-badge">
+				<span class="berkshire-logo">Berkshire Hathaway</span>
+				<span class="homeservices">HomeServices</span>
+			</div>
 			<h1>Lone Mountain Heights Homes for Sale</h1>
 			<h2>Gated Community in Las Vegas 89129</h2>
 			<p class="hero-subtitle">
-				Quiet, gated community developed 2001-2005 with 3-5 bedroom homes (2,500-4,400 sq ft) featuring mature landscaping and spectacular mountain views. Dr. Jan Duffy knows every sale, every street, every opportunity in Lone Mountain Heights.
+				Quiet, gated community developed 2001-2005 with 3-5 bedroom homes (2,500-4,400 sq ft) featuring mature landscaping and spectacular mountain views. Dr. Jan Duffy, your Forever Agent, knows every sale, every street, every opportunity in Lone Mountain Heights.
 			</p>
 			
 			<div class="cta-buttons">
@@ -31,7 +35,7 @@ let heroImage =
 			<div class="image-overlay">
 				<div class="expertise-badge">
 					<span class="badge-text">500+ Las Vegas Transactions</span>
-					<span class="badge-subtext">Neighborhood Expert</span>
+					<span class="badge-subtext">Forever Agent • Global Network</span>
 				</div>
 			</div>
 		</div>
@@ -89,6 +93,29 @@ let heroImage =
 		margin: 0 auto;
 		position: relative;
 		z-index: 1;
+	}
+	
+	.brand-badge {
+		display: inline-block;
+		background: var(--accent-color);
+		color: white;
+		padding: 0.5rem 1rem;
+		border-radius: 6px;
+		margin-bottom: 1rem;
+		font-size: 0.9rem;
+		font-weight: 600;
+	}
+	
+	.berkshire-logo {
+		display: block;
+		font-weight: 700;
+		font-size: 1rem;
+	}
+	
+	.homeservices {
+		display: block;
+		font-size: 0.8rem;
+		opacity: 0.9;
 	}
 	
 	.hero-text h1 {

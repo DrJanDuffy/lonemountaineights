@@ -211,8 +211,12 @@ function resetForm() {
 <main class="valuation-page">
 	<div class="page-header">
 		<div class="container">
+			<div class="brand-badge">
+				<span class="berkshire-logo">Berkshire Hathaway</span>
+				<span class="homeservices">HomeServices</span>
+			</div>
 			<h1>What's Your Lone Mountain Heights Home Worth?</h1>
-			<p>Get an instant valuation with Dr. Jan Duffy's expert market analysis</p>
+			<p>Get an instant valuation with Dr. Jan Duffy's data-driven market analysis powered by advanced valuation technology</p>
 		</div>
 	</div>
 	
@@ -469,6 +473,29 @@ function resetForm() {
 	.container {
 		max-width: 1200px;
 		margin: 0 auto;
+	}
+	
+	.brand-badge {
+		display: inline-block;
+		background: var(--accent-color);
+		color: white;
+		padding: 0.5rem 1rem;
+		border-radius: 6px;
+		margin-bottom: 1rem;
+		font-size: 0.9rem;
+		font-weight: 600;
+	}
+	
+	.berkshire-logo {
+		display: block;
+		font-weight: 700;
+		font-size: 1rem;
+	}
+	
+	.homeservices {
+		display: block;
+		font-size: 0.8rem;
+		opacity: 0.9;
 	}
 	
 	.page-header h1 {
