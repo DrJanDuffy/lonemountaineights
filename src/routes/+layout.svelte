@@ -44,8 +44,8 @@ $: if (browser && analyticsId) {
 			<h4>Dr. Jan Duffy</h4>
 			<p>Berkshire Hathaway HomeServices</p>
 			<p>Head of Lone Mountain Heights Team</p>
-			<p>500+ Lone Mountain Transactions</p>
-			<p>Global Network • 1,600+ Offices</p>
+			<p>Your Complete Real Estate Partner</p>
+			<p>Local Expert • Global Network</p>
 		</div>
 		
 		<div class="footer-section">
@@ -64,7 +64,7 @@ $: if (browser && analyticsId) {
 		</div>
 		
 		<div class="footer-section">
-			<h4>Neighborhood</h4>
+			<h4>Local Expertise</h4>
 			<p><a href="/neighborhoods">Micro-Neighborhoods</a></p>
 			<p><a href="/guide">Living in Lone Mountain Heights</a></p>
 			<p><a href="/schools">School Information</a></p>
@@ -72,11 +72,11 @@ $: if (browser && analyticsId) {
 		</div>
 		
 		<div class="footer-section">
-			<h4>Berkshire Hathaway HomeServices</h4>
-			<p>Data-Driven Valuations</p>
-			<p>Luxury Market Focus</p>
-			<p>Advanced Marketing Tools</p>
-			<p>Global Network Access</p>
+			<h4>Our Services</h4>
+			<p>Free Market Analysis</p>
+			<p>Personalized Home Search</p>
+			<p>Expert Negotiation</p>
+			<p>24/7 Support</p>
 		</div>
 	</div>
 	
