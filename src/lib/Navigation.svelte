@@ -1,16 +1,16 @@
 <script>
 import { page } from '$app/stores';
 
-	let mobileMenuOpen = false;
+let mobileMenuOpen = false;
 	let activeDropdown = null;
 
-	function toggleMobileMenu() {
-		mobileMenuOpen = !mobileMenuOpen;
-	}
+function toggleMobileMenu() {
+  mobileMenuOpen = !mobileMenuOpen;
+}
 
-	function closeMobileMenu() {
-		mobileMenuOpen = false;
-	}
+function closeMobileMenu() {
+  mobileMenuOpen = false;
+}
 
 	function handleKeydown(event) {
 		if (event.key === 'Escape') {
@@ -295,13 +295,13 @@ import { page } from '$app/stores';
 	}
 	
 	.nav-container {
-		max-width: 1200px;
+		max-width: 1600px;
 		margin: 0 auto;
-		padding: 0 2rem;
+		padding: 0 1rem;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		height: 70px;
+		height: 60px;
 	}
 	
 	.nav-brand {
@@ -318,11 +318,11 @@ import { page } from '$app/stores';
 	.brand-logo {
 		display: flex;
 		align-items: center;
-		gap: 1rem;
+		gap: 0.75rem;
 	}
 	
 	.logo-icon {
-		font-size: 2rem;
+		font-size: 1.75rem;
 	}
 	
 	.brand-text {
@@ -333,14 +333,14 @@ import { page } from '$app/stores';
 	}
 	
 	.brand-name {
-		font-size: 1.2rem;
+		font-size: 1.1rem;
 		font-weight: 700;
 		color: var(--heading-color);
 		white-space: nowrap;
 	}
 	
 	.brand-tagline {
-		font-size: 0.75rem;
+		font-size: 0.7rem;
 		color: var(--text-light);
 		font-weight: 500;
 		white-space: nowrap;
@@ -404,17 +404,20 @@ import { page } from '$app/stores';
 		list-style: none;
 		margin: 0;
 		padding: 0;
-		gap: 1.5rem;
+		gap: 0.5rem;
 		align-items: center;
+		flex: 1;
+		justify-content: center;
 	}
 	
 	.nav-link-primary {
 		background: var(--accent-color);
 		color: white !important;
-		padding: 0.5rem 1rem;
-		border-radius: 6px;
+		padding: 0.4rem 0.8rem;
+		border-radius: 5px;
 		font-weight: 600;
 		transition: all 0.3s ease;
+		font-size: 0.85rem;
 	}
 	
 	.nav-link-primary:hover {
@@ -425,10 +428,11 @@ import { page } from '$app/stores';
 	.nav-link-contact {
 		background: #16B286;
 		color: white !important;
-		padding: 0.5rem 1rem;
-		border-radius: 6px;
+		padding: 0.4rem 0.8rem;
+		border-radius: 5px;
 		font-weight: 600;
 		transition: all 0.3s ease;
+		font-size: 0.85rem;
 	}
 
 	.nav-link-contact:hover {
@@ -474,17 +478,17 @@ import { page } from '$app/stores';
 		left: 0;
 		background: white;
 		border: 1px solid #E2E8F0;
-		border-radius: 8px;
-		box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-		min-width: 200px;
+		border-radius: 6px;
+		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+		min-width: 180px;
 		opacity: 0;
 		visibility: hidden;
-		transform: translateY(-10px);
-		transition: all 0.3s ease;
+		transform: translateY(-5px);
+		transition: all 0.2s ease;
 		z-index: 1000;
 		list-style: none;
 		margin: 0;
-		padding: 0.5rem 0;
+		padding: 0.25rem 0;
 	}
 
 	.nav-dropdown.active {
@@ -499,11 +503,12 @@ import { page } from '$app/stores';
 
 	.nav-dropdown-link {
 		display: block;
-		padding: 0.75rem 1rem;
+		padding: 0.5rem 0.75rem;
 		color: #4A5568;
 		text-decoration: none;
 		transition: all 0.2s ease;
-		font-size: 0.9rem;
+		font-size: 0.85rem;
+		white-space: nowrap;
 	}
 
 	.nav-dropdown-link:hover {
@@ -562,8 +567,8 @@ import { page } from '$app/stores';
 		text-decoration: none;
 		color: var(--text-color);
 		font-weight: 500;
-		font-size: 1rem;
-		padding: 0.5rem 0;
+		font-size: 0.9rem;
+		padding: 0.4rem 0.6rem;
 		transition: color 0.3s ease;
 		position: relative;
 	}
