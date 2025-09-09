@@ -7,10 +7,10 @@ export const microNeighborhoods = {
     {
       id: 'lone-mountain-ranch',
       name: 'Lone Mountain Ranch',
-      description: 'Premier subdivision with luxury homes and mountain views',
+      description: 'Premier subdivision with Spanish Colonial horse ranches and luxury mini-estates by Blue Heron Homes',
       avgPrice: 950000,
       priceRange: { min: 750000, max: 1200000 },
-      homeStyles: ['Two Story', 'Single Story', 'Custom'],
+      homeStyles: ['Spanish Colonial', 'Horse Ranches', 'Luxury Mini-Estates', 'Custom'],
       lotSizes: ['0.25-0.5 acres'],
       yearBuilt: '2015-2024',
       hoa: true,
@@ -131,6 +131,22 @@ export const microNeighborhoods = {
       keyStreets: ['Providence Dr', 'Community Way', 'Planned View Ln'],
       seoKeywords: ['Providence homes Las Vegas', 'Master planned community Providence', 'Providence real estate'],
       marketInsights: 'Master-planned community with diverse housing options and amenities'
+    },
+    {
+      id: 'hillside-modern-revival',
+      name: 'Hillside Modern Revival',
+      description: 'Three-story, mid-century modern revival houses designed by William Ramsey',
+      avgPrice: 1200000,
+      priceRange: { min: 950000, max: 1500000 },
+      homeStyles: ['Mid-Century Modern Revival', 'Three-Story', 'Contemporary', 'Custom'],
+      lotSizes: ['0.3-0.5 acres'],
+      yearBuilt: '2015-2024',
+      hoa: true,
+      hoaFee: 200,
+      amenities: ['Modern Design', 'Architectural Significance', 'Premium Location', 'Custom Features'],
+      keyStreets: ['Hillside Dr', 'Modern Way', 'Revival Ln'],
+      seoKeywords: ['Hillside homes Las Vegas', 'Mid-century modern homes', 'William Ramsey homes', 'Modern revival homes'],
+      marketInsights: 'Architecturally significant mid-century modern revival homes by renowned designer William Ramsey'
     }
   ],
 

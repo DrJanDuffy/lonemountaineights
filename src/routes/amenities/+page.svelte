@@ -5,41 +5,65 @@
 	const amenities = {
 		parks: [
 			{
-				name: 'Lone Mountain Park',
-				type: 'Public Park',
+				name: 'Lone Mountain Discovery Park',
+				type: 'Recreation Park',
 				distance: '0.5 miles',
 				address: '4445 N Jensen St, Las Vegas, NV 89129',
 				phone: '(702) 229-6300',
-				description: 'Large public park with paved walkways, picnic areas, playgrounds, basketball courts, and restrooms. Hosts community events including the "Trail of Terror" Halloween race.',
-				features: ['Paved Walkways', 'Picnic Areas', 'Playgrounds', 'Basketball Courts', 'Restrooms', 'Community Events'],
+				description: 'Green space with roller hockey rink, basketball courts, tennis courts, and picnic areas. Part of the official Lone Mountain recreation facilities.',
+				features: ['Roller Hockey Rink', 'Basketball Courts', 'Tennis Courts', 'Picnic Areas', 'Green Space', 'Community Events'],
 				hours: '6:00 AM - 10:00 PM',
 				rating: 4.5,
 				image: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
 			},
 			{
-				name: 'Barkin\' Basin Dog Park',
-				type: 'Dog Park',
-				distance: '0.8 miles',
-				address: '4445 N Jensen St, Las Vegas, NV 89129',
+				name: 'Majestic Park',
+				type: 'Softball Complex',
+				distance: '1.2 miles',
+				address: '4701 N Durango Dr, Las Vegas, NV 89129',
 				phone: '(702) 229-6300',
-				description: 'Popular dog park located inside Lone Mountain Regional Park with separate gated areas for large and small dogs.',
-				features: ['Separate Large/Small Dog Areas', 'Gated Entrances', 'Water Stations', 'Shade Areas', 'Waste Stations'],
+				description: 'Full-service softball facility with twelve playing fields, perfect for sports leagues and tournaments.',
+				features: ['12 Playing Fields', 'Full-Service Facility', 'Tournament Ready', 'League Play', 'Concessions', 'Parking'],
 				hours: '6:00 AM - 10:00 PM',
-				rating: 4.3,
+				rating: 4.4,
+				image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+			},
+			{
+				name: 'Trigono Hills Park',
+				type: 'Recreation Facility',
+				distance: '1.5 miles',
+				address: 'Cliff Shadows Parkway at Gilmore Avenue, Las Vegas, NV 89129',
+				phone: '(702) 229-6300',
+				description: '$6.5 million recreational facility opened in spring 2020, featuring modern amenities and state-of-the-art equipment.',
+				features: ['Modern Facility', 'State-of-the-Art Equipment', 'Multiple Courts', 'Fitness Areas', 'Community Programs', 'Accessible Design'],
+				hours: '6:00 AM - 10:00 PM',
+				rating: 4.6,
+				image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+			},
+			{
+				name: 'Police Memorial Park',
+				type: 'Memorial Park',
+				distance: '2.0 miles',
+				address: '3250 Metro Academy Way, Las Vegas, NV 89129',
+				phone: '(702) 828-3111',
+				description: 'Dedicated in 2009, includes Memorial Wall and two dedicated tree groves honoring Las Vegas Metropolitan police officers who died in the line of duty.',
+				features: ['Memorial Wall', 'Tree Groves', 'Peaceful Setting', 'Educational Displays', 'Reflection Areas', 'Honor Guards'],
+				hours: 'Dawn to Dusk',
+				rating: 4.8,
 				image: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
 			}
 		],
 		recreation: [
 			{
-				name: 'Lone Mountain Trailhead',
-				type: 'Hiking Trails',
-				distance: '0.3 miles',
+				name: 'Lone Mountain Summit Trail',
+				type: 'Hiking & Jogging',
+				distance: '0.1 miles',
 				address: 'Lone Mountain Rd, Las Vegas, NV 89129',
 				phone: '(702) 229-6300',
-				description: 'Access to 2.4-mile loop trail and other paths offering impressive views of the valley. Features rocky, steep sections for a good workout.',
-				features: ['2.4-Mile Loop Trail', 'Valley Views', 'Rocky Terrain', 'Steep Sections', 'Workout Challenge'],
+				description: '3.2-mile perimeter trail around Lone Mountain summit (560 feet elevation). Offers spectacular views of Las Vegas, Spring Mountains, and Mount Charleston. Popular for joggers, hikers, and horseback riders.',
+				features: ['3.2-Mile Perimeter Trail', '560-Foot Summit', 'City Views', 'Mountain Views', 'Jogging Path', 'Horseback Riding', '10-Foot Wide Trail'],
 				hours: 'Dawn to Dusk',
-				rating: 4.6,
+				rating: 4.7,
 				image: 'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
 			},
 			{
@@ -112,16 +136,20 @@
 	// Community characteristics
 	const communityFeatures = {
 		title: 'Lone Mountain Heights Community Features',
-		description: 'Lone Mountain Heights offers a quiet, residential environment with custom homes and oversized lots that provide a peaceful setting on the edge of the city.',
+		description: 'Lone Mountain Heights is part of the broader Lone Mountain neighborhood, immediately north of Summerlin. The area features some of the most desirable houses in Las Vegas, ranging from Spanish Colonial horse ranches to luxury mini-estates and mid-century modern revival homes.',
 		features: [
-			'Quiet residential environment',
+			'Immediately north of Summerlin',
+			'Some of the most desirable houses in Las Vegas',
+			'Spanish Colonial horse ranches',
+			'Luxury mini-estates by Blue Heron Homes',
+			'Mid-century modern revival houses at Hillside',
 			'Custom homes and single-family houses',
 			'Oversized lots for privacy',
-			'Peaceful setting on city edge',
+			'Natural terrain and parks preserved',
 			'Low traffic and noise levels',
 			'Established neighborhood feel',
 			'Close-knit community',
-			'Natural mountain views'
+			'Stunning mountain and city views'
 		]
 	};
 	
@@ -138,7 +166,7 @@
 
 <svelte:head>
 	<title>Lone Mountain Heights Amenities | Local Attractions & Recreation | Dr. Jan Duffy</title>
-	<meta name="description" content="Discover the local amenities and attractions near Lone Mountain Heights, Las Vegas. Parks, hiking trails, golf courses, shopping, and dining options from Dr. Jan Duffy." />
+	<meta name="description" content="Discover the local amenities and attractions near Lone Mountain Heights, Las Vegas. Official recreation parks, Lone Mountain summit trail, police memorial, and community facilities from Dr. Jan Duffy." />
 	
 	<!-- Breadcrumb Schema -->
 	<script type="application/ld+json">
@@ -150,7 +178,7 @@
 	<div class="page-header">
 		<div class="container">
 			<h1>Lone Mountain Heights Amenities</h1>
-			<p>Discover the local attractions and recreational opportunities in our community</p>
+			<p>Discover the local attractions and recreational opportunities in our community, immediately north of Summerlin</p>
 		</div>
 	</div>
 	
