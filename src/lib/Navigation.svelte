@@ -74,6 +74,13 @@ function handleNavKeydown(event) {
 			</ul>
 		</nav>
 		
+		<div class="nav-contact">
+			<a href="tel:702-222-1964" class="contact-phone">
+				<span class="phone-icon">📞</span>
+				<span class="phone-text">702-222-1964</span>
+			</a>
+		</div>
+		
 		<button 
 			class="mobile-menu-toggle" 
 			aria-label="Toggle mobile menu"
@@ -87,17 +94,6 @@ function handleNavKeydown(event) {
 				<span class="hamburger-line"></span>
 				<span class="hamburger-line"></span>
 			</span>
-		</button>
-		
-		<div class="nav-contact">
-			<a href="tel:702-222-1964" class="contact-phone">
-				<span class="phone-icon">📞</span>
-				<span class="phone-text">702-222-1964</span>
-			</a>
-		</div>
-		
-		<button class="mobile-menu-toggle" on:click={toggleMobileMenu} aria-label="Toggle mobile menu">
-			<span class="hamburger" class:active={mobileMenuOpen}></span>
 		</button>
 	</div>
 </header>
@@ -118,7 +114,7 @@ function handleNavKeydown(event) {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		height: 80px;
+		height: 70px;
 	}
 	
 	.nav-brand {
@@ -145,19 +141,22 @@ function handleNavKeydown(event) {
 	.brand-text {
 		display: flex;
 		flex-direction: column;
-		line-height: 1.2;
+		line-height: 1.1;
+		justify-content: center;
 	}
 	
 	.brand-name {
-		font-size: 1.3rem;
+		font-size: 1.2rem;
 		font-weight: 700;
 		color: var(--heading-color);
+		white-space: nowrap;
 	}
 	
 	.brand-tagline {
-		font-size: 0.8rem;
+		font-size: 0.75rem;
 		color: var(--text-light);
 		font-weight: 500;
+		white-space: nowrap;
 	}
 	
 	.nav-menu {
@@ -217,7 +216,9 @@ function handleNavKeydown(event) {
 		list-style: none;
 		margin: 0;
 		padding: 0;
-		gap: 2rem;
+		gap: 1.5rem;
+		flex-wrap: nowrap;
+		align-items: center;
 	}
 	
 	.nav-item {
@@ -349,13 +350,31 @@ function handleNavKeydown(event) {
 		transform: rotate(-45deg);
 	}
 	
+	@media (max-width: 1024px) {
+		.nav-list {
+			gap: 1rem;
+		}
+		
+		.nav-item:nth-child(n+6) {
+			display: none;
+		}
+	}
+	
 	@media (max-width: 768px) {
 		.nav-container {
 			padding: 0 1rem;
-			height: 70px;
+			height: 60px;
 		}
 		
 		.nav-menu {
+			display: none;
+		}
+		
+		.nav-contact {
+			display: none;
+		}
+		
+		.nav-menu.mobile-open {
 			position: absolute;
 			top: 100%;
 			left: 0;
