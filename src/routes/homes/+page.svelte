@@ -22,6 +22,9 @@ let allHomes = [
     garage: 2,
     pool: true,
     view: 'Mountain',
+    propertyType: 'Single Family',
+    isNewListing: true,
+    isLuxury: false,
   },
   {
     id: 2,
@@ -40,6 +43,9 @@ let allHomes = [
     garage: 2,
     pool: false,
     view: 'Golf Course',
+    propertyType: 'Single Family',
+    isNewListing: false,
+    isLuxury: false,
   },
   {
     id: 3,
@@ -53,6 +59,9 @@ let allHomes = [
     image:
       'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
     insight: 'Luxury finishes throughout - one of the best streets in the area',
+    propertyType: 'Single Family',
+    isNewListing: true,
+    isLuxury: true,
     homeStyle: 'Two Story',
     yearBuilt: 2020,
     garage: 3,
@@ -112,7 +121,197 @@ let allHomes = [
     garage: 2,
     pool: false,
     view: 'Mountain',
+    propertyType: 'Single Family',
+    isNewListing: false,
+    isLuxury: false,
   },
+  // Condos and Townhouses
+  {
+    id: 7,
+    address: '4567 Desert Springs Condo #203',
+    price: 425000,
+    bedrooms: 2,
+    bathrooms: 2,
+    sqft: 1250,
+    lotSize: 'N/A',
+    daysOnMarket: 5,
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight: 'Low-maintenance living with mountain views - perfect for first-time buyers',
+    homeStyle: 'Condo',
+    yearBuilt: 2019,
+    garage: 1,
+    pool: true,
+    view: 'Mountain',
+    propertyType: 'Condo',
+    isNewListing: true,
+    isLuxury: false,
+  },
+  {
+    id: 8,
+    address: '6789 Lone Mountain Townhouse #B',
+    price: 485000,
+    bedrooms: 3,
+    bathrooms: 2.5,
+    sqft: 1650,
+    lotSize: '0.05 acres',
+    daysOnMarket: 10,
+    image: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight: 'End-unit townhouse with private patio - great for families',
+    homeStyle: 'Townhouse',
+    yearBuilt: 2017,
+    garage: 2,
+    pool: true,
+    view: 'Golf Course',
+    propertyType: 'Townhouse',
+    isNewListing: false,
+    isLuxury: false,
+  },
+  // Luxury Homes
+  {
+    id: 9,
+    address: '1234 Blue Heron Estates',
+    price: 1250000,
+    bedrooms: 6,
+    bathrooms: 5,
+    sqft: 4200,
+    lotSize: '0.75 acres',
+    daysOnMarket: 2,
+    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight: 'Blue Heron mini-estate with custom finishes and panoramic views',
+    homeStyle: 'Custom',
+    yearBuilt: 2022,
+    garage: 3,
+    pool: true,
+    view: 'Mountain',
+    propertyType: 'Single Family',
+    isNewListing: true,
+    isLuxury: true,
+  },
+  {
+    id: 10,
+    address: '5678 Hillside Modern Revival',
+    price: 1100000,
+    bedrooms: 5,
+    bathrooms: 4,
+    sqft: 3800,
+    lotSize: '0.60 acres',
+    daysOnMarket: 7,
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight: 'William Ramsey designed mid-century modern revival with architectural significance',
+    homeStyle: 'Mid-Century Modern',
+    yearBuilt: 2021,
+    garage: 3,
+    pool: true,
+    view: 'City',
+    propertyType: 'Single Family',
+    isNewListing: true,
+    isLuxury: true,
+  },
+  // Homes with Pools
+  {
+    id: 11,
+    address: '9012 Poolside Paradise',
+    price: 675000,
+    bedrooms: 4,
+    bathrooms: 3,
+    sqft: 2100,
+    lotSize: '0.30 acres',
+    daysOnMarket: 14,
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight: 'Resort-style pool with spa and outdoor kitchen - perfect for entertaining',
+    homeStyle: 'Two Story',
+    yearBuilt: 2018,
+    garage: 2,
+    pool: true,
+    view: 'Mountain',
+    propertyType: 'Single Family',
+    isNewListing: false,
+    isLuxury: false,
+  },
+  // Cheap Homes
+  {
+    id: 12,
+    address: '3456 Affordable Living',
+    price: 425000,
+    bedrooms: 3,
+    bathrooms: 2,
+    sqft: 1550,
+    lotSize: '0.15 acres',
+    daysOnMarket: 25,
+    image: 'https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight: 'Great value in Lone Mountain Heights - needs some TLC but solid bones',
+    homeStyle: 'Single Story',
+    yearBuilt: 2010,
+    garage: 2,
+    pool: false,
+    view: 'Neighborhood',
+    propertyType: 'Single Family',
+    isNewListing: false,
+    isLuxury: false,
+  },
+  // New Homes
+  {
+    id: 13,
+    address: '7890 Brand New Build',
+    price: 825000,
+    bedrooms: 4,
+    bathrooms: 3,
+    sqft: 2400,
+    lotSize: '0.25 acres',
+    daysOnMarket: 1,
+    image: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight: 'Brand new construction with modern amenities and energy efficiency',
+    homeStyle: 'Two Story',
+    yearBuilt: 2024,
+    garage: 2,
+    pool: true,
+    view: 'Mountain',
+    propertyType: 'Single Family',
+    isNewListing: true,
+    isLuxury: false,
+  },
+  // Single Story Homes
+  {
+    id: 14,
+    address: '2345 Ranch Style Living',
+    price: 595000,
+    bedrooms: 3,
+    bathrooms: 2,
+    sqft: 1800,
+    lotSize: '0.20 acres',
+    daysOnMarket: 12,
+    image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight: 'Single-story ranch perfect for aging in place or accessibility needs',
+    homeStyle: 'Ranch',
+    yearBuilt: 2014,
+    garage: 2,
+    pool: false,
+    view: 'Golf Course',
+    propertyType: 'Single Family',
+    isNewListing: false,
+    isLuxury: false,
+  },
+  // Land for Sale
+  {
+    id: 15,
+    address: '5678 Build Your Dream Lot',
+    price: 350000,
+    bedrooms: 0,
+    bathrooms: 0,
+    sqft: 0,
+    lotSize: '0.50 acres',
+    daysOnMarket: 30,
+    image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    insight: 'Prime lot with mountain views - perfect for custom home construction',
+    homeStyle: 'Land',
+    yearBuilt: 0,
+    garage: 0,
+    pool: false,
+    view: 'Mountain',
+    propertyType: 'Land',
+    isNewListing: false,
+    isLuxury: false,
+  }
 ];
 
 let filteredHomes = allHomes;
@@ -127,6 +326,10 @@ let filters = {
   pool: '',
   view: '',
   garage: '',
+  propertyType: '',
+  isNewListing: false,
+  isLuxury: false,
+  hasPool: false
 };
 
 let sortBy = 'price';
@@ -158,6 +361,14 @@ function applyFilters() {
     if (filters.pool && home.pool !== (filters.pool === 'yes')) return false;
     if (filters.view && home.view !== filters.view) return false;
     if (filters.garage && home.garage !== parseInt(filters.garage))
+      return false;
+    if (filters.propertyType && home.propertyType !== filters.propertyType)
+      return false;
+    if (filters.isNewListing && !home.isNewListing)
+      return false;
+    if (filters.isLuxury && !home.isLuxury)
+      return false;
+    if (filters.hasPool && !home.pool)
       return false;
     return true;
   });
@@ -329,11 +540,52 @@ $: applyFilters();
 							<option value="3">3+</option>
 						</select>
 					</div>
+					
+					<div class="filter-group">
+						<label for="property-type-filter">Property Type</label>
+						<select id="property-type-filter" bind:value={filters.propertyType}>
+							<option value="">Any</option>
+							<option value="Single Family">Single Family</option>
+							<option value="Condo">Condo</option>
+							<option value="Townhouse">Townhouse</option>
+							<option value="Land">Land</option>
+						</select>
+					</div>
+					
+					<div class="filter-group">
+						<label>
+							<input type="checkbox" bind:checked={filters.isNewListing} />
+							New Listings Only
+						</label>
+					</div>
+					
+					<div class="filter-group">
+						<label>
+							<input type="checkbox" bind:checked={filters.isLuxury} />
+							Luxury Homes Only
+						</label>
+					</div>
+					
+					<div class="filter-group">
+						<label>
+							<input type="checkbox" bind:checked={filters.hasPool} />
+							Homes with Pools
+						</label>
+					</div>
 				</aside>
 				
 				<!-- Main Content -->
 				<div class="main-content">
 					<div class="content-header">
+						<div class="quick-filters">
+							<button class="quick-filter-btn" on:click={() => { filters.propertyType = 'Condo'; applyFilters(); }}>Condos</button>
+							<button class="quick-filter-btn" on:click={() => { filters.propertyType = 'Townhouse'; applyFilters(); }}>Townhouses</button>
+							<button class="quick-filter-btn" on:click={() => { filters.isLuxury = true; applyFilters(); }}>Luxury Homes</button>
+							<button class="quick-filter-btn" on:click={() => { filters.hasPool = true; applyFilters(); }}>Homes with Pools</button>
+							<button class="quick-filter-btn" on:click={() => { filters.isNewListing = true; applyFilters(); }}>New Listings</button>
+							<button class="quick-filter-btn" on:click={() => { filters.homeStyle = 'Single Story'; applyFilters(); }}>Single Story</button>
+							<button class="quick-filter-btn" on:click={() => { filters.propertyType = 'Land'; applyFilters(); }}>Land for Sale</button>
+						</div>
 					<div class="sort-controls">
 						<label for="sort-select">Sort by:</label>
 						<select id="sort-select" bind:value={sortBy}>
@@ -567,16 +819,43 @@ $: applyFilters();
 	
 	.content-header {
 		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		flex-direction: column;
+		gap: 1rem;
 		padding: 1.5rem 2rem;
 		border-bottom: 1px solid var(--tertiary-color);
+	}
+	
+	.quick-filters {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-bottom: 1rem;
+	}
+	
+	.quick-filter-btn {
+		padding: 0.5rem 1rem;
+		background: var(--warm-cream);
+		border: 1px solid var(--tertiary-color);
+		border-radius: 20px;
+		font-size: 0.9rem;
+		font-weight: 500;
+		color: var(--text-color);
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+	
+	.quick-filter-btn:hover {
+		background: var(--accent-color);
+		color: white;
+		border-color: var(--accent-color);
+		transform: translateY(-1px);
 	}
 	
 	.sort-controls {
 		display: flex;
 		align-items: center;
 		gap: 1rem;
+		margin-left: auto;
 	}
 	
 	.sort-controls label {
