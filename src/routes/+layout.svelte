@@ -3,9 +3,14 @@ import Navigation from '$lib/Navigation.svelte';
 import { webVitals } from '$lib/vitals';
 import { browser } from '$app/env';
 import { page } from '$app/stores';
+import { generateLocalBusinessSchema, generateFAQSchema, realEstateFAQs } from '$lib/schema.js';
 import '../app.css';
 
 let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
+
+// Generate schema markup for the main site
+const localBusinessSchema = generateLocalBusinessSchema();
+const faqSchema = generateFAQSchema(realEstateFAQs);
 
 $: if (browser && analyticsId) {
   webVitals({
@@ -15,6 +20,16 @@ $: if (browser && analyticsId) {
   });
 }
 </script>
+
+<!-- Schema Markup for SEO -->
+<svelte:head>
+	<script type="application/ld+json">
+		{JSON.stringify(localBusinessSchema)}
+	</script>
+	<script type="application/ld+json">
+		{JSON.stringify(faqSchema)}
+	</script>
+</svelte:head>
 
 <Navigation />
 
@@ -46,6 +61,7 @@ $: if (browser && analyticsId) {
 		
 		<div class="footer-section">
 			<h4>Neighborhood</h4>
+			<p><a href="/neighborhoods">Micro-Neighborhoods</a></p>
 			<p><a href="/guide">Living in Lone Mountain Heights</a></p>
 			<p><a href="/schools">School Information</a></p>
 			<p><a href="/amenities">Local Amenities</a></p>

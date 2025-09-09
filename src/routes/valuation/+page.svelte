@@ -339,8 +339,8 @@ function resetForm() {
 								</div>
 								
 								<div class="form-group full-width">
-									<label>Upgrades & Features</label>
-									<div class="upgrades-grid">
+									<label for="upgrades-section">Upgrades & Features</label>
+									<div id="upgrades-section" class="upgrades-grid">
 										{#each upgradeOptions as upgrade}
 											<label class="upgrade-option">
 												<input 

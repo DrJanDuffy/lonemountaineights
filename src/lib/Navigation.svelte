@@ -38,6 +38,9 @@ function closeMobileMenu() {
 					<a href="/sales" class="nav-link" class:active={$page.url.pathname.startsWith('/sales')}>Recent Sales</a>
 				</li>
 				<li class="nav-item">
+					<a href="/neighborhoods" class="nav-link" class:active={$page.url.pathname.startsWith('/neighborhoods')}>Micro-Neighborhoods</a>
+				</li>
+				<li class="nav-item">
 					<a href="/guide" class="nav-link" class:active={$page.url.pathname.startsWith('/guide')}>Neighborhood Guide</a>
 				</li>
 				<li class="nav-item">

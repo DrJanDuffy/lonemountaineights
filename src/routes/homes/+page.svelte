@@ -1,5 +1,6 @@
 <script>
 import { onMount } from 'svelte';
+import { generatePropertySchema, generateBreadcrumbSchema } from '$lib/schema.js';
 
 // Mock data - in production this would come from MLS API
 let allHomes = [
@@ -204,6 +205,21 @@ $: applyFilters();
 <svelte:head>
 	<title>Available Homes in Lone Mountain Heights | Dr. Jan Duffy Real Estate</title>
 	<meta name="description" content="Browse available homes for sale in Lone Mountain Heights, Las Vegas. Dr. Jan Duffy provides expert insights on every listing in the neighborhood." />
+	
+	<!-- Schema Markup for Real Estate Listings -->
+	{#each filteredHomes as property}
+		<script type="application/ld+json">
+			{JSON.stringify(generatePropertySchema(property))}
+		</script>
+	{/each}
+	
+	<!-- Breadcrumb Schema -->
+	<script type="application/ld+json">
+		{JSON.stringify(generateBreadcrumbSchema([
+			{ name: 'Home', url: 'https://lonemountainheights.com' },
+			{ name: 'Available Homes', url: 'https://lonemountainheights.com/homes' }
+		]))}
+	</script>
 </svelte:head>
 
 <main class="homes-page">
@@ -318,9 +334,9 @@ $: applyFilters();
 				<!-- Main Content -->
 				<div class="main-content">
 					<div class="content-header">
-						<div class="sort-controls">
-							<label>Sort by:</label>
-							<select bind:value={sortBy}>
+					<div class="sort-controls">
+						<label for="sort-select">Sort by:</label>
+						<select id="sort-select" bind:value={sortBy}>
 								<option value="price">Price: Low to High</option>
 								<option value="price-desc">Price: High to Low</option>
 								<option value="sqft">Square Footage: Low to High</option>
