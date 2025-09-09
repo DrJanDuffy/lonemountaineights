@@ -159,15 +159,13 @@ function closeMobileMenu() {
 						<li role="none">
 							<a href="/faq/hoa-fees" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>HOA Information</a>
 						</li>
+						<li role="none">
+							<a href="/about" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>About Dr. Jan</a>
+						</li>
 					</ul>
 				</li>
 				
-				<!-- 5. About -->
-				<li class="nav-item" role="none">
-					<a href="/about" class="nav-link" class:active={$page.url.pathname.startsWith('/about')} role="menuitem" aria-current={$page.url.pathname.startsWith('/about') ? 'page' : undefined}>About</a>
-				</li>
-				
-				<!-- 5. Contact - Phone Number -->
+				<!-- 4. Contact - Phone Number -->
 				<li class="nav-item" role="none">
 					<a href="tel:702-222-1964" class="nav-link nav-link-phone" role="menuitem" aria-label="Call Dr. Jan Duffy at 702-222-1964">
 						<span class="phone-icon">📞</span>
@@ -522,6 +520,7 @@ function closeMobileMenu() {
 	.nav-dropdown {
 		left: 50%;
 		transform: translateX(-50%) translateY(-5px);
+		z-index: 1002;
 	}
 
 	.nav-dropdown.active {

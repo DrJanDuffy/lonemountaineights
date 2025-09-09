@@ -96,6 +96,8 @@ const heroImage =
 		margin: 0 auto;
 		position: relative;
 		z-index: 1;
+		width: 100%;
+		box-sizing: border-box;
 	}
 	
 	.brand-badge {
@@ -150,6 +152,8 @@ const heroImage =
 		color: var(--heading-color);
 		margin: 0 0 1rem 0;
 		line-height: 1.1;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
 	}
 	
 	.hero-text h2 {
@@ -359,6 +363,47 @@ const heroImage =
 		
 		.stat-number {
 			font-size: 1.5rem;
+		}
+	}
+	
+	/* Additional responsive fixes */
+	@media (max-width: 1024px) {
+		.hero-content {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+			text-align: center;
+		}
+		
+		.hero-text h1 {
+			font-size: 2.5rem;
+		}
+		
+		.hero-text h2 {
+			font-size: 1.5rem;
+		}
+	}
+	
+	@media (max-width: 768px) {
+		.hero {
+			padding: 2rem 1rem;
+			min-height: 60vh;
+		}
+		
+		.hero-text h1 {
+			font-size: 2rem;
+		}
+		
+		.hero-text h2 {
+			font-size: 1.25rem;
+		}
+		
+		.hero-subtitle {
+			font-size: 1rem;
+		}
+		
+		.cta-buttons {
+			flex-direction: column;
+			gap: 1rem;
 		}
 	}
 </style>
