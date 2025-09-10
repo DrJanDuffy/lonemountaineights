@@ -237,18 +237,13 @@
 	<div class="main-content-container">
 		<TrustSignals />
 		
-		<!-- Featured Office Listings -->
-		<section class="office-listings-section">
+		<!-- Featured Listings Section -->
+		<section class="featured-listings">
 			<div class="container">
-				<h2>Featured Office Listings</h2>
-				<p class="section-subtitle">Explore our exclusive office properties and commercial real estate opportunities</p>
-				<div class="office-listings-widget">
-					<realscout-office-listings 
-						agent-encoded-id="QWdlbnQtMjI1MDUw" 
-						sort-order="STATUS_AND_SIGNIFICANT_CHANGE" 
-						listing-status="For Sale" 
-						property-types="SFR,MF,TC">
-					</realscout-office-listings>
+				<h2>Current Lone Mountain Heights Listings</h2>
+				<p>Browse our latest homes for sale in Lone Mountain Heights, Las Vegas 89129</p>
+				<div class="realscout-listings-widget">
+					<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="STATUS_AND_SIGNIFICANT_CHANGE" listing-status="For Sale" property-types="SFR,MF,TC"></realscout-office-listings>
 				</div>
 			</div>
 		</section>
@@ -355,6 +350,43 @@
 		margin: 0;
 		line-height: 1.6;
 	}
+
+	/* Featured Listings Section */
+	.featured-listings {
+		background: #f8f9fa;
+		padding: 4rem 0;
+		margin: 2rem 0;
+	}
+
+	.featured-listings .container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	.featured-listings h2 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		color: #1a365d;
+		text-align: center;
+		margin: 0 0 1rem 0;
+	}
+
+	.featured-listings p {
+		font-size: 1.2rem;
+		color: #6c757d;
+		text-align: center;
+		margin: 0 0 2rem 0;
+	}
+
+	.realscout-listings-widget {
+		width: 100%;
+	}
+
+	:global(realscout-office-listings) {
+		--rs-listing-divider-color: rgb(101, 141, 172);
+		width: 100%;
+	}
 	
 	@media (max-width: 768px) {
 		.main-content-container {
@@ -378,57 +410,6 @@
 
 		.quick-link {
 			padding: 1.5rem;
-		}
-	}
-
-	/* Office Listings Section */
-	.office-listings-section {
-		background: white;
-		padding: 4rem 0;
-		margin: 2rem 0;
-		border-radius: 12px;
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-	}
-
-	.office-listings-section h2 {
-		text-align: center;
-		font-size: 2.5rem;
-		font-weight: 700;
-		color: #1A202C;
-		margin: 0 0 1rem 0;
-	}
-
-	.section-subtitle {
-		text-align: center;
-		font-size: 1.2rem;
-		color: #4A5568;
-		margin: 0 0 3rem 0;
-		max-width: 600px;
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	.office-listings-widget {
-		width: 100%;
-	}
-
-	/* RealScout Office Listings Widget Styles */
-	:global(realscout-office-listings) {
-		--rs-listing-divider-color: rgb(101, 141, 172);
-		width: 100%;
-	}
-
-	@media (max-width: 768px) {
-		.office-listings-section {
-			padding: 2rem 0;
-		}
-		
-		.office-listings-section h2 {
-			font-size: 2rem;
-		}
-		
-		.section-subtitle {
-			font-size: 1.1rem;
 		}
 	}
 </style>

@@ -1,6 +1,17 @@
 <script>
+import { onMount } from 'svelte';
 import { generateBreadcrumbSchema } from '$lib/schema.js';
 import { microNeighborhoods } from '$lib/microNeighborhoods.js';
+
+// Load RealScout script dynamically
+onMount(() => {
+	if (!document.querySelector('script[src*="realscout-web-components"]')) {
+		const script = document.createElement('script');
+		script.src = 'https://em.realscout.com/widgets/realscout-web-components.umd.js';
+		script.type = 'module';
+		document.head.appendChild(script);
+	}
+});
 
 let selectedCategory = 'subdivisions';
 let selectedSubdivision = null;
@@ -262,6 +273,17 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 				</section>
 			{/if}
 		</div>
+		
+		<!-- Current Listings Section -->
+		<section class="current-listings">
+			<div class="container">
+				<h2>Homes for Sale in Lone Mountain Heights</h2>
+				<p>Browse current listings across all neighborhoods and subdivisions</p>
+				<div class="realscout-listings-widget">
+					<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="STATUS_AND_SIGNIFICANT_CHANGE" listing-status="For Sale" property-types="SFR,MF,TC"></realscout-office-listings>
+				</div>
+			</div>
+		</section>
 	</div>
 </main>
 
@@ -766,5 +788,42 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 		.btn {
 			min-width: 100%;
 		}
+	}
+
+	/* Current Listings Section */
+	.current-listings {
+		background: #f8f9fa;
+		padding: 4rem 0;
+		margin-top: 2rem;
+	}
+
+	.current-listings .container {
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	.current-listings h2 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		color: #1a365d;
+		text-align: center;
+		margin: 0 0 1rem 0;
+	}
+
+	.current-listings p {
+		font-size: 1.2rem;
+		color: #6c757d;
+		text-align: center;
+		margin: 0 0 2rem 0;
+	}
+
+	.realscout-listings-widget {
+		width: 100%;
+	}
+
+	:global(realscout-office-listings) {
+		--rs-listing-divider-color: rgb(101, 141, 172);
+		width: 100%;
 	}
 </style>

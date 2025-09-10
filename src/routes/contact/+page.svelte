@@ -313,6 +313,15 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 				</div>
 			</div>
 			
+			<!-- Featured Listings Section -->
+			<div class="featured-listings">
+				<h2>Current Lone Mountain Heights Listings</h2>
+				<p>Browse our latest homes for sale while you're here</p>
+				<div class="realscout-listings-widget">
+					<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="STATUS_AND_SIGNIFICANT_CHANGE" listing-status="For Sale" property-types="SFR,MF,TC"></realscout-office-listings>
+				</div>
+			</div>
+			
 			<!-- Quick Contact CTA -->
 			<div class="quick-contact-cta">
 				<h2>Need Immediate Assistance?</h2>
@@ -322,22 +331,6 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 					<a href="tel:702-222-1964" class="btn btn-secondary">Call 702-222-1964</a>
 					<a href="/homes" class="btn btn-secondary">Browse Listings</a>
 					<a href="/valuation" class="btn btn-secondary">Get Home Valuation</a>
-				</div>
-			</div>
-			
-			<!-- Office Listings Section -->
-			<div class="office-listings-section">
-				<div class="container">
-					<h2>Office & Commercial Properties</h2>
-					<p class="section-subtitle">Explore our exclusive office listings and commercial real estate opportunities</p>
-					<div class="office-listings-widget">
-						<realscout-office-listings 
-							agent-encoded-id="QWdlbnQtMjI1MDUw" 
-							sort-order="STATUS_AND_SIGNIFICANT_CHANGE" 
-							listing-status="For Sale" 
-							property-types="SFR,MF,TC">
-						</realscout-office-listings>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -670,54 +663,36 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 		}
 	}
 
-	/* Office Listings Section */
-	.office-listings-section {
-		background: white;
+	/* Featured Listings Section */
+	.featured-listings {
+		background: #f8f9fa;
 		padding: 4rem 0;
 		margin: 2rem 0;
-		border-radius: 12px;
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+		text-align: center;
 	}
 
-	.office-listings-section h2 {
-		text-align: center;
+	.featured-listings h2 {
 		font-size: 2.5rem;
 		font-weight: 700;
-		color: #1A202C;
+		color: #1a365d;
 		margin: 0 0 1rem 0;
 	}
 
-	.section-subtitle {
-		text-align: center;
+	.featured-listings p {
 		font-size: 1.2rem;
-		color: #4A5568;
-		margin: 0 0 3rem 0;
-		max-width: 600px;
-		margin-left: auto;
-		margin-right: auto;
+		color: #6c757d;
+		margin: 0 0 2rem 0;
 	}
 
-	.office-listings-widget {
+	.realscout-listings-widget {
 		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
 	}
 
-	/* RealScout Office Listings Widget Styles */
 	:global(realscout-office-listings) {
 		--rs-listing-divider-color: rgb(101, 141, 172);
 		width: 100%;
-	}
-
-	@media (max-width: 768px) {
-		.office-listings-section {
-			padding: 2rem 0;
-		}
-		
-		.office-listings-section h2 {
-			font-size: 2rem;
-		}
-		
-		.section-subtitle {
-			font-size: 1.1rem;
-		}
 	}
 </style>
