@@ -1,4 +1,16 @@
 <script>
+import { onMount } from 'svelte';
+
+// Load RealScout script dynamically
+onMount(() => {
+	if (!document.querySelector('script[src*="realscout-web-components"]')) {
+		const script = document.createElement('script');
+		script.src = 'https://em.realscout.com/widgets/realscout-web-components.umd.js';
+		script.type = 'module';
+		document.head.appendChild(script);
+	}
+});
+
 // Mock data - in production this would come from MLS API
 const allHomes = [
   {
@@ -721,6 +733,22 @@ $: applyFilters();
 				</div>
 			</div>
 		</div>
+		
+		<!-- Office Listings Section -->
+		<div class="office-listings-section">
+			<div class="container">
+				<h2>Office & Commercial Properties</h2>
+				<p class="section-subtitle">Explore our exclusive office listings and commercial real estate opportunities</p>
+				<div class="office-listings-widget">
+					<realscout-office-listings 
+						agent-encoded-id="QWdlbnQtMjI1MDUw" 
+						sort-order="STATUS_AND_SIGNIFICANT_CHANGE" 
+						listing-status="For Sale" 
+						property-types="SFR,MF,TC">
+					</realscout-office-listings>
+				</div>
+			</div>
+		</div>
 	</div>
 </main>
 
@@ -1255,5 +1283,56 @@ $: applyFilters();
 			gap: 0.5rem;
 		}
 		
+	}
+
+	/* Office Listings Section */
+	.office-listings-section {
+		background: white;
+		padding: 4rem 0;
+		margin: 2rem 0;
+		border-radius: 12px;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	}
+
+	.office-listings-section h2 {
+		text-align: center;
+		font-size: 2.5rem;
+		font-weight: 700;
+		color: #1A202C;
+		margin: 0 0 1rem 0;
+	}
+
+	.section-subtitle {
+		text-align: center;
+		font-size: 1.2rem;
+		color: #4A5568;
+		margin: 0 0 3rem 0;
+		max-width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.office-listings-widget {
+		width: 100%;
+	}
+
+	/* RealScout Office Listings Widget Styles */
+	:global(realscout-office-listings) {
+		--rs-listing-divider-color: rgb(101, 141, 172);
+		width: 100%;
+	}
+
+	@media (max-width: 768px) {
+		.office-listings-section {
+			padding: 2rem 0;
+		}
+		
+		.office-listings-section h2 {
+			font-size: 2rem;
+		}
+		
+		.section-subtitle {
+			font-size: 1.1rem;
+		}
 	}
 </style>
