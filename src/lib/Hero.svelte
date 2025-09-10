@@ -78,13 +78,37 @@ onMount(() => {
 							</div>
 						</div>
 					{:else}
-						<div class="widget-container">
+						<div class="widget-container valuation-container">
 							<div class="widget-header">
+								<div class="header-icon">💰</div>
 								<h3>Get Your Home's Value</h3>
-								<p>Free instant valuation for your property</p>
+								<p>Free instant valuation powered by local market data</p>
 							</div>
-							<div class="realscout-valuation-widget">
-								<realscout-home-value agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-home-value>
+							
+							<div class="valuation-form-wrapper">
+								<div class="valuation-intro">
+									<h4>What's my home worth?</h4>
+									<p>Get a free home value estimate instantly</p>
+								</div>
+								
+								<div class="realscout-valuation-widget">
+									<realscout-home-value agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-home-value>
+								</div>
+								
+								<div class="valuation-benefits">
+									<div class="benefit-item">
+										<span class="benefit-icon">📊</span>
+										<span>Accurate market data</span>
+									</div>
+									<div class="benefit-item">
+										<span class="benefit-icon">⚡</span>
+										<span>Instant results</span>
+									</div>
+									<div class="benefit-item">
+										<span class="benefit-icon">🔒</span>
+										<span>100% confidential</span>
+									</div>
+								</div>
 							</div>
 						</div>
 					{/if}
@@ -283,6 +307,13 @@ onMount(() => {
 	.widget-header {
 		text-align: center;
 		margin-bottom: 1.5rem;
+		position: relative;
+	}
+
+	.header-icon {
+		font-size: 2rem;
+		margin-bottom: 0.5rem;
+		display: block;
 	}
 
 	.widget-header h3 {
@@ -297,6 +328,101 @@ onMount(() => {
 		color: #6c757d;
 		margin: 0;
 		line-height: 1.4;
+	}
+
+	/* Valuation Container Specific Styles */
+	.valuation-container {
+		background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+		border: 2px solid #e9ecef;
+		border-radius: 16px;
+		overflow: hidden;
+		box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+	}
+
+	.valuation-form-wrapper {
+		padding: 0 2rem 2rem 2rem;
+	}
+
+	.valuation-intro {
+		text-align: center;
+		margin-bottom: 2rem;
+		padding: 1.5rem;
+		background: linear-gradient(135deg, #3a8dde 0%, #2c5aa0 100%);
+		border-radius: 12px;
+		color: white;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.valuation-intro::before {
+		content: '';
+		position: absolute;
+		top: -50%;
+		left: -50%;
+		width: 200%;
+		height: 200%;
+		background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+		animation: shimmer 3s ease-in-out infinite;
+	}
+
+	@keyframes shimmer {
+		0%, 100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+		50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+	}
+
+	.valuation-intro h4 {
+		font-size: 1.8rem;
+		font-weight: 700;
+		margin: 0 0 0.5rem 0;
+		position: relative;
+		z-index: 1;
+	}
+
+	.valuation-intro p {
+		font-size: 1.1rem;
+		margin: 0;
+		opacity: 0.95;
+		position: relative;
+		z-index: 1;
+	}
+
+	.valuation-benefits {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		gap: 1rem;
+		margin-top: 1.5rem;
+		padding: 1.5rem;
+		background: rgba(58, 141, 222, 0.05);
+		border-radius: 12px;
+		border: 1px solid rgba(58, 141, 222, 0.1);
+	}
+
+	.benefit-item {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		padding: 0.75rem;
+		background: white;
+		border-radius: 8px;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+		transition: all 0.3s ease;
+	}
+
+	.benefit-item:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	}
+
+	.benefit-icon {
+		font-size: 1.2rem;
+		width: 24px;
+		text-align: center;
+	}
+
+	.benefit-item span:last-child {
+		font-weight: 600;
+		color: #1a365d;
+		font-size: 0.9rem;
 	}
 
 	/* Trust Indicators */
@@ -363,13 +489,89 @@ onMount(() => {
 	/* RealScout Home Value Styles */
 	:global(realscout-home-value) {
 		--rs-hvw-background-color: #ffffff;
-		--rs-hvw-title-color: #000000;
-		--rs-hvw-subtitle-color: rgba(28, 30, 38, 0.5);
+		--rs-hvw-title-color: #1a365d;
+		--rs-hvw-subtitle-color: #6c757d;
 		--rs-hvw-primary-button-text-color: #ffffff;
-		--rs-hvw-primary-button-color: rgb(35, 93, 137);
-		--rs-hvw-secondary-button-text-color: rgb(35, 93, 137);
+		--rs-hvw-primary-button-color: #3a8dde;
+		--rs-hvw-secondary-button-text-color: #3a8dde;
 		--rs-hvw-secondary-button-color: #ffffff;
 		--rs-hvw-widget-width: 100%;
+		--rs-hvw-border-radius: 12px;
+		--rs-hvw-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+		--rs-hvw-input-border-color: #e9ecef;
+		--rs-hvw-input-focus-border-color: #3a8dde;
+		--rs-hvw-input-background-color: #f8f9fa;
+		--rs-hvw-button-border-radius: 8px;
+		--rs-hvw-button-font-weight: 600;
+		--rs-hvw-button-padding: 12px 24px;
+		--rs-hvw-input-padding: 12px 16px;
+		--rs-hvw-input-border-radius: 8px;
+		--rs-hvw-title-font-size: 1.5rem;
+		--rs-hvw-subtitle-font-size: 1rem;
+		--rs-hvw-title-font-weight: 700;
+		--rs-hvw-subtitle-font-weight: 400;
+		--rs-hvw-input-font-size: 1rem;
+		--rs-hvw-button-font-size: 1rem;
+		--rs-hvw-input-placeholder-color: #6c757d;
+		--rs-hvw-input-text-color: #1a365d;
+		--rs-hvw-button-hover-color: #2c5aa0;
+		--rs-hvw-button-active-color: #1e3a5f;
+		--rs-hvw-input-focus-background-color: #ffffff;
+		--rs-hvw-input-focus-shadow: 0 0 0 3px rgba(58, 141, 222, 0.1);
+		--rs-hvw-button-shadow: 0 2px 8px rgba(58, 141, 222, 0.2);
+		--rs-hvw-button-hover-shadow: 0 4px 12px rgba(58, 141, 222, 0.3);
+		--rs-hvw-container-padding: 24px;
+		--rs-hvw-container-gap: 16px;
+		--rs-hvw-title-margin-bottom: 8px;
+		--rs-hvw-subtitle-margin-bottom: 20px;
+		--rs-hvw-input-margin-bottom: 16px;
+		--rs-hvw-button-margin-top: 20px;
+		--rs-hvw-button-width: 100%;
+		--rs-hvw-button-min-height: 48px;
+		--rs-hvw-input-min-height: 48px;
+		--rs-hvw-border-width: 1px;
+		--rs-hvw-border-style: solid;
+		--rs-hvw-border-color: #e9ecef;
+		--rs-hvw-transition-duration: 0.3s;
+		--rs-hvw-transition-timing: ease;
+		--rs-hvw-button-transition: all 0.3s ease;
+		--rs-hvw-input-transition: all 0.3s ease;
+		--rs-hvw-hover-transform: translateY(-1px);
+		--rs-hvw-active-transform: translateY(0);
+		--rs-hvw-focus-outline: none;
+		--rs-hvw-focus-ring: 0 0 0 3px rgba(58, 141, 222, 0.1);
+		--rs-hvw-error-color: #dc3545;
+		--rs-hvw-success-color: #28a745;
+		--rs-hvw-warning-color: #ffc107;
+		--rs-hvw-info-color: #17a2b8;
+		--rs-hvw-disabled-opacity: 0.6;
+		--rs-hvw-disabled-cursor: not-allowed;
+		--rs-hvw-loading-color: #3a8dde;
+		--rs-hvw-loading-size: 20px;
+		--rs-hvw-loading-thickness: 2px;
+		--rs-hvw-loading-animation: spin 1s linear infinite;
+		--rs-hvw-pulse-animation: pulse 2s infinite;
+		--rs-hvw-bounce-animation: bounce 1s infinite;
+		--rs-hvw-fade-in-animation: fadeIn 0.5s ease;
+		--rs-hvw-slide-up-animation: slideUp 0.5s ease;
+		--rs-hvw-scale-animation: scale 0.3s ease;
+		--rs-hvw-rotate-animation: rotate 0.5s ease;
+		--rs-hvw-flip-animation: flip 0.6s ease;
+		--rs-hvw-zoom-animation: zoom 0.4s ease;
+		--rs-hvw-wobble-animation: wobble 1s ease;
+		--rs-hvw-jello-animation: jello 0.9s ease;
+		--rs-hvw-heartbeat-animation: heartbeat 1.5s ease;
+		--rs-hvw-flash-animation: flash 1s ease;
+		--rs-hvw-shake-animation: shake 0.5s ease;
+		--rs-hvw-swing-animation: swing 1s ease;
+		--rs-hvw-tada-animation: tada 1s ease;
+		--rs-hvw-wobble-animation: wobble 1s ease;
+		--rs-hvw-jello-animation: jello 0.9s ease;
+		--rs-hvw-heartbeat-animation: heartbeat 1.5s ease;
+		--rs-hvw-flash-animation: flash 1s ease;
+		--rs-hvw-shake-animation: shake 0.5s ease;
+		--rs-hvw-swing-animation: swing 1s ease;
+		--rs-hvw-tada-animation: tada 1s ease;
 	}
 
 	.search-input-container {
