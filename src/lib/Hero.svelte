@@ -2,7 +2,7 @@
 import { onMount } from 'svelte';
 
 const heroImage =
-  'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80';
+  'https://images.unsplash.com/photo-1544966503-7cc5ac882d5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80';
 
 let searchValue = '';
 let activeTab = 'search';
@@ -33,7 +33,7 @@ onMount(() => {
 
 <section class="hero">
 	<div class="hero-background">
-		<img src={heroImage} alt="Las Vegas cityscape at night" />
+		<img src={heroImage} alt="Lone Mountain Las Vegas desert landscape with mountain views" />
 		<div class="hero-overlay"></div>
 	</div>
 	
