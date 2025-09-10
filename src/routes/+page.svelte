@@ -243,7 +243,7 @@
 				<h2>Current Lone Mountain Heights Listings</h2>
 				<p>Browse our latest homes for sale in Lone Mountain Heights, Las Vegas 89129</p>
 				<div class="realscout-listings-widget">
-					<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="STATUS_AND_SIGNIFICANT_CHANGE" listing-status="For Sale" property-types="SFR,MF,TC"></realscout-office-listings>
+					<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="STATUS_AND_SIGNIFICANT_CHANGE" listing-status="For Sale" property-types="SFR,MF,TC" minPrice="500000" maxPrice="1000000"></realscout-office-listings>
 				</div>
 			</div>
 		</section>

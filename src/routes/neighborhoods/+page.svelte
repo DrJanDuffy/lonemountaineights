@@ -280,7 +280,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 				<h2>Homes for Sale in Lone Mountain Heights</h2>
 				<p>Browse current listings across all neighborhoods and subdivisions</p>
 				<div class="realscout-listings-widget">
-					<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="STATUS_AND_SIGNIFICANT_CHANGE" listing-status="For Sale" property-types="SFR,MF,TC"></realscout-office-listings>
+					<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="STATUS_AND_SIGNIFICANT_CHANGE" listing-status="For Sale" property-types="SFR,MF,TC" minPrice="400000" maxPrice="800000"></realscout-office-listings>
 				</div>
 			</div>
 		</section>

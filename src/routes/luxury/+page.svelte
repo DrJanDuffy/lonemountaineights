@@ -3,6 +3,16 @@
   
   let luxuryHomes = [];
   let loading = true;
+
+  // Load RealScout script dynamically
+  onMount(() => {
+    if (!document.querySelector('script[src*="realscout-web-components"]')) {
+      const script = document.createElement('script');
+      script.src = 'https://em.realscout.com/widgets/realscout-web-components.umd.js';
+      script.type = 'module';
+      document.head.appendChild(script);
+    }
+  });
   
   onMount(() => {
     // Simulate loading luxury homes data
@@ -104,6 +114,15 @@
         {/each}
       </div>
     {/if}
+
+    <!-- Luxury Listings Widget -->
+    <div class="luxury-listings-widget">
+      <h2>Current Luxury Listings</h2>
+      <p>Browse our latest luxury homes for sale in Lone Mountain Heights</p>
+      <div class="realscout-listings-widget">
+        <realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="STATUS_AND_SIGNIFICANT_CHANGE" listing-status="For Sale" property-types="SFR,MF,TC" minPrice="1000000" maxPrice="5000000"></realscout-office-listings>
+      </div>
+    </div>
 
     <div class="luxury-cta">
       <h2>Ready to Find Your Luxury Home?</h2>
@@ -344,6 +363,39 @@
   .btn-secondary:hover {
     background: var(--accent-color);
     color: white;
+  }
+
+  /* Luxury Listings Widget */
+  .luxury-listings-widget {
+    background: #f8f9fa;
+    padding: 4rem 0;
+    margin: 2rem 0;
+    text-align: center;
+  }
+
+  .luxury-listings-widget h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a365d;
+    margin: 0 0 1rem 0;
+  }
+
+  .luxury-listings-widget p {
+    font-size: 1.2rem;
+    color: #6c757d;
+    margin: 0 0 2rem 0;
+  }
+
+  .realscout-listings-widget {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  :global(realscout-office-listings) {
+    --rs-listing-divider-color: rgb(101, 141, 172);
+    width: 100%;
   }
 
   @media (max-width: 768px) {

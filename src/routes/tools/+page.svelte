@@ -74,6 +74,15 @@
 				</div>
 			</div>
 
+			<!-- Featured Listings Section -->
+			<div class="featured-listings">
+				<h2>Current Lone Mountain Heights Listings</h2>
+				<p>Browse our latest homes for sale while using our tools</p>
+				<div class="realscout-listings-widget">
+					<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="STATUS_AND_SIGNIFICANT_CHANGE" listing-status="For Sale" property-types="SFR,MF,TC" minPrice="300000" maxPrice="600000"></realscout-office-listings>
+				</div>
+			</div>
+
 			<div class="cta-section">
 				<OptimizedCTA variant="primary" size="large" showPhone={true} showEmail={true} showText={true} showForm={true} />
 			</div>
@@ -170,6 +179,39 @@
 		--rs-hvw-secondary-button-text-color: rgb(35, 93, 137);
 		--rs-hvw-secondary-button-color: #ffffff;
 		--rs-hvw-widget-width: auto;
+	}
+
+	/* Featured Listings Section */
+	.featured-listings {
+		background: #f8f9fa;
+		padding: 4rem 0;
+		margin: 2rem 0;
+		text-align: center;
+	}
+
+	.featured-listings h2 {
+		font-size: 2.5rem;
+		font-weight: 700;
+		color: #1a365d;
+		margin: 0 0 1rem 0;
+	}
+
+	.featured-listings p {
+		font-size: 1.2rem;
+		color: #6c757d;
+		margin: 0 0 2rem 0;
+	}
+
+	.realscout-listings-widget {
+		width: 100%;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 2rem;
+	}
+
+	:global(realscout-office-listings) {
+		--rs-listing-divider-color: rgb(101, 141, 172);
+		width: 100%;
 	}
 
 	@media (max-width: 768px) {

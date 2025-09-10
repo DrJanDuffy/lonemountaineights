@@ -295,7 +295,7 @@ const networkStats = {
 				<h2>Current Lone Mountain Heights Market Activity</h2>
 				<p>See what's happening in the market right now with our latest listings</p>
 				<div class="realscout-listings-widget">
-					<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="STATUS_AND_SIGNIFICANT_CHANGE" listing-status="For Sale" property-types="SFR,MF,TC"></realscout-office-listings>
+					<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="STATUS_AND_SIGNIFICANT_CHANGE" listing-status="For Sale" property-types="SFR,MF,TC" minPrice="800000" maxPrice="2000000"></realscout-office-listings>
 				</div>
 			</section>
 			

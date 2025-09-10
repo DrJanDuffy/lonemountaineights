@@ -740,7 +740,7 @@ $: applyFilters();
 				<h2>Complete MLS Database</h2>
 				<p>Access all available homes for sale in Lone Mountain Heights with real-time updates</p>
 				<div class="realscout-listings-widget">
-					<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="STATUS_AND_SIGNIFICANT_CHANGE" listing-status="For Sale" property-types="SFR,MF,TC"></realscout-office-listings>
+					<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="STATUS_AND_SIGNIFICANT_CHANGE" listing-status="For Sale" property-types="SFR,MF,TC" minPrice="600000" maxPrice="1200000"></realscout-office-listings>
 				</div>
 			</div>
 		</div>
