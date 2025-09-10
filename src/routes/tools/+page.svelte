@@ -1,8 +1,18 @@
 <script>
-	import HomeValueCalculator from '$lib/components/HomeValueCalculator.svelte';
+	import { onMount } from 'svelte';
 	import MortgageCalculator from '$lib/components/MortgageCalculator.svelte';
 	import HomeFinderQuiz from '$lib/components/HomeFinderQuiz.svelte';
 	import OptimizedCTA from '$lib/components/OptimizedCTA.svelte';
+
+	// Load RealScout script dynamically
+	onMount(() => {
+		if (!document.querySelector('script[src*="realscout-web-components"]')) {
+			const script = document.createElement('script');
+			script.src = 'https://em.realscout.com/widgets/realscout-web-components.umd.js';
+			script.type = 'module';
+			document.head.appendChild(script);
+		}
+	});
 </script>
 
 <svelte:head>
@@ -46,7 +56,9 @@
 				<div class="tool-card">
 					<h2>Home Value Calculator</h2>
 					<p>Get an instant estimate of your home's current market value in Lone Mountain Heights</p>
-					<HomeValueCalculator />
+					<div class="realscout-widget-container">
+						<realscout-home-value agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-home-value>
+					</div>
 				</div>
 
 				<div class="tool-card">
@@ -142,6 +154,22 @@
 		padding: 2rem 0;
 		background: #F7F9FC;
 		border-radius: 12px;
+	}
+
+	/* RealScout Widget Styling */
+	.realscout-widget-container {
+		width: 100%;
+	}
+
+	:global(realscout-home-value) {
+		--rs-hvw-background-color: #ffffff;
+		--rs-hvw-title-color: #000000;
+		--rs-hvw-subtitle-color: rgba(28, 30, 38, 0.5);
+		--rs-hvw-primary-button-text-color: #ffffff;
+		--rs-hvw-primary-button-color: rgb(35, 93, 137);
+		--rs-hvw-secondary-button-text-color: rgb(35, 93, 137);
+		--rs-hvw-secondary-button-color: #ffffff;
+		--rs-hvw-widget-width: auto;
 	}
 
 	@media (max-width: 768px) {
