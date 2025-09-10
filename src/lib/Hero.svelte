@@ -1,4 +1,6 @@
 <script>
+import { onMount } from 'svelte';
+
 const heroImage =
   'https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80';
 
@@ -16,6 +18,17 @@ function handleKeydown(event) {
 		handleSearch();
 	}
 }
+
+// Load RealScout widgets
+onMount(() => {
+  // Load RealScout script if not already loaded
+  if (!document.querySelector('script[src*="realscout-web-components"]')) {
+    const script = document.createElement('script');
+    script.src = 'https://em.realscout.com/widgets/realscout-web-components.umd.js';
+    script.type = 'module';
+    document.head.appendChild(script);
+  }
+});
 </script>
 
 <section class="hero">
@@ -46,32 +59,12 @@ function handleKeydown(event) {
 			
 			<div class="search-form">
 				{#if activeTab === 'search'}
-					<div class="search-input-container">
-						<span class="search-icon">🏠</span>
-						<input 
-							type="text" 
-							class="search-input"
-							placeholder="Search by Address, City, Zip, Neighborhood, School or MLS#"
-							bind:value={searchValue}
-							on:keydown={handleKeydown}
-						/>
-						<button class="search-button" on:click={handleSearch}>
-							<span class="search-icon">🔍</span>
-						</button>
+					<div class="realscout-search-widget">
+						<realscout-simple-search agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-simple-search>
 					</div>
 				{:else}
-					<div class="search-input-container">
-						<span class="search-icon">💰</span>
-						<input 
-							type="text" 
-							class="search-input"
-							placeholder="Enter your home address for a free valuation"
-							bind:value={searchValue}
-							on:keydown={handleKeydown}
-						/>
-						<button class="search-button" on:click={handleSearch}>
-							<span class="search-icon">📊</span>
-						</button>
+					<div class="realscout-valuation-widget">
+						<realscout-home-value agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-home-value>
 					</div>
 				{/if}
 			</div>
@@ -176,6 +169,35 @@ function handleKeydown(event) {
 
 	.search-form {
 		padding: 2rem;
+	}
+
+	/* RealScout Widget Styles */
+	.realscout-search-widget {
+		width: 100%;
+	}
+
+	.realscout-valuation-widget {
+		width: 100%;
+	}
+
+	/* RealScout Simple Search Styles */
+	:global(realscout-simple-search) {
+		--rs-ss-font-primary-color: #6a6d72;
+		--rs-ss-searchbar-border-color: hsl(0, 0%, 80%);
+		--rs-ss-box-shadow: 0 10px 15px -3px #0000001a;
+		--rs-ss-widget-width: 100% !important;
+	}
+
+	/* RealScout Home Value Styles */
+	:global(realscout-home-value) {
+		--rs-hvw-background-color: #ffffff;
+		--rs-hvw-title-color: #000000;
+		--rs-hvw-subtitle-color: rgba(28, 30, 38, 0.5);
+		--rs-hvw-primary-button-text-color: #ffffff;
+		--rs-hvw-primary-button-color: rgb(35, 93, 137);
+		--rs-hvw-secondary-button-text-color: rgb(35, 93, 137);
+		--rs-hvw-secondary-button-color: #ffffff;
+		--rs-hvw-widget-width: 100%;
 	}
 
 	.search-input-container {
