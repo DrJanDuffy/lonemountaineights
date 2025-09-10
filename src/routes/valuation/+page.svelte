@@ -1,38 +1,17 @@
 <script>
-let formData = {
-  address: '',
-  bedrooms: '',
-  bathrooms: '',
-  sqft: '',
-  homeStyle: '',
-  yearBuilt: '',
-  lotSize: '',
-  pool: false,
-  garage: '',
-  view: '',
-  upgrades: [],
-};
+import { onMount } from 'svelte';
 
-let valuationResult = null;
-let isCalculating = false;
-let showResults = false;
+// Load RealScout script dynamically
+onMount(() => {
+  if (!document.querySelector('script[src*="realscout-web-components"]')) {
+    const script = document.createElement('script');
+    script.src = 'https://em.realscout.com/widgets/realscout-web-components.umd.js';
+    script.type = 'module';
+    document.head.appendChild(script);
+  }
+});
 
-const homeStyles = ['Single Story', 'Two Story', 'Townhome', 'Condo'];
-const views = ['Mountain', 'Golf Course', 'Desert', 'Neighborhood', 'City'];
-const upgradeOptions = [
-  'Updated Kitchen',
-  'Updated Bathrooms',
-  'New Roof',
-  'Solar Panels',
-  'Pool/Spa',
-  'Landscaping',
-  'Hardwood Floors',
-  'Granite Countertops',
-  'Stainless Appliances',
-  'Smart Home Features',
-];
-
-// Mock comparable sales data
+// Mock comparable sales data for display
 const comparableSales = [
   {
     address: '4567 Mountain Ridge Dr',
@@ -80,125 +59,6 @@ function formatDate(dateString) {
     year: 'numeric',
   });
 }
-
-async function calculateValuation() {
-  if (
-    !formData.address ||
-    !formData.bedrooms ||
-    !formData.bathrooms ||
-    !formData.sqft
-  ) {
-    alert('Please fill in all required fields');
-    return;
-  }
-
-  isCalculating = true;
-  showResults = false;
-
-  // Simulate API call
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-
-  // Mock valuation calculation
-  const basePrice = parseInt(formData.sqft, 10) * 345; // $345 per sqft base
-  let adjustments = 0;
-
-  // Bedroom adjustment
-  if (parseInt(formData.bedrooms, 10) >= 4) adjustments += 15000;
-  if (parseInt(formData.bedrooms, 10) >= 5) adjustments += 25000;
-
-  // Bathroom adjustment
-  if (parseInt(formData.bathrooms, 10) >= 3) adjustments += 10000;
-  if (parseInt(formData.bathrooms, 10) >= 4) adjustments += 20000;
-
-  // Home style adjustment
-  if (formData.homeStyle === 'Two Story') adjustments += 20000;
-  if (formData.homeStyle === 'Townhome') adjustments -= 30000;
-
-  // Pool adjustment
-  if (formData.pool) adjustments += 25000;
-
-  // Garage adjustment
-  if (parseInt(formData.garage, 10) >= 2) adjustments += 10000;
-  if (parseInt(formData.garage, 10) >= 3) adjustments += 20000;
-
-  // View adjustment
-  if (formData.view === 'Mountain') adjustments += 30000;
-  if (formData.view === 'Golf Course') adjustments += 20000;
-
-  // Upgrades adjustment
-  adjustments += formData.upgrades.length * 5000;
-
-  // Year built adjustment
-  const currentYear = new Date().getFullYear();
-  const age = currentYear - parseInt(formData.yearBuilt, 10);
-  if (age < 5) adjustments += 15000;
-  else if (age < 10) adjustments += 5000;
-  else if (age > 20) adjustments -= 10000;
-
-  const estimatedValue = basePrice + adjustments;
-  const lowEstimate = estimatedValue * 0.95;
-  const highEstimate = estimatedValue * 1.05;
-
-  valuationResult = {
-    estimatedValue,
-    lowEstimate,
-    highEstimate,
-    pricePerSqft: Math.round(estimatedValue / parseInt(formData.sqft, 10)),
-    confidence: 'High',
-    marketTrend: '+5.2%',
-    daysOnMarket: 12,
-    recommendations: generateRecommendations(estimatedValue, formData),
-  };
-
-  isCalculating = false;
-  showResults = true;
-}
-
-function generateRecommendations(value, data) {
-  const recommendations = [];
-
-  if (parseInt(data.sqft, 10) < 2000) {
-    recommendations.push(
-      'Consider adding square footage - larger homes sell for more per sqft in this area',
-    );
-  }
-
-  if (!data.pool && value > 800000) {
-    recommendations.push(
-      'Pool installation could increase value by $25,000+ in this price range',
-    );
-  }
-
-  if (parseInt(data.yearBuilt, 10) > 2010) {
-    recommendations.push('Recent construction - excellent timing for sale');
-  }
-
-  if (data.view === 'Mountain') {
-    recommendations.push(
-      'Mountain views are highly sought after - premium pricing expected',
-    );
-  }
-
-  return recommendations;
-}
-
-function resetForm() {
-  formData = {
-    address: '',
-    bedrooms: '',
-    bathrooms: '',
-    sqft: '',
-    homeStyle: '',
-    yearBuilt: '',
-    lotSize: '',
-    pool: false,
-    garage: '',
-    view: '',
-    upgrades: [],
-  };
-  valuationResult = null;
-  showResults = false;
-}
 </script>
 
 <svelte:head>
@@ -243,235 +103,74 @@ function resetForm() {
 	<div class="page-content">
 		<div class="container">
 			<div class="content-layout">
-				<!-- Valuation Form -->
+				<!-- RealScout Home Value Widget -->
 				<div class="valuation-form-section">
 					<div class="form-container">
-						<h2>Property Details</h2>
-						<p class="form-subtitle">Fill in your home's details for an accurate valuation</p>
+						<h2>Get Your Home's Value</h2>
+						<p class="form-subtitle">Free instant valuation powered by local market data</p>
 						
-						<form on:submit|preventDefault={calculateValuation}>
-							<div class="form-grid">
-								<div class="form-group full-width">
-									<label for="address">Street Address *</label>
-									<input 
-										type="text" 
-										id="address" 
-										bind:value={formData.address} 
-										placeholder="1234 Mountain View Dr"
-										required 
-									/>
-								</div>
-								
-								<div class="form-group">
-									<label for="bedrooms">Bedrooms *</label>
-									<select id="bedrooms" bind:value={formData.bedrooms} required>
-										<option value="">Select</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5</option>
-										<option value="6">6+</option>
-									</select>
-								</div>
-								
-								<div class="form-group">
-									<label for="bathrooms">Bathrooms *</label>
-									<select id="bathrooms" bind:value={formData.bathrooms} required>
-										<option value="">Select</option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4</option>
-										<option value="5">5+</option>
-									</select>
-								</div>
-								
-								<div class="form-group">
-									<label for="sqft">Square Footage *</label>
-									<input 
-										type="number" 
-										id="sqft" 
-										bind:value={formData.sqft} 
-										placeholder="2000"
-										required 
-									/>
-								</div>
-								
-								<div class="form-group">
-									<label for="homeStyle">Home Style</label>
-									<select id="homeStyle" bind:value={formData.homeStyle}>
-										<option value="">Select</option>
-										{#each homeStyles as style}
-											<option value={style}>{style}</option>
-										{/each}
-									</select>
-								</div>
-								
-								<div class="form-group">
-									<label for="yearBuilt">Year Built</label>
-									<input 
-										type="number" 
-										id="yearBuilt" 
-										bind:value={formData.yearBuilt} 
-										placeholder="2015"
-										min="1950"
-										max="2024"
-									/>
-								</div>
-								
-								<div class="form-group">
-									<label for="lotSize">Lot Size (acres)</label>
-									<input 
-										type="text" 
-										id="lotSize" 
-										bind:value={formData.lotSize} 
-										placeholder="0.25"
-									/>
-								</div>
-								
-								<div class="form-group">
-									<label for="garage">Garage Spaces</label>
-									<select id="garage" bind:value={formData.garage}>
-										<option value="">Select</option>
-										<option value="0">0</option>
-										<option value="1">1</option>
-										<option value="2">2</option>
-										<option value="3">3</option>
-										<option value="4">4+</option>
-									</select>
-								</div>
-								
-								<div class="form-group">
-									<label for="view">View</label>
-									<select id="view" bind:value={formData.view}>
-										<option value="">Select</option>
-										{#each views as view}
-											<option value={view}>{view}</option>
-										{/each}
-									</select>
-								</div>
-								
-								<div class="form-group full-width">
-									<label for="pool-checkbox">
-										<input 
-											id="pool-checkbox"
-											type="checkbox" 
-											bind:checked={formData.pool}
-										/>
-										Has Pool/Spa
-									</label>
-								</div>
-								
-								<div class="form-group full-width">
-									<label for="upgrades-section">Upgrades & Features</label>
-									<div id="upgrades-section" class="upgrades-grid">
-										{#each upgradeOptions as upgrade}
-											<label class="upgrade-option">
-												<input 
-													type="checkbox" 
-													value={upgrade}
-													bind:group={formData.upgrades}
-												/>
-												{upgrade}
-											</label>
-										{/each}
-									</div>
-								</div>
-							</div>
-							
-							<div class="form-actions">
-								<button type="submit" class="btn btn-primary" disabled={isCalculating}>
-									{#if isCalculating}
-										Calculating...
-									{:else}
-										Get Instant Valuation
-									{/if}
-								</button>
-								<button type="button" class="btn btn-secondary" on:click={resetForm}>
-									Reset Form
-								</button>
-							</div>
-						</form>
+						<div class="realscout-widget-container">
+							<realscout-home-value agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-home-value>
+						</div>
 					</div>
 				</div>
 				
-				<!-- Results Section -->
-				{#if showResults && valuationResult}
-					<div class="results-section">
-						<div class="results-container">
-							<h2>Your Home Valuation</h2>
-							
-							<div class="valuation-summary">
-								<div class="main-valuation">
-									<span class="valuation-label">Estimated Value</span>
-									<span class="valuation-amount">{formatPrice(valuationResult.estimatedValue)}</span>
-									<span class="valuation-range">
-										{formatPrice(valuationResult.lowEstimate)} - {formatPrice(valuationResult.highEstimate)}
-									</span>
-								</div>
-								
-								<div class="valuation-details">
-									<div class="detail-item">
-										<span class="detail-label">Price per Sq Ft</span>
-										<span class="detail-value">${valuationResult.pricePerSqft}</span>
-									</div>
-									<div class="detail-item">
-										<span class="detail-label">Confidence Level</span>
-										<span class="detail-value">{valuationResult.confidence}</span>
-									</div>
-									<div class="detail-item">
-										<span class="detail-label">Market Trend</span>
-										<span class="detail-value positive">{valuationResult.marketTrend}</span>
-									</div>
-									<div class="detail-item">
-										<span class="detail-label">Avg Days on Market</span>
-										<span class="detail-value">{valuationResult.daysOnMarket} days</span>
-									</div>
-								</div>
+				<!-- Market Information Section -->
+				<div class="market-info-section">
+					<div class="market-container">
+						<h2>Lone Mountain Heights Market Overview</h2>
+						
+						<div class="market-stats">
+							<div class="stat-item">
+								<span class="stat-number">$847K</span>
+								<span class="stat-label">Average Sale Price</span>
 							</div>
-							
-							<div class="recommendations">
-								<h3>Dr. Jan's Recommendations</h3>
-								<ul>
-									{#each valuationResult.recommendations as recommendation}
-										<li>{recommendation}</li>
-									{/each}
-								</ul>
+							<div class="stat-item">
+								<span class="stat-number">23</span>
+								<span class="stat-label">Days on Market</span>
 							</div>
-							
-							<div class="comparable-sales">
-								<h3>Recent Comparable Sales</h3>
-								<div class="sales-table">
-									<div class="table-header">
-										<span>Address</span>
-										<span>Sale Price</span>
-										<span>Sq Ft</span>
-										<span>Days on Market</span>
-										<span>Sold Date</span>
+							<div class="stat-item">
+								<span class="stat-number">98%</span>
+								<span class="stat-label">List to Sale Ratio</span>
+							</div>
+							<div class="stat-item">
+								<span class="stat-number">47</span>
+								<span class="stat-label">Active Listings</span>
+							</div>
+						</div>
+						
+						<div class="comparable-sales">
+							<h3>Recent Comparable Sales</h3>
+							<div class="sales-table">
+								<div class="table-header">
+									<span>Address</span>
+									<span>Sale Price</span>
+									<span>Sq Ft</span>
+									<span>Days on Market</span>
+									<span>Sold Date</span>
+								</div>
+								{#each comparableSales as sale}
+									<div class="table-row">
+										<span class="address">{sale.address}</span>
+										<span class="price">{formatPrice(sale.price)}</span>
+										<span class="sqft">{sale.sqft.toLocaleString()}</span>
+										<span class="days">{sale.daysOnMarket} days</span>
+										<span class="date">{formatDate(sale.soldDate)}</span>
 									</div>
-									{#each comparableSales as sale}
-										<div class="table-row">
-											<span class="address">{sale.address}</span>
-											<span class="price">{formatPrice(sale.price)}</span>
-											<span class="sqft">{sale.sqft.toLocaleString()}</span>
-											<span class="days">{sale.daysOnMarket} days</span>
-											<span class="date">{formatDate(sale.soldDate)}</span>
-										</div>
-									{/each}
-								</div>
+								{/each}
 							</div>
-							
-							<div class="cta-section">
-								<h3>Ready to Sell Your Home?</h3>
-								<p>Get a detailed market analysis and pricing strategy from Dr. Jan Duffy</p>
-								<div class="cta-buttons">
-									<a href="tel:702-222-1964" class="btn btn-primary">Call 702-222-1964</a>
-									<a href="/contact" class="btn btn-secondary">Schedule Consultation</a>
-								</div>
+						</div>
+						
+						<div class="cta-section">
+							<h3>Ready to Sell Your Home?</h3>
+							<p>Get a detailed market analysis and pricing strategy from Dr. Jan Duffy</p>
+							<div class="cta-buttons">
+								<a href="tel:702-222-1964" class="btn btn-primary">Call 702-222-1964</a>
+								<a href="/contact" class="btn btn-secondary">Schedule Consultation</a>
 							</div>
 						</div>
 					</div>
-				{/if}
+				</div>
 			</div>
 		</div>
 	</div>
@@ -536,8 +235,10 @@ function resetForm() {
 	
 	.content-layout {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
+		grid-template-columns: 1fr;
 		gap: 2rem;
+		max-width: 800px;
+		margin: 0 auto;
 	}
 	
 	.valuation-form-section {
@@ -561,6 +262,72 @@ function resetForm() {
 	.form-subtitle {
 		color: var(--text-light);
 		margin: 0 0 2rem 0;
+	}
+
+	/* RealScout Widget Styling */
+	.realscout-widget-container {
+		width: 100%;
+	}
+
+	:global(realscout-home-value) {
+		--rs-hvw-background-color: #ffffff;
+		--rs-hvw-title-color: #000000;
+		--rs-hvw-subtitle-color: rgba(28, 30, 38, 0.5);
+		--rs-hvw-primary-button-text-color: #ffffff;
+		--rs-hvw-primary-button-color: rgb(35, 93, 137);
+		--rs-hvw-secondary-button-text-color: rgb(35, 93, 137);
+		--rs-hvw-secondary-button-color: #ffffff;
+		--rs-hvw-widget-width: auto;
+	}
+
+	/* Market Info Section */
+	.market-info-section {
+		background: white;
+		border-radius: 12px;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+		overflow: hidden;
+	}
+
+	.market-container {
+		padding: 2rem;
+	}
+
+	.market-container h2 {
+		font-size: 1.8rem;
+		font-weight: 700;
+		color: var(--heading-color);
+		margin: 0 0 2rem 0;
+		text-align: center;
+	}
+
+	.market-stats {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		gap: 1.5rem;
+		margin-bottom: 2rem;
+	}
+
+	.stat-item {
+		text-align: center;
+		padding: 1.5rem 1rem;
+		background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+		border-radius: 12px;
+		color: white;
+	}
+
+	.stat-number {
+		display: block;
+		font-size: 2rem;
+		font-weight: 700;
+		margin-bottom: 0.5rem;
+	}
+
+	.stat-label {
+		display: block;
+		font-size: 0.9rem;
+		opacity: 0.9;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
 	}
 	
 	.form-grid {
@@ -885,32 +652,12 @@ function resetForm() {
 	}
 	
 	@media (max-width: 768px) {
-		.content-layout {
-			grid-template-columns: 1fr;
-		}
-		
 		.page-header h1 {
 			font-size: 2rem;
 		}
 		
-		.form-grid {
-			grid-template-columns: 1fr;
-		}
-		
-		.upgrades-grid {
-			grid-template-columns: 1fr;
-		}
-		
-		.form-actions {
-			flex-direction: column;
-		}
-		
-		.valuation-amount {
-			font-size: 2.5rem;
-		}
-		
-		.valuation-details {
-			grid-template-columns: 1fr;
+		.market-stats {
+			grid-template-columns: repeat(2, 1fr);
 		}
 		
 		.table-header,
@@ -932,6 +679,20 @@ function resetForm() {
 		
 		.btn {
 			min-width: 200px;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.market-stats {
+			grid-template-columns: 1fr;
+		}
+		
+		.stat-item {
+			padding: 1rem;
+		}
+		
+		.stat-number {
+			font-size: 1.5rem;
 		}
 	}
 </style>
