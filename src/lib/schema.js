@@ -23,9 +23,8 @@ const NAP = {
 };
 
 // GBP URLs - update when actual Place ID is available for View Google Reviews
-// Calendly – update with Dr. Jan's actual scheduling link
-export const CALENDLY_URL =
-  'https://calendly.com/drjanduffy/consultation?hide_gdpr_banner=1';
+// Calendly – Dr. Jan's scheduling link
+export const CALENDLY_URL = 'https://calendly.com/drjanduffy/15min';
 
 export const GBP_URLS = {
   directions:
