@@ -237,6 +237,58 @@
 	<div class="main-content-container">
 		<TrustSignals />
 		
+		<!-- Mid-Page CTA -->
+		<section class="mid-cta">
+			<div class="container">
+				<h2>Ready to take your next step?</h2>
+				<p>Buy or sell your home in Lone Mountain Heights with a trusted local expert.</p>
+				<div class="mid-cta-buttons">
+					<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="btn btn-gold" target="_blank" rel="noopener noreferrer">View Current Homes</a>
+					<a href="/valuation" class="btn btn-outline">Get Home Valuation</a>
+				</div>
+			</div>
+		</section>
+		
+		<!-- Additional Services Section -->
+		<section class="additional-services">
+			<div class="container">
+				<h2>Additional Services</h2>
+				<p class="section-subtitle">We're passionate about helping our clients achieve their real estate goals with a full suite of professional services.</p>
+				<div class="services-grid">
+					<div class="service-card">
+						<div class="service-icon">📸</div>
+						<h3>Professional Photography & Videography</h3>
+						<p>High-quality marketing materials that showcase your home's best features and attract serious buyers.</p>
+					</div>
+					<div class="service-card">
+						<div class="service-icon">🏠</div>
+						<h3>Open House & Virtual Tours</h3>
+						<p>Expertly executed open houses and 3D virtual tours to maximize exposure and reach remote buyers.</p>
+					</div>
+					<div class="service-card">
+						<div class="service-icon">✨</div>
+						<h3>Staging Consultation</h3>
+						<p>Proven staging strategies to help your home sell faster and for top dollar in the Lone Mountain Heights market.</p>
+					</div>
+					<div class="service-card">
+						<div class="service-icon">📊</div>
+						<h3>Data-Driven Market Analysis</h3>
+						<p>Accurate pricing based on current comps, trends, and neighborhood-specific insights for Las Vegas 89129.</p>
+					</div>
+					<div class="service-card">
+						<div class="service-icon">🤝</div>
+						<h3>Expert Negotiation</h3>
+						<p>Skilled representation to secure the best terms whether you're buying or selling in Lone Mountain Heights.</p>
+					</div>
+					<div class="service-card">
+						<div class="service-icon">📱</div>
+						<h3>24/7 Support & Communication</h3>
+						<p>Responsive availability and clear communication throughout every step of your real estate journey.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		
 		<!-- Featured Listings Section -->
 		<section class="featured-listings">
 			<div class="container">
@@ -258,15 +310,20 @@
 						<h3>Real Estate Tools</h3>
 						<p>Home value calculator, mortgage calculator, and home finder quiz</p>
 					</a>
-					<a href="/market-intelligence" class="quick-link">
-						<div class="quick-link-icon">📊</div>
-						<h3>Market Intelligence</h3>
-						<p>Current statistics, trends, and seasonal market insights</p>
+					<a href="/tools" class="quick-link">
+						<div class="quick-link-icon">📋</div>
+						<h3>Mortgage Helpers</h3>
+						<p>Mortgage calculator, pre-approval guidance, and financing resources</p>
 					</a>
-					<a href="/neighborhood" class="quick-link">
+					<a href="/market-intelligence" class="quick-link">
+						<div class="quick-link-icon">📈</div>
+						<h3>Investment Info</h3>
+						<p>Market trends, ROI analysis, and investment property insights</p>
+					</a>
+					<a href="/neighborhoods" class="quick-link">
 						<div class="quick-link-icon">🗺️</div>
 						<h3>Neighborhood Guide</h3>
-						<p>Interactive map, amenities, schools, and lifestyle features</p>
+						<p>Micro-neighborhoods, amenities, schools, and lifestyle features</p>
 					</a>
 				</div>
 			</div>
@@ -290,6 +347,135 @@
 		box-sizing: border-box;
 	}
 
+	/* Mid-Page CTA */
+	.mid-cta {
+		background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-light) 100%);
+		padding: 3rem 2rem;
+		margin: 2rem 0;
+		border-radius: 12px;
+		text-align: center;
+	}
+	
+	.mid-cta h2 {
+		font-size: 2rem;
+		font-weight: 700;
+		color: var(--heading-color);
+		margin: 0 0 0.5rem 0;
+	}
+	
+	.mid-cta p {
+		font-size: 1.1rem;
+		color: var(--heading-color);
+		opacity: 0.9;
+		margin: 0 0 2rem 0;
+	}
+	
+	.mid-cta-buttons {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	
+	.mid-cta .btn {
+		padding: 1rem 2rem;
+		border-radius: 8px;
+		font-weight: 600;
+		text-decoration: none;
+		transition: all 0.3s ease;
+		display: inline-block;
+	}
+	
+	.mid-cta .btn-gold {
+		background: var(--heading-color);
+		color: var(--accent-light);
+		border: 2px solid var(--heading-color);
+	}
+	
+	.mid-cta .btn-gold:hover {
+		background: var(--secondary-color);
+		border-color: var(--secondary-color);
+		transform: translateY(-2px);
+	}
+	
+	.mid-cta .btn-outline {
+		background: transparent;
+		color: var(--heading-color);
+		border: 2px solid var(--heading-color);
+	}
+	
+	.mid-cta .btn-outline:hover {
+		background: var(--heading-color);
+		color: var(--accent-light);
+		transform: translateY(-2px);
+	}
+	
+	/* Additional Services */
+	.additional-services {
+		background: white;
+		padding: 4rem 0;
+		margin: 2rem 0;
+		border-radius: 12px;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+	}
+	
+	.additional-services h2 {
+		text-align: center;
+		font-size: 2.5rem;
+		font-weight: 700;
+		color: var(--heading-color);
+		margin: 0 0 1rem 0;
+	}
+	
+	.additional-services .section-subtitle {
+		text-align: center;
+		font-size: 1.2rem;
+		color: var(--text-light);
+		max-width: 600px;
+		margin: 0 auto 3rem;
+		line-height: 1.6;
+	}
+	
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 1.5rem;
+	}
+	
+	.service-card {
+		background: var(--warm-cream);
+		padding: 2rem;
+		border-radius: 12px;
+		text-align: center;
+		transition: all 0.3s ease;
+		border: 1px solid rgba(0, 0, 0, 0.05);
+	}
+	
+	.service-card:hover {
+		transform: translateY(-4px);
+		box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+		border-color: var(--accent-color);
+	}
+	
+	.service-icon {
+		font-size: 2.5rem;
+		margin-bottom: 1rem;
+	}
+	
+	.service-card h3 {
+		font-size: 1.2rem;
+		font-weight: 600;
+		color: var(--heading-color);
+		margin: 0 0 0.75rem 0;
+	}
+	
+	.service-card p {
+		font-size: 0.95rem;
+		color: var(--text-light);
+		line-height: 1.5;
+		margin: 0;
+	}
+	
 	.quick-access {
 		background: #F7F9FC;
 		padding: 4rem 0;
@@ -391,6 +577,27 @@
 	@media (max-width: 768px) {
 		.main-content-container {
 			padding: 0 1rem;
+		}
+		
+		.mid-cta h2 {
+			font-size: 1.5rem;
+		}
+		
+		.mid-cta-buttons {
+			flex-direction: column;
+			align-items: center;
+		}
+		
+		.additional-services {
+			padding: 2rem 0;
+		}
+		
+		.additional-services h2 {
+			font-size: 2rem;
+		}
+		
+		.services-grid {
+			grid-template-columns: 1fr;
 		}
 
 		.quick-access {
