@@ -1,17 +1,6 @@
 <script>
-import { onMount } from 'svelte';
 import { generateBreadcrumbSchema } from '$lib/schema.js';
 import { microNeighborhoods } from '$lib/microNeighborhoods.js';
-
-// Load RealScout script dynamically
-onMount(() => {
-	if (!document.querySelector('script[src*="realscout-web-components"]')) {
-		const script = document.createElement('script');
-		script.src = 'https://em.realscout.com/widgets/realscout-web-components.umd.js';
-		script.type = 'module';
-		document.head.appendChild(script);
-	}
-});
 
 let selectedCategory = 'subdivisions';
 let selectedSubdivision = null;

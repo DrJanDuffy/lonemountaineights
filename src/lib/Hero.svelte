@@ -1,5 +1,4 @@
 <script>
-import { onMount } from 'svelte';
 
 // Las Vegas skyline - local photo from OneDrive
 const heroImage = '/images/hero/hero-las-vegas.png';
@@ -19,16 +18,7 @@ function handleKeydown(event) {
 	}
 }
 
-// Load RealScout widgets
-onMount(() => {
-  // Load RealScout script if not already loaded
-  if (!document.querySelector('script[src*="realscout-web-components"]')) {
-    const script = document.createElement('script');
-    script.src = 'https://em.realscout.com/widgets/realscout-web-components.umd.js';
-    script.type = 'module';
-    document.head.appendChild(script);
-  }
-});
+// RealScout script loaded globally in +layout.svelte
 </script>
 
 <section class="hero">

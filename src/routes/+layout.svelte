@@ -108,6 +108,16 @@ onMount(() => {
 
 <Navigation />
 
+<!-- Break line below nav -->
+<hr class="nav-breakline" aria-hidden="true" />
+
+<!-- RealScout widget - on every page, right below breakline -->
+<section class="realscout-global-widget" aria-label="Search homes">
+	<div class="realscout-widget-inner">
+		<realscout-simple-search agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-simple-search>
+	</div>
+</section>
+
 <main id="main-content">
 	<slot />
 </main>
@@ -164,6 +174,31 @@ onMount(() => {
 </footer>
 
 <style>
+	.nav-breakline {
+		margin: 0;
+		border: none;
+		border-top: 1px solid #e2e8f0;
+		background: #f7fafc;
+	}
+
+	.realscout-global-widget {
+		background: #f7fafc;
+		padding: 0.75rem 1rem;
+		border-bottom: 1px solid #e2e8f0;
+	}
+
+	.realscout-widget-inner {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+
+	:global(.realscout-global-widget realscout-simple-search) {
+		width: 100%;
+		max-width: 600px;
+		margin: 0 auto;
+		display: block;
+	}
+
 	main {
 		flex: 1;
 		display: flex;

@@ -1,0 +1,35 @@
+---
+description: Automatically run git add, commit, and push when a summary of changes is provided
+alwaysApply: true
+---
+
+# Auto Git on Summary of Changes
+
+When you provide a **summary of changes** to the user at the end of a task, immediately run:
+
+1. **git add** – Stage all changes
+2. **git commit** – Commit with the summary as the commit message (use emoji + concise description)
+3. **git push** – Push to the remote
+
+## Workflow
+
+After completing edits and summarizing what was done:
+
+```bash
+git add -A
+git status   # verify staged files
+git commit -m "📝 Brief summary of changes"
+git pull --rebase origin main  # if needed (handle remote changes)
+git push
+```
+
+## Commit Message Format
+
+- Use emoji + short description (e.g., `🖼️ Add RealScout widget to layout`, `🐛 Fix navigation dropdown`)
+- Keep under ~72 characters
+- Derive from the summary you provided to the user
+
+## When to Run
+
+- **Always** when you've made file changes and provided a summary
+- **Skip** if the user explicitly asked not to commit, or if it was a read-only/informational response

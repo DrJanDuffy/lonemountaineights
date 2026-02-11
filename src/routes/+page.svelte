@@ -1,19 +1,9 @@
 <script>
-	import { onMount } from 'svelte';
 	import Hero from '$lib/Hero.svelte';
 	import TrustSignals from '$lib/components/TrustSignals.svelte';
 	import OptimizedCTA from '$lib/components/OptimizedCTA.svelte';
 
-	// Load RealScout script dynamically
-	onMount(() => {
-		if (!document.querySelector('script[src*="realscout-web-components"]')) {
-			const script = document.createElement('script');
-			script.src = 'https://em.realscout.com/widgets/realscout-web-components.umd.js';
-			script.type = 'module';
-			document.head.appendChild(script);
-		}
-	});
-</script>
+	</script>
 
 <svelte:head>
 	<title>Lone Mountain Heights Homes for Sale | Dr. Jan Duffy Expert | Las Vegas 89129</title>

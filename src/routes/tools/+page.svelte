@@ -1,18 +1,7 @@
 <script>
-	import { onMount } from 'svelte';
 	import MortgageCalculator from '$lib/components/MortgageCalculator.svelte';
 	import HomeFinderQuiz from '$lib/components/HomeFinderQuiz.svelte';
 	import OptimizedCTA from '$lib/components/OptimizedCTA.svelte';
-
-	// Load RealScout script dynamically
-	onMount(() => {
-		if (!document.querySelector('script[src*="realscout-web-components"]')) {
-			const script = document.createElement('script');
-			script.src = 'https://em.realscout.com/widgets/realscout-web-components.umd.js';
-			script.type = 'module';
-			document.head.appendChild(script);
-		}
-	});
 </script>
 
 <svelte:head>

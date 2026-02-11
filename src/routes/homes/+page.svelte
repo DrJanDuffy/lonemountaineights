@@ -1,16 +1,4 @@
 <script>
-import { onMount } from 'svelte';
-
-// Load RealScout script dynamically
-onMount(() => {
-	if (!document.querySelector('script[src*="realscout-web-components"]')) {
-		const script = document.createElement('script');
-		script.src = 'https://em.realscout.com/widgets/realscout-web-components.umd.js';
-		script.type = 'module';
-		document.head.appendChild(script);
-	}
-});
-
 // Mock data - in production this would come from MLS API
 const allHomes = [
   {
