@@ -23,6 +23,10 @@ const NAP = {
 };
 
 // GBP URLs - update when actual Place ID is available for View Google Reviews
+// Calendly – update with Dr. Jan's actual scheduling link
+export const CALENDLY_URL =
+  'https://calendly.com/drjanduffy/consultation?hide_gdpr_banner=1';
+
 export const GBP_URLS = {
   directions:
     'https://www.google.com/maps/dir/?api=1&destination=Lone+Mountain+Heights,+Las+Vegas,+NV+89129',

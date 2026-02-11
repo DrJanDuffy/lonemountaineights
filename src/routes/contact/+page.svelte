@@ -1,76 +1,17 @@
 <script>
-import { generateBreadcrumbSchema, GBP_URLS, NAP } from '$lib/schema.js';
+import { onMount } from 'svelte';
+import { generateBreadcrumbSchema, CALENDLY_URL, GBP_URLS, NAP } from '$lib/schema.js';
 
-let formData = {
-  name: '',
-  email: '',
-  phone: '',
-  message: '',
-  interest: 'buying',
-  subdivision: '',
-  priceRange: '',
-  timeline: '',
-};
-
-let isSubmitting = false;
-let submitMessage = '';
-
-// Subdivision options for dropdown
-const subdivisions = [
-  'Lone Mountain Ranch',
-  'Desert Vista Estates',
-  'Mountain Crest',
-  'Tule Springs Village',
-  'Desert Foothills',
-  'Canyon Gate Country Club',
-  "Mountain's Edge North",
-  'Providence Communities',
-  'Not Sure Yet',
-];
-
-// Price range options
-const priceRanges = [
-  'Under $600,000',
-  '$600,000 - $750,000',
-  '$750,000 - $900,000',
-  '$900,000 - $1,100,000',
-  '$1,100,000 - $1,500,000',
-  'Over $1,500,000',
-  'Not Sure Yet',
-];
-
-// Timeline options
-const timelines = [
-  'Immediately',
-  'Within 1 month',
-  'Within 3 months',
-  'Within 6 months',
-  'Just exploring',
-  'Not sure',
-];
-
-async function handleSubmit() {
-  isSubmitting = true;
-  submitMessage = '';
-
-  // Simulate form submission
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-
-  submitMessage = 'Thank you! Dr. Jan will contact you within 24 hours.';
-  isSubmitting = false;
-
-  // Reset form
-  formData = {
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-    interest: 'buying',
-    subdivision: '',
-    priceRange: '',
-    timeline: '',
-  };
-}
+// Load Calendly widget script
+onMount(() => {
+  if (!document.querySelector('script[src*="calendly.com"]')) {
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.type = 'text/javascript';
+    script.async = true;
+    document.head.appendChild(script);
+  }
+});
 
 // Generate breadcrumb schema
 const breadcrumbSchema = generateBreadcrumbSchema([
@@ -81,7 +22,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 
 <svelte:head>
 	<title>Contact Dr. Jan Duffy | Lone Mountain Heights Expert | Las Vegas 89129</title>
-	<meta name="description" content={`Contact Dr. Jan Duffy for expert real estate services in Lone Mountain Heights, Las Vegas 89129. Call ${NAP.telDisplay} or use our contact form for immediate assistance.`} />
+	<meta name="description" content={`Contact Dr. Jan Duffy for expert real estate services in Lone Mountain Heights, Las Vegas 89129. Call ${NAP.telDisplay} or schedule a consultation.`} />
 	
 	<!-- ContactPage Schema -->
 	<script type="application/ld+json">
@@ -89,7 +30,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 			"@context": "https://schema.org",
 			"@type": "ContactPage",
 			"name": "Contact Dr. Jan Duffy - Lone Mountain Heights Real Estate Expert",
-			"description": "Contact Dr. Jan Duffy for expert real estate services in Lone Mountain Heights, Las Vegas 89129. Call 702-222-1964 or use our contact form.",
+			"description": "Contact Dr. Jan Duffy for expert real estate services in Lone Mountain Heights, Las Vegas 89129. Call 702-222-1964 or schedule a consultation.",
 			"url": "https://www.lonemountainheights.com/contact",
 			"mainEntity": {
 				"@type": "RealEstateAgent",
@@ -205,112 +146,17 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 					</div>
 				</div>
 				
-				<!-- Contact Form -->
-				<div class="contact-form-section">
-					<h2>Send a Message</h2>
-					<p>Tell us about your real estate goals and we'll get back to you quickly.</p>
-					
-					{#if submitMessage}
-						<div class="success-message">
-							{submitMessage}
-						</div>
-					{/if}
-					
-					<form on:submit|preventDefault={handleSubmit} class="contact-form">
-						<div class="form-row">
-							<div class="form-group">
-								<label for="name">Full Name *</label>
-								<input 
-									id="name"
-									type="text" 
-									bind:value={formData.name} 
-									required 
-									placeholder="Your full name"
-								/>
-							</div>
-							
-							<div class="form-group">
-								<label for="email">Email Address *</label>
-								<input 
-									id="email"
-									type="email" 
-									bind:value={formData.email} 
-									required 
-									placeholder="your.email@example.com"
-								/>
-							</div>
-						</div>
-						
-						<div class="form-row">
-							<div class="form-group">
-								<label for="phone">Phone Number</label>
-								<input 
-									id="phone"
-									type="tel" 
-									bind:value={formData.phone} 
-									placeholder="(702) 555-1234"
-								/>
-							</div>
-							
-							<div class="form-group">
-								<label for="interest">I'm interested in *</label>
-								<select id="interest" bind:value={formData.interest} required>
-									<option value="buying">Buying a Home</option>
-									<option value="selling">Selling a Home</option>
-									<option value="both">Buying & Selling</option>
-									<option value="valuation">Home Valuation</option>
-									<option value="market">Market Information</option>
-									<option value="other">Other</option>
-								</select>
-							</div>
-						</div>
-						
-						<div class="form-row">
-							<div class="form-group">
-								<label for="subdivision">Preferred Subdivision</label>
-								<select id="subdivision" bind:value={formData.subdivision}>
-									<option value="">Select a subdivision</option>
-									{#each subdivisions as subdivision}
-										<option value={subdivision}>{subdivision}</option>
-									{/each}
-								</select>
-							</div>
-							
-							<div class="form-group">
-								<label for="priceRange">Price Range</label>
-								<select id="priceRange" bind:value={formData.priceRange}>
-									<option value="">Select price range</option>
-									{#each priceRanges as range}
-										<option value={range}>{range}</option>
-									{/each}
-								</select>
-							</div>
-						</div>
-						
-						<div class="form-group">
-							<label for="timeline">Timeline</label>
-							<select id="timeline" bind:value={formData.timeline}>
-								<option value="">When are you looking to move?</option>
-								{#each timelines as timeline}
-									<option value={timeline}>{timeline}</option>
-								{/each}
-							</select>
-						</div>
-						
-						<div class="form-group">
-							<label for="message">Message</label>
-							<textarea 
-								id="message"
-								bind:value={formData.message} 
-								placeholder="Tell us about your real estate goals, questions, or specific needs..."
-								rows="4"
-							></textarea>
-						</div>
-						
-						<button type="submit" class="submit-btn" disabled={isSubmitting}>
-							{isSubmitting ? 'Sending...' : 'Send Message'}
-						</button>
-					</form>
+				<!-- Calendly scheduling widget -->
+				<div class="calendly-section">
+					<h2>Schedule a Consultation</h2>
+					<p>Book a time that works for you — Dr. Jan will call or meet to discuss your Lone Mountain Heights goals.</p>
+					<div
+						class="calendly-inline-widget"
+						data-url={CALENDLY_URL}
+						data-resize="true"
+						style="min-width:320px;height:700px;"
+						aria-label="Schedule a call with Dr. Jan Duffy"
+					></div>
 				</div>
 			</div>
 			
@@ -398,7 +244,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 	}
 	
 	.contact-info,
-	.contact-form-section {
+	.calendly-section {
 		background: white;
 		padding: 2rem;
 		border-radius: 12px;
@@ -460,7 +306,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 	}
 	
 	.contact-info h2,
-	.contact-form-section h2 {
+	.calendly-section h2 {
 		font-size: 1.8rem;
 		font-weight: 700;
 		color: var(--heading-color);
@@ -468,7 +314,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 	}
 	
 	.contact-info p,
-	.contact-form-section p {
+	.calendly-section p {
 		color: var(--text-light);
 		margin: 0 0 2rem 0;
 		line-height: 1.6;
@@ -563,86 +409,12 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 		font-weight: 700;
 	}
 	
-	.contact-form {
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
-	}
-	
-	.form-row {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 1rem;
-	}
-	
-	.form-group {
-		display: flex;
-		flex-direction: column;
-	}
-	
-	.form-group label {
-		font-weight: 600;
-		color: var(--heading-color);
-		margin-bottom: 0.5rem;
-		font-size: 0.9rem;
-	}
-	
-	.form-group input,
-	.form-group select,
-	.form-group textarea {
-		padding: 0.75rem;
-		border: 2px solid var(--tertiary-color);
+	.calendly-inline-widget {
 		border-radius: 8px;
-		font-size: 1rem;
-		font-family: inherit;
-		transition: border-color 0.3s ease;
+		overflow: hidden;
+		min-height: 700px;
 	}
-	
-	.form-group input:focus,
-	.form-group select:focus,
-	.form-group textarea:focus {
-		outline: none;
-		border-color: var(--accent-color);
-	}
-	
-	.form-group textarea {
-		resize: vertical;
-		min-height: 100px;
-	}
-	
-	.submit-btn {
-		background: var(--accent-color);
-		color: white;
-		border: none;
-		padding: 1rem 2rem;
-		border-radius: 8px;
-		font-size: 1rem;
-		font-weight: 600;
-		cursor: pointer;
-		transition: all 0.3s ease;
-		align-self: flex-start;
-	}
-	
-	.submit-btn:hover:not(:disabled) {
-		background: var(--accent-light);
-		transform: translateY(-2px);
-	}
-	
-	.submit-btn:disabled {
-		opacity: 0.6;
-		cursor: not-allowed;
-	}
-	
-	.success-message {
-		background: var(--success-green);
-		color: white;
-		padding: 1rem;
-		border-radius: 8px;
-		margin-bottom: 1rem;
-		text-align: center;
-		font-weight: 600;
-	}
-	
+
 	.quick-contact-cta {
 		background: white;
 		padding: 3rem 2rem;
@@ -717,10 +489,6 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 			gap: 2rem;
 		}
 		
-		.form-row {
-			grid-template-columns: 1fr;
-		}
-		
 		.cta-buttons {
 			flex-direction: column;
 			align-items: center;
@@ -731,7 +499,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 		}
 		
 		.contact-info,
-		.contact-form-section {
+		.calendly-section {
 			padding: 1.5rem;
 		}
 	}
