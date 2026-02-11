@@ -120,6 +120,13 @@ onMount(() => {
 	</div>
 </section>
 
+<!-- RealScout office listings - $500K-$800K, newest first -->
+<section class="realscout-listings-section" aria-label="Current listings">
+	<div class="realscout-listings-inner">
+		<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="NEWEST" listing-status="For Sale" property-types="SFR,MF,TC" price-min="500000" price-max="800000"></realscout-office-listings>
+	</div>
+</section>
+
 <main id="main-content">
 	<slot />
 </main>
@@ -222,6 +229,17 @@ onMount(() => {
 	.search-bar-primary:hover {
 		background: var(--accent-light);
 		color: white;
+	}
+
+	.realscout-listings-section {
+		background: white;
+		padding: 1.5rem 1rem 2rem;
+		border-bottom: 1px solid #e2e8f0;
+	}
+
+	.realscout-listings-inner {
+		max-width: 1200px;
+		margin: 0 auto;
 	}
 
 	main {
