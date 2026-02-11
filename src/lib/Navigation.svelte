@@ -120,7 +120,7 @@ onMount(() => {
 						<span class="dropdown-arrow">▼</span>
 					</button>
 					{#if activeDropdown === 'search'}
-						<div class="nav-dropdown" role="menu">
+						<div class="nav-dropdown active" role="menu">
 							<a href="/homes" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Search All Homes</a>
 							<a href="/homes?type=3-bedroom" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>3 Bedroom Homes</a>
 							<a href="/price-ranges/600k-800k" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Homes $600K-$800K</a>
@@ -144,7 +144,7 @@ onMount(() => {
 						<span class="dropdown-arrow">▼</span>
 					</button>
 					{#if activeDropdown === 'buyers'}
-						<div class="nav-dropdown" role="menu">
+						<div class="nav-dropdown active" role="menu">
 							<a href="/homes" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Browse All Listings</a>
 							<a href="/neighborhoods" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Neighborhoods</a>
 							<a href="/sales" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Recent Sales</a>
@@ -168,7 +168,7 @@ onMount(() => {
 						<span class="dropdown-arrow">▼</span>
 					</button>
 					{#if activeDropdown === 'sellers'}
-						<div class="nav-dropdown" role="menu">
+						<div class="nav-dropdown active" role="menu">
 							<a href="/valuation" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Home Valuation</a>
 							<a href="/market-report" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Market Analysis</a>
 							<a href="/amenities" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Local Amenities</a>
@@ -206,7 +206,7 @@ onMount(() => {
 						<span class="dropdown-arrow">▼</span>
 					</button>
 					{#if activeDropdown === 'about'}
-						<div class="nav-dropdown" role="menu">
+						<div class="nav-dropdown active" role="menu">
 							<a href="/about" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>About Dr. Jan</a>
 							<a href="/careers" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Careers</a>
 							<a href="/blog" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Blog</a>
