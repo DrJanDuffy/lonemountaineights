@@ -111,10 +111,12 @@ onMount(() => {
 <!-- Break line below nav -->
 <hr class="nav-breakline" aria-hidden="true" />
 
-<!-- RealScout widget - on every page, right below breakline -->
-<section class="realscout-global-widget" aria-label="Search homes">
-	<div class="realscout-widget-inner">
-		<realscout-simple-search agent-encoded-id="QWdlbnQtMjI1MDUw"></realscout-simple-search>
+<!-- Search bar - compact link bar, no modal -->
+<section class="global-search-bar" aria-label="Quick search">
+	<div class="search-bar-inner">
+		<a href="/homes" class="search-bar-link">🔍 Search All Homes</a>
+		<a href="/valuation" class="search-bar-link">💰 Home Value</a>
+		<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" target="_blank" rel="noopener noreferrer" class="search-bar-link search-bar-primary">Open Full Search</a>
 	</div>
 </section>
 
@@ -181,22 +183,45 @@ onMount(() => {
 		background: #f7fafc;
 	}
 
-	.realscout-global-widget {
+	.global-search-bar {
 		background: #f7fafc;
-		padding: 0.75rem 1rem;
+		padding: 0.5rem 1rem;
 		border-bottom: 1px solid #e2e8f0;
 	}
 
-	.realscout-widget-inner {
+	.search-bar-inner {
 		max-width: 1200px;
 		margin: 0 auto;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
 	}
 
-	:global(.realscout-global-widget realscout-simple-search) {
-		width: 100%;
-		max-width: 600px;
-		margin: 0 auto;
-		display: block;
+	.search-bar-link {
+		font-size: 0.9rem;
+		font-weight: 500;
+		color: #4a5568;
+		text-decoration: none;
+		padding: 0.4rem 0.75rem;
+		border-radius: 6px;
+		transition: background 0.2s, color 0.2s;
+	}
+
+	.search-bar-link:hover {
+		color: var(--accent-color);
+		background: rgba(58, 141, 222, 0.1);
+	}
+
+	.search-bar-primary {
+		background: var(--accent-color);
+		color: white;
+	}
+
+	.search-bar-primary:hover {
+		background: var(--accent-light);
+		color: white;
 	}
 
 	main {
