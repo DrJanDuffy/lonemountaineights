@@ -1,5 +1,6 @@
 <script>
 import { onMount } from 'svelte';
+import { NAP } from '$lib/schema.js';
 
 // Trust signals data
 let testimonials = [];
@@ -64,7 +65,7 @@ function loadTrustData() {
   // Professional certifications and awards
   certifications = [
     {
-      name: 'Berkshire Hathaway HomeServices',
+      name: 'Berkshire Hathaway HomeServices Nevada Properties',
       title: 'Team Leader & Top Producer',
       year: '2024',
       description:
@@ -288,7 +289,7 @@ function formatPercentage(value) {
 		<h4>Ready to Work with a Trusted Expert?</h4>
 		<p>Join hundreds of satisfied clients who chose Dr. Jan Duffy for their Lone Mountain Heights real estate needs</p>
 		<div class="cta-buttons">
-			<a href="tel:702-222-1964" class="btn btn-primary">Call 702-222-1964</a>
+			<a href={NAP.telHref} class="btn btn-primary">Call {NAP.telDisplay}</a>
 			<a href="/contact" class="btn btn-secondary">Schedule Consultation</a>
 		</div>
 	</div>

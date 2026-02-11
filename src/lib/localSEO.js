@@ -88,7 +88,7 @@ export const localSEOConfig = {
     },
     hours: '24/7 Available',
     license: 'S.0197614',
-    broker: 'Berkshire Hathaway HomeServices',
+    broker: 'Berkshire Hathaway HomeServices Nevada Properties',
   },
 };
 
@@ -388,8 +388,8 @@ export function generateBusinessHoursSchema() {
         ],
         opens: '00:00',
         closes: '23:59',
-        validFrom: '2024-01-01',
-        validThrough: '2024-12-31',
+        validFrom: '2025-01-01',
+        validThrough: '2025-12-31',
       },
     ],
   };
@@ -478,7 +478,7 @@ export function generateLocalSEOMetaTags(pageType = 'home') {
 
   return {
     title: `Lone Mountain Heights Real Estate | Dr. Jan Duffy Team | Las Vegas 89129`,
-    description: `Find homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy leads the Berkshire Hathaway HomeServices team as your complete real estate partner. Expert local knowledge.`,
+    description: `Find homes for sale in Lone Mountain Heights, Las Vegas 89129. Dr. Jan Duffy leads the Berkshire Hathaway HomeServices Nevada Properties team as your complete real estate partner. Expert local knowledge.`,
     keywords: allKeywords,
     canonical: `https://lonemountainheights.com/${pageType}`,
     openGraph: {

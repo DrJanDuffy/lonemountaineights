@@ -1,6 +1,6 @@
 <script>
 import { onMount } from 'svelte';
-import { generateBreadcrumbSchema } from '$lib/schema.js';
+import { generateBreadcrumbSchema, NAP } from '$lib/schema.js';
 
 // Load RealScout script dynamically
 onMount(() => {
@@ -89,7 +89,7 @@ const networkStats = {
 			},
 			"worksFor": {
 				"@type": "Organization",
-				"name": "Berkshire Hathaway HomeServices",
+				"name": "Berkshire Hathaway HomeServices Nevada Properties",
 				"url": "https://www.berkshirehathawayhomeservices.com"
 			},
 			"knowsAbout": [
@@ -139,7 +139,7 @@ const networkStats = {
 			},
 			"parentOrganization": {
 				"@type": "Organization",
-				"name": "Berkshire Hathaway HomeServices",
+				"name": "Berkshire Hathaway HomeServices Nevada Properties",
 				"url": "https://www.berkshirehathawayhomeservices.com"
 			},
 			"founder": {
@@ -222,8 +222,8 @@ const networkStats = {
 						<img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dr. Jan Duffy - Real Estate Expert" />
 						<div class="contact-card">
 							<h4>Contact Dr. Jan</h4>
-							<p><a href="tel:702-222-1964">📞 702-222-1964</a></p>
-							<p><a href="mailto:jan@lonemountainheights.com">✉️ jan@lonemountainheights.com</a></p>
+							<p><a href={NAP.telHref}>📞 {NAP.telDisplay}</a></p>
+							<p><a href={`mailto:${NAP.email}`}>✉️ {NAP.email}</a></p>
 							<p>Available 7 Days a Week</p>
 						</div>
 					</div>
@@ -305,7 +305,7 @@ const networkStats = {
 				<p>Experience the difference that comes with working with a Berkshire Hathaway HomeServices Forever Agent who combines local expertise with global network power.</p>
 				<div class="cta-buttons">
 					<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Search All Homes in Lone Mountain Heights</a>
-					<a href="tel:702-222-1964" class="btn btn-secondary">Call 702-222-1964</a>
+					<a href={NAP.telHref} class="btn btn-secondary">Call {NAP.telDisplay}</a>
 					<a href="/homes" class="btn btn-secondary">Browse Listings</a>
 					<a href="/valuation" class="btn btn-secondary">Get Home Valuation</a>
 				</div>

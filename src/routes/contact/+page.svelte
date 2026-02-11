@@ -1,6 +1,6 @@
 <script>
 import { onMount } from 'svelte';
-import { generateBreadcrumbSchema } from '$lib/schema.js';
+import { generateBreadcrumbSchema, GBP_URLS, NAP } from '$lib/schema.js';
 
 // Load RealScout script dynamically
 onMount(() => {
@@ -92,7 +92,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 
 <svelte:head>
 	<title>Contact Dr. Jan Duffy | Lone Mountain Heights Expert | Las Vegas 89129</title>
-	<meta name="description" content="Contact Dr. Jan Duffy for expert real estate services in Lone Mountain Heights, Las Vegas 89129. Call 702-222-1964 or use our contact form for immediate assistance." />
+	<meta name="description" content={`Contact Dr. Jan Duffy for expert real estate services in Lone Mountain Heights, Las Vegas 89129. Call ${NAP.telDisplay} or use our contact form for immediate assistance.`} />
 	
 	<!-- ContactPage Schema -->
 	<script type="application/ld+json">
@@ -107,6 +107,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 				"name": "Dr. Jan Duffy",
 				"telephone": "702-222-1964",
 				"email": "jan@lonemountainheights.com",
+				"license": "S.0197614.LLC",
 				"address": {
 					"@type": "PostalAddress",
 					"streetAddress": "Lone Mountain Heights",
@@ -115,11 +116,16 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 					"postalCode": "89129",
 					"addressCountry": "US"
 				},
+				"memberOf": {
+					"@type": "Organization",
+					"name": "Berkshire Hathaway HomeServices Nevada Properties"
+				},
 				"areaServed": {
 					"@type": "City",
 					"name": "Las Vegas"
 				},
-				"openingHours": "Mo-Su 00:00-23:59"
+				"openingHours": "Mo-Su 00:00-23:59",
+				"hasMap": "https://www.google.com/maps/place/Lone+Mountain+Heights,+Las+Vegas,+NV+89129"
 			}
 		}
 	</script>
@@ -163,12 +169,18 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 					<h2>Get in Touch</h2>
 					<p>Dr. Jan Duffy is here to help you with all your Lone Mountain Heights real estate needs.</p>
 					
+					<div class="contact-buttons-gbp">
+						<a href={NAP.telHref} class="btn btn-primary">Call {NAP.telDisplay}</a>
+						<a href={GBP_URLS.directions} class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Directions</a>
+						<a href={GBP_URLS.reviews} class="btn btn-secondary" target="_blank" rel="noopener noreferrer">View Google Reviews</a>
+					</div>
+					
 					<div class="contact-methods">
 						<div class="contact-method">
 							<div class="method-icon">📞</div>
 							<div class="method-content">
 								<h3>Call or Text</h3>
-								<p><a href="tel:702-222-1964">702-222-1964</a></p>
+								<p><a href={NAP.telHref}>{NAP.telDisplay}</a></p>
 								<span class="method-note">Available 7 days a week</span>
 							</div>
 						</div>
@@ -177,17 +189,17 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 							<div class="method-icon">✉️</div>
 							<div class="method-content">
 								<h3>Email</h3>
-								<p><a href="mailto:jan@lonemountainheights.com">jan@lonemountainheights.com</a></p>
+								<p><a href={`mailto:${NAP.email}`}>{NAP.email}</a></p>
 								<span class="method-note">Response within 2 hours</span>
 							</div>
 						</div>
 						
 						<div class="contact-method">
-							<div class="method-icon">🏔️</div>
+							<div class="method-icon">📍</div>
 							<div class="method-content">
-								<h3>Service Area</h3>
-								<p>Lone Mountain Heights, Las Vegas</p>
-								<span class="method-note">All micro-neighborhoods</span>
+								<h3>Location</h3>
+								<p>{NAP.fullAddress}</p>
+								<span class="method-note">Service area: All Lone Mountain Heights micro-neighborhoods</span>
 							</div>
 						</div>
 					</div>
@@ -313,6 +325,24 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 				</div>
 			</div>
 			
+			<!-- Google Map embed with pin -->
+			<div class="map-section">
+				<h2>Find Us</h2>
+				<p>Lone Mountain Heights service area — {NAP.name}, Berkshire Hathaway HomeServices Nevada Properties</p>
+				<div class="map-embed">
+					<iframe
+						title="Lone Mountain Heights, Las Vegas NV - Dr. Jan Duffy Real Estate"
+						src={GBP_URLS.mapEmbed}
+						width="100%"
+						height="400"
+						style="border:0;"
+						allowfullscreen=""
+						loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"
+					></iframe>
+				</div>
+			</div>
+			
 			<!-- Featured Listings Section -->
 			<div class="featured-listings">
 				<h2>Current Lone Mountain Heights Listings</h2>
@@ -328,7 +358,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 				<p>For urgent real estate questions or to schedule a showing, call Dr. Jan directly.</p>
 				<div class="cta-buttons">
 					<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Search All Homes in Lone Mountain Heights</a>
-					<a href="tel:702-222-1964" class="btn btn-secondary">Call 702-222-1964</a>
+					<a href={NAP.telHref} class="btn btn-secondary">Call {NAP.telDisplay}</a>
 					<a href="/homes" class="btn btn-secondary">Browse Listings</a>
 					<a href="/valuation" class="btn btn-secondary">Get Home Valuation</a>
 				</div>
@@ -384,6 +414,60 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 		padding: 2rem;
 		border-radius: 12px;
 		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	}
+	
+	.contact-buttons-gbp {
+		display: flex;
+		gap: 1rem;
+		flex-wrap: wrap;
+		margin-bottom: 2rem;
+	}
+	
+	.contact-buttons-gbp .btn {
+		padding: 0.75rem 1.25rem;
+		border-radius: 8px;
+		text-decoration: none;
+		font-weight: 600;
+		font-size: 0.95rem;
+		transition: all 0.3s ease;
+	}
+	
+	.contact-buttons-gbp .btn-primary {
+		background: var(--accent-color);
+		color: white;
+		border: 2px solid var(--accent-color);
+	}
+	
+	.contact-buttons-gbp .btn-secondary {
+		background: transparent;
+		color: var(--accent-color);
+		border: 2px solid var(--accent-color);
+	}
+	
+	.map-section {
+		background: white;
+		padding: 2rem;
+		border-radius: 12px;
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+		margin-bottom: 2rem;
+	}
+	
+	.map-section h2 {
+		font-size: 1.8rem;
+		font-weight: 700;
+		color: var(--heading-color);
+		margin: 0 0 0.5rem 0;
+	}
+	
+	.map-section p {
+		color: var(--text-light);
+		margin: 0 0 1.5rem 0;
+	}
+	
+	.map-embed {
+		border-radius: 8px;
+		overflow: hidden;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 	}
 	
 	.contact-info h2,

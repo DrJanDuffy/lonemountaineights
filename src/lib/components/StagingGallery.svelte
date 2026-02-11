@@ -1,5 +1,6 @@
 <script>
 import OptimizedImage from './OptimizedImage.svelte';
+import { NAP } from '$lib/schema.js';
 
 // Before/after staging photos
 const stagingPhotos = [
@@ -208,7 +209,7 @@ function closePhoto() {
 		<h4>Ready to Stage Your Lone Mountain Heights Home?</h4>
 		<p>Dr. Jan Duffy provides expert staging consultation and can connect you with the best staging professionals in Las Vegas.</p>
 		<div class="cta-buttons">
-			<a href="tel:702-222-1964" class="btn btn-primary">Call 702-222-1964</a>
+			<a href={NAP.telHref} class="btn btn-primary">Call {NAP.telDisplay}</a>
 			<a href="/contact" class="btn btn-secondary">Schedule Consultation</a>
 		</div>
 	</div>

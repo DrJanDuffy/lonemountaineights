@@ -1,4 +1,5 @@
 <script>
+import { NAP } from '$lib/schema.js';
 const testimonials = [
   {
     id: 1,
@@ -110,7 +111,7 @@ function getStars(rating) {
 			<h3>Ready to Work with Las Vegas's Premier Neighborhood Expert?</h3>
 			<p>Join hundreds of satisfied clients who chose Dr. Jan Duffy for their real estate needs</p>
 			<div class="cta-buttons">
-				<a href="tel:702-222-1964" class="btn btn-primary">Call 702-222-1964</a>
+				<a href={NAP.telHref} class="btn btn-primary">Call {NAP.telDisplay}</a>
 				<a href="/contact" class="btn btn-secondary">Schedule Consultation</a>
 			</div>
 		</div>

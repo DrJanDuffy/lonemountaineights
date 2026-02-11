@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte';
+  import { NAP } from '$lib/schema.js';
   
   let luxuryHomes = [];
   let loading = true;
@@ -129,7 +130,7 @@
       <p>Let Dr. Jan Duffy help you discover the perfect luxury property in Lone Mountain Heights.</p>
       <div class="cta-buttons">
         <a href="/contact" class="btn-primary">Schedule Consultation</a>
-        <a href="tel:702-222-1964" class="btn-secondary">Call 702-222-1964</a>
+        <a href={NAP.telHref} class="btn-secondary">Call {NAP.telDisplay}</a>
       </div>
     </div>
   </div>

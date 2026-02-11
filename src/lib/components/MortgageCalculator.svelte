@@ -1,4 +1,5 @@
 <script>
+import { NAP } from '$lib/schema.js';
 // Mortgage calculator state
 const mortgage = {
   homePrice: 850000,
@@ -260,7 +261,7 @@ $: if (
 					<h5>Ready to Get Pre-Approved?</h5>
 					<p>Connect with our trusted mortgage partners for personalized rates</p>
 					<div class="cta-buttons">
-						<a href="tel:702-222-1964" class="btn btn-primary">Call 702-222-1964</a>
+						<a href={NAP.telHref} class="btn btn-primary">Call {NAP.telDisplay}</a>
 						<a href="/contact" class="btn btn-secondary">Get Pre-Approval Help</a>
 					</div>
 				</div>

@@ -1,5 +1,6 @@
 <script>
 import { onMount } from 'svelte';
+import { NAP } from '$lib/schema.js';
 
 // CTA state
 let urgencyMessage = '';
@@ -119,29 +120,29 @@ $: buttonClasses = `btn btn-${variant} btn-${size}`;
 		<div class="cta-actions">
 			{#if showPhone}
 				<a 
-					href="tel:702-222-1964" 
+					href={NAP.telHref} 
 					class="{buttonClasses} cta-phone"
 					on:click={() => trackCTAClick('call', 'phone')}
 				>
 					<span class="btn-icon">📞</span>
-					<span class="btn-text">Call 702-222-1964</span>
+					<span class="btn-text">Call {NAP.telDisplay}</span>
 				</a>
 			{/if}
 			
 			{#if showText}
 				<a 
-					href="sms:702-222-1964" 
+					href={NAP.smsHref} 
 					class="{buttonClasses} cta-text"
 					on:click={() => trackCTAClick('text', 'sms')}
 				>
 					<span class="btn-icon">💬</span>
-					<span class="btn-text">Text 702-222-1964</span>
+					<span class="btn-text">Text {NAP.telDisplay}</span>
 				</a>
 			{/if}
 			
 			{#if showEmail}
 				<a 
-					href="mailto:jan@lonemountainheights.com" 
+					href={`mailto:${NAP.email}`} 
 					class="{buttonClasses} cta-email"
 					on:click={() => trackCTAClick('email', 'mailto')}
 				>

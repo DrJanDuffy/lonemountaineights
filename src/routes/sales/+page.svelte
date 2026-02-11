@@ -1,4 +1,5 @@
 <script>
+import { NAP } from '$lib/schema.js';
 // Mock recent sales data - in production this would come from MLS API
 const recentSales = [
   {
@@ -302,7 +303,7 @@ $: marketStats = {
 				<p>Get a detailed market analysis based on recent sales in your area</p>
 				<div class="cta-buttons">
 					<a href="/valuation" class="btn btn-primary">Get Home Valuation</a>
-					<a href="tel:702-222-1964" class="btn btn-secondary">Call 702-222-1964</a>
+					<a href={NAP.telHref} class="btn btn-secondary">Call {NAP.telDisplay}</a>
 				</div>
 			</div>
 		</div>

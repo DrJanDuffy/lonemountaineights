@@ -25,7 +25,7 @@
 			"@context": "https://schema.org",
 			"@type": "RealEstateAgent",
 			"name": "Dr. Jan Duffy - Lone Mountain Heights Real Estate Expert",
-			"description": "Expert real estate agent specializing in Lone Mountain Heights, Las Vegas 89129. 500+ transactions, Berkshire Hathaway HomeServices team leader.",
+			"description": "Expert real estate agent specializing in Lone Mountain Heights, Las Vegas 89129. 500+ transactions, Berkshire Hathaway HomeServices Nevada Properties team leader.",
 			"url": "https://www.lonemountainheights.com",
 			"telephone": "702-222-1964",
 			"email": "jan@lonemountainheights.com",
@@ -83,7 +83,7 @@
 			},
 			"memberOf": {
 				"@type": "Organization",
-				"name": "Berkshire Hathaway HomeServices",
+				"name": "Berkshire Hathaway HomeServices Nevada Properties",
 				"url": "https://www.berkshirehathawayhomeservices.com"
 			},
 			"knowsAbout": [
@@ -208,7 +208,7 @@
 					"name": "Why should I work with Dr. Jan Duffy?",
 					"acceptedAnswer": {
 						"@type": "Answer",
-						"text": "Dr. Jan Duffy has completed 500+ transactions in Lone Mountain Heights, is the head of the Berkshire Hathaway HomeServices team, and provides personalized service with deep local market knowledge."
+						"text": "Dr. Jan Duffy has completed 500+ transactions in Lone Mountain Heights, is the head of the Berkshire Hathaway HomeServices Nevada Properties team, and provides personalized service with deep local market knowledge."
 					}
 				}
 			]

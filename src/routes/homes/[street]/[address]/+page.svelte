@@ -1,6 +1,7 @@
 <script>
 import { page } from '$app/stores';
 import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
+import { NAP } from '$lib/schema.js';
 
 // Get route parameters
 $: street = $page.params.street;
@@ -195,11 +196,11 @@ const propertyData = {
         <h2>Interested in This Property?</h2>
         <p>Contact Dr. Jan Duffy for more information, scheduling a showing, or to make an offer.</p>
         <div class="cta-buttons">
-          <a href="tel:702-222-1964" class="btn btn-primary">
+          <a href={NAP.telHref} class="btn btn-primary">
             <span class="btn-icon">📞</span>
             <span class="btn-text">Call Dr. Jan</span>
           </a>
-          <a href="mailto:jan@lonemountainheights.com" class="btn btn-secondary">
+          <a href={`mailto:${NAP.email}`} class="btn btn-secondary">
             <span class="btn-icon">✉️</span>
             <span class="btn-text">Email Dr. Jan</span>
           </a>

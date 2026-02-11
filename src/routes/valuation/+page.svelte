@@ -1,5 +1,6 @@
 <script>
 import { onMount } from 'svelte';
+import { NAP } from '$lib/schema.js';
 
 // Load RealScout script dynamically
 onMount(() => {
@@ -165,7 +166,7 @@ function formatDate(dateString) {
 							<h3>Ready to Sell Your Home?</h3>
 							<p>Get a detailed market analysis and pricing strategy from Dr. Jan Duffy</p>
 							<div class="cta-buttons">
-								<a href="tel:702-222-1964" class="btn btn-primary">Call 702-222-1964</a>
+								<a href={NAP.telHref} class="btn btn-primary">Call {NAP.telDisplay}</a>
 								<a href="/contact" class="btn btn-secondary">Schedule Consultation</a>
 							</div>
 						</div>

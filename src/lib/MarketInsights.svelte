@@ -1,4 +1,5 @@
 <script>
+import { NAP } from '$lib/schema.js';
 // Mock market data - in production this would come from real estate APIs
 const marketData = {
   averagePrice: 847000,
@@ -173,7 +174,7 @@ function formatDate(dateString) {
 			<p>Dr. Jan provides detailed market analysis for your specific street and home type</p>
 			<div class="cta-buttons">
 				<a href="/market-report" class="btn btn-primary">Download Market Report</a>
-				<a href="tel:702-222-1964" class="btn btn-secondary">Call for Analysis</a>
+				<a href={NAP.telHref} class="btn btn-secondary">Call for Analysis</a>
 			</div>
 		</div>
 	</div>

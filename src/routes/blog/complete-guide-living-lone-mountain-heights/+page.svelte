@@ -1,5 +1,5 @@
 <script>
-import { generateBreadcrumbSchema } from '$lib/schema.js';
+import { generateBreadcrumbSchema, NAP } from '$lib/schema.js';
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: 'https://www.lonemountainheights.com' },
@@ -538,7 +538,7 @@ const amenities = [
 						<h2>Ready to Make Lone Mountain Heights Your Home?</h2>
 						<p>Dr. Jan Duffy has helped hundreds of families find their perfect home in Lone Mountain Heights. With deep local knowledge and 500+ successful transactions, she can guide you through every step of the process.</p>
 						<div class="cta-buttons">
-							<a href="tel:702-222-1964" class="btn btn-primary">Call 702-222-1964</a>
+							<a href={NAP.telHref} class="btn btn-primary">Call {NAP.telDisplay}</a>
 							<a href="/homes" class="btn btn-secondary">View Available Homes</a>
 							<a href="/contact" class="btn btn-secondary">Schedule Consultation</a>
 						</div>

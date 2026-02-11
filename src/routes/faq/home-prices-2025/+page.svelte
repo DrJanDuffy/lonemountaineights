@@ -1,4 +1,5 @@
 <script>
+import { NAP } from '$lib/schema.js';
 const currentYear = new Date().getFullYear();
 const marketData = {
   avgPrice: 847000,
@@ -367,7 +368,7 @@ const factors = [
 					<div class="cta-buttons">
 						<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Search Homes in Lone Mountain Heights</a>
 						<a href="/valuation" class="btn btn-secondary">Get Home Valuation</a>
-						<a href="tel:702-222-1964" class="btn btn-secondary">Call 702-222-1964</a>
+						<a href={NAP.telHref} class="btn btn-secondary">Call {NAP.telDisplay}</a>
 					</div>
 				</section>
 			</article>
@@ -407,8 +408,8 @@ const factors = [
 				<div class="sidebar-card">
 					<h3>Contact Dr. Jan Duffy</h3>
 					<p>Your Complete Real Estate Partner</p>
-					<p><a href="tel:702-222-1964">📞 702-222-1964</a></p>
-					<p><a href="mailto:jan@lonemountainheights.com">✉️ Email Dr. Jan</a></p>
+<p><a href={NAP.telHref}>📞 {NAP.telDisplay}</a></p>
+  					<p><a href={`mailto:${NAP.email}`}>✉️ Email Dr. Jan</a></p>
 				</div>
 			</aside>
 		</div>

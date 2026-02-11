@@ -1,5 +1,6 @@
 <script>
   import { onMount } from 'svelte';
+  import { NAP } from '$lib/schema.js';
   
   let jobOpenings = [];
   let loading = true;
@@ -196,7 +197,7 @@
       <p>Don't see a position that fits? We're always looking for talented individuals to join our team.</p>
       <div class="cta-buttons">
         <a href="/contact" class="btn-primary">Contact Us</a>
-        <a href="tel:702-222-1964" class="btn-secondary">Call 702-222-1964</a>
+        <a href={NAP.telHref} class="btn-secondary">Call {NAP.telDisplay}</a>
       </div>
     </div>
   </div>

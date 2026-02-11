@@ -1,4 +1,5 @@
 <script>
+import { NAP } from '$lib/schema.js';
 // Get current season
 const currentDate = new Date();
 const month = currentDate.getMonth() + 1; // 1-12
@@ -140,7 +141,7 @@ $: seasonalContent = seasonalData[currentSeason];
 		<div class="seasonal-cta">
 			<p>{seasonalContent.cta}</p>
 			<div class="cta-buttons">
-				<a href="tel:702-222-1964" class="btn btn-primary">Call 702-222-1964</a>
+				<a href={NAP.telHref} class="btn btn-primary">Call {NAP.telDisplay}</a>
 				<a href="/contact" class="btn btn-secondary">Get Free Consultation</a>
 			</div>
 		</div>

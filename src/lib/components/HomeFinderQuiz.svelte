@@ -1,4 +1,5 @@
 <script>
+import { NAP } from '$lib/schema.js';
 // Quiz state
 let currentStep = 0;
 let answers = {};
@@ -385,7 +386,7 @@ $: progress = ((currentStep + 1) / questions.length) * 100;
 				<h5>Ready to Start Your Home Search?</h5>
 				<p>Let Dr. Jan Duffy help you find the perfect home in Lone Mountain Heights</p>
 				<div class="cta-buttons">
-					<a href="tel:702-222-1964" class="btn btn-primary">Call 702-222-1964</a>
+					<a href={NAP.telHref} class="btn btn-primary">Call {NAP.telDisplay}</a>
 					<a href="/contact" class="btn btn-secondary">Schedule Consultation</a>
 				</div>
 			</div>

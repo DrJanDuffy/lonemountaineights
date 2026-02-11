@@ -1,23 +1,54 @@
 // Schema Markup Generator for Real Estate Rich Snippets
-// Optimized for Google Search Results with price, bedrooms, location, and ratings
+// NAP matches Google Business Profile - Dr. Jan Duffy, License S.0197614.LLC
+// Berkshire Hathaway HomeServices Nevada Properties
+
+const NAP = {
+  name: 'Dr. Jan Duffy',
+  telephone: '+1-702-222-1964',
+  email: 'jan@lonemountainheights.com',
+  address: {
+    streetAddress: 'Lone Mountain Heights',
+    addressLocality: 'Las Vegas',
+    addressRegion: 'NV',
+    postalCode: '89129',
+    addressCountry: 'US',
+  },
+  broker: 'Berkshire Hathaway HomeServices Nevada Properties',
+  license: 'S.0197614.LLC',
+  hours: 'Available 7 Days a Week',
+  fullAddress: 'Lone Mountain Heights, Las Vegas, NV 89129',
+  telHref: 'tel:+17022221964',
+  telDisplay: '702-222-1964',
+  smsHref: 'sms:7022221964',
+};
+
+// GBP URLs - update when actual Place ID is available for View Google Reviews
+export const GBP_URLS = {
+  directions:
+    'https://www.google.com/maps/dir/?api=1&destination=Lone+Mountain+Heights,+Las+Vegas,+NV+89129',
+  reviews:
+    'https://www.google.com/maps/place/Lone+Mountain+Heights,+Las+Vegas,+NV+89129/@36.2569,-115.2419,15z',
+  mapEmbed:
+    'https://maps.google.com/maps?q=Lone+Mountain+Heights,+Las+Vegas,+NV+89129&t=&z=14&ie=UTF8&iwloc=&output=embed',
+};
 
 export function generateRealEstateSchema(_property) {
   return {
     '@context': 'https://schema.org',
     '@type': 'RealEstateAgent',
-    name: 'Dr. Jan Duffy',
+    name: NAP.name,
     description:
       'Lone Mountain Heights Real Estate Expert - 500+ Las Vegas Transactions',
     url: 'https://lonemountainheights.com',
-    telephone: '+1-702-222-1964',
-    email: 'jan@lonemountainheights.com',
+    telephone: NAP.telephone,
+    email: NAP.email,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Lone Mountain Heights',
-      addressLocality: 'Las Vegas',
-      addressRegion: 'NV',
-      postalCode: '89134',
-      addressCountry: 'US',
+      streetAddress: NAP.address.streetAddress,
+      addressLocality: NAP.address.addressLocality,
+      addressRegion: NAP.address.addressRegion,
+      postalCode: NAP.address.postalCode,
+      addressCountry: NAP.address.addressCountry,
     },
     areaServed: {
       '@type': 'City',
@@ -90,7 +121,7 @@ export function generatePropertySchema(property) {
       streetAddress: property.address,
       addressLocality: 'Las Vegas',
       addressRegion: 'NV',
-      postalCode: '89134',
+      postalCode: NAP.address.postalCode,
       addressCountry: 'US',
     },
     floorSize: {
@@ -139,9 +170,9 @@ export function generatePropertySchema(property) {
     },
     provider: {
       '@type': 'RealEstateAgent',
-      name: 'Dr. Jan Duffy',
-      telephone: '+1-702-222-1964',
-      email: 'jan@lonemountainheights.com',
+      name: NAP.name,
+      telephone: NAP.telephone,
+      email: NAP.email,
     },
   };
 }
@@ -150,25 +181,32 @@ export function generateLocalBusinessSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'RealEstateAgent',
-    name: 'Dr. Jan Duffy - Lone Mountain Heights Real Estate Expert',
+    name: `${NAP.name} - Lone Mountain Heights Real Estate Expert`,
     description:
       'Premier real estate services in Lone Mountain Heights, Las Vegas. Your complete real estate partner with deep neighborhood expertise.',
     url: 'https://lonemountainheights.com',
-    telephone: '+1-702-222-1964',
-    email: 'jan@lonemountainheights.com',
+    telephone: NAP.telephone,
+    email: NAP.email,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Lone Mountain Heights',
-      addressLocality: 'Las Vegas',
-      addressRegion: 'NV',
-      postalCode: '89134',
-      addressCountry: 'US',
+      streetAddress: NAP.address.streetAddress,
+      addressLocality: NAP.address.addressLocality,
+      addressRegion: NAP.address.addressRegion,
+      postalCode: NAP.address.postalCode,
+      addressCountry: NAP.address.addressCountry,
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: '36.1699',
-      longitude: '-115.1398',
+      latitude: '36.2569',
+      longitude: '-115.2419',
     },
+    memberOf: {
+      '@type': 'Organization',
+      name: NAP.broker,
+      url: 'https://www.berkshirehathawayhomeservices.com',
+    },
+    license: NAP.license,
+    hasMap: 'https://www.google.com/maps/place/Lone+Mountain+Heights,+Las+Vegas,+NV+89129',
     areaServed: [
       {
         '@type': 'City',
@@ -181,7 +219,7 @@ export function generateLocalBusinessSchema() {
     ],
     serviceType: 'Real Estate Services',
     priceRange: '$$',
-    openingHours: 'Mo-Fr 09:00-18:00,Sa 10:00-16:00',
+    openingHours: 'Mo-Su 00:00-23:59',
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.9',
@@ -262,6 +300,8 @@ export function generateLocalBusinessSchema() {
     },
   };
 }
+
+export { NAP };
 
 export function generateBreadcrumbSchema(breadcrumbs) {
   return {

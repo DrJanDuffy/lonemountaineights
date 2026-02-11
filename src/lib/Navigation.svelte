@@ -1,6 +1,7 @@
 <script>
 import { page } from '$app/stores';
 import { onMount } from 'svelte';
+import { NAP } from '$lib/schema.js';
 
 let mobileMenuOpen = false;
 let activeDropdown = null;
@@ -225,8 +226,8 @@ onMount(() => {
 
 			<!-- Contact Button -->
 			<div class="nav-contact">
-				<a href="tel:702-222-1964" class="contact-btn">
-					📞 CALL 702-222-1964
+				<a href={NAP.telHref} class="contact-btn">
+					📞 CALL {NAP.telDisplay}
 				</a>
 			</div>
 
@@ -276,8 +277,8 @@ onMount(() => {
 
 				<!-- Mobile Contact -->
 				<div class="mobile-contact">
-					<a href="tel:702-222-1964" class="mobile-contact-btn" on:click={handleNavLinkClick}>
-						📞 Call 702-222-1964
+					<a href={NAP.telHref} class="mobile-contact-btn" on:click={handleNavLinkClick}>
+						📞 Call {NAP.telDisplay}
 					</a>
 				</div>
 			</div>

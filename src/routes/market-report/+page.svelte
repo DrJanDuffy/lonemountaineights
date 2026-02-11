@@ -1,4 +1,5 @@
 <script>
+import { NAP } from '$lib/schema.js';
 // Market report data
 const marketData = {
   monthlyStats: {
@@ -197,7 +198,7 @@ function formatPercent(value) {
 				<p>Dr. Jan Duffy provides detailed market analysis for your specific property</p>
 				<div class="cta-buttons">
 					<a href="/valuation" class="btn btn-primary">Get Home Valuation</a>
-					<a href="tel:702-222-1964" class="btn btn-secondary">Call 702-222-1964</a>
+					<a href={NAP.telHref} class="btn btn-secondary">Call {NAP.telDisplay}</a>
 				</div>
 			</section>
 		</div>

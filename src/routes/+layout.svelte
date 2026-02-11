@@ -7,6 +7,8 @@ import { initPerformanceOptimizations } from '$lib/performance.js';
 import {
   generateFAQSchema,
   generateLocalBusinessSchema,
+  GBP_URLS,
+  NAP,
   realEstateFAQs,
 } from '$lib/schema.js';
 import { webVitals } from '$lib/vitals';
@@ -115,17 +117,20 @@ onMount(() => {
 <footer>
 	<div class="footer-content">
 		<div class="footer-section">
-			<h4>Dr. Jan Duffy</h4>
-			<p>Berkshire Hathaway HomeServices</p>
+			<h4>{NAP.name}</h4>
+			<p>Berkshire Hathaway HomeServices Nevada Properties</p>
 			<p>Head of Lone Mountain Heights Team</p>
-			<p>Your Complete Real Estate Partner</p>
-			<p>Local Expert • Global Network</p>
+			<p>License {NAP.license}</p>
+			<p>{NAP.fullAddress}</p>
+			<p><strong>Hours:</strong> {NAP.hours}</p>
 		</div>
 		
 		<div class="footer-section">
 			<h4>Contact</h4>
-			<p><a href="tel:702-222-1964">📞 702-222-1964</a></p>
-			<p><a href="mailto:jan@lonemountainheights.com">✉️ jan@lonemountainheights.com</a></p>
+			<p><a href={NAP.telHref}>📞 Call {NAP.telDisplay}</a></p>
+			<p><a href={GBP_URLS.directions} target="_blank" rel="noopener noreferrer">📍 Directions</a></p>
+			<p><a href={GBP_URLS.reviews} target="_blank" rel="noopener noreferrer">⭐ View Google Reviews</a></p>
+			<p><a href={`mailto:${NAP.email}`}>✉️ {NAP.email}</a></p>
 		</div>
 		
 		<div class="footer-section">
@@ -155,7 +160,7 @@ onMount(() => {
 	</div>
 	
 	<div class="footer-bottom">
-		<p>&copy; 2024 Lone Mountain Heights | Homes by Dr. Jan Duffy S.0197614. All rights reserved.</p>
+		<p>&copy; 2025 Lone Mountain Heights | Homes by Dr. Jan Duffy {NAP.license}. Berkshire Hathaway HomeServices Nevada Properties. All rights reserved.</p>
 	</div>
 </footer>
 

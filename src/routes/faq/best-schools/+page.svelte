@@ -1,4 +1,5 @@
 <script>
+import { NAP } from '$lib/schema.js';
 const schools = [
   {
     name: 'Sandy Valley Elementary School',
@@ -362,7 +363,7 @@ const schoolBoundaries = {
 					<p>Dr. Jan Duffy can provide detailed information about school boundaries, ratings, and how they impact home values in Lone Mountain Heights.</p>
 					<div class="cta-buttons">
 						<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Search Homes in Lone Mountain Heights</a>
-						<a href="tel:702-222-1964" class="btn btn-secondary">Call 702-222-1964</a>
+						<a href={NAP.telHref} class="btn btn-secondary">Call {NAP.telDisplay}</a>
 						<a href="/schools" class="btn btn-secondary">School Information</a>
 					</div>
 				</section>
@@ -401,8 +402,8 @@ const schoolBoundaries = {
 				<div class="sidebar-card">
 					<h3>Contact Dr. Jan Duffy</h3>
 					<p>Your Complete Real Estate Partner</p>
-					<p><a href="tel:702-222-1964">📞 702-222-1964</a></p>
-					<p><a href="mailto:jan@lonemountainheights.com">✉️ Email Dr. Jan</a></p>
+					<p><a href={NAP.telHref}>📞 {NAP.telDisplay}</a></p>
+					<p><a href={`mailto:${NAP.email}`}>✉️ Email Dr. Jan</a></p>
 				</div>
 			</aside>
 		</div>

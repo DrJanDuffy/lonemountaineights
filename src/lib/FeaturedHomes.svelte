@@ -1,4 +1,5 @@
 <script>
+import { NAP } from '$lib/schema.js';
 // Mock data - in production this would come from MLS API
 const featuredHomes = [
   {
@@ -102,7 +103,7 @@ function formatPrice(price) {
 			<h3>Don't See What You're Looking For?</h3>
 			<p>Dr. Jan knows about off-market opportunities and upcoming listings</p>
 			<div class="cta-buttons">
-				<a href="tel:702-222-1964" class="btn btn-primary">Call 702-222-1964</a>
+				<a href={NAP.telHref} class="btn btn-primary">Call {NAP.telDisplay}</a>
 				<a href="/contact" class="btn btn-secondary">Get Notified of New Listings</a>
 			</div>
 		</div>
