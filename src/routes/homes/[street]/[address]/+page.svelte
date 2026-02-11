@@ -39,9 +39,9 @@ const propertyData = {
     'Two-Car Garage',
   ],
   images: [
-    'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    '/images/photos/home-featured-1.jpg',
+    '/images/photos/home-featured-2.jpg',
+    '/images/photos/home-featured-3.jpg',
   ],
 };
 </script>
@@ -59,13 +59,13 @@ const propertyData = {
   <meta property="og:description" content="{propertyData.bedrooms} bed, {propertyData.bathrooms} bath home for {propertyData.price} in Lone Mountain Heights" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.lonemountainheights.com/homes/{street}/{address}" />
-  <meta property="og:image" content="{propertyData.images[0]}" />
+  <meta property="og:image" content="https://lonemountainheights.com{propertyData.images[0]}" />
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{propertyAddress} | {streetName} | Lone Mountain Heights" />
   <meta name="twitter:description" content="{propertyData.bedrooms} bed, {propertyData.bathrooms} bath home for {propertyData.price}" />
-  <meta name="twitter:image" content="{propertyData.images[0]}" />
+  <meta name="twitter:image" content="https://lonemountainheights.com{propertyData.images[0]}" />
   
   <!-- JSON-LD Schema -->
   <script type="application/ld+json">
@@ -75,7 +75,7 @@ const propertyData = {
       "name": "{propertyAddress}",
       "description": "{propertyData.description}",
       "url": "https://www.lonemountainheights.com/homes/{street}/{address}",
-      "image": "{propertyData.images[0]}",
+      "image": "https://lonemountainheights.com{propertyData.images[0]}",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "{propertyAddress}",

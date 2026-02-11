@@ -49,7 +49,7 @@ const neighborhoods = [
       'Mountain Views',
     ],
     image:
-      'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+      '/images/photos/las-vegas-neighborhood.jpg',
   },
   {
     name: 'Desert Vista Estates',
@@ -62,7 +62,7 @@ const neighborhoods = [
       'Walking Trails',
     ],
     image:
-      'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+      '/images/photos/las-vegas-neighborhood.jpg',
   },
   {
     name: 'Canyon Gate Country Club',
@@ -75,7 +75,7 @@ const neighborhoods = [
       'Exclusive Access',
     ],
     image:
-      'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+      '/images/photos/las-vegas-neighborhood.jpg',
   },
 ];
 

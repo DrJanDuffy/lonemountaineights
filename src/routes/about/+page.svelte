@@ -110,11 +110,11 @@ const networkStats = {
 			"award": "Your Complete Real Estate Partner",
 			"image": {
 				"@type": "ImageObject",
-				"url": "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80&fm=webp",
+				"url": "https://lonemountainheights.com/images/agents/dr-jan-duffy.jpg",
 				"width": 400,
 				"height": 400,
 				"caption": "Dr. Jan Duffy - Lone Mountain Heights Real Estate Expert",
-				"contentUrl": "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80&fm=webp"
+				"contentUrl": "https://lonemountainheights.com/images/agents/dr-jan-duffy.jpg"
 			}
 		}
 	</script>
@@ -219,7 +219,7 @@ const networkStats = {
 					</div>
 					
 					<div class="profile-image">
-						<img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Dr. Jan Duffy - Real Estate Expert" />
+						<img src="/images/agents/dr-jan-duffy.jpg" alt="Dr. Jan Duffy - Real Estate Expert" />
 						<div class="contact-card">
 							<h4>Contact Dr. Jan</h4>
 							<p><a href={NAP.telHref}>📞 {NAP.telDisplay}</a></p>
@@ -285,7 +285,7 @@ const networkStats = {
 						</ul>
 					</div>
 					<div class="expertise-image">
-						<img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Lone Mountain Heights neighborhood" />
+						<img src="/images/photos/las-vegas-neighborhood.jpg" alt="Lone Mountain Heights neighborhood" />
 					</div>
 				</div>
 			</section>

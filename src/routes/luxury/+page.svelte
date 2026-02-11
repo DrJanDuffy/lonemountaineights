@@ -26,7 +26,7 @@
           beds: 5,
           baths: 4,
           sqft: 4200,
-          image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&h=600&fit=crop",
+          image: "/images/photos/home-featured-1.jpg",
           features: ["Mountain Views", "Pool", "Gourmet Kitchen", "Master Suite"]
         },
         {
@@ -36,7 +36,7 @@
           beds: 4,
           baths: 3,
           sqft: 3800,
-          image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop",
+          image: "/images/photos/home-featured-2.jpg",
           features: ["Golf Course", "Gated Community", "Updated Kitchen", "Garage"]
         },
         {
@@ -46,7 +46,7 @@
           beds: 6,
           baths: 5,
           sqft: 4800,
-          image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop",
+          image: "/images/photos/home-featured-3.jpg",
           features: ["City Views", "Wine Cellar", "Home Theater", "Pool"]
         }
       ];

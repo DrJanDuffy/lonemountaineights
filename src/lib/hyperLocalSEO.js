@@ -51,7 +51,7 @@ export function generateSubdivisionContent(subdivisionId) {
       title: `Homes in ${subdivision.name}`,
       subtitle: subdivision.description,
       cta: `Find Your ${subdivision.name} Home`,
-      image: `https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80`,
+      image: `https://lonemountainheights.com/images/og/og-image.png`,
     },
     overview: {
       title: `About ${subdivision.name}`,
@@ -98,7 +98,7 @@ export function generateStreetClusterContent(clusterId) {
       title: `${cluster.name} Real Estate`,
       subtitle: cluster.description,
       cta: `Explore ${cluster.name} Homes`,
-      image: `https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80`,
+      image: `https://lonemountainheights.com/images/og/og-image.png`,
     },
     overview: {
       title: `About ${cluster.name}`,
@@ -128,7 +128,7 @@ export function generateAgeSpecificContent(communityId) {
       title: `${community.name} in Lone Mountain Heights`,
       subtitle: `Designed for ${community.characteristics.join(', ').toLowerCase()}`,
       cta: `Find Your ${community.name} Home`,
-      image: `https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80`,
+      image: `https://lonemountainheights.com/images/og/og-image.png`,
     },
     overview: {
       title: `About ${community.name}`,
@@ -163,7 +163,7 @@ export function generateGeographicPocketContent(pocketId) {
       title: `${pocket.name} Properties`,
       subtitle: pocket.description,
       cta: `Explore ${pocket.name} Homes`,
-      image: `https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80`,
+      image: `https://lonemountainheights.com/images/og/og-image.png`,
     },
     overview: {
       title: `About ${pocket.name}`,

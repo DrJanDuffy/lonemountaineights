@@ -11,8 +11,7 @@ const featuredHomes = [
     sqft: 2450,
     lotSize: '0.25 acres',
     daysOnMarket: 8,
-    image:
-      'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/photos/home-featured-1.jpg',
     insight:
       'Corner lot with mountain views - premium location in the neighborhood',
   },
@@ -25,8 +24,7 @@ const featuredHomes = [
     sqft: 1890,
     lotSize: '0.18 acres',
     daysOnMarket: 15,
-    image:
-      'https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/photos/home-featured-2.jpg',
     insight: 'Recently updated kitchen - great value for the area',
   },
   {
@@ -38,8 +36,7 @@ const featuredHomes = [
     sqft: 3200,
     lotSize: '0.35 acres',
     daysOnMarket: 3,
-    image:
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/photos/home-featured-3.jpg',
     insight: 'Luxury finishes throughout - one of the best streets in the area',
   },
 ];

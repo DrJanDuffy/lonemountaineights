@@ -7,8 +7,8 @@ const stagingPhotos = [
   {
     id: 'living-room',
     title: 'Living Room Transformation',
-    before: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-    after: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+    before: '/images/photos/placeholder.jpg',
+    after: '/images/photos/home-featured-1.jpg',
     description:
       'Modern living room with neutral colors, proper lighting, and decluttered space',
     improvements: [
@@ -21,8 +21,8 @@ const stagingPhotos = [
   {
     id: 'kitchen',
     title: 'Kitchen Staging',
-    before: 'https://images.unsplash.com/photo-1556909112-5b2b2b2b2b2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-    after: 'https://images.unsplash.com/photo-1556909112-5b2b2b2b2b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+    before: '/images/photos/placeholder.jpg',
+    after: '/images/photos/home-featured-2.jpg',
     description:
       'Clean, modern kitchen with updated appliances and fresh countertops',
     improvements: [
@@ -35,8 +35,8 @@ const stagingPhotos = [
   {
     id: 'master-bedroom',
     title: 'Master Bedroom Makeover',
-    before: 'https://images.unsplash.com/photo-1556909112-5b2b2b2b2b2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-    after: 'https://images.unsplash.com/photo-1556909112-5b2b2b2b2b2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+    before: '/images/photos/placeholder.jpg',
+    after: '/images/photos/home-featured-3.jpg',
     description:
       'Elegant master suite with luxury bedding and proper furniture placement',
     improvements: [
@@ -49,8 +49,8 @@ const stagingPhotos = [
   {
     id: 'dining-room',
     title: 'Dining Room Setup',
-    before: 'https://images.unsplash.com/photo-1556909112-5b2b2b2b2b2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-    after: 'https://images.unsplash.com/photo-1556909112-5b2b2b2b2b30?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+    before: '/images/photos/placeholder.jpg',
+    after: '/images/photos/las-vegas-neighborhood.jpg',
     description:
       'Formal dining room with elegant table setting and proper lighting',
     improvements: [
@@ -63,8 +63,8 @@ const stagingPhotos = [
   {
     id: 'outdoor-space',
     title: 'Outdoor Living Area',
-    before: 'https://images.unsplash.com/photo-1556909112-5b2b2b2b2b31?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-    after: 'https://images.unsplash.com/photo-1556909112-5b2b2b2b2b32?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+    before: '/images/photos/placeholder.jpg',
+    after: '/images/photos/home-featured-1.jpg',
     description:
       'Inviting outdoor space with comfortable seating and desert landscaping',
     improvements: [
@@ -77,8 +77,8 @@ const stagingPhotos = [
   {
     id: 'home-office',
     title: 'Home Office Staging',
-    before: 'https://images.unsplash.com/photo-1556909112-5b2b2b2b2b33?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
-    after: 'https://images.unsplash.com/photo-1556909112-5b2b2b2b2b34?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80',
+    before: '/images/photos/placeholder.jpg',
+    after: '/images/photos/home-featured-2.jpg',
     description:
       'Professional home office with clean desk and organized storage',
     improvements: [

@@ -76,12 +76,11 @@ onMount(() => {
 	
 	<!-- Preconnect to external domains -->
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 	<link rel="preconnect" href="https://drjanduffy.realscout.com" crossorigin>
 	
 	<!-- Preload critical resources -->
 	<link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2" as="font" type="font/woff2" crossorigin>
-	<link rel="preload" href="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1973&q=80" as="image">
+	<link rel="preload" href="/images/hero/hero-las-vegas.png" as="image">
 	
 	<!-- DNS Prefetch for performance -->
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -91,10 +90,10 @@ onMount(() => {
 	<link rel="manifest" href="/manifest.json">
 	
 	<!-- Apple Touch Icons -->
-	<link rel="apple-touch-icon" sizes="180x180" href="/favicon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
-	<link rel="shortcut icon" href="/favicon.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/images/icons/favicon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon.png">
+	<link rel="shortcut icon" href="/images/icons/favicon.png">
 	
 	<!-- Schema Markup -->
 	<script type="application/ld+json">

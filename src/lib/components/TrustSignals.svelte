@@ -25,7 +25,7 @@ function loadTrustData() {
       date: '2024-11-15',
       transaction: 'Home Purchase - $875,000',
       image:
-        'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80',
+        '/images/agents/dr-jan-duffy.jpg',
     },
     {
       id: 2,
@@ -36,7 +36,7 @@ function loadTrustData() {
       date: '2024-10-28',
       transaction: 'Home Sale - $650,000',
       image:
-        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80',
+        '/images/photos/placeholder.jpg',
     },
     {
       id: 3,
@@ -47,7 +47,7 @@ function loadTrustData() {
       date: '2024-09-12',
       transaction: 'Home Sale - $1,200,000',
       image:
-        'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80',
+        '/images/photos/home-featured-1.jpg',
     },
     {
       id: 4,
@@ -58,7 +58,7 @@ function loadTrustData() {
       date: '2024-08-30',
       transaction: 'Investment Property - $520,000',
       image:
-        'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80',
+        '/images/photos/home-featured-2.jpg',
     },
   ];
 
@@ -187,7 +187,7 @@ function formatPercentage(value) {
 					<div class="testimonial-header">
 						<div class="client-info">
 						<div class="client-avatar">
-							<img src={testimonial.image || '/svelte-welcome.png'} alt={testimonial.name || 'Client'} loading="lazy" />
+							<img src={testimonial.image || '/images/photos/placeholder.jpg'} alt={testimonial.name || 'Client'} loading="lazy" />
 						</div>
 							<div class="client-details">
 								<div class="client-name">{testimonial.name}</div>

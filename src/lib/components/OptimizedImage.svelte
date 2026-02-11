@@ -7,7 +7,7 @@
   export let className = '';
   
   // Add fallback for missing images
-  $: imageSrc = src || '/svelte-welcome.png';
+  $: imageSrc = src || '/images/photos/placeholder.jpg';
 </script>
 
 <img
@@ -19,8 +19,8 @@
   class={className}
   on:error={() => {
     // Fallback to default image on error
-    if (src !== '/svelte-welcome.png') {
-      src = '/svelte-welcome.png';
+    if (src !== '/images/photos/placeholder.jpg') {
+      src = '/images/photos/placeholder.jpg';
     }
   }}
 />

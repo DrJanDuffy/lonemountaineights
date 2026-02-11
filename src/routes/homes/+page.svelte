@@ -22,8 +22,7 @@ const allHomes = [
     sqft: 2450,
     lotSize: '0.25 acres',
     daysOnMarket: 8,
-    image:
-      'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/photos/home-featured-1.jpg',
     insight:
       'Corner lot with mountain views - premium location in the neighborhood',
     homeStyle: 'Two Story',
@@ -44,8 +43,7 @@ const allHomes = [
     sqft: 1890,
     lotSize: '0.18 acres',
     daysOnMarket: 15,
-    image:
-      'https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/photos/home-featured-2.jpg',
     insight: 'Recently updated kitchen - great value for the area',
     homeStyle: 'Single Story',
     yearBuilt: 2015,
@@ -65,8 +63,7 @@ const allHomes = [
     sqft: 3200,
     lotSize: '0.35 acres',
     daysOnMarket: 3,
-    image:
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/photos/home-featured-3.jpg',
     insight: 'Luxury finishes throughout - one of the best streets in the area',
     propertyType: 'Single Family',
     isNewListing: true,
@@ -86,8 +83,7 @@ const allHomes = [
     sqft: 1750,
     lotSize: '0.15 acres',
     daysOnMarket: 22,
-    image:
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/photos/home-featured-1.jpg',
     insight: 'Great starter home with potential for updates',
     homeStyle: 'Single Story',
     yearBuilt: 2012,
@@ -104,8 +100,7 @@ const allHomes = [
     sqft: 2200,
     lotSize: '0.22 acres',
     daysOnMarket: 12,
-    image:
-      'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/photos/las-vegas-neighborhood.jpg',
     insight: 'Solar panels included - significant energy savings',
     homeStyle: 'Two Story',
     yearBuilt: 2017,
@@ -122,8 +117,7 @@ const allHomes = [
     sqft: 1950,
     lotSize: '0.20 acres',
     daysOnMarket: 18,
-    image:
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/photos/home-featured-2.jpg',
     insight: 'Cul-de-sac location - quiet street with minimal traffic',
     homeStyle: 'Single Story',
     yearBuilt: 2016,
@@ -144,8 +138,7 @@ const allHomes = [
     sqft: 1250,
     lotSize: 'N/A',
     daysOnMarket: 5,
-    image:
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/photos/home-featured-1.jpg',
     insight:
       'Low-maintenance living with mountain views - perfect for first-time buyers',
     homeStyle: 'Condo',
@@ -166,8 +159,7 @@ const allHomes = [
     sqft: 1650,
     lotSize: '0.05 acres',
     daysOnMarket: 10,
-    image:
-      'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/photos/las-vegas-neighborhood.jpg',
     insight: 'End-unit townhouse with private patio - great for families',
     homeStyle: 'Townhouse',
     yearBuilt: 2017,
@@ -188,8 +180,7 @@ const allHomes = [
     sqft: 4200,
     lotSize: '0.75 acres',
     daysOnMarket: 2,
-    image:
-      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/photos/home-featured-3.jpg',
     insight: 'Blue Heron mini-estate with custom finishes and panoramic views',
     homeStyle: 'Custom',
     yearBuilt: 2022,
@@ -209,8 +200,7 @@ const allHomes = [
     sqft: 3800,
     lotSize: '0.60 acres',
     daysOnMarket: 7,
-    image:
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/photos/home-featured-2.jpg',
     insight:
       'William Ramsey designed mid-century modern revival with architectural significance',
     homeStyle: 'Mid-Century Modern',
@@ -232,8 +222,7 @@ const allHomes = [
     sqft: 2100,
     lotSize: '0.30 acres',
     daysOnMarket: 14,
-    image:
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/photos/home-featured-1.jpg',
     insight:
       'Resort-style pool with spa and outdoor kitchen - perfect for entertaining',
     homeStyle: 'Two Story',
@@ -255,8 +244,7 @@ const allHomes = [
     sqft: 1550,
     lotSize: '0.15 acres',
     daysOnMarket: 25,
-    image:
-      'https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/photos/home-featured-2.jpg',
     insight:
       'Great value in Lone Mountain Heights - needs some TLC but solid bones',
     homeStyle: 'Single Story',
@@ -278,8 +266,7 @@ const allHomes = [
     sqft: 2400,
     lotSize: '0.25 acres',
     daysOnMarket: 1,
-    image:
-      'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/photos/las-vegas-neighborhood.jpg',
     insight:
       'Brand new construction with modern amenities and energy efficiency',
     homeStyle: 'Two Story',
@@ -301,8 +288,7 @@ const allHomes = [
     sqft: 1800,
     lotSize: '0.20 acres',
     daysOnMarket: 12,
-    image:
-      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/photos/home-featured-2.jpg',
     insight:
       'Single-story ranch perfect for aging in place or accessibility needs',
     homeStyle: 'Ranch',
@@ -324,8 +310,7 @@ const allHomes = [
     sqft: 0,
     lotSize: '0.50 acres',
     daysOnMarket: 30,
-    image:
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/images/photos/home-featured-1.jpg',
     insight:
       'Prime lot with mountain views - perfect for custom home construction',
     homeStyle: 'Land',

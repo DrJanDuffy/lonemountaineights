@@ -205,8 +205,8 @@ self.addEventListener('push', (event) => {
     const data = event.data.json();
     const options = {
       body: data.body,
-      icon: '/favicon.png',
-      badge: '/badge-72x72.png',
+      icon: '/images/icons/favicon.png',
+      badge: '/images/icons/favicon.png',
       vibrate: [100, 50, 100],
       data: {
         dateOfArrival: Date.now(),
@@ -216,12 +216,12 @@ self.addEventListener('push', (event) => {
         {
           action: 'explore',
           title: 'View Property',
-          icon: '/favicon.png',
+          icon: '/images/icons/favicon.png',
         },
         {
           action: 'close',
           title: 'Close',
-          icon: '/favicon.png',
+          icon: '/images/icons/favicon.png',
         },
       ],
     };

@@ -13,7 +13,7 @@
   "categories": ["real-estate", "business", "lifestyle"],
   "icons": [
     {
-      "src": "/favicon.png",
+      "src": "/images/icons/favicon.png",
       "sizes": "32x32",
       "type": "image/png",
       "purpose": "any"
@@ -27,7 +27,7 @@
       "url": "/homes",
       "icons": [
         {
-          "src": "/favicon.png",
+          "src": "/images/icons/favicon.png",
           "sizes": "32x32"
         }
       ]
@@ -39,7 +39,7 @@
       "url": "/valuation",
       "icons": [
         {
-          "src": "/favicon.png",
+          "src": "/images/icons/favicon.png",
           "sizes": "32x32"
         }
       ]
@@ -51,7 +51,7 @@
       "url": "/contact",
       "icons": [
         {
-          "src": "/favicon.png",
+          "src": "/images/icons/favicon.png",
           "sizes": "32x32"
         }
       ]

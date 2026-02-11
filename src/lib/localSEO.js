@@ -488,13 +488,13 @@ export function generateLocalSEOMetaTags(pageType = 'home') {
       url: `https://lonemountainheights.com/${pageType}`,
       siteName: 'Lone Mountain Heights Real Estate',
       locale: 'en_US',
-      image: 'https://lonemountainheights.com/og-image.jpg',
+      image: 'https://lonemountainheights.com/images/og/og-image.png',
     },
     twitter: {
       card: 'summary_large_image',
       title: `Lone Mountain Heights Real Estate | Dr. Jan Duffy Team`,
       description: `Expert real estate services for Lone Mountain Heights, Las Vegas. 500+ successful transactions.`,
-      image: 'https://lonemountainheights.com/twitter-image.jpg',
+      image: 'https://lonemountainheights.com/images/og/og-image.png',
     },
     robots: {
       index: true,

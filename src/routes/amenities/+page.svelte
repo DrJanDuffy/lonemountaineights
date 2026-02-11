@@ -23,7 +23,7 @@ const amenities = {
       hours: '6:00 AM - 10:00 PM',
       rating: 4.5,
       image:
-        'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        '/images/photos/las-vegas-neighborhood.jpg',
     },
     {
       name: 'Majestic Park',
@@ -44,7 +44,7 @@ const amenities = {
       hours: '6:00 AM - 10:00 PM',
       rating: 4.4,
       image:
-        'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        '/images/photos/home-featured-1.jpg',
     },
     {
       name: 'Trigono Hills Park',
@@ -65,7 +65,7 @@ const amenities = {
       hours: '6:00 AM - 10:00 PM',
       rating: 4.6,
       image:
-        'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        '/images/photos/home-featured-1.jpg',
     },
     {
       name: 'Police Memorial Park',
@@ -86,7 +86,7 @@ const amenities = {
       hours: 'Dawn to Dusk',
       rating: 4.8,
       image:
-        'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        '/images/photos/home-featured-2.jpg',
     },
     {
       name: 'Lone Mountain Regional Park',
@@ -107,7 +107,7 @@ const amenities = {
       hours: '6:00 AM - 10:00 PM',
       rating: 4.6,
       image:
-        'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        '/images/photos/las-vegas-neighborhood.jpg',
     },
     {
       name: 'Floyd Lamb State Park',
@@ -128,7 +128,7 @@ const amenities = {
       hours: '8:00 AM - 5:00 PM',
       rating: 4.4,
       image:
-        'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        '/images/photos/home-featured-3.jpg',
     },
   ],
   recreation: [
@@ -152,7 +152,7 @@ const amenities = {
       hours: 'Dawn to Dusk',
       rating: 4.7,
       image:
-        'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        '/images/photos/home-featured-3.jpg',
     },
     {
       name: 'Mountain Crest Community Center',
@@ -172,7 +172,7 @@ const amenities = {
       hours: '8:00 AM - 9:00 PM',
       rating: 4.2,
       image:
-        'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        '/images/photos/home-featured-1.jpg',
     },
     {
       name: 'Durango Hills Golf Course',
@@ -192,7 +192,7 @@ const amenities = {
       hours: '6:00 AM - 7:00 PM',
       rating: 4.4,
       image:
-        'https://images.unsplash.com/photo-1535131749006-b7f58c99034b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        '/images/photos/placeholder.jpg',
     },
     {
       name: 'Mount Charleston',
@@ -213,7 +213,7 @@ const amenities = {
       hours: '24/7 (varies by season)',
       rating: 4.8,
       image:
-        'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        '/images/photos/home-featured-3.jpg',
     },
     {
       name: 'Red Rock Canyon National Conservation Area',
@@ -234,7 +234,7 @@ const amenities = {
       hours: '6:00 AM - 8:00 PM',
       rating: 4.9,
       image:
-        'https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        '/images/photos/home-featured-3.jpg',
     },
   ],
   shopping: [
@@ -256,7 +256,7 @@ const amenities = {
       hours: '10:00 AM - 9:00 PM',
       rating: 4.3,
       image:
-        'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        '/images/photos/home-featured-1.jpg',
     },
     {
       name: 'Summerlin Shopping District',
@@ -276,7 +276,7 @@ const amenities = {
       hours: '10:00 AM - 10:00 PM',
       rating: 4.5,
       image:
-        'https://images.unsplash.com/photo-1555529902-5a0b4e0b2f8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        '/images/photos/home-featured-2.jpg',
     },
   ],
   dining: [
@@ -298,7 +298,7 @@ const amenities = {
       hours: 'Varies by location',
       rating: 4.2,
       image:
-        'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        '/images/photos/home-featured-3.jpg',
     },
   ],
 };

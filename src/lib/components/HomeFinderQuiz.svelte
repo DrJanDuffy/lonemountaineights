@@ -154,8 +154,7 @@ const neighborhoodData = {
       'Mountain Views',
     ],
     bestFor: ['luxury', 'golf', 'privacy'],
-    image:
-      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    image: '/images/photos/home-featured-1.jpg',
   },
   'desert-vista-estates': {
     name: 'Desert Vista Estates',
@@ -168,8 +167,7 @@ const neighborhoodData = {
       'Family Amenities',
     ],
     bestFor: ['family', 'active', 'low-maintenance'],
-    image:
-      'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    image: '/images/photos/las-vegas-neighborhood.jpg',
   },
   'mountain-view-heights': {
     name: 'Mountain View Heights',
@@ -183,8 +181,7 @@ const neighborhoodData = {
       'Walking Trails',
     ],
     bestFor: ['mountain-views', 'luxury', 'active'],
-    image:
-      'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    image: '/images/photos/home-featured-2.jpg',
   },
   'sunset-ridge': {
     name: 'Sunset Ridge',
@@ -197,8 +194,7 @@ const neighborhoodData = {
       'Family Friendly',
     ],
     bestFor: ['low-maintenance', 'family', 'pool'],
-    image:
-      'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80',
+    image: '/images/photos/home-featured-3.jpg',
   },
 };
 
@@ -352,7 +348,7 @@ $: progress = ((currentStep + 1) / questions.length) * 100;
 					<div class="recommendation-card">
 					<div class="recommendation-image">
 						<img 
-							src={neighborhood.image || '/svelte-welcome.png'} 
+							src={neighborhood.image || '/images/photos/placeholder.jpg'} 
 							alt={(neighborhood.name || 'Neighborhood') + ' neighborhood in Lone Mountain Heights'}
 							loading="lazy"
 						/>

@@ -65,7 +65,7 @@ export function preloadCriticalResources() {
 
   // Preload critical images
   const criticalImages = [
-    'https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1973&q=80',
+    '/images/hero/hero-las-vegas.png',
   ];
 
   criticalImages.forEach((imageUrl) => {

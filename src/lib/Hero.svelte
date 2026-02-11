@@ -1,9 +1,8 @@
 <script>
 import { onMount } from 'svelte';
 
-// Desert landscape - Southwest US / Las Vegas area feel
-const heroImage =
-  'https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=85';
+// Las Vegas skyline - local photo from OneDrive
+const heroImage = '/images/hero/hero-las-vegas.png';
 
 let searchValue = '';
 let activeTab = 'search';
@@ -34,7 +33,7 @@ onMount(() => {
 
 <section class="hero">
 	<div class="hero-background">
-		<img src={heroImage} alt="Lone Mountain Heights Las Vegas desert landscape with mountain views" />
+		<img src={heroImage} alt="Lone Mountain Heights Las Vegas skyline" />
 		<div class="hero-overlay"></div>
 	</div>
 	
