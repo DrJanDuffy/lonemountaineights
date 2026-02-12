@@ -124,7 +124,7 @@ function deliveryUrl(customId, variant = 'public') {
 }
 
 /** Upload a single file */
-async function uploadFile(filePath, customId, metadata) {
+async function uploadFile(filePath, customId, metadata, creator) {
   const url = `${CF_API_BASE}/accounts/${CF_ACCOUNT_ID}/images/v1`;
   const fileData = readFileSync(filePath);
   const fileName = basename(filePath);
@@ -133,6 +133,8 @@ async function uploadFile(filePath, customId, metadata) {
   form.append('file', new Blob([fileData]), fileName);
   form.append('id', customId);
   form.append('metadata', JSON.stringify(metadata));
+  // Creator field enables efficient V2 server-side filtering: ?creator=<site>
+  form.append('creator', creator);
 
   const res = await fetch(url, {
     method: 'POST',
@@ -154,7 +156,11 @@ async function uploadFile(filePath, customId, metadata) {
   return { ...json.result, alreadyExists: false };
 }
 
-/** List images by prefix using V2 API */
+/**
+ * List images using V2 API with server-side filtering.
+ * Uses `creator` for site-level and `meta.prefix` for folder-level filtering.
+ * Falls back to client-side ID prefix check for older uploads without creator.
+ */
 async function listByPrefix(site, prefix) {
   const images = [];
   let continuationToken = null;
@@ -162,6 +168,12 @@ async function listByPrefix(site, prefix) {
 
   do {
     let url = `${CF_API_BASE}/accounts/${CF_ACCOUNT_ID}/images/v2?per_page=1000`;
+    // Server-side filter: only return images uploaded by this site
+    url += `&creator=${encodeURIComponent(site)}`;
+    // Narrow by prefix metadata if available
+    if (prefix) {
+      url += `&meta.prefix[eq]=${encodeURIComponent(prefix)}`;
+    }
     if (continuationToken) url += `&continuation_token=${encodeURIComponent(continuationToken)}`;
 
     const res = await fetch(url, {
@@ -173,13 +185,30 @@ async function listByPrefix(site, prefix) {
     if (!json.success) throw new Error(`List error: ${JSON.stringify(json.errors)}`);
 
     for (const img of json.result.images || []) {
-      if (img.id && img.id.startsWith(idPrefix)) {
-        images.push(img);
-      }
+      images.push(img);
     }
 
     continuationToken = json.result.continuation_token || null;
   } while (continuationToken);
+
+  // If server-side filter returned nothing, try fallback for older uploads without creator
+  if (images.length === 0) {
+    let ct = null;
+    do {
+      let url = `${CF_API_BASE}/accounts/${CF_ACCOUNT_ID}/images/v2?per_page=1000`;
+      if (ct) url += `&continuation_token=${encodeURIComponent(ct)}`;
+
+      const res = await fetch(url, { headers: { Authorization: `Bearer ${CF_API_TOKEN}` } });
+      if (!res.ok) break;
+      const json = await res.json();
+      if (!json.success) break;
+
+      for (const img of json.result.images || []) {
+        if (img.id && img.id.startsWith(idPrefix)) images.push(img);
+      }
+      ct = json.result.continuation_token || null;
+    } while (ct);
+  }
 
   return images;
 }
@@ -323,7 +352,7 @@ Options:
 
     process.stdout.write(`  UP   ${basename(file.path)} → ${customId} ... `);
     try {
-      const result = await uploadFile(file.path, customId, metadata);
+      const result = await uploadFile(file.path, customId, metadata, opts.site);
       if (result.alreadyExists) {
         console.log('EXISTS');
         skipped++;

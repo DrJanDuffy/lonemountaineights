@@ -7,6 +7,7 @@
  *   • V2 List API    (GET  /images/v2)   — metadata-filtered sync
  *   • Batch tokens   (POST /images/v1/batch_token) — 200 req/s, no global rate limit
  *   • Custom IDs     (folder-organized, sanitised filenames)
+ *   • Creator field  (site name) for V2 server-side filtering
  *   • Metadata       ({ site, originalPath, category }) for V2 filtering
  *
  * Prerequisites
@@ -174,17 +175,27 @@ async function getBatchToken() {
 }
 
 /**
- * List all images for this site using V2 List API with metadata filtering.
+ * List all images for this site using V2 List API with server-side filtering.
+ * Uses `creator` param for site-level filtering (Cloudflare does the work).
+ * Optionally filters by `meta.category` for folder-level filtering.
  * Paginates via continuation_token.
+ *
  * @param {string} authToken — API token or batch token
  * @param {string} [host] — API host (CF_API_BASE or BATCH_HOST)
+ * @param {string} [category] — optional category to filter by (e.g. "photos", "hero")
  */
-async function listSiteImages(authToken, host = CF_API_BASE) {
+async function listSiteImages(authToken, host = CF_API_BASE, category = null) {
   const images = [];
   let continuationToken = null;
 
   do {
     let url = `${host}/accounts/${CF_ACCOUNT_ID}/images/v2?per_page=1000`;
+    // Server-side filter: only return images uploaded by this site
+    url += `&creator=${encodeURIComponent(SITE_PREFIX)}`;
+    // Optional category filter via metadata
+    if (category) {
+      url += `&meta.category[eq]=${encodeURIComponent(category)}`;
+    }
     if (continuationToken) {
       url += `&continuation_token=${encodeURIComponent(continuationToken)}`;
     }
@@ -203,14 +214,9 @@ async function listSiteImages(authToken, host = CF_API_BASE) {
       throw new Error(`List images error: ${JSON.stringify(json.errors)}`);
     }
 
-    // Filter to our site's images by checking metadata or custom ID prefix
+    // All returned images already belong to this site (server-filtered)
     for (const img of json.result.images || []) {
-      const isSiteImage =
-        (img.meta && img.meta.site === SITE_PREFIX) ||
-        (img.id && img.id.startsWith(`${SITE_PREFIX}/`));
-      if (isSiteImage) {
-        images.push(img);
-      }
+      images.push(img);
     }
 
     continuationToken = json.result.continuation_token || null;
@@ -232,6 +238,8 @@ async function uploadImage(filePath, customId, metadata, authToken, host = CF_AP
   form.append('file', new Blob([fileData]), fileName);
   form.append('id', customId);
   form.append('metadata', JSON.stringify(metadata));
+  // Creator field enables efficient V2 server-side filtering: ?creator=lonemountaineights
+  form.append('creator', SITE_PREFIX);
 
   const res = await fetch(url, {
     method: 'POST',
