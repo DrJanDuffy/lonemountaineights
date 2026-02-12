@@ -209,6 +209,7 @@ onMount(() => {
 					{#if activeDropdown === 'about'}
 						<div class="nav-dropdown active" role="menu">
 							<a href="/about" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>About Dr. Jan</a>
+							<a href="/gallery" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Photo Gallery</a>
 							<a href="/careers" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Careers</a>
 							<a href="/blog" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Blog</a>
 							<a href="/contact" class="nav-dropdown-link" role="menuitem" on:click={handleNavLinkClick}>Contact</a>
@@ -272,6 +273,7 @@ onMount(() => {
 				<div class="mobile-nav-section">
 					<h3>About</h3>
 					<a href="/about" class="mobile-nav-link" on:click={handleNavLinkClick}>About Dr. Jan</a>
+					<a href="/gallery" class="mobile-nav-link" on:click={handleNavLinkClick}>Photo Gallery</a>
 					<a href="/careers" class="mobile-nav-link" on:click={handleNavLinkClick}>Careers</a>
 					<a href="/blog" class="mobile-nav-link" on:click={handleNavLinkClick}>Blog</a>
 					<a href="/contact" class="mobile-nav-link" on:click={handleNavLinkClick}>Contact</a>
