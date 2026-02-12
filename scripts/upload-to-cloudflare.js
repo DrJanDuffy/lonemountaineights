@@ -44,11 +44,14 @@ const SKIP_DIRS = new Set(['icons']); // keep favicons local
 
 // Named variants to create with --setup-variants
 const NAMED_VARIANTS = [
-  { id: 'hero',   options: { fit: 'cover', width: 1920, metadata: 'none' } },
-  { id: 'card',   options: { fit: 'cover', width: 640,  metadata: 'none' } },
-  { id: 'thumb',  options: { fit: 'cover', width: 320,  metadata: 'none' } },
-  { id: 'og',     options: { fit: 'cover', width: 1200, metadata: 'none' } },
-  { id: 'avatar', options: { fit: 'cover', width: 160,  metadata: 'none' } },
+  { id: 'heroxl',  options: { fit: 'cover',      width: 2560, height: 1440, metadata: 'none' }, neverRequireSignedURLs: true },
+  { id: 'hero',    options: { fit: 'cover',      width: 1920, metadata: 'none' } },
+  { id: 'desktop', options: { fit: 'scale-down', width: 1920, height: 1080, metadata: 'none' }, neverRequireSignedURLs: true },
+  { id: 'og',      options: { fit: 'cover',      width: 1200, metadata: 'none' } },
+  { id: 'tablet',  options: { fit: 'scale-down', width: 1024, height: 768,  metadata: 'none' }, neverRequireSignedURLs: true },
+  { id: 'card',    options: { fit: 'cover',      width: 640,  metadata: 'none' } },
+  { id: 'thumb',   options: { fit: 'cover',      width: 320,  metadata: 'none' } },
+  { id: 'avatar',  options: { fit: 'cover',      width: 160,  metadata: 'none' } },
 ];
 
 // ── load env from .env (simple parser, no dependency) ───────────────────────

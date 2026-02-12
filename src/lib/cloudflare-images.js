@@ -71,11 +71,14 @@ export const DEFAULT_QUALITY = 85;
  * @type {Record<string, { width: number, fit: string }>}
  */
 export const NAMED_VARIANTS = {
-  hero:   { width: 1920, fit: 'cover' },
-  card:   { width: 640,  fit: 'cover' },
-  thumb:  { width: 320,  fit: 'cover' },
-  og:     { width: 1200, fit: 'cover' },
-  avatar: { width: 160,  fit: 'cover' },
+  heroxl:  { width: 2560, height: 1440, fit: 'cover' },
+  hero:    { width: 1920, fit: 'cover' },
+  desktop: { width: 1920, height: 1080, fit: 'scale-down' },
+  og:      { width: 1200, fit: 'cover' },
+  tablet:  { width: 1024, height: 768,  fit: 'scale-down' },
+  card:    { width: 640,  fit: 'cover' },
+  thumb:   { width: 320,  fit: 'cover' },
+  avatar:  { width: 160,  fit: 'cover' },
 };
 
 /**
