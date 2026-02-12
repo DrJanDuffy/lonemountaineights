@@ -9,8 +9,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Preconnect to widget origins for faster loads -->
+    <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
+    <link rel="dns-prefetch" href="https://calendly.com">
     <link rel="preconnect" href="https://em.realscout.com" crossorigin>
     <link rel="preconnect" href="https://www.realscout.com" crossorigin>
+    <link rel="dns-prefetch" href="https://widgetbe.com">
+    <!-- Calendly CSS - non-blocking load for Core Web Vitals -->
+    <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css"></noscript>
     <script type="module" src="https://em.realscout.com/widgets/realscout-web-components.umd.js"></script>
     <style>
       realscout-office-listings {
@@ -19,6 +26,30 @@
       }
     </style>
     %sveltekit.head%
+    <!-- Calendly script - deferred until after load to avoid blocking LCP -->
+    <script type="text/javascript">
+      (function() {
+        function loadCalendly() {
+          var s = document.createElement('script');
+          s.src = 'https://assets.calendly.com/assets/external/widget.js';
+          s.async = true;
+          document.head.appendChild(s);
+          function initBadge() {
+            if (typeof Calendly !== 'undefined') {
+              Calendly.initBadgeWidget({ url: 'https://calendly.com/drjanduffy/15min', text: 'Schedule time with me', color: '#0069ff', textColor: '#ffffff', branding: false });
+            } else {
+              setTimeout(initBadge, 100);
+            }
+          }
+          s.onload = initBadge;
+        }
+        if (document.readyState === 'complete') {
+          setTimeout(loadCalendly, 0);
+        } else {
+          window.addEventListener('load', function() { setTimeout(loadCalendly, 0); });
+        }
+      })();
+    </script>
   </head>
   <body>
     <div>%sveltekit.body%</div>

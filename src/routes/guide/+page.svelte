@@ -1,5 +1,7 @@
 <script>
-import { NAP } from '$lib/schema.js';
+import { generateFAQSchema, NAP } from '$lib/schema.js';
+import FAQSection from '$lib/components/FAQSection.svelte';
+import { guideFAQs } from '$lib/faqs.js';
 // Neighborhood guide data
 const neighborhoodInfo = {
   bestStreets: [
@@ -77,6 +79,9 @@ const neighborhoodInfo = {
 <svelte:head>
 	<title>Living in Lone Mountain Heights | Neighborhood Guide | Dr. Jan Duffy</title>
 	<meta name="description" content="Complete guide to living in Lone Mountain Heights, Las Vegas. Best streets, schools, amenities, and commute times from Dr. Jan Duffy." />
+	<script type="application/ld+json">
+		{JSON.stringify(generateFAQSchema(guideFAQs))}
+	</script>
 </svelte:head>
 
 <main class="guide-page">
@@ -181,6 +186,9 @@ const neighborhoodInfo = {
 				</div>
 			</section>
 			
+			<!-- FAQ Section - AEO -->
+			<FAQSection faqs={guideFAQs} title="Living in Lone Mountain Heights — FAQs" />
+
 			<!-- CTA Section -->
 			<section class="cta-section">
 				<h2>Ready to Call Lone Mountain Heights Home?</h2>

@@ -1,7 +1,10 @@
 <script>
+	import { generateFAQSchema } from '$lib/schema.js';
 	import MortgageCalculator from '$lib/components/MortgageCalculator.svelte';
 	import HomeFinderQuiz from '$lib/components/HomeFinderQuiz.svelte';
 	import OptimizedCTA from '$lib/components/OptimizedCTA.svelte';
+	import FAQSection from '$lib/components/FAQSection.svelte';
+	import { toolsFAQs } from '$lib/faqs.js';
 </script>
 
 <svelte:head>
@@ -28,6 +31,11 @@
 				}
 			]
 		}
+	</script>
+
+	<!-- FAQ Schema - AEO -->
+	<script type="application/ld+json">
+		{JSON.stringify(generateFAQSchema(toolsFAQs))}
 	</script>
 </svelte:head>
 
@@ -71,6 +79,8 @@
 					<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="STATUS_AND_SIGNIFICANT_CHANGE" listing-status="For Sale" property-types="SFR,MF,TC" minPrice="300000" maxPrice="600000"></realscout-office-listings>
 				</div>
 			</div>
+
+			<FAQSection faqs={toolsFAQs} title="Real Estate Tools — FAQs" />
 
 			<div class="cta-section">
 				<OptimizedCTA variant="primary" size="large" showPhone={true} showEmail={true} showText={true} showForm={true} />

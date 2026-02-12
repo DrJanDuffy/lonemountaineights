@@ -1,6 +1,8 @@
 <script>
-import { generateBreadcrumbSchema } from '$lib/schema.js';
+import { generateBreadcrumbSchema, generateFAQSchema } from '$lib/schema.js';
 import { microNeighborhoods } from '$lib/microNeighborhoods.js';
+import FAQSection from '$lib/components/FAQSection.svelte';
+import { neighborhoodsFAQs } from '$lib/faqs.js';
 
 let selectedCategory = 'subdivisions';
 let selectedSubdivision = null;
@@ -56,6 +58,11 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 				}
 			]
 		}
+	</script>
+
+	<!-- FAQ Schema - AEO -->
+	<script type="application/ld+json">
+		{JSON.stringify(generateFAQSchema(neighborhoodsFAQs))}
 	</script>
 </svelte:head>
 
@@ -263,6 +270,13 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 			{/if}
 		</div>
 		
+		<!-- FAQ Section - AEO -->
+		<section class="faq-section-wrapper">
+			<div class="container">
+				<FAQSection faqs={neighborhoodsFAQs} title="Lone Mountain Heights Neighborhood FAQs" />
+			</div>
+		</section>
+
 		<!-- Current Listings Section -->
 		<section class="current-listings">
 			<div class="container">
@@ -777,6 +791,10 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 		.btn {
 			min-width: 100%;
 		}
+	}
+
+	.faq-section-wrapper {
+		padding: 2rem 0;
 	}
 
 	/* Current Listings Section */

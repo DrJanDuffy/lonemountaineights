@@ -1,5 +1,6 @@
 <script>
 import { NAP } from '$lib/schema.js';
+import OptimizedImage from '$lib/components/OptimizedImage.svelte';
 // Quiz state
 let currentStep = 0;
 let answers = {};
@@ -347,10 +348,13 @@ $: progress = ((currentStep + 1) / questions.length) * 100;
 				{#each recommendations as neighborhood, index}
 					<div class="recommendation-card">
 					<div class="recommendation-image">
-						<img 
+						<OptimizedImage 
 							src={neighborhood.image || '/images/photos/placeholder.jpg'} 
 							alt={(neighborhood.name || 'Neighborhood') + ' neighborhood in Lone Mountain Heights'}
-							loading="lazy"
+							width={640}
+							height={400}
+							sizes="(max-width: 768px) 100vw, 50vw"
+							widths={[320, 640, 1024]}
 						/>
 						</div>
 						<div class="recommendation-content">
@@ -577,7 +581,7 @@ $: progress = ((currentStep + 1) / questions.length) * 100;
 		overflow: hidden;
 	}
 	
-	.recommendation-image img {
+	.recommendation-image :global(img) {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;

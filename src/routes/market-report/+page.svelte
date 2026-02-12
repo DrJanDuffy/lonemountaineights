@@ -1,5 +1,7 @@
 <script>
-import { NAP } from '$lib/schema.js';
+import { generateFAQSchema, NAP } from '$lib/schema.js';
+import FAQSection from '$lib/components/FAQSection.svelte';
+import { marketReportFAQs } from '$lib/faqs.js';
 // Market report data
 const marketData = {
   monthlyStats: {
@@ -90,6 +92,11 @@ function formatPercent(value) {
 				}
 			]
 		}
+	</script>
+
+	<!-- FAQ Schema - AEO -->
+	<script type="application/ld+json">
+		{JSON.stringify(generateFAQSchema(marketReportFAQs))}
 	</script>
 </svelte:head>
 
@@ -193,6 +200,8 @@ function formatPercent(value) {
 			</section>
 			
 			<!-- CTA Section -->
+			<FAQSection faqs={marketReportFAQs} title="Lone Mountain Heights Market — FAQs" />
+
 			<section class="cta-section">
 				<h2>Get Your Personalized Market Analysis</h2>
 				<p>Dr. Jan Duffy provides detailed market analysis for your specific property</p>

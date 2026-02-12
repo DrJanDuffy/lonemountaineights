@@ -1,4 +1,5 @@
 // Performance optimization utilities for Core Web Vitals
+import { getCloudflareUrl } from './cloudflare-images.js';
 
 // Lazy loading implementation
 export function initLazyLoading() {
@@ -63,9 +64,9 @@ export function preloadCriticalResources() {
     document.head.appendChild(link);
   });
 
-  // Preload critical images
+  // Preload critical images — use Cloudflare CDN URL in production
   const criticalImages = [
-    '/images/hero/hero-las-vegas.png',
+    getCloudflareUrl('/images/hero/hero-las-vegas.png', { width: 1920, quality: 85 }),
   ];
 
   criticalImages.forEach((imageUrl) => {

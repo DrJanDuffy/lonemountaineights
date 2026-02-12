@@ -1,5 +1,7 @@
 <script>
-import { generateBreadcrumbSchema, NAP } from '$lib/schema.js';
+import { generateBreadcrumbSchema, generateFAQSchema, NAP } from '$lib/schema.js';
+import FAQSection from '$lib/components/FAQSection.svelte';
+import { locationsFAQs } from '$lib/faqs.js';
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: 'https://www.lonemountainheights.com' },
@@ -99,6 +101,11 @@ const amenities = [
 		}
 	</script>
 
+	<!-- FAQ Schema - AEO -->
+	<script type="application/ld+json">
+		{JSON.stringify(generateFAQSchema(locationsFAQs['desert-vista-estates']))}
+	</script>
+
 	<!-- Breadcrumb Schema -->
 	<script type="application/ld+json">
 		{JSON.stringify(breadcrumbSchema)}
@@ -176,6 +183,8 @@ const amenities = [
 			</section>
 			
 			<!-- CTA Section -->
+			<FAQSection faqs={locationsFAQs['desert-vista-estates']} title="Desert Vista Estates — FAQs" />
+
 			<section class="cta-section">
 				<h2>Ready to Find Your Dream Home in Desert Vista Estates?</h2>
 				<p>Dr. Jan Duffy has extensive experience with Desert Vista Estates properties and can help you find the perfect family home.</p>

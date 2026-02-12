@@ -1,6 +1,9 @@
 <script>
   import { onMount } from 'svelte';
-  import { NAP } from '$lib/schema.js';
+  import { generateFAQSchema, NAP } from '$lib/schema.js';
+  import FAQSection from '$lib/components/FAQSection.svelte';
+  import OptimizedImage from '$lib/components/OptimizedImage.svelte';
+  import { luxuryFAQs } from '$lib/faqs.js';
   
   let luxuryHomes = [];
   let loading = true;
@@ -48,6 +51,9 @@
 <svelte:head>
   <title>Luxury Homes in Lone Mountain Heights | Dr. Jan Duffy</title>
   <meta name="description" content="Discover luxury homes in Lone Mountain Heights with Dr. Jan Duffy. Premium properties with mountain views, pools, and high-end amenities." />
+  <script type="application/ld+json">
+    {JSON.stringify(generateFAQSchema(luxuryFAQs))}
+  </script>
 </svelte:head>
 
 <div class="luxury-page">
@@ -84,7 +90,7 @@
         {#each luxuryHomes as home}
           <div class="luxury-home-card">
             <div class="home-image">
-              <img src={home.image} alt={home.address} />
+              <OptimizedImage src={home.image} alt={home.address} width={640} height={400} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" widths={[320, 640, 1024]} />
               <div class="price-badge">${home.price.toLocaleString()}</div>
             </div>
             <div class="home-details">
@@ -105,6 +111,11 @@
         {/each}
       </div>
     {/if}
+
+    <!-- FAQ Section - AEO -->
+    <div class="luxury-faq-wrapper">
+      <FAQSection faqs={luxuryFAQs} title="Luxury Homes in Lone Mountain Heights — FAQs" />
+    </div>
 
     <!-- Luxury Listings Widget -->
     <div class="luxury-listings-widget">
@@ -227,7 +238,7 @@
     overflow: hidden;
   }
 
-  .home-image img {
+  .home-image :global(img) {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -354,6 +365,10 @@
   .btn-secondary:hover {
     background: var(--accent-color);
     color: white;
+  }
+
+  .luxury-faq-wrapper {
+    padding: 2rem 0;
   }
 
   /* Luxury Listings Widget */

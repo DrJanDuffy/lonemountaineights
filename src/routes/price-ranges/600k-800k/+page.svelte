@@ -1,5 +1,7 @@
 <script>
-import { generateBreadcrumbSchema, NAP } from '$lib/schema.js';
+import { generateBreadcrumbSchema, generateFAQSchema, NAP } from '$lib/schema.js';
+import FAQSection from '$lib/components/FAQSection.svelte';
+import { priceRangeFAQs } from '$lib/faqs.js';
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: 'https://www.lonemountainheights.com' },
@@ -58,6 +60,11 @@ const features = [
 				"$600k-$800k Price Range"
 			]
 		}
+	</script>
+
+	<!-- FAQ Schema - AEO -->
+	<script type="application/ld+json">
+		{JSON.stringify(generateFAQSchema(priceRangeFAQs))}
 	</script>
 
 	<!-- Breadcrumb Schema -->
@@ -137,6 +144,8 @@ const features = [
 			</section>
 			
 			<!-- CTA Section -->
+			<FAQSection faqs={priceRangeFAQs} title="$600K–$800K Homes in Lone Mountain Heights — FAQs" />
+
 			<section class="cta-section">
 				<h2>Ready to Find Your Perfect Home in the $600k - $800k Range?</h2>
 				<p>Dr. Jan Duffy has extensive experience with mid-range properties in Lone Mountain Heights and can help you find the best value for your budget.</p>

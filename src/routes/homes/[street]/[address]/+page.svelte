@@ -1,6 +1,8 @@
 <script>
 import { page } from '$app/stores';
 import Breadcrumbs from '$lib/components/Breadcrumbs.svelte';
+import OptimizedImage from '$lib/components/OptimizedImage.svelte';
+import { getAbsoluteImageUrl } from '$lib/cloudflare-images.js';
 import { NAP } from '$lib/schema.js';
 
 // Get route parameters
@@ -44,6 +46,45 @@ const propertyData = {
     '/images/photos/home-featured-3.jpg',
   ],
 };
+
+// Build JSON-LD schema as a JS object so Cloudflare image URLs resolve properly
+$: listingSchema = {
+  "@context": "https://schema.org",
+  "@type": "RealEstateListing",
+  "name": propertyAddress,
+  "description": propertyData.description,
+  "url": `https://www.lonemountainheights.com/homes/${street}/${address}`,
+  "image": getAbsoluteImageUrl(propertyData.images[0]),
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": propertyAddress,
+    "addressLocality": "Las Vegas",
+    "addressRegion": "NV",
+    "postalCode": "89129",
+    "addressCountry": "US"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "750000",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock"
+  },
+  "floorSize": {
+    "@type": "QuantitativeValue",
+    "value": propertyData.squareFeet,
+    "unitCode": "SQF"
+  },
+  "numberOfRooms": propertyData.bedrooms,
+  "numberOfBathroomsTotal": propertyData.bathrooms,
+  "yearBuilt": propertyData.yearBuilt,
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Lot Size",
+      "value": propertyData.lotSize
+    }
+  ]
+};
 </script>
 
 <svelte:head>
@@ -59,53 +100,17 @@ const propertyData = {
   <meta property="og:description" content="{propertyData.bedrooms} bed, {propertyData.bathrooms} bath home for {propertyData.price} in Lone Mountain Heights" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.lonemountainheights.com/homes/{street}/{address}" />
-  <meta property="og:image" content="https://lonemountainheights.com{propertyData.images[0]}" />
+  <meta property="og:image" content="{getAbsoluteImageUrl(propertyData.images[0])}" />
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="{propertyAddress} | {streetName} | Lone Mountain Heights" />
   <meta name="twitter:description" content="{propertyData.bedrooms} bed, {propertyData.bathrooms} bath home for {propertyData.price}" />
-  <meta name="twitter:image" content="https://lonemountainheights.com{propertyData.images[0]}" />
+  <meta name="twitter:image" content="{getAbsoluteImageUrl(propertyData.images[0])}" />
   
   <!-- JSON-LD Schema -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "RealEstateListing",
-      "name": "{propertyAddress}",
-      "description": "{propertyData.description}",
-      "url": "https://www.lonemountainheights.com/homes/{street}/{address}",
-      "image": "https://lonemountainheights.com{propertyData.images[0]}",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "{propertyAddress}",
-        "addressLocality": "Las Vegas",
-        "addressRegion": "NV",
-        "postalCode": "89129",
-        "addressCountry": "US"
-      },
-      "offers": {
-        "@type": "Offer",
-        "price": "750000",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
-      },
-      "floorSize": {
-        "@type": "QuantitativeValue",
-        "value": "{propertyData.squareFeet}",
-        "unitCode": "SQF"
-      },
-      "numberOfRooms": "{propertyData.bedrooms}",
-      "numberOfBathroomsTotal": "{propertyData.bathrooms}",
-      "yearBuilt": "{propertyData.yearBuilt}",
-      "additionalProperty": [
-        {
-          "@type": "PropertyValue",
-          "name": "Lot Size",
-          "value": "{propertyData.lotSize}"
-        }
-      ]
-    }
+    {JSON.stringify(listingSchema)}
   </script>
 </svelte:head>
 
@@ -126,22 +131,25 @@ const propertyData = {
         <!-- Property Images -->
         <div class="property-images">
           <div class="main-image">
-            <img 
+            <OptimizedImage 
               src={propertyData.images[0]} 
               alt="{propertyAddress} - Main view of Lone Mountain Heights home"
               loading="eager"
-              width="800"
-              height="600"
+              width={800}
+              height={600}
+              sizes="(max-width: 768px) 100vw, 66vw"
+              widths={[640, 1024, 1920]}
             />
           </div>
           <div class="image-gallery">
             {#each propertyData.images.slice(1) as image, index}
-              <img 
+              <OptimizedImage 
                 src={image} 
                 alt="{propertyAddress} - View {index + 2} of Lone Mountain Heights home"
-                loading="lazy"
-                width="200"
-                height="150"
+                width={200}
+                height={150}
+                sizes="200px"
+                widths={[200, 400]}
               />
             {/each}
           </div>
@@ -271,7 +279,7 @@ const propertyData = {
     box-shadow: var(--box-shadow-lg);
   }
   
-  .main-image img {
+  .main-image :global(img) {
     width: 100%;
     height: 400px;
     object-fit: cover;
@@ -283,7 +291,7 @@ const propertyData = {
     gap: 1rem;
   }
   
-  .image-gallery img {
+  .image-gallery :global(img) {
     width: 100%;
     height: 120px;
     object-fit: cover;
@@ -292,7 +300,7 @@ const propertyData = {
     transition: transform var(--transition-normal);
   }
   
-  .image-gallery img:hover {
+  .image-gallery :global(img):hover {
     transform: scale(1.05);
   }
   

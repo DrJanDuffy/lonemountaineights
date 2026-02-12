@@ -11,8 +11,13 @@ import {
   NAP,
   realEstateFAQs,
 } from '$lib/schema.js';
+import { getCloudflareUrl, CF_ENABLED } from '$lib/cloudflare-images.js';
 import { webVitals } from '$lib/vitals';
 import Navigation from '$lib/Navigation.svelte';
+
+// Preload hero image — use Cloudflare CDN URL in production
+const heroPreloadUrl = getCloudflareUrl('/images/hero/hero-las-vegas.png', { width: 1920, quality: 85 });
+import CalendlyLink from '$lib/CalendlyLink.svelte';
 import '../app.css';
 import '../lib/ranchStyles.css';
 
@@ -80,7 +85,7 @@ onMount(() => {
 	
 	<!-- Preload critical resources -->
 	<link rel="preload" href="https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2" as="font" type="font/woff2" crossorigin>
-	<link rel="preload" href="/images/hero/hero-las-vegas.png" as="image">
+	<link rel="preload" href={heroPreloadUrl} as="image">
 	
 	<!-- DNS Prefetch for performance -->
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
@@ -116,14 +121,8 @@ onMount(() => {
 	<div class="search-bar-inner">
 		<a href="/homes" class="search-bar-link">🔍 Search All Homes</a>
 		<a href="/valuation" class="search-bar-link">💰 Home Value</a>
+		<CalendlyLink text="Schedule time with me" classNames="search-bar-link" />
 		<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" target="_blank" rel="noopener noreferrer" class="search-bar-link search-bar-primary">Open Full Search</a>
-	</div>
-</section>
-
-<!-- RealScout office listings - $500K-$800K, newest first -->
-<section class="realscout-listings-section" aria-label="Current listings">
-	<div class="realscout-listings-inner">
-		<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="NEWEST" listing-status="For Sale" property-types="SFR,MF,TC" price-min="500000" price-max="800000"></realscout-office-listings>
 	</div>
 </section>
 
@@ -131,6 +130,14 @@ onMount(() => {
 	<slot />
 </main>
 
+<!-- RealScout office listings - below fold for SEO/GEO/AEO (unique content first) -->
+<section class="realscout-listings-section" aria-label="Current Lone Mountain Heights listings">
+	<div class="realscout-listings-inner">
+		<h2 class="listings-section-title">Homes for Sale in Lone Mountain Heights</h2>
+		<p class="listings-section-desc">Browse current listings $500K–$800K — Dr. Jan Duffy, your local expert</p>
+		<realscout-office-listings agent-encoded-id="QWdlbnQtMjI1MDUw" sort-order="NEWEST" listing-status="For Sale" property-types="SFR,MF,TC" price-min="500000" price-max="800000"></realscout-office-listings>
+	</div>
+</section>
 
 <footer>
 	<div class="footer-content">
@@ -145,6 +152,7 @@ onMount(() => {
 		
 		<div class="footer-section">
 			<h4>Contact</h4>
+			<p><CalendlyLink text="📅 Schedule time with me" classNames="footer-link" /></p>
 			<p><a href={NAP.telHref}>📞 Call {NAP.telDisplay}</a></p>
 			<p><a href={GBP_URLS.directions} target="_blank" rel="noopener noreferrer">📍 Directions</a></p>
 			<p><a href={GBP_URLS.reviews} target="_blank" rel="noopener noreferrer">⭐ View Google Reviews</a></p>
@@ -232,14 +240,29 @@ onMount(() => {
 	}
 
 	.realscout-listings-section {
-		background: white;
-		padding: 1.5rem 1rem 2rem;
-		border-bottom: 1px solid #e2e8f0;
+		background: #f8fafc;
+		padding: 2rem 1rem 3rem;
+		border-top: 1px solid #e2e8f0;
 	}
 
 	.realscout-listings-inner {
 		max-width: 1200px;
 		margin: 0 auto;
+	}
+
+	.listings-section-title {
+		font-size: 1.75rem;
+		font-weight: 700;
+		color: var(--heading-color);
+		margin: 0 0 0.5rem 0;
+		text-align: center;
+	}
+
+	.listings-section-desc {
+		font-size: 1rem;
+		color: var(--text-light);
+		margin: 0 0 1.5rem 0;
+		text-align: center;
 	}
 
 	main {
@@ -296,8 +319,15 @@ onMount(() => {
 		transition: color 0.3s ease;
 	}
 
-	.footer-section a:hover {
+	.footer-section a:hover,
+	.footer-section :global(.footer-link:hover) {
 		color: white;
+	}
+
+	.footer-section :global(.footer-link) {
+		color: var(--warm-cream);
+		text-decoration: none;
+		transition: color 0.3s ease;
 	}
 
 	.footer-bottom {

@@ -1,4 +1,8 @@
 <script>
+import { generateFAQSchema } from '$lib/schema.js';
+import FAQSection from '$lib/components/FAQSection.svelte';
+import OptimizedImage from '$lib/components/OptimizedImage.svelte';
+import { homesFAQs } from '$lib/faqs.js';
 // Mock data - in production this would come from MLS API
 const allHomes = [
   {
@@ -442,6 +446,11 @@ $: applyFilters();
 			]
 		}
 	</script>
+
+	<!-- FAQ Schema - AEO -->
+	<script type="application/ld+json">
+		{JSON.stringify(generateFAQSchema(homesFAQs))}
+	</script>
 </svelte:head>
 
 <main class="homes-page">
@@ -635,7 +644,7 @@ $: applyFilters();
 						{#each filteredHomes as home}
 							<div class="home-card {home.propertyType === 'Luxury' ? 'estate-home-card' : 'ranch-home-card'}">
 								<div class="home-image">
-									<img src={home.image} alt={home.address} class="{home.propertyType === 'Luxury' ? 'estate-property-image' : 'ranch-property-image'}" />
+									<OptimizedImage src={home.image} alt={home.address} className="{home.propertyType === 'Luxury' ? 'estate-property-image' : 'ranch-property-image'}" width={640} height={400} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" widths={[320, 640, 1024]} />
 									<div class="home-badges">
 										<span class="days-badge">{home.daysOnMarket} days</span>
 										{#if home.pool}
@@ -707,6 +716,13 @@ $: applyFilters();
 			</div>
 		</div>
 		
+		<!-- FAQ Section - AEO -->
+		<div class="faq-wrapper">
+			<div class="container">
+				<FAQSection faqs={homesFAQs} title="Lone Mountain Heights Homes — Frequently Asked Questions" />
+			</div>
+		</div>
+
 		<!-- Additional Listings Section -->
 		<div class="additional-listings">
 			<div class="container">
@@ -1024,14 +1040,14 @@ $: applyFilters();
 		overflow: hidden;
 	}
 	
-	.home-image img {
+	.home-image :global(img) {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 		transition: transform 0.3s ease;
 	}
 	
-	.home-card:hover .home-image img {
+	.home-card:hover .home-image :global(img) {
 		transform: scale(1.05);
 	}
 	
@@ -1251,6 +1267,11 @@ $: applyFilters();
 			gap: 0.5rem;
 		}
 		
+	}
+
+	.faq-wrapper {
+		padding: 2rem 0;
+		background: #f8fafc;
 	}
 
 	/* Additional Listings Section */

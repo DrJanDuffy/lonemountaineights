@@ -1,6 +1,7 @@
 <script>
 import { onMount } from 'svelte';
 import { NAP } from '$lib/schema.js';
+import OptimizedImage from '$lib/components/OptimizedImage.svelte';
 
 // Trust signals data
 let testimonials = [];
@@ -187,7 +188,7 @@ function formatPercentage(value) {
 					<div class="testimonial-header">
 						<div class="client-info">
 						<div class="client-avatar">
-							<img src={testimonial.image || '/images/photos/placeholder.jpg'} alt={testimonial.name || 'Client'} loading="lazy" />
+							<OptimizedImage src={testimonial.image || '/images/photos/placeholder.jpg'} alt={testimonial.name || 'Client'} width={80} height={80} sizes="80px" widths={[80, 160]} />
 						</div>
 							<div class="client-details">
 								<div class="client-name">{testimonial.name}</div>
@@ -374,7 +375,7 @@ function formatPercentage(value) {
 		flex-shrink: 0;
 	}
 	
-	.client-avatar img {
+	.client-avatar :global(img) {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;

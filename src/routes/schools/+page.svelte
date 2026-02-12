@@ -1,5 +1,7 @@
 <script>
-import { generateBreadcrumbSchema, NAP } from '$lib/schema.js';
+import { generateBreadcrumbSchema, generateFAQSchema, NAP } from '$lib/schema.js';
+import FAQSection from '$lib/components/FAQSection.svelte';
+import { schoolsFAQs } from '$lib/faqs.js';
 
 // School data for Lone Mountain Heights/Summerlin area
 const schools = {
@@ -140,6 +142,11 @@ function getStars(rating) {
 				}
 			]
 		}
+	</script>
+
+	<!-- FAQ Schema - AEO -->
+	<script type="application/ld+json">
+		{JSON.stringify(generateFAQSchema(schoolsFAQs))}
 	</script>
 </svelte:head>
 
@@ -401,6 +408,9 @@ function getStars(rating) {
 				</div>
 			</section>
 			
+			<!-- FAQ Section - AEO -->
+			<FAQSection faqs={schoolsFAQs} title="Lone Mountain Heights Schools — FAQs" />
+
 			<!-- CTA Section -->
 			<section class="cta-section">
 				<h2>Questions About Schools?</h2>

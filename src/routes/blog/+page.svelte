@@ -1,5 +1,8 @@
 <script>
-import { generateBreadcrumbSchema } from '$lib/schema.js';
+import { generateBreadcrumbSchema, generateFAQSchema } from '$lib/schema.js';
+import FAQSection from '$lib/components/FAQSection.svelte';
+import OptimizedImage from '$lib/components/OptimizedImage.svelte';
+import { blogFAQs } from '$lib/faqs.js';
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: 'https://www.lonemountainheights.com' },
@@ -129,6 +132,11 @@ const featuredContent = {
 	<script type="application/ld+json">
 		{JSON.stringify(breadcrumbSchema)}
 	</script>
+
+	<!-- FAQ Schema - AEO -->
+	<script type="application/ld+json">
+		{JSON.stringify(generateFAQSchema(blogFAQs))}
+	</script>
 </svelte:head>
 
 <main class="blog-page">
@@ -145,7 +153,7 @@ const featuredContent = {
 			<section class="featured-content">
 				<div class="featured-card">
 					<div class="featured-image">
-						<img src={featuredContent.image} alt={featuredContent.title} />
+						<OptimizedImage src={featuredContent.image} alt={featuredContent.title} width={800} height={450} sizes="(max-width: 768px) 100vw, 66vw" widths={[320, 640, 1024]} />
 					</div>
 					<div class="featured-content-text">
 						<h2>{featuredContent.title}</h2>
@@ -189,6 +197,9 @@ const featuredContent = {
 				</div>
 			</section>
 			
+			<!-- FAQ Section - AEO -->
+			<FAQSection faqs={blogFAQs} title="Lone Mountain Heights Blog & News — FAQs" />
+
 			<!-- Lone Mountain Heights Search CTA -->
 			<section class="lone-mountain-cta-section">
 				<div class="lone-mountain-cta-card">
@@ -273,7 +284,7 @@ const featuredContent = {
 		align-items: center;
 	}
 	
-	.featured-image img {
+	.featured-image :global(img) {
 		width: 100%;
 		height: 300px;
 		object-fit: cover;

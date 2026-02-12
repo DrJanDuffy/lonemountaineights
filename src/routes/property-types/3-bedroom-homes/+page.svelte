@@ -1,5 +1,7 @@
 <script>
-import { generateBreadcrumbSchema, NAP } from '$lib/schema.js';
+import { generateBreadcrumbSchema, generateFAQSchema, NAP } from '$lib/schema.js';
+import FAQSection from '$lib/components/FAQSection.svelte';
+import { propertyTypeFAQs } from '$lib/faqs.js';
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: 'https://www.lonemountainheights.com' },
@@ -57,6 +59,11 @@ const features = [
 				"Lone Mountain Heights Real Estate"
 			]
 		}
+	</script>
+
+	<!-- FAQ Schema - AEO -->
+	<script type="application/ld+json">
+		{JSON.stringify(generateFAQSchema(propertyTypeFAQs))}
 	</script>
 
 	<!-- Breadcrumb Schema -->
@@ -136,6 +143,8 @@ const features = [
 			</section>
 			
 			<!-- CTA Section -->
+			<FAQSection faqs={propertyTypeFAQs} title="3 Bedroom Homes in Lone Mountain Heights — FAQs" />
+
 			<section class="cta-section">
 				<h2>Ready to Find Your Perfect 3 Bedroom Home?</h2>
 				<p>Dr. Jan Duffy has extensive experience with 3 bedroom properties in Lone Mountain Heights and can help you find the perfect family home.</p>

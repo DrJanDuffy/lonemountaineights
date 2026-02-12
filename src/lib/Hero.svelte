@@ -1,4 +1,6 @@
 <script>
+import CalendlyLink from '$lib/CalendlyLink.svelte';
+import OptimizedImage from '$lib/components/OptimizedImage.svelte';
 
 // Las Vegas skyline - local photo from OneDrive
 const heroImage = '/images/hero/hero-las-vegas.png';
@@ -23,7 +25,7 @@ function handleKeydown(event) {
 
 <section class="hero">
 	<div class="hero-background">
-		<img src={heroImage} alt="Lone Mountain Heights Las Vegas skyline" />
+		<OptimizedImage src={heroImage} alt="Lone Mountain Heights Las Vegas skyline" width={1920} height={1080} loading="eager" sizes="100vw" widths={[640, 1024, 1920]} />
 		<div class="hero-overlay"></div>
 	</div>
 	
@@ -106,6 +108,11 @@ function handleKeydown(event) {
 			</div>
 		</div>
 
+		<!-- Hero CTA -->
+		<div class="hero-cta">
+			<CalendlyLink text="Schedule a free 15-min call" classNames="hero-cta-btn" />
+		</div>
+
 		<!-- Trust Indicators -->
 		<div class="trust-indicators">
 			<div class="trust-item">
@@ -148,7 +155,7 @@ function handleKeydown(event) {
 		z-index: 1;
 	}
 
-	.hero-background img {
+	.hero-background :global(img) {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
@@ -413,6 +420,30 @@ function handleKeydown(event) {
 		font-weight: 600;
 		color: #1a365d;
 		font-size: 0.9rem;
+	}
+
+	/* Hero CTA */
+	.hero-cta {
+		margin-top: 1rem;
+	}
+
+	.hero-cta-btn {
+		display: inline-block;
+		padding: 1rem 2rem;
+		background: var(--accent-color);
+		color: white !important;
+		font-weight: 600;
+		font-size: 1.1rem;
+		border-radius: 12px;
+		box-shadow: 0 4px 20px rgba(58, 141, 222, 0.4);
+		transition: all 0.3s ease;
+		text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	}
+
+	.hero-cta-btn:hover {
+		background: var(--accent-light);
+		transform: translateY(-2px);
+		box-shadow: 0 6px 24px rgba(58, 141, 222, 0.5);
 	}
 
 	/* Trust Indicators */

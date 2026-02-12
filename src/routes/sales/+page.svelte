@@ -1,5 +1,7 @@
 <script>
-import { NAP } from '$lib/schema.js';
+import { generateFAQSchema, NAP } from '$lib/schema.js';
+import FAQSection from '$lib/components/FAQSection.svelte';
+import { salesFAQs } from '$lib/faqs.js';
 // Mock recent sales data - in production this would come from MLS API
 const recentSales = [
   {
@@ -197,6 +199,11 @@ $: marketStats = {
 			]
 		}
 	</script>
+
+	<!-- FAQ Schema - AEO -->
+	<script type="application/ld+json">
+		{JSON.stringify(generateFAQSchema(salesFAQs))}
+	</script>
 </svelte:head>
 
 <main class="sales-page">
@@ -298,6 +305,8 @@ $: marketStats = {
 			</div>
 			
 			<!-- CTA Section -->
+			<FAQSection faqs={salesFAQs} title="Lone Mountain Heights Recent Sales — FAQs" />
+
 			<div class="cta-section">
 				<h3>Want to Know What Your Home is Worth?</h3>
 				<p>Get a detailed market analysis based on recent sales in your area</p>

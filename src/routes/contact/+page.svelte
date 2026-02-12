@@ -1,17 +1,10 @@
 <script>
-import { onMount } from 'svelte';
-import { generateBreadcrumbSchema, CALENDLY_URL, GBP_URLS, NAP } from '$lib/schema.js';
+import { generateBreadcrumbSchema, generateFAQSchema, CALENDLY_URL, GBP_URLS, NAP } from '$lib/schema.js';
+import CalendlyLink from '$lib/CalendlyLink.svelte';
+import FAQSection from '$lib/components/FAQSection.svelte';
+import { contactFAQs } from '$lib/faqs.js';
 
-// Load Calendly widget script
-onMount(() => {
-  if (!document.querySelector('script[src*="calendly.com"]')) {
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.type = 'text/javascript';
-    script.async = true;
-    document.head.appendChild(script);
-  }
-});
+// Calendly script loaded globally in app.html (deferred for performance)
 
 // Generate breadcrumb schema
 const breadcrumbSchema = generateBreadcrumbSchema([
@@ -81,6 +74,11 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 			]
 		}
 	</script>
+
+	<!-- FAQ Schema - AEO -->
+	<script type="application/ld+json">
+		{JSON.stringify(generateFAQSchema(contactFAQs))}
+	</script>
 </svelte:head>
 
 <main class="contact-page">
@@ -100,6 +98,7 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 					<p>Dr. Jan Duffy is here to help you with all your Lone Mountain Heights real estate needs.</p>
 					
 					<div class="contact-buttons-gbp">
+						<CalendlyLink text="Schedule time with me" classNames="btn btn-primary" />
 						<a href={NAP.telHref} class="btn btn-primary">Call {NAP.telDisplay}</a>
 						<a href={GBP_URLS.directions} class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Directions</a>
 						<a href={GBP_URLS.reviews} class="btn btn-secondary" target="_blank" rel="noopener noreferrer">View Google Reviews</a>
@@ -187,11 +186,15 @@ const breadcrumbSchema = generateBreadcrumbSchema([
 				</div>
 			</div>
 			
+			<!-- FAQ Section - AEO -->
+			<FAQSection faqs={contactFAQs} title="Contact Dr. Jan Duffy — Frequently Asked Questions" />
+
 			<!-- Quick Contact CTA -->
 			<div class="quick-contact-cta">
 				<h2>Need Immediate Assistance?</h2>
 				<p>For urgent real estate questions or to schedule a showing, call Dr. Jan directly.</p>
 				<div class="cta-buttons">
+					<CalendlyLink text="Schedule time with me" classNames="btn btn-primary" />
 					<a href="https://drjanduffy.realscout.com/homesearch/shared-searches/U2hhcmVhYmxlU2VhcmNoTGluay0yOTMx" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Search All Homes in Lone Mountain Heights</a>
 					<a href={NAP.telHref} class="btn btn-secondary">Call {NAP.telDisplay}</a>
 					<a href="/homes" class="btn btn-secondary">Browse Listings</a>

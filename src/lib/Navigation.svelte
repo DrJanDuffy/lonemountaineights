@@ -2,6 +2,7 @@
 import { page } from '$app/stores';
 import { onMount } from 'svelte';
 import { NAP } from '$lib/schema.js';
+import CalendlyLink from '$lib/CalendlyLink.svelte';
 
 let mobileMenuOpen = false;
 let activeDropdown = null;
@@ -224,8 +225,9 @@ onMount(() => {
 				</li>
 			</ul>
 
-			<!-- Contact Button -->
+			<!-- Contact Buttons -->
 			<div class="nav-contact">
+				<CalendlyLink text="Schedule time with me" classNames="nav-schedule-btn" />
 				<a href={NAP.telHref} class="contact-btn">
 					📞 CALL {NAP.telDisplay}
 				</a>
@@ -277,6 +279,7 @@ onMount(() => {
 
 				<!-- Mobile Contact -->
 				<div class="mobile-contact">
+					<CalendlyLink text="Schedule time with me" classNames="mobile-schedule-btn" on:click={handleNavLinkClick} />
 					<a href={NAP.telHref} class="mobile-contact-btn" on:click={handleNavLinkClick}>
 						📞 Call {NAP.telDisplay}
 					</a>
@@ -462,9 +465,27 @@ onMount(() => {
 		color: var(--accent-color);
 	}
 
-	/* Contact Button */
+	/* Contact Buttons */
 	.nav-contact {
 		flex-shrink: 0;
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	.nav-schedule-btn {
+		font-size: 0.85rem;
+		font-weight: 600;
+		color: var(--accent-color);
+		padding: 0.5rem 1rem;
+		border-radius: 6px;
+		border: 2px solid var(--accent-color);
+		text-transform: none;
+		letter-spacing: normal;
+	}
+
+	.nav-schedule-btn:hover {
+		background: rgba(58, 141, 222, 0.1);
 	}
 
 	.contact-btn {
@@ -576,6 +597,25 @@ onMount(() => {
 		margin-top: 2rem;
 		padding-top: 2rem;
 		border-top: 2px solid #e2e8f0;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.mobile-schedule-btn {
+		display: block;
+		background: transparent;
+		color: var(--accent-color);
+		border: 2px solid var(--accent-color);
+		padding: 1rem;
+		border-radius: 8px;
+		text-align: center;
+		font-weight: 600;
+		font-size: 1rem;
+	}
+
+	.mobile-schedule-btn:hover {
+		background: rgba(58, 141, 222, 0.1);
 	}
 
 	.mobile-contact-btn {

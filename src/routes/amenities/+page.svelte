@@ -1,5 +1,8 @@
 <script>
-import { generateBreadcrumbSchema, NAP } from '$lib/schema.js';
+import { generateBreadcrumbSchema, generateFAQSchema, NAP } from '$lib/schema.js';
+import FAQSection from '$lib/components/FAQSection.svelte';
+import OptimizedImage from '$lib/components/OptimizedImage.svelte';
+import { amenitiesFAQs } from '$lib/faqs.js';
 
 // Local amenities and attractions data
 const amenities = {
@@ -343,6 +346,11 @@ function getStars(rating) {
 	<script type="application/ld+json">
 		{JSON.stringify(breadcrumbSchema)}
 	</script>
+
+	<!-- FAQ Schema - AEO -->
+	<script type="application/ld+json">
+		{JSON.stringify(generateFAQSchema(amenitiesFAQs))}
+	</script>
 </svelte:head>
 
 <main class="amenities-page">
@@ -376,7 +384,7 @@ function getStars(rating) {
 					{#each amenities.parks as amenity}
 						<div class="amenity-card">
 							<div class="amenity-image">
-								<img src={amenity.image} alt={amenity.name} />
+								<OptimizedImage src={amenity.image} alt={amenity.name} width={640} height={400} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" widths={[320, 640, 1024]} />
 								<div class="amenity-type">{amenity.type}</div>
 							</div>
 							<div class="amenity-content">
@@ -421,7 +429,7 @@ function getStars(rating) {
 					{#each amenities.recreation as amenity}
 						<div class="amenity-card">
 							<div class="amenity-image">
-								<img src={amenity.image} alt={amenity.name} />
+								<OptimizedImage src={amenity.image} alt={amenity.name} width={640} height={400} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" widths={[320, 640, 1024]} />
 								<div class="amenity-type">{amenity.type}</div>
 							</div>
 							<div class="amenity-content">
@@ -466,7 +474,7 @@ function getStars(rating) {
 					{#each amenities.shopping as amenity}
 						<div class="amenity-card">
 							<div class="amenity-image">
-								<img src={amenity.image} alt={amenity.name} />
+								<OptimizedImage src={amenity.image} alt={amenity.name} width={640} height={400} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" widths={[320, 640, 1024]} />
 								<div class="amenity-type">{amenity.type}</div>
 							</div>
 							<div class="amenity-content">
@@ -511,7 +519,7 @@ function getStars(rating) {
 					{#each amenities.dining as amenity}
 						<div class="amenity-card">
 							<div class="amenity-image">
-								<img src={amenity.image} alt={amenity.name} />
+								<OptimizedImage src={amenity.image} alt={amenity.name} width={640} height={400} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" widths={[320, 640, 1024]} />
 								<div class="amenity-type">{amenity.type}</div>
 							</div>
 							<div class="amenity-content">
@@ -545,6 +553,9 @@ function getStars(rating) {
 				</div>
 			</section>
 			
+			<!-- FAQ Section - AEO -->
+			<FAQSection faqs={amenitiesFAQs} title="Lone Mountain Heights Amenities — FAQs" />
+
 			<!-- CTA Section -->
 			<section class="cta-section">
 				<h2>Ready to Explore Lone Mountain Heights?</h2>
@@ -668,7 +679,7 @@ function getStars(rating) {
 		overflow: hidden;
 	}
 	
-	.amenity-image img {
+	.amenity-image :global(img) {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;

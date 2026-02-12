@@ -1,5 +1,6 @@
 <script>
 import { generateBreadcrumbSchema, NAP } from '$lib/schema.js';
+import OptimizedImage from '$lib/components/OptimizedImage.svelte';
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: 'https://www.lonemountainheights.com' },
@@ -248,7 +249,7 @@ const amenities = [
 							{#each neighborhoods as neighborhood}
 								<div class="neighborhood-card">
 									<div class="neighborhood-image">
-										<img src={neighborhood.image} alt={neighborhood.name} />
+										<OptimizedImage src={neighborhood.image} alt={neighborhood.name} width={640} height={400} sizes="(max-width: 768px) 100vw, 50vw" widths={[320, 640, 1024]} />
 									</div>
 									<div class="neighborhood-content">
 										<h3>{neighborhood.name}</h3>
@@ -719,7 +720,7 @@ const amenities = [
 		transform: translateY(-4px);
 	}
 	
-	.neighborhood-image img {
+	.neighborhood-image :global(img) {
 		width: 100%;
 		height: 200px;
 		object-fit: cover;

@@ -1,5 +1,7 @@
 <script>
-import { NAP } from '$lib/schema.js';
+import { generateFAQSchema, NAP } from '$lib/schema.js';
+import FAQSection from '$lib/components/FAQSection.svelte';
+import { valuationFAQs } from '$lib/faqs.js';
 
 // Mock comparable sales data for display
 const comparableSales = [
@@ -76,6 +78,11 @@ function formatDate(dateString) {
 			]
 		}
 	</script>
+
+	<!-- FAQ Schema - AEO -->
+	<script type="application/ld+json">
+		{JSON.stringify(generateFAQSchema(valuationFAQs))}
+	</script>
 </svelte:head>
 
 <main class="valuation-page">
@@ -151,6 +158,8 @@ function formatDate(dateString) {
 							</div>
 						</div>
 						
+						<FAQSection faqs={valuationFAQs} title="Home Valuation FAQs — Lone Mountain Heights" />
+
 						<div class="cta-section">
 							<h3>Ready to Sell Your Home?</h3>
 							<p>Get a detailed market analysis and pricing strategy from Dr. Jan Duffy</p>

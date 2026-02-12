@@ -1,10 +1,64 @@
 <script>
-import { generateBreadcrumbSchema, NAP } from '$lib/schema.js';
+import { generateBreadcrumbSchema, generateFAQSchema, NAP } from '$lib/schema.js';
+import FAQSection from '$lib/components/FAQSection.svelte';
+import OptimizedImage from '$lib/components/OptimizedImage.svelte';
+import { getAbsoluteImageUrl } from '$lib/cloudflare-images.js';
+import { aboutFAQs } from '$lib/faqs.js';
 
 const breadcrumbSchema = generateBreadcrumbSchema([
   { name: 'Home', url: 'https://lonemountainheights.com' },
   { name: 'About', url: 'https://lonemountainheights.com/about' },
 ]);
+
+// Build Person schema with properly resolved Cloudflare image URLs
+const agentImageUrl = getAbsoluteImageUrl('/images/agents/dr-jan-duffy.jpg', 400);
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Dr. Jan Duffy",
+  "jobTitle": "Head of Berkshire Hathaway HomeServices Lone Mountain Heights Team",
+  "description": "Your complete real estate partner specializing in Lone Mountain Heights, Las Vegas 89129 with comprehensive local expertise.",
+  "url": "https://www.lonemountainheights.com/about",
+  "telephone": "702-222-1964",
+  "email": "jan@lonemountainheights.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Lone Mountain Heights",
+    "addressLocality": "Las Vegas",
+    "addressRegion": "NV",
+    "postalCode": "89129",
+    "addressCountry": "US"
+  },
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Berkshire Hathaway HomeServices Nevada Properties",
+    "url": "https://www.berkshirehathawayhomeservices.com"
+  },
+  "knowsAbout": [
+    "Lone Mountain Heights Real Estate",
+    "Las Vegas 89129 Properties",
+    "Luxury Home Sales",
+    "Market Analysis",
+    "Home Valuation",
+    "Real Estate Investment",
+    "Berkshire Hathaway HomeServices"
+  ],
+  "hasCredential": [
+    "Real Estate License",
+    "Berkshire Hathaway HomeServices Certification",
+    "Luxury Home Specialist",
+    "Market Analysis Expert"
+  ],
+  "award": "Your Complete Real Estate Partner",
+  "image": {
+    "@type": "ImageObject",
+    "url": agentImageUrl,
+    "width": 400,
+    "height": 400,
+    "caption": "Dr. Jan Duffy - Lone Mountain Heights Real Estate Expert",
+    "contentUrl": agentImageUrl
+  }
+};
 
 const berkshireAdvantages = [
   {
@@ -59,53 +113,7 @@ const networkStats = {
 	
 	<!-- Person Schema for Dr. Jan Duffy -->
 	<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "Person",
-			"name": "Dr. Jan Duffy",
-			"jobTitle": "Head of Berkshire Hathaway HomeServices Lone Mountain Heights Team",
-			"description": "Your complete real estate partner specializing in Lone Mountain Heights, Las Vegas 89129 with comprehensive local expertise.",
-			"url": "https://www.lonemountainheights.com/about",
-			"telephone": "702-222-1964",
-			"email": "jan@lonemountainheights.com",
-			"address": {
-				"@type": "PostalAddress",
-				"streetAddress": "Lone Mountain Heights",
-				"addressLocality": "Las Vegas",
-				"addressRegion": "NV",
-				"postalCode": "89129",
-				"addressCountry": "US"
-			},
-			"worksFor": {
-				"@type": "Organization",
-				"name": "Berkshire Hathaway HomeServices Nevada Properties",
-				"url": "https://www.berkshirehathawayhomeservices.com"
-			},
-			"knowsAbout": [
-				"Lone Mountain Heights Real Estate",
-				"Las Vegas 89129 Properties",
-				"Luxury Home Sales",
-				"Market Analysis",
-				"Home Valuation",
-				"Real Estate Investment",
-				"Berkshire Hathaway HomeServices"
-			],
-			"hasCredential": [
-				"Real Estate License",
-				"Berkshire Hathaway HomeServices Certification",
-				"Luxury Home Specialist",
-				"Market Analysis Expert"
-			],
-			"award": "Your Complete Real Estate Partner",
-			"image": {
-				"@type": "ImageObject",
-				"url": "https://lonemountainheights.com/images/agents/dr-jan-duffy.jpg",
-				"width": 400,
-				"height": 400,
-				"caption": "Dr. Jan Duffy - Lone Mountain Heights Real Estate Expert",
-				"contentUrl": "https://lonemountainheights.com/images/agents/dr-jan-duffy.jpg"
-			}
-		}
+		{JSON.stringify(personSchema)}
 	</script>
 
 	<!-- Organization Schema for Berkshire Hathaway Team -->
@@ -165,6 +173,11 @@ const networkStats = {
 			]
 		}
 	</script>
+
+	<!-- FAQ Schema - AEO positioning Dr. Jan Duffy as expert -->
+	<script type="application/ld+json">
+		{JSON.stringify(generateFAQSchema(aboutFAQs))}
+	</script>
 </svelte:head>
 
 <main class="about-page">
@@ -208,7 +221,7 @@ const networkStats = {
 					</div>
 					
 					<div class="profile-image">
-						<img src="/images/agents/dr-jan-duffy.jpg" alt="Dr. Jan Duffy - Real Estate Expert" />
+						<OptimizedImage src="/images/agents/dr-jan-duffy.jpg" alt="Dr. Jan Duffy - Real Estate Expert" width={400} height={500} sizes="(max-width: 768px) 100vw, 400px" widths={[320, 400, 800]} />
 						<div class="contact-card">
 							<h4>Contact Dr. Jan</h4>
 							<p><a href={NAP.telHref}>📞 {NAP.telDisplay}</a></p>
@@ -274,7 +287,7 @@ const networkStats = {
 						</ul>
 					</div>
 					<div class="expertise-image">
-						<img src="/images/photos/las-vegas-neighborhood.jpg" alt="Lone Mountain Heights neighborhood" />
+						<OptimizedImage src="/images/photos/las-vegas-neighborhood.jpg" alt="Lone Mountain Heights neighborhood" width={640} height={400} sizes="(max-width: 768px) 100vw, 50vw" widths={[320, 640, 1024]} />
 					</div>
 				</div>
 			</section>
@@ -288,6 +301,9 @@ const networkStats = {
 				</div>
 			</section>
 			
+			<!-- FAQ Section - AEO -->
+			<FAQSection faqs={aboutFAQs} title="About Dr. Jan Duffy — Frequently Asked Questions" />
+
 			<!-- CTA Section -->
 			<section class="cta-section">
 				<h2>Ready to Work with Your Forever Agent?</h2>
@@ -452,7 +468,7 @@ const networkStats = {
 		position: relative;
 	}
 	
-	.profile-image img {
+	.profile-image :global(img) {
 		width: 100%;
 		height: 300px;
 		object-fit: cover;
@@ -584,7 +600,7 @@ const networkStats = {
 		border-bottom: none;
 	}
 	
-	.expertise-image img {
+	.expertise-image :global(img) {
 		width: 100%;
 		height: 300px;
 		object-fit: cover;

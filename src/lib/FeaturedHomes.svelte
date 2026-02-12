@@ -1,5 +1,6 @@
 <script>
 import { NAP } from '$lib/schema.js';
+import OptimizedImage from '$lib/components/OptimizedImage.svelte';
 // Mock data - in production this would come from MLS API
 const featuredHomes = [
   {
@@ -63,7 +64,7 @@ function formatPrice(price) {
 			{#each featuredHomes as home}
 				<div class="home-card">
 					<div class="home-image">
-						<img src={home.image} alt={home.address} />
+						<OptimizedImage src={home.image} alt={home.address} width={640} height={400} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" widths={[320, 640, 1024]} />
 						<div class="home-badge">
 							<span class="badge-days">{home.daysOnMarket} days</span>
 						</div>
@@ -174,14 +175,14 @@ function formatPrice(price) {
 		overflow: hidden;
 	}
 	
-	.home-image img {
+	.home-image :global(img) {
 		width: 100%;
 		height: 100%;
 		object-fit: cover;
 		transition: transform 0.3s ease;
 	}
 	
-	.home-card:hover .home-image img {
+	.home-card:hover .home-image :global(img) {
 		transform: scale(1.05);
 	}
 	

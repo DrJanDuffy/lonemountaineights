@@ -1,6 +1,8 @@
 <script>
   import { onMount } from 'svelte';
-  import { NAP } from '$lib/schema.js';
+  import { generateFAQSchema, NAP } from '$lib/schema.js';
+  import FAQSection from '$lib/components/FAQSection.svelte';
+  import { careersFAQs } from '$lib/faqs.js';
   
   let jobOpenings = [];
   let loading = true;
@@ -78,6 +80,9 @@
 <svelte:head>
   <title>Careers at Lone Mountain Heights | Dr. Jan Duffy Real Estate</title>
   <meta name="description" content="Join our team at Dr. Jan Duffy Real Estate. Explore career opportunities in real estate, marketing, and client relations in Las Vegas." />
+  <script type="application/ld+json">
+    {JSON.stringify(generateFAQSchema(careersFAQs))}
+  </script>
 </svelte:head>
 
 <div class="careers-page">
@@ -191,6 +196,8 @@
         </div>
       </div>
     </div>
+
+    <FAQSection faqs={careersFAQs} title="Careers with Dr. Jan Duffy — FAQs" />
 
     <div class="contact-cta">
       <h2>Ready to Apply?</h2>

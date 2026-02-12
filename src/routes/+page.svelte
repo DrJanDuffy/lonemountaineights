@@ -2,7 +2,9 @@
 	import Hero from '$lib/Hero.svelte';
 	import TrustSignals from '$lib/components/TrustSignals.svelte';
 	import OptimizedCTA from '$lib/components/OptimizedCTA.svelte';
-
+	import FAQSection from '$lib/components/FAQSection.svelte';
+	import { generateFAQSchema } from '$lib/schema.js';
+	import { homeFAQs } from '$lib/faqs.js';
 	</script>
 
 <svelte:head>
@@ -163,46 +165,9 @@
 		}
 	</script>
 
-	<!-- FAQ Schema -->
+	<!-- FAQ Schema - AEO positioning Dr. Jan Duffy as expert -->
 	<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@type": "FAQPage",
-			"mainEntity": [
-				{
-					"@type": "Question",
-					"name": "What makes Lone Mountain Heights a great place to live?",
-					"acceptedAnswer": {
-						"@type": "Answer",
-						"text": "Lone Mountain Heights offers luxury homes, excellent schools, mountain views, golf course access, and proximity to Summerlin amenities. It's one of Las Vegas's most desirable residential communities."
-					}
-				},
-				{
-					"@type": "Question",
-					"name": "How much do homes cost in Lone Mountain Heights?",
-					"acceptedAnswer": {
-						"@type": "Answer",
-						"text": "Home prices in Lone Mountain Heights typically range from $600,000 to over $2 million, depending on size, location, and amenities. Contact Dr. Jan Duffy for current market analysis."
-					}
-				},
-				{
-					"@type": "Question",
-					"name": "What schools serve Lone Mountain Heights?",
-					"acceptedAnswer": {
-						"@type": "Answer",
-						"text": "Lone Mountain Heights is served by William G. Geer Elementary, Sig Rogich Middle School, and Liberty High School - all highly-rated schools in the Clark County School District."
-					}
-				},
-				{
-					"@type": "Question",
-					"name": "Why should I work with Dr. Jan Duffy?",
-					"acceptedAnswer": {
-						"@type": "Answer",
-						"text": "Dr. Jan Duffy has completed 500+ transactions in Lone Mountain Heights, is the head of the Berkshire Hathaway HomeServices Nevada Properties team, and provides personalized service with deep local market knowledge."
-					}
-				}
-			]
-		}
+		{JSON.stringify(generateFAQSchema(homeFAQs))}
 	</script>
 
 	<!-- Breadcrumb Schema -->
@@ -319,6 +284,13 @@
 			</div>
 		</section>
 
+		<!-- FAQ Section - AEO positioning Dr. Jan Duffy as expert -->
+		<section class="faq-wrapper">
+			<div class="container">
+				<FAQSection faqs={homeFAQs} title="Lone Mountain Heights Real Estate FAQs" />
+			</div>
+		</section>
+
 		<OptimizedCTA variant="primary" size="large" showPhone={true} showEmail={true} showText={true} showForm={true} />
 	</div>
 </main>
@@ -398,6 +370,11 @@
 		background: var(--heading-color);
 		color: var(--accent-light);
 		transform: translateY(-2px);
+	}
+	
+	.faq-wrapper {
+		padding: 2rem 0;
+		background: #f8fafc;
 	}
 	
 	/* Additional Services */
