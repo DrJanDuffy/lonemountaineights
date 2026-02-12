@@ -37,32 +37,22 @@ export const CF_ENABLED =
  * Value: Cloudflare Image UUID returned by the upload API
  */
 export const IMAGE_MAP = {
-  // ── Hero ─────────────────────────────────────────────────────────────
-  '/images/hero/hero-las-vegas.png': '',
-  '/images/hero/Lone_Mountain.jpg': '',
-
-  // ── Agents ───────────────────────────────────────────────────────────
-  '/images/agents/dr-jan-duffy.jpg': '',
-  '/images/agents/zillowDr Jan new.jpg': '',
-  '/images/agents/design 0001_new 2.jpg': '',
-  '/images/agents/design 0002_new 2.jpg': '',
-  '/images/agents/design 0003 _new 03.jpg': '',
-  '/images/agents/design 0003_2_new 2.jpg': '',
-  '/images/agents/design 04_new 2.jpg': '',
-  '/images/agents/design 05_new 2.jpg': '',
-
-  // ── OG / Social ──────────────────────────────────────────────────────
-  '/images/og/og-image.png': '',
-
-  // ── Icons (kept local — not served via CDN) ──────────────────────────
-  // '/images/icons/favicon.png': '',   // intentionally excluded
-
-  // ── Photos ───────────────────────────────────────────────────────────
-  '/images/photos/home-featured-1.jpg': '',
-  '/images/photos/home-featured-2.jpg': '',
-  '/images/photos/home-featured-3.jpg': '',
-  '/images/photos/las-vegas-neighborhood.jpg': '',
-  '/images/photos/placeholder.jpg': '',
+  '/images/agents/design 0001_new 2.jpg': 'lonemountaineights/agents/design-0001.jpg',
+  '/images/agents/design 0002_new 2.jpg': 'lonemountaineights/agents/design-0002.jpg',
+  '/images/agents/design 0003 _new 03.jpg': 'lonemountaineights/agents/design-0003.jpg',
+  '/images/agents/design 0003_2_new 2.jpg': 'lonemountaineights/agents/design-0003-2.jpg',
+  '/images/agents/design 04_new 2.jpg': 'lonemountaineights/agents/design-04.jpg',
+  '/images/agents/design 05_new 2.jpg': 'lonemountaineights/agents/design-05.jpg',
+  '/images/agents/dr-jan-duffy.jpg': 'lonemountaineights/agents/dr-jan-duffy.jpg',
+  '/images/agents/zillowDr Jan new.jpg': 'lonemountaineights/agents/zillowdr-jan.jpg',
+  '/images/hero/hero-las-vegas.png': 'lonemountaineights/hero/hero-las-vegas.png',
+  '/images/hero/Lone_Mountain.jpg': 'lonemountaineights/hero/lone-mountain.jpg',
+  '/images/og/og-image.png': 'lonemountaineights/og/og-image.png',
+  '/images/photos/home-featured-1.jpg': 'lonemountaineights/photos/home-featured-1.jpg',
+  '/images/photos/home-featured-2.jpg': 'lonemountaineights/photos/home-featured-2.jpg',
+  '/images/photos/home-featured-3.jpg': 'lonemountaineights/photos/home-featured-3.jpg',
+  '/images/photos/las-vegas-neighborhood.jpg': 'lonemountaineights/photos/las-vegas-neighborhood.jpg',
+  '/images/photos/placeholder.jpg': 'lonemountaineights/photos/placeholder.jpg',
 };
 
 // ---------------------------------------------------------------------------
