@@ -1,6 +1,21 @@
+# realscout-global-injector — Cloudflare Worker
+#
+# Lazy-loads RealScout widgets via Intersection Observer and serves the
+# RealScout script bundle from the edge (same-origin proxy).
+#
+# Routes span 135+ zones and are managed by: scripts/deploy-worker-routes.js
+# Do NOT add route patterns here — they only support a single zone.
+#
+# Deploy:
+#   cd workers/realscout-global-injector
+#   npx wrangler deploy
+#
+# Dev:
+#   npx wrangler dev
+
 name = "realscout-global-injector"
 main = "index.js"
 compatibility_date = "2026-02-01"
 
-# Routes are NOT defined here because they span 135+ zones.
-# Use scripts/deploy-worker-routes.js to manage routes across all domains.
+# No routes here — managed via API across all zones
+# No bindings needed — Worker only uses fetch + cache + HTMLRewriter

@@ -1,44 +1,41 @@
 #!/usr/bin/env node
-
 /**
- * deploy-worker-routes.js
+ * deploy-worker-routes.js — Bulk Worker route deployment
  *
- * Deploys the `realscout-global-injector` Worker route to every active
- * Cloudflare zone in the account (or a single domain with --domain).
+ * Adds (or verifies) the `realscout-global-injector` Worker route
+ * across all active Cloudflare zones in your account.
  *
- * Usage:
- *   node scripts/deploy-worker-routes.js                     # deploy to all zones
- *   node scripts/deploy-worker-routes.js --dry-run            # preview only
- *   node scripts/deploy-worker-routes.js --domain example.com # single domain
- *   node scripts/deploy-worker-routes.js --domain example.com --dry-run
+ * Usage
+ * ─────
+ *   node scripts/deploy-worker-routes.js                         # deploy to ALL zones
+ *   node scripts/deploy-worker-routes.js --dry-run               # preview without changes
+ *   node scripts/deploy-worker-routes.js --domain example.com    # single domain test
+ *   node scripts/deploy-worker-routes.js --list                  # list current routes
+ *   node scripts/deploy-worker-routes.js --remove                # remove routes from all zones
+ *   node scripts/deploy-worker-routes.js --remove --domain x.com # remove from one zone
  *
- * Requires:
- *   CF_API_TOKEN  – Cloudflare API token with Zone:Read and Worker Routes:Edit
- *   CF_ACCOUNT_ID – (optional) used only for logging context
- *
- * Reads from .env in the project root (same file the other scripts use).
+ * Prerequisites
+ * ─────────────
+ *   1. CF_API_TOKEN in .env (needs Zone:Read + Worker Routes:Edit permissions)
+ *   2. The Worker must already be deployed: cd workers/realscout-global-injector && npx wrangler deploy
  */
 
 import { readFileSync } from 'node:fs';
-import { resolve, dirname } from 'node:path';
+import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-// ---------------------------------------------------------------------------
-// Config
-// ---------------------------------------------------------------------------
+// ── resolve project root ────────────────────────────────────────────────────
+const __dirname = fileURLToPath(new URL('.', import.meta.url));
+const PROJECT_ROOT = join(__dirname, '..');
 
+// ── constants ───────────────────────────────────────────────────────────────
+const CF_API = 'https://api.cloudflare.com/client/v4';
 const WORKER_NAME = 'realscout-global-injector';
-const CF_API_BASE = 'https://api.cloudflare.com/client/v4';
 
-// ---------------------------------------------------------------------------
-// Load .env (minimal – no external dependency)
-// ---------------------------------------------------------------------------
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
+// ── load env ────────────────────────────────────────────────────────────────
 function loadEnv() {
   try {
-    const envPath = resolve(__dirname, '..', '.env');
+    const envPath = join(PROJECT_ROOT, '.env');
     const lines = readFileSync(envPath, 'utf-8').split('\n');
     for (const line of lines) {
       const trimmed = line.trim();
@@ -49,179 +46,272 @@ function loadEnv() {
       const val = trimmed.slice(eqIdx + 1).trim();
       if (!process.env[key]) process.env[key] = val;
     }
-  } catch {
-    // .env is optional if vars are already in the environment
-  }
+  } catch { /* .env optional */ }
 }
-
 loadEnv();
 
 const CF_API_TOKEN = process.env.CF_API_TOKEN;
-if (!CF_API_TOKEN) {
-  console.error('ERROR: CF_API_TOKEN is not set. Add it to .env or export it.');
-  process.exit(1);
+
+// ── CLI flags ───────────────────────────────────────────────────────────────
+function parseArgs() {
+  const args = process.argv.slice(2);
+  const opts = { dryRun: false, domain: null, list: false, remove: false };
+  for (let i = 0; i < args.length; i++) {
+    switch (args[i]) {
+      case '--dry-run':  opts.dryRun = true; break;
+      case '--domain':   opts.domain = args[++i]; break;
+      case '--list':     opts.list = true; break;
+      case '--remove':   opts.remove = true; break;
+    }
+  }
+  return opts;
 }
 
-// ---------------------------------------------------------------------------
-// CLI args
-// ---------------------------------------------------------------------------
-
-const args = process.argv.slice(2);
-const DRY_RUN = args.includes('--dry-run');
-const domainIdx = args.indexOf('--domain');
-const SINGLE_DOMAIN = domainIdx !== -1 ? args[domainIdx + 1] : null;
-
-if (domainIdx !== -1 && !SINGLE_DOMAIN) {
-  console.error('ERROR: --domain requires a value (e.g. --domain example.com)');
-  process.exit(1);
-}
-
-// ---------------------------------------------------------------------------
-// Cloudflare API helpers
-// ---------------------------------------------------------------------------
+// ── Cloudflare API helpers ──────────────────────────────────────────────────
 
 const headers = {
-  Authorization: `Bearer ${CF_API_TOKEN}`,
+  'Authorization': `Bearer ${CF_API_TOKEN}`,
   'Content-Type': 'application/json',
 };
 
-async function cfGet(path) {
-  const res = await fetch(`${CF_API_BASE}${path}`, { headers });
-  if (!res.ok) {
-    const body = await res.text();
-    throw new Error(`CF API GET ${path} failed (${res.status}): ${body}`);
-  }
-  return res.json();
-}
-
-async function cfPost(path, body) {
-  const res = await fetch(`${CF_API_BASE}${path}`, {
-    method: 'POST',
-    headers,
-    body: JSON.stringify(body),
-  });
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`CF API POST ${path} failed (${res.status}): ${text}`);
-  }
-  return res.json();
-}
-
-// ---------------------------------------------------------------------------
-// Fetch all active zones (paginated)
-// ---------------------------------------------------------------------------
-
-async function getAllActiveZones() {
+/** Fetch all active zones (paginated) */
+async function listAllZones() {
   const zones = [];
   let page = 1;
-  const perPage = 50;
 
   while (true) {
-    const data = await cfGet(
-      `/zones?per_page=${perPage}&page=${page}&status=active`,
+    const res = await fetch(
+      `${CF_API}/zones?status=active&per_page=50&page=${page}`,
+      { headers },
     );
-    zones.push(...data.result);
-    if (data.result.length < perPage) break;
+    if (!res.ok) {
+      throw new Error(`List zones failed (${res.status}): ${await res.text()}`);
+    }
+    const json = await res.json();
+    if (!json.success) throw new Error(`API error: ${JSON.stringify(json.errors)}`);
+
+    zones.push(...json.result);
+
+    // Check if there are more pages
+    const totalPages = json.result_info?.total_pages || 1;
+    if (page >= totalPages) break;
     page++;
   }
 
   return zones;
 }
 
-// ---------------------------------------------------------------------------
-// Get existing Worker routes for a zone
-// ---------------------------------------------------------------------------
-
-async function getWorkerRoutes(zoneId) {
-  const data = await cfGet(`/zones/${zoneId}/workers/routes`);
-  return data.result || [];
+/** List Worker routes for a zone */
+async function listRoutes(zoneId) {
+  const res = await fetch(`${CF_API}/zones/${zoneId}/workers/routes`, { headers });
+  if (!res.ok) throw new Error(`List routes failed (${res.status})`);
+  const json = await res.json();
+  if (!json.success) throw new Error(`API error: ${JSON.stringify(json.errors)}`);
+  return json.result || [];
 }
 
-// ---------------------------------------------------------------------------
-// Create a Worker route for a zone
-// ---------------------------------------------------------------------------
-
-async function createWorkerRoute(zoneId, pattern) {
-  return cfPost(`/zones/${zoneId}/workers/routes`, {
-    pattern,
-    script: WORKER_NAME,
+/** Create a Worker route for a zone */
+async function createRoute(zoneId, pattern) {
+  const res = await fetch(`${CF_API}/zones/${zoneId}/workers/routes`, {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({ pattern, script: WORKER_NAME }),
   });
-}
 
-// ---------------------------------------------------------------------------
-// Main
-// ---------------------------------------------------------------------------
-
-async function main() {
-  console.log('='.repeat(60));
-  console.log(`  RealScout Worker Route Deployer`);
-  console.log(`  Worker: ${WORKER_NAME}`);
-  if (DRY_RUN) console.log('  MODE: DRY RUN (no changes will be made)');
-  if (SINGLE_DOMAIN) console.log(`  TARGET: ${SINGLE_DOMAIN} only`);
-  console.log('='.repeat(60));
-  console.log();
-
-  // 1. Fetch zones
-  console.log('Fetching active zones...');
-  let zones = await getAllActiveZones();
-  console.log(`  Found ${zones.length} active zone(s)\n`);
-
-  // Filter to single domain if requested
-  if (SINGLE_DOMAIN) {
-    zones = zones.filter((z) => z.name === SINGLE_DOMAIN);
-    if (zones.length === 0) {
-      console.error(`ERROR: Zone "${SINGLE_DOMAIN}" not found or not active.`);
-      process.exit(1);
+  if (!res.ok) {
+    const text = await res.text();
+    // 10020 = route pattern already exists
+    if (text.includes('10020') || text.includes('already exists')) {
+      return { alreadyExists: true };
     }
+    throw new Error(`Create route failed (${res.status}): ${text}`);
   }
 
-  // 2. Process each zone
-  const summary = { added: 0, skipped: 0, failed: 0 };
+  const json = await res.json();
+  if (!json.success) throw new Error(`API error: ${JSON.stringify(json.errors)}`);
+  return { ...json.result, alreadyExists: false };
+}
+
+/** Delete a Worker route */
+async function deleteRoute(zoneId, routeId) {
+  const res = await fetch(`${CF_API}/zones/${zoneId}/workers/routes/${routeId}`, {
+    method: 'DELETE',
+    headers,
+  });
+  if (!res.ok) throw new Error(`Delete route failed (${res.status}): ${await res.text()}`);
+  return true;
+}
+
+// ── Commands ────────────────────────────────────────────────────────────────
+
+async function cmdList(zones) {
+  console.log(`\nListing Worker routes for ${zones.length} zone(s):\n`);
 
   for (const zone of zones) {
-    const domain = zone.name;
-    const pattern = `*${domain}/*`;
+    const routes = await listRoutes(zone.id);
+    const workerRoutes = routes.filter(r => r.script === WORKER_NAME);
 
-    try {
-      // Check existing routes
-      const existingRoutes = await getWorkerRoutes(zone.id);
-      const alreadyExists = existingRoutes.some(
-        (r) => r.pattern === pattern && r.script === WORKER_NAME,
-      );
-
-      if (alreadyExists) {
-        console.log(`  SKIP  ${domain} (route already exists)`);
-        summary.skipped++;
-        continue;
+    if (workerRoutes.length > 0) {
+      console.log(`  ${zone.name} (${zone.id})`);
+      for (const r of workerRoutes) {
+        console.log(`    ${r.pattern}  →  ${r.script}  [${r.id}]`);
       }
-
-      if (DRY_RUN) {
-        console.log(`  WOULD ADD  ${domain}  →  ${pattern}`);
-        summary.added++;
-        continue;
-      }
-
-      // Create route
-      await createWorkerRoute(zone.id, pattern);
-      console.log(`  ADDED  ${domain}  →  ${pattern}`);
-      summary.added++;
-    } catch (err) {
-      console.error(`  FAIL  ${domain}: ${err.message}`);
-      summary.failed++;
     }
   }
-
-  // 3. Summary
   console.log();
-  console.log('-'.repeat(60));
-  console.log(`  Summary${DRY_RUN ? ' (DRY RUN)' : ''}:`);
-  console.log(`    Added:   ${summary.added}`);
-  console.log(`    Skipped: ${summary.skipped}`);
-  console.log(`    Failed:  ${summary.failed}`);
-  console.log('-'.repeat(60));
+}
+
+async function cmdDeploy(zones, dryRun) {
+  console.log(`\n${dryRun ? 'DRY RUN: ' : ''}Deploying Worker routes to ${zones.length} zone(s):\n`);
+
+  let added = 0;
+  let skipped = 0;
+  let failed = 0;
+
+  for (const zone of zones) {
+    const pattern = `*${zone.name}/*`;
+
+    // Check existing routes
+    let existingRoutes;
+    try {
+      existingRoutes = await listRoutes(zone.id);
+    } catch (err) {
+      console.log(`  FAIL  ${zone.name}  →  cannot list routes: ${err.message}`);
+      failed++;
+      continue;
+    }
+
+    // Check if route already exists for this worker
+    const hasRoute = existingRoutes.some(
+      r => r.script === WORKER_NAME && r.pattern === pattern,
+    );
+
+    if (hasRoute) {
+      console.log(`  SKIP  ${zone.name}  →  route already exists`);
+      skipped++;
+      continue;
+    }
+
+    if (dryRun) {
+      console.log(`  WOULD ADD  ${pattern}  →  ${WORKER_NAME}  (zone: ${zone.name})`);
+      added++;
+      continue;
+    }
+
+    // Create the route
+    try {
+      const result = await createRoute(zone.id, pattern);
+      if (result.alreadyExists) {
+        console.log(`  SKIP  ${zone.name}  →  route already exists (API)`);
+        skipped++;
+      } else {
+        console.log(`  ADD   ${pattern}  →  ${WORKER_NAME}  (zone: ${zone.name})`);
+        added++;
+      }
+    } catch (err) {
+      console.log(`  FAIL  ${zone.name}  →  ${err.message}`);
+      failed++;
+    }
+
+    // Small delay to avoid rate limits
+    await new Promise(r => setTimeout(r, 100));
+  }
+
+  console.log(`\n${'─'.repeat(50)}`);
+  console.log(`Done: ${added} added, ${skipped} skipped, ${failed} failed.\n`);
+}
+
+async function cmdRemove(zones, dryRun) {
+  console.log(`\n${dryRun ? 'DRY RUN: ' : ''}Removing Worker routes from ${zones.length} zone(s):\n`);
+
+  let removed = 0;
+  let skipped = 0;
+
+  for (const zone of zones) {
+    let routes;
+    try {
+      routes = await listRoutes(zone.id);
+    } catch {
+      continue;
+    }
+
+    const workerRoutes = routes.filter(r => r.script === WORKER_NAME);
+
+    if (workerRoutes.length === 0) {
+      skipped++;
+      continue;
+    }
+
+    for (const route of workerRoutes) {
+      if (dryRun) {
+        console.log(`  WOULD REMOVE  ${route.pattern}  from  ${zone.name}`);
+        removed++;
+      } else {
+        try {
+          await deleteRoute(zone.id, route.id);
+          console.log(`  REMOVED  ${route.pattern}  from  ${zone.name}`);
+          removed++;
+        } catch (err) {
+          console.log(`  FAIL  ${zone.name}  →  ${err.message}`);
+        }
+      }
+    }
+
+    await new Promise(r => setTimeout(r, 100));
+  }
+
+  console.log(`\n${'─'.repeat(50)}`);
+  console.log(`Done: ${removed} removed, ${skipped} zones had no routes.\n`);
+}
+
+// ── Main ────────────────────────────────────────────────────────────────────
+
+async function main() {
+  const opts = parseArgs();
+
+  console.log();
+  console.log('╔══════════════════════════════════════════════════╗');
+  console.log('║   Worker Route Deployment Tool                   ║');
+  console.log(`║   Worker: ${WORKER_NAME}       ║`);
+  console.log('╚══════════════════════════════════════════════════╝');
+
+  if (!CF_API_TOKEN) {
+    console.error('\nERROR: CF_API_TOKEN must be set in .env\n');
+    process.exit(1);
+  }
+
+  // Fetch zones
+  console.log('\nFetching zones...');
+  let zones = await listAllZones();
+  console.log(`Found ${zones.length} active zones.`);
+
+  // Filter to single domain if specified
+  if (opts.domain) {
+    zones = zones.filter(z => z.name === opts.domain);
+    if (zones.length === 0) {
+      console.error(`\nERROR: Domain "${opts.domain}" not found in your Cloudflare account.\n`);
+      console.error('Available zones:');
+      const allZones = await listAllZones();
+      for (const z of allZones.slice(0, 20)) {
+        console.error(`  ${z.name}`);
+      }
+      if (allZones.length > 20) console.error(`  ... and ${allZones.length - 20} more`);
+      process.exit(1);
+    }
+    console.log(`Filtered to: ${zones[0].name}`);
+  }
+
+  // Route to command
+  if (opts.list) {
+    await cmdList(zones);
+  } else if (opts.remove) {
+    await cmdRemove(zones, opts.dryRun);
+  } else {
+    await cmdDeploy(zones, opts.dryRun);
+  }
 }
 
 main().catch((err) => {
-  console.error('Fatal error:', err);
+  console.error('\nFatal error:', err);
   process.exit(1);
 });
