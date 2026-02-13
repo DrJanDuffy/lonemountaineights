@@ -1,0 +1,6 @@
+name = "realscout-global-injector"
+main = "index.js"
+compatibility_date = "2026-02-01"
+
+# Routes are NOT defined here because they span 135+ zones.
+# Use scripts/deploy-worker-routes.js to manage routes across all domains.
