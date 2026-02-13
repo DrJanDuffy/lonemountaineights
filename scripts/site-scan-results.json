@@ -1,0 +1,2680 @@
+{
+  "scannedAt": "2026-02-13T03:09:02.251Z",
+  "totalZones": 149,
+  "summary": {
+    "nextjs": 65,
+    "sveltekit": 6,
+    "live": 120,
+    "dead": 29,
+    "parked": 2
+  },
+  "nextjsSites": [
+    {
+      "domain": "aliantehomesforsale.com",
+      "zoneId": "c60debbf2f7fa77d66c2a40a07de34e3",
+      "markers": [
+        "header:x-vercel-id:sfo1::n6vbd-1770952109980-fab0fce3242a",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "arieshenderson.com",
+      "zoneId": "7de0f89845b12c246a186600e2983801",
+      "markers": [
+        "header:x-powered-by:Next.js",
+        "header:x-vercel-id:sfo1::iad1::rq7gk-1770952110017-2022914592ba",
+        "header:x-vercel-cache:STALE",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "arroyoskyeview.com",
+      "zoneId": "d5eb9529873137965973c8fcf3e32924",
+      "markers": [
+        "header:x-vercel-id:sfo1::hmlp8-1770952110162-82680b3b2e01",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "assumablehomefinder.com",
+      "zoneId": "251102f5876baaf6d96d5b9a42b19c65",
+      "markers": [
+        "header:x-vercel-id:sfo1::xfxzb-1770952110099-a28e2a7469e1",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "bravadohomes.com",
+      "zoneId": "f686214eb9c5b44719ae8b89d84cf42a",
+      "markers": [
+        "header:x-vercel-id:sfo1::iad1::8495x-1770952110040-489e3d991844",
+        "header:x-vercel-cache:MISS",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "cadencehenderson.com",
+      "zoneId": "b3b6bb86993d52208c50872ba3e9cb7a",
+      "markers": [
+        "header:x-vercel-id:sfo1::4htl5-1770952110184-10972e2f8ce4",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/",
+        "body:wordpress"
+      ]
+    },
+    {
+      "domain": "calldrduffy.com",
+      "zoneId": "d916c9d25056c10b78c58cb93ed27ebd",
+      "markers": [
+        "header:x-vercel-id:sfo1::ddz6t-1770952111235-e9ba62b08c95",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "craigranchhomes.com",
+      "zoneId": "e8901597c51f1101e40351c5ef5001d9",
+      "markers": [
+        "header:x-powered-by:Next.js",
+        "header:x-vercel-id:sfo1::iad1::btcl2-1770952111417-da89464d9247",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "delwebbnorthranchhomes.com",
+      "zoneId": "ee1a0a62caedf93379aff43750c9d86b",
+      "markers": [
+        "header:x-powered-by:Next.js",
+        "header:x-vercel-id:sfo1::iad1::4mwll-1770952112247-82d7b9519c5a",
+        "header:x-vercel-cache:MISS",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "drgeneboyle.com",
+      "zoneId": "d84ed1ae7d5c547b048a6e1382d9b27b",
+      "markers": [
+        "header:x-vercel-id:sfo1::jjn4p-1770952112325-a28d8c17d371",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "drjanduffy.com",
+      "zoneId": "c28836c0f33f6a54282825c0e02f9991",
+      "markers": [
+        "header:x-vercel-id:sfo1::zkt7d-1770952112376-70ca61d9e3c7",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "drjanduffyreviews.com",
+      "zoneId": "3ffe165bb84064f8e422b6b31f8d1d6b",
+      "markers": [
+        "header:x-vercel-id:sfo1::2t587-1770952112399-25b7c8a713e7",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "duffyrealtyoflasvegas.com",
+      "zoneId": "5d0ee27e8f1619afe37977db0d19546c",
+      "markers": [
+        "header:x-vercel-id:sfo1::zkt7d-1770952112418-abc89b7b1dff",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "findlonemountainhomes.com",
+      "zoneId": "2e7f309a2b0f365db35c697a887b867c",
+      "markers": [
+        "header:x-vercel-id:sfo1::bst72-1770952113125-8424812f2b57",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "goodtoknowrealtor.com",
+      "zoneId": "415da31e93f676600370b622708ff981",
+      "markers": [
+        "header:x-vercel-id:sfo1::bst72-1770952113362-8247c590c283",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "greenvalleyranchinsider.com",
+      "zoneId": "f56eeda035d9488d5d195fd912519cdf",
+      "markers": [
+        "header:x-vercel-id:sfo1::k55b2-1770952113300-617225b6bb73",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "heartlandlasvegas.com",
+      "zoneId": "d5672f2aec639acc97c8cc367bdb86a0",
+      "markers": [
+        "header:x-powered-by:Next.js",
+        "header:x-vercel-id:sfo1::iad1::dtg4z-1770952113368-131acade22c9",
+        "header:x-vercel-cache:STALE",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "heritageatstonebridgehomes.com",
+      "zoneId": "493ed8998bb6a9c4c4cb8cb77c9a9fe4",
+      "markers": [
+        "header:x-vercel-id:sfo1::2ngd4-1770952121147-fc1a27174a18",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:__NEXT_DATA__",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "heyberkshire.com",
+      "zoneId": "83cefd2cb2ef269a7764cdf5956de5b2",
+      "markers": [
+        "header:x-vercel-id:sfo1::2kkm7-1770952121129-5152bfe686d5",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "heyberkshirehomes.com",
+      "zoneId": "0136558dc2c32c942f2161d6f9f3a40a",
+      "markers": [
+        "header:x-vercel-id:sfo1::dpwxn-1770952121184-7285fc82e450",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "homesatlonemountain.com",
+      "zoneId": "c9bd4a0591d9dce7af89a93358dc0eb1",
+      "markers": [
+        "header:x-vercel-id:sfo1::iad1::v5xx8-1770952121183-03d70b7f2214",
+        "header:x-vercel-cache:STALE",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "homesintulesprings.com",
+      "zoneId": "fe42ea16bdfefebc0f8fb3c70b0d6be5",
+      "markers": [
+        "header:x-vercel-id:sfo1::lvbln-1770952121214-4b7bad654b7b",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "homesteadwestlasvegas.com",
+      "zoneId": "5e4b0fb07bb1cd1755f26d1855282b85",
+      "markers": [
+        "header:x-powered-by:Next.js",
+        "header:x-vercel-id:sfo1::iad1::pwhx6-1770952121240-b8ca978f3f2b",
+        "header:x-vercel-cache:STALE",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "inspiradahomes.com",
+      "zoneId": "29fe2f217d76337e8f5b1ec95881e28c",
+      "markers": [
+        "header:x-vercel-id:sfo1::5fb5f-1770952121354-9774d888fb11",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "justcalldrjan.com",
+      "zoneId": "8676e203df5677647da5f7d3fc2126ba",
+      "markers": [
+        "header:x-vercel-id:sfo1::ld8j9-1770952123911-8fbe599e996c",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "justcallgene.com",
+      "zoneId": "02ad6d046eefe9e1f241f4d6ec858996",
+      "markers": [
+        "header:x-vercel-id:sfo1::p94qq-1770952123906-ee0efd8d7e39",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "kestrelvillage.com",
+      "zoneId": "8f09bfb2009932be570ef76a6fc6ce63",
+      "markers": [
+        "header:x-vercel-id:sfo1::ld2pq-1770952123924-669f8a603d35",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "lasvegashomeexpert.com",
+      "zoneId": "926f0f9dbe973e0be52073212ab03d47",
+      "markers": [
+        "header:x-vercel-id:sfo1::mhz9j-1770952123827-8aa579ea5c85",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "lasvegasnevadahomesales.com",
+      "zoneId": "e38863262a8e55f76c6607959e214a2d",
+      "markers": [
+        "header:x-vercel-id:sfo1::c62tk-1770952123840-f68b1cd0238d",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "lasvegasrelocationservices.com",
+      "zoneId": "48655987a584eb3068e3820930b6cd91",
+      "markers": [
+        "header:x-vercel-id:sfo1::pfsh6-1770952123995-49ef8885bbdf",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "lonemountainvistas.com",
+      "zoneId": "d6c6781629636ad3a5b9d96d74bebb06",
+      "markers": [
+        "header:x-vercel-id:sfo1::79zzt-1770952124828-ff736d2ad1dc",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:__NEXT_DATA__",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "macdonaldhighlandshomes.com",
+      "zoneId": "39f257b5d194eba6432bad1c55a48eb4",
+      "markers": [
+        "header:x-vercel-id:sfo1::jmr87-1770952125030-dae3e754349c",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "maravillahomesforsale.com",
+      "zoneId": "260ffb226d6182d5c7038ce7b2dfe8d9",
+      "markers": [
+        "header:x-powered-by:Next.js",
+        "header:x-vercel-id:sfo1::iad1::w4b4b-1770952125019-49dc18527bc8",
+        "header:x-vercel-cache:HIT",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "mayfieldestateslasvegas.com",
+      "zoneId": "d841bb82b3d8f5bddeec2f1e440b3548",
+      "markers": [
+        "header:x-vercel-id:sfo1::svcwh-1770952125103-b4d967463e3e",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "mesquiteestates.com",
+      "zoneId": "cdc7e07b47e99429542a4cf076d5e3a1",
+      "markers": [
+        "header:x-vercel-id:sfo1::5w55f-1770952125787-f7b7ddce7ef0",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "midtownlasvegascondos.com",
+      "zoneId": "db19c493f22d6d2bf5ce973e99892a8c",
+      "markers": [
+        "header:x-vercel-id:sfo1::ld2pq-1770952125767-51d265600f80",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "midtownvegascondos.com",
+      "zoneId": "33c63c2f4abc51a2afeeb8d1dcdd6501",
+      "markers": [
+        "header:x-vercel-id:sfo1::p94qq-1770952126037-939a6ffbafae",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "openhousemarketplace.com",
+      "zoneId": "6c05935a95f15a67f56433680c72cec4",
+      "markers": [
+        "header:x-vercel-id:sfo1::iad1::mwldh-1770952125918-f72ef5b7b3d9",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "providencelasvegas.com",
+      "zoneId": "741e03983d99f755d567f9260fe58d32",
+      "markers": [
+        "header:x-vercel-id:sfo1::mtbkz-1770952128342-1bd244fc6c69",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "regencyvegas.com",
+      "zoneId": "6e3c898988569152bbc82da66181e7ab",
+      "markers": [
+        "header:x-vercel-id:sfo1::v5xx8-1770952128233-f582b799c4de",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "searchforhomesinhenderson.com",
+      "zoneId": "f87036f3eaf0a343a0ad90c21e1130a6",
+      "markers": [
+        "header:x-vercel-id:sfo1::9gjf7-1770952129132-667a8c68daa5",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "searchforlasvegashomes.com",
+      "zoneId": "f79b259387544981cefe9276d27af325",
+      "markers": [
+        "header:x-vercel-id:sfo1::2k7pz-1770952129477-6db504fef205",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "searchnorthlasvegashomes.com",
+      "zoneId": "34bafb42e429cc3388e2042c7f4cf0ee",
+      "markers": [
+        "header:x-vercel-id:sfo1::fk879-1770952129343-1252c02b54c8",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "siennaridgehomes.com",
+      "zoneId": "b111242632e64845f9c0dd4335abd76f",
+      "markers": [
+        "header:x-vercel-id:sfo1::48l2t-1770952130272-df6133c1d22a",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "sierraskyeview.com",
+      "zoneId": "6da0cfdcbf41ec231cc5e2d3cd0ed160",
+      "markers": [
+        "header:x-vercel-id:sfo1::htsz2-1770952130338-ca91f78aa655",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:__NEXT_DATA__",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "silverstoneranchhomes.com",
+      "zoneId": "4bfb38b8839cc8290202919b7313eece",
+      "markers": [
+        "header:x-vercel-id:sfo1::pbc22-1770952130271-a5dee825682b",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "skyecanyonhomeexpert.com",
+      "zoneId": "9177edb20cf6cf2183a2e04d7fb733f8",
+      "markers": [
+        "header:x-vercel-id:sfo1::xxb5x-1770952130377-8dff3d19347f",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "skyecanyonrealestateexpert.com",
+      "zoneId": "d750ae62be778a93909668f139f1eadc",
+      "markers": [
+        "header:x-vercel-id:sfo1::s4gbj-1770952130469-41f65f70136e",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "solaranorthlasvegas.com",
+      "zoneId": "302a34d0dbca35909a59ff82059a5384",
+      "markers": [
+        "header:x-vercel-id:sfo1::bmr6d-1770952130470-bfc4c77c3a1d",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "spanishtrailhomes.com",
+      "zoneId": "b96e8ec4c4e74f3ebecd0fb698f77ffd",
+      "markers": [
+        "header:x-vercel-id:sfo1::jj7cf-1770952131391-0766649d6e9d",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "stickmananimations.com",
+      "zoneId": "931be6fbb98ad61ae8c74af1ae1d2fe7",
+      "markers": [
+        "header:x-vercel-id:sfo1::xsdh8-1770952131406-6a48447a1e1b",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "summerlinwesthomes.com",
+      "zoneId": "526bc1cf6ce4e1017da28d3f9410166b",
+      "markers": [
+        "header:x-vercel-id:sfo1::zbgc8-1770952132207-abae90880fea",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "summerlinwestrealestate.com",
+      "zoneId": "2ed074c4e72b66e04d14a14d90ef6b16",
+      "markers": [
+        "header:x-vercel-id:sfo1::p4kds-1770952132249-b323605c1d70",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "suncitysummerlinhomesforsale.com",
+      "zoneId": "8b46e91a9656695e688143be0abcc953",
+      "markers": [
+        "header:x-vercel-id:sfo1::l9ccl-1770952132232-f901cbbc9326",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:__NEXT_DATA__",
+        "body:/_next/",
+        "body:next/dist"
+      ]
+    },
+    {
+      "domain": "suncityvegas.com",
+      "zoneId": "ddc4402c3ce27a24767c7fc96d421ddc",
+      "markers": [
+        "header:x-vercel-id:sfo1::7j5vz-1770952132811-bb9b2fe0ab7c",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "sunstonewoodsidehomes.com",
+      "zoneId": "eee639048154f53e098e154fce38b20a",
+      "markers": [
+        "header:x-vercel-id:sfo1::sdj8p-1770952132306-f0ffadb62324",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "taxresidencyadvisors.com",
+      "zoneId": "dececfb4ddfd602e6301ab406365299e",
+      "markers": [
+        "header:x-vercel-id:sfo1::s4nwt-1770952132316-fb431e6f179b",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "terraskyeview.com",
+      "zoneId": "9c07620ef2ca715cfab243073ff9f54a",
+      "markers": [
+        "header:x-vercel-id:sfo1::xvc2b-1770952133399-0a4a05dbd999",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "thevistassummerlin.com",
+      "zoneId": "5f9f84aaed21e47c802f017797f72c12",
+      "markers": [
+        "header:x-vercel-id:sfo1::n2nhj-1770952133472-b9fa5bf50b1e",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "townesunionvillage.com",
+      "zoneId": "a562f6e44a7d33961feb9490d6857076",
+      "markers": [
+        "header:x-vercel-id:sfo1::lzgxx-1770952133365-e328f34d1746",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "turnberryplaceforsale.com",
+      "zoneId": "cf0956e3aac5c93d43becb67d751a145",
+      "markers": [
+        "header:x-vercel-id:sfo1::iad1::5fb5f-1770952133478-979266c3ef9b",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:__NEXT_DATA__",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "vegas55plushomes.com",
+      "zoneId": "8daba5132e3e946445241ff15c139d6a",
+      "markers": [
+        "header:x-powered-by:Next.js",
+        "header:x-vercel-id:sfo1::iad1::2xr89-1770952133495-55e9b03f7f4a",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "villagestulesprings.com",
+      "zoneId": "0e0feeb5f8e38416365d3f0dde852fce",
+      "markers": [
+        "header:x-powered-by:Next.js",
+        "header:x-vercel-id:sfo1::iad1::kjc6t-1770952135954-f1b1b12cf3ba",
+        "header:x-vercel-cache:MISS",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "wealthtransitionplanning.com",
+      "zoneId": "476d893c62aca5dcc5f0aa8f8a116b90",
+      "markers": [
+        "header:x-vercel-id:sfo1::r9k2n-1770952134705-0c7ed6c9d087",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    },
+    {
+      "domain": "yourdivorcerealtor.com",
+      "zoneId": "c2dcb82d87201348c1745b3d46596f94",
+      "markers": [
+        "header:x-vercel-id:sfo1::iad1::b28gp-1770952134822-9af968ff5ecb",
+        "header:x-vercel-cache:MISS",
+        "header:server:vercel",
+        "body:/_next/"
+      ]
+    }
+  ],
+  "sveltekitSites": [
+    {
+      "domain": "californiaprogressivedesignbuild.com",
+      "zoneId": "678d1c3cabfba29db953d56eb7c93d27"
+    },
+    {
+      "domain": "drjanetduffy.com",
+      "zoneId": "51b561ac395d29883dd9b4b7ab4686cf"
+    },
+    {
+      "domain": "lonemountainheights.com",
+      "zoneId": "01c357faae8aff6277403b46559b0eb7"
+    },
+    {
+      "domain": "manzanohomes.com",
+      "zoneId": "aedc539af3013d3520c8f99ae12da217"
+    },
+    {
+      "domain": "newbridgehomesforsale.com",
+      "zoneId": "39c3893522adce190e0280918619de27"
+    },
+    {
+      "domain": "pewtervalleyestates.com",
+      "zoneId": "50005fa6218513024bf4e0ee2d7872b7"
+    }
+  ],
+  "allResults": [
+    {
+      "domain": "aliantehomesforsale.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::n6vbd-1770952109980-fab0fce3242a",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "c60debbf2f7fa77d66c2a40a07de34e3"
+    },
+    {
+      "domain": "arcadiahomeslasvegas.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "vercel-other",
+      "markers": [
+        "header:x-vercel-id:sfo1::gxw69-1770952109959-a3ba2f94999c",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel"
+      ],
+      "error": null,
+      "zoneId": "ecef340a0b610324068ec69e2b142a09"
+    },
+    {
+      "domain": "arieshenderson.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-powered-by:Next.js",
+        "header:x-vercel-id:sfo1::iad1::rq7gk-1770952110017-2022914592ba",
+        "header:x-vercel-cache:STALE",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "7de0f89845b12c246a186600e2983801"
+    },
+    {
+      "domain": "arroyoskyeview.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::hmlp8-1770952110162-82680b3b2e01",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "d5eb9529873137965973c8fcf3e32924"
+    },
+    {
+      "domain": "askberkshirehomes.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "90d265190dba661625d98fc86b295f31"
+    },
+    {
+      "domain": "askdrjanduffy.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "unknown",
+      "markers": [],
+      "error": null,
+      "zoneId": "be3f81e575940950ca3a6e4d589de1a3"
+    },
+    {
+      "domain": "assumablehomefinder.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::xfxzb-1770952110099-a28e2a7469e1",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "251102f5876baaf6d96d5b9a42b19c65"
+    },
+    {
+      "domain": "bravadohomes.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::iad1::8495x-1770952110040-489e3d991844",
+        "header:x-vercel-cache:MISS",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "f686214eb9c5b44719ae8b89d84cf42a"
+    },
+    {
+      "domain": "cadencehenderson.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::4htl5-1770952110184-10972e2f8ce4",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/",
+        "body:wordpress"
+      ],
+      "error": null,
+      "zoneId": "b3b6bb86993d52208c50872ba3e9cb7a"
+    },
+    {
+      "domain": "californiaforeverbroker.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "wordpress",
+      "markers": [
+        "body:wordpress"
+      ],
+      "error": null,
+      "zoneId": "a865bcacd300940276be395c705e4031"
+    },
+    {
+      "domain": "californiaforeverrealestateagent.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "wordpress",
+      "markers": [
+        "body:wordpress"
+      ],
+      "error": null,
+      "zoneId": "66f6950580feba7ab0d9499f3b4f372b"
+    },
+    {
+      "domain": "californiaforeverrealty.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "unknown",
+      "markers": [],
+      "error": null,
+      "zoneId": "30daaf9f794c87b5128d3e1f619d4870"
+    },
+    {
+      "domain": "californiahomesandrealty.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "wordpress",
+      "markers": [
+        "body:wordpress"
+      ],
+      "error": null,
+      "zoneId": "e4968bb056eddce3cde743390bb399a0"
+    },
+    {
+      "domain": "californiaprogressivedesignbuild.com",
+      "isNextJs": false,
+      "isSvelteKit": true,
+      "isLive": true,
+      "framework": "sveltekit",
+      "markers": [
+        "header:x-vercel-id:sfo1::ch5k4-1770952111295-5c97b1347550",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:sveltekit",
+        "body:sveltekit-assets"
+      ],
+      "error": null,
+      "zoneId": "678d1c3cabfba29db953d56eb7c93d27"
+    },
+    {
+      "domain": "calldrboyle.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "1b6e6e46bc737d3d53508406e70075da"
+    },
+    {
+      "domain": "calldrduffy.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::ddz6t-1770952111235-e9ba62b08c95",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "d916c9d25056c10b78c58cb93ed27ebd"
+    },
+    {
+      "domain": "centennialhillshomesforsale.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "vercel-other",
+      "markers": [
+        "header:x-vercel-id:sfo1::sfo1::nsn2q-1770952111374-42b3c2f520e9",
+        "header:x-vercel-cache:MISS",
+        "header:server:vercel"
+      ],
+      "error": null,
+      "zoneId": "ee98107e4df3984ca1593206046598da"
+    },
+    {
+      "domain": "consenzaestates.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "vercel-other",
+      "markers": [
+        "header:x-vercel-id:sfo1::5fb5f-1770952111367-c05b5430a807",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel"
+      ],
+      "error": null,
+      "zoneId": "8be68f086fa72513f0610b657a62dfbb"
+    },
+    {
+      "domain": "craigranchhomes.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-powered-by:Next.js",
+        "header:x-vercel-id:sfo1::iad1::btcl2-1770952111417-da89464d9247",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "e8901597c51f1101e40351c5ef5001d9"
+    },
+    {
+      "domain": "craigranchvegashomes.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "43da5e9baf02e266b74e265ed83bb9af"
+    },
+    {
+      "domain": "delwebbnorthranchhomes.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-powered-by:Next.js",
+        "header:x-vercel-id:sfo1::iad1::4mwll-1770952112247-82d7b9519c5a",
+        "header:x-vercel-cache:MISS",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "ee1a0a62caedf93379aff43750c9d86b"
+    },
+    {
+      "domain": "drduffyforeverconcierge.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "unknown",
+      "markers": [],
+      "error": null,
+      "zoneId": "6c1202dfb9300f74acce0c4824f76ec6"
+    },
+    {
+      "domain": "drduffysellshomes.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "unknown",
+      "markers": [],
+      "error": null,
+      "zoneId": "33159a97fda21d9ea861f234bf016dab"
+    },
+    {
+      "domain": "drgeneboyle.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::jjn4p-1770952112325-a28d8c17d371",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "d84ed1ae7d5c547b048a6e1382d9b27b"
+    },
+    {
+      "domain": "drjanduffy.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::zkt7d-1770952112376-70ca61d9e3c7",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "c28836c0f33f6a54282825c0e02f9991"
+    },
+    {
+      "domain": "drjanduffyreviews.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::2t587-1770952112399-25b7c8a713e7",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "3ffe165bb84064f8e422b6b31f8d1d6b"
+    },
+    {
+      "domain": "drjanetduffy.com",
+      "isNextJs": false,
+      "isSvelteKit": true,
+      "isLive": true,
+      "framework": "sveltekit",
+      "markers": [
+        "header:x-vercel-id:sfo1::xbvcw-1770952112436-ab0e271956ce",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:sveltekit",
+        "body:sveltekit-assets"
+      ],
+      "error": null,
+      "zoneId": "51b561ac395d29883dd9b4b7ab4686cf"
+    },
+    {
+      "domain": "duffyrealtyoflasvegas.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::zkt7d-1770952112418-abc89b7b1dff",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "5d0ee27e8f1619afe37977db0d19546c"
+    },
+    {
+      "domain": "eaglehillshomes.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "beed09bbaf76ca1b9f1685c886986140"
+    },
+    {
+      "domain": "emersonestateshomes.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "57a52dfecd7cf4fcfe863ef7bc3bad8a"
+    },
+    {
+      "domain": "eugeneboyle.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "wordpress",
+      "markers": [
+        "body:wordpress"
+      ],
+      "error": null,
+      "zoneId": "c916883217c8ea75b180029d6272ee41"
+    },
+    {
+      "domain": "findahomeinlasvegas.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "parked",
+      "markers": [
+        "header:x-vercel-id:sfo1::pbc22-1770952112802-aaaa0009d1c6",
+        "header:server:vercel",
+        "body:parked-or-empty"
+      ],
+      "error": null,
+      "zoneId": "ca5433b30c6d04dd0ccbbf758f545835"
+    },
+    {
+      "domain": "findlonemountainhomes.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::bst72-1770952113125-8424812f2b57",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "2e7f309a2b0f365db35c697a887b867c"
+    },
+    {
+      "domain": "geneboyle.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "wordpress",
+      "markers": [
+        "body:wordpress"
+      ],
+      "error": null,
+      "zoneId": "832b17f0f3a57c218d66fbe2f1fc0d77"
+    },
+    {
+      "domain": "genekellyboyle.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "parked",
+      "markers": [
+        "body:parked-or-empty"
+      ],
+      "error": null,
+      "zoneId": "5861406ea58a995643861648b2d6bf8b"
+    },
+    {
+      "domain": "genekellyminecraft.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "unknown",
+      "markers": [],
+      "error": null,
+      "zoneId": "47a13ba15342acf8c203655f39ebf5d3"
+    },
+    {
+      "domain": "gkanimates.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "timeout",
+      "zoneId": "6475a70af5b2b5c3d8f5ec14270ec717"
+    },
+    {
+      "domain": "goodtoknowrealtor.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::bst72-1770952113362-8247c590c283",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "415da31e93f676600370b622708ff981"
+    },
+    {
+      "domain": "greenvalleyranchinsider.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::k55b2-1770952113300-617225b6bb73",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "f56eeda035d9488d5d195fd912519cdf"
+    },
+    {
+      "domain": "heartlandlasvegas.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-powered-by:Next.js",
+        "header:x-vercel-id:sfo1::iad1::dtg4z-1770952113368-131acade22c9",
+        "header:x-vercel-cache:STALE",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "d5672f2aec639acc97c8cc367bdb86a0"
+    },
+    {
+      "domain": "heritageatstonebridgehomes.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::2ngd4-1770952121147-fc1a27174a18",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:__NEXT_DATA__",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "493ed8998bb6a9c4c4cb8cb77c9a9fe4"
+    },
+    {
+      "domain": "heritagestonebridge.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "vercel-other",
+      "markers": [
+        "header:x-vercel-id:sfo1::4bjpg-1770952120800-0e829c03c921",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel"
+      ],
+      "error": null,
+      "zoneId": "eaa18c0975eec028b76cb37256d856f5"
+    },
+    {
+      "domain": "heritagestoneridgevalue.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "a638510e6bd4191ea57bdd08ec5ea911"
+    },
+    {
+      "domain": "heyberkshire.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::2kkm7-1770952121129-5152bfe686d5",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "83cefd2cb2ef269a7764cdf5956de5b2"
+    },
+    {
+      "domain": "heyberkshirehomes.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::dpwxn-1770952121184-7285fc82e450",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "0136558dc2c32c942f2161d6f9f3a40a"
+    },
+    {
+      "domain": "homesatlonemountain.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::iad1::v5xx8-1770952121183-03d70b7f2214",
+        "header:x-vercel-cache:STALE",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "c9bd4a0591d9dce7af89a93358dc0eb1"
+    },
+    {
+      "domain": "homesintulesprings.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::lvbln-1770952121214-4b7bad654b7b",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "fe42ea16bdfefebc0f8fb3c70b0d6be5"
+    },
+    {
+      "domain": "homesteadwestlasvegas.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-powered-by:Next.js",
+        "header:x-vercel-id:sfo1::iad1::pwhx6-1770952121240-b8ca978f3f2b",
+        "header:x-vercel-cache:STALE",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "5e4b0fb07bb1cd1755f26d1855282b85"
+    },
+    {
+      "domain": "inspiradahomes.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::5fb5f-1770952121354-9774d888fb11",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "29fe2f217d76337e8f5b1ec95881e28c"
+    },
+    {
+      "domain": "janetgreeson.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "unknown",
+      "markers": [],
+      "error": null,
+      "zoneId": "cb1ecedd55e5026ed5eb1b182f651709"
+    },
+    {
+      "domain": "justcalldrjan.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::ld8j9-1770952123911-8fbe599e996c",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "8676e203df5677647da5f7d3fc2126ba"
+    },
+    {
+      "domain": "justcallgene.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::p94qq-1770952123906-ee0efd8d7e39",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "02ad6d046eefe9e1f241f4d6ec858996"
+    },
+    {
+      "domain": "kestrelvillage.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::ld2pq-1770952123924-669f8a603d35",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "8f09bfb2009932be570ef76a6fc6ce63"
+    },
+    {
+      "domain": "lasvegas55plushomes.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "wordpress",
+      "markers": [
+        "body:wordpress"
+      ],
+      "error": null,
+      "zoneId": "3488f7bd42e980aaf5688a3031bc4733"
+    },
+    {
+      "domain": "lasvegasfamilyhomes.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "f3bb3e0f39843f85fa8dbbb344ae66fd"
+    },
+    {
+      "domain": "lasvegashomeexpert.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::mhz9j-1770952123827-8aa579ea5c85",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "926f0f9dbe973e0be52073212ab03d47"
+    },
+    {
+      "domain": "lasvegasmultigenhomes.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "unknown",
+      "markers": [],
+      "error": null,
+      "zoneId": "119389af2800febcd75c0e070554d5fc"
+    },
+    {
+      "domain": "lasvegasnevadahomesales.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::c62tk-1770952123840-f68b1cd0238d",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "e38863262a8e55f76c6607959e214a2d"
+    },
+    {
+      "domain": "lasvegasrelocationservices.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::pfsh6-1770952123995-49ef8885bbdf",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "48655987a584eb3068e3820930b6cd91"
+    },
+    {
+      "domain": "lasvegasstriphighrises.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "wordpress",
+      "markers": [
+        "body:wordpress"
+      ],
+      "error": null,
+      "zoneId": "c052d127830f6b3d1165ff859215e55a"
+    },
+    {
+      "domain": "letmehelpyourealtor.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "unknown",
+      "markers": [],
+      "error": null,
+      "zoneId": "ebc4a12d15b9d6a16b3e095435b1e894"
+    },
+    {
+      "domain": "logcabinranchhomes.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "vercel-other",
+      "markers": [
+        "header:x-vercel-id:sfo1::7cnv5-1770952124910-6596a0f84883",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel"
+      ],
+      "error": null,
+      "zoneId": "7c5384ad07b2211adcd0dccd7a95ff9f"
+    },
+    {
+      "domain": "lonemountainheights.com",
+      "isNextJs": false,
+      "isSvelteKit": true,
+      "isLive": true,
+      "framework": "sveltekit",
+      "markers": [
+        "header:x-vercel-id:sfo1::b28gp-1770952124981-b8b7d5d9a064",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:sveltekit",
+        "body:sveltekit-assets"
+      ],
+      "error": null,
+      "zoneId": "01c357faae8aff6277403b46559b0eb7"
+    },
+    {
+      "domain": "lonemountainhomesforsale.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "unknown",
+      "markers": [],
+      "error": null,
+      "zoneId": "c354616464e7aac9bac5988b3b08a11b"
+    },
+    {
+      "domain": "lonemountainvistas.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::79zzt-1770952124828-ff736d2ad1dc",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:__NEXT_DATA__",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "d6c6781629636ad3a5b9d96d74bebb06"
+    },
+    {
+      "domain": "macdonaldhighlandshomes.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::jmr87-1770952125030-dae3e754349c",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "39f257b5d194eba6432bad1c55a48eb4"
+    },
+    {
+      "domain": "manzanohomes.com",
+      "isNextJs": false,
+      "isSvelteKit": true,
+      "isLive": true,
+      "framework": "sveltekit",
+      "markers": [
+        "header:x-vercel-id:sfo1::f29mp-1770952125189-ec16ea8a13ab",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:sveltekit",
+        "body:sveltekit-assets"
+      ],
+      "error": null,
+      "zoneId": "aedc539af3013d3520c8f99ae12da217"
+    },
+    {
+      "domain": "maravillahomesforsale.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-powered-by:Next.js",
+        "header:x-vercel-id:sfo1::iad1::w4b4b-1770952125019-49dc18527bc8",
+        "header:x-vercel-cache:HIT",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "260ffb226d6182d5c7038ce7b2dfe8d9"
+    },
+    {
+      "domain": "mayfieldestateslasvegas.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::svcwh-1770952125103-b4d967463e3e",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "d841bb82b3d8f5bddeec2f1e440b3548"
+    },
+    {
+      "domain": "mesaskyeview.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "bda8f947c54c1e3f28b688c7e41871c0"
+    },
+    {
+      "domain": "mesquiteestates.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::5w55f-1770952125787-f7b7ddce7ef0",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "cdc7e07b47e99429542a4cf076d5e3a1"
+    },
+    {
+      "domain": "midtownlasvegascondos.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::ld2pq-1770952125767-51d265600f80",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "db19c493f22d6d2bf5ce973e99892a8c"
+    },
+    {
+      "domain": "midtownvegascondos.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::p94qq-1770952126037-939a6ffbafae",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "33c63c2f4abc51a2afeeb8d1dcdd6501"
+    },
+    {
+      "domain": "mountainedgehomes.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "vercel-other",
+      "markers": [
+        "header:x-vercel-id:sfo1::w4b4b-1770952125822-6d8ac8a8ef79",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel"
+      ],
+      "error": null,
+      "zoneId": "e3b91b3c5c9373f4851804e547bf1187"
+    },
+    {
+      "domain": "mynevadahomefinder.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "wordpress",
+      "markers": [
+        "body:wordpress"
+      ],
+      "error": null,
+      "zoneId": "3c7392df5b9367f54424082c24844473"
+    },
+    {
+      "domain": "nevadahomesandrealty.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "wordpress",
+      "markers": [
+        "body:wordpress"
+      ],
+      "error": null,
+      "zoneId": "04b34edd7d72068596faa9251dd8f6d6"
+    },
+    {
+      "domain": "nevadarealestatemarket.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "wordpress",
+      "markers": [
+        "body:wordpress"
+      ],
+      "error": null,
+      "zoneId": "cefca0ab24188b28939a8f2d20b180d5"
+    },
+    {
+      "domain": "newbridgehomesforsale.com",
+      "isNextJs": false,
+      "isSvelteKit": true,
+      "isLive": true,
+      "framework": "sveltekit",
+      "markers": [
+        "header:x-vercel-id:sfo1::iad1::2t587-1770952125867-0715305079b6",
+        "header:x-vercel-cache:MISS",
+        "header:server:vercel",
+        "body:sveltekit",
+        "body:sveltekit-assets"
+      ],
+      "error": null,
+      "zoneId": "39c3893522adce190e0280918619de27"
+    },
+    {
+      "domain": "openhousemarketplace.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::iad1::mwldh-1770952125918-f72ef5b7b3d9",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "6c05935a95f15a67f56433680c72cec4"
+    },
+    {
+      "domain": "openhouseupdate.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "vercel-other",
+      "markers": [
+        "header:x-vercel-id:sfo1::sfo1::7n864-1770952126022-74e857b38a02",
+        "header:x-vercel-cache:MISS",
+        "header:server:vercel"
+      ],
+      "error": null,
+      "zoneId": "1dde512c7ccef6c88a81304eb9b1fdb3"
+    },
+    {
+      "domain": "openhouseupdates.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "vercel-other",
+      "markers": [
+        "header:x-vercel-id:sfo1::qcptk-1770952128257-cf53eafeb75b",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel"
+      ],
+      "error": null,
+      "zoneId": "f4e06f0a604e75996b0d5e757047b909"
+    },
+    {
+      "domain": "opportunityzonespecialist.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "vercel-other",
+      "markers": [
+        "header:x-vercel-id:sfo1::2ct6r-1770952128123-da17cd09fe38",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel"
+      ],
+      "error": null,
+      "zoneId": "fd4e59c7fb4d7faf6cd151dc9f428037"
+    },
+    {
+      "domain": "opportunityzonespecialists.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "vercel-other",
+      "markers": [
+        "header:x-vercel-id:sfo1::rcpk8-1770952128392-14a6610cab1e",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel"
+      ],
+      "error": null,
+      "zoneId": "edc130c924b51fa63558f8532ec542f9"
+    },
+    {
+      "domain": "pewtervalleyestates.com",
+      "isNextJs": false,
+      "isSvelteKit": true,
+      "isLive": true,
+      "framework": "sveltekit",
+      "markers": [
+        "header:x-vercel-id:sfo1::88kg8-1770952128177-7b2dab6af987",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:sveltekit",
+        "body:sveltekit-assets"
+      ],
+      "error": null,
+      "zoneId": "50005fa6218513024bf4e0ee2d7872b7"
+    },
+    {
+      "domain": "probaterealestatesales.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "32e96d1280608f1d4dc7133a3a166bb1"
+    },
+    {
+      "domain": "providencelasvegas.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::mtbkz-1770952128342-1bd244fc6c69",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "741e03983d99f755d567f9260fe58d32"
+    },
+    {
+      "domain": "realestatetalkwithdrduffy.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "unknown",
+      "markers": [],
+      "error": null,
+      "zoneId": "17e1b48f2bb548a355290e785be6b6ca"
+    },
+    {
+      "domain": "realtimetouring.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "b3bc32f87f6921bd262e85019a86cac7"
+    },
+    {
+      "domain": "regencyvegas.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::v5xx8-1770952128233-f582b799c4de",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "6e3c898988569152bbc82da66181e7ab"
+    },
+    {
+      "domain": "reverencesummerlinhomes.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "vercel-other",
+      "markers": [
+        "header:x-vercel-id:sfo1::iad1::4g4k9-1770952128335-39113afcf64f",
+        "header:x-vercel-cache:MISS",
+        "header:server:vercel"
+      ],
+      "error": null,
+      "zoneId": "0087f96c1b89f752eac656377a03f97f"
+    },
+    {
+      "domain": "samaritanpharmaceutical.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "daf87c1ff7daefacc202d3b5864f4e00"
+    },
+    {
+      "domain": "samaritanpharmaceuticals.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "wordpress",
+      "markers": [
+        "body:wordpress"
+      ],
+      "error": null,
+      "zoneId": "c2a5a8d23d39aacf50d9a5970dcd61a2"
+    },
+    {
+      "domain": "samaritanpharma.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "0f2c7f932b0e8da10849d8515bd9b443"
+    },
+    {
+      "domain": "searchforaffordablehomes.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "unknown",
+      "markers": [],
+      "error": null,
+      "zoneId": "19d2958c4a447e8e7afe90e826443197"
+    },
+    {
+      "domain": "searchforhomesinhenderson.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::9gjf7-1770952129132-667a8c68daa5",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "f87036f3eaf0a343a0ad90c21e1130a6"
+    },
+    {
+      "domain": "searchforhomesinsummerlin.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "unknown",
+      "markers": [],
+      "error": null,
+      "zoneId": "113f715b8bcbc67fb93dc5f159c9c0c4"
+    },
+    {
+      "domain": "searchforhomeslasvegas.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "unknown",
+      "markers": [],
+      "error": null,
+      "zoneId": "a11091baa5f7ae9a8cd8a4f86f6a3212"
+    },
+    {
+      "domain": "searchforhomesvegas.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "wordpress",
+      "markers": [
+        "body:wordpress"
+      ],
+      "error": null,
+      "zoneId": "92dd1b9a0442389dc352f1793a825cf3"
+    },
+    {
+      "domain": "searchforlasvegashomes.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::2k7pz-1770952129477-6db504fef205",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "f79b259387544981cefe9276d27af325"
+    },
+    {
+      "domain": "searchnorthlasvegashomes.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::fk879-1770952129343-1252c02b54c8",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "34bafb42e429cc3388e2042c7f4cf0ee"
+    },
+    {
+      "domain": "shawoodhomes.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "ec911f85ad17e1495d0f9645203b4bdb"
+    },
+    {
+      "domain": "siennaridgehomes.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::48l2t-1770952130272-df6133c1d22a",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "b111242632e64845f9c0dd4335abd76f"
+    },
+    {
+      "domain": "sierraskyeview.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::htsz2-1770952130338-ca91f78aa655",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:__NEXT_DATA__",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "6da0cfdcbf41ec231cc5e2d3cd0ed160"
+    },
+    {
+      "domain": "silverstoneranchhomes.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::pbc22-1770952130271-a5dee825682b",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "4bfb38b8839cc8290202919b7313eece"
+    },
+    {
+      "domain": "skyecanyonhomeexpert.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::xxb5x-1770952130377-8dff3d19347f",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "9177edb20cf6cf2183a2e04d7fb733f8"
+    },
+    {
+      "domain": "skyecanyonhomesforsale.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "vercel-other",
+      "markers": [
+        "header:x-vercel-id:sfo1::gd6ds-1770952130398-bb4a7d1f7ae6",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel"
+      ],
+      "error": null,
+      "zoneId": "c16f777acc2409a0d0ac4baa42efb08c"
+    },
+    {
+      "domain": "skyecanyonrealestateexpert.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::s4gbj-1770952130469-41f65f70136e",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "d750ae62be778a93909668f139f1eadc"
+    },
+    {
+      "domain": "skyecanyonrealtor.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "81b18b14fed3eff4854875a475195bf5"
+    },
+    {
+      "domain": "skyesummithomes.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "vercel-other",
+      "markers": [
+        "header:x-vercel-id:sfo1::4ptcc-1770952130235-0ff50079595c",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel"
+      ],
+      "error": null,
+      "zoneId": "e0fba27a9180e906a809e5e6d22da048"
+    },
+    {
+      "domain": "solaranorthlasvegas.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::bmr6d-1770952130470-bfc4c77c3a1d",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "302a34d0dbca35909a59ff82059a5384"
+    },
+    {
+      "domain": "spanishtrailhomes.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::jj7cf-1770952131391-0766649d6e9d",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "b96e8ec4c4e74f3ebecd0fb698f77ffd"
+    },
+    {
+      "domain": "speedycashhomeoffers.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "vercel-other",
+      "markers": [
+        "header:x-vercel-id:sfo1::iad1::7j5vz-1770952131386-14e6cfcc550b",
+        "header:x-vercel-cache:MISS",
+        "header:server:vercel"
+      ],
+      "error": null,
+      "zoneId": "cf762c5edd695e725aee41a888f9a844"
+    },
+    {
+      "domain": "stickifyanimation.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "1ddc6aab28f141d178f1a9d205314da2"
+    },
+    {
+      "domain": "stickmananimations.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::xsdh8-1770952131406-6a48447a1e1b",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "931be6fbb98ad61ae8c74af1ae1d2fe7"
+    },
+    {
+      "domain": "stickmancommunity.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "76e353bf999ae7dc511aee5a81b4f2f0"
+    },
+    {
+      "domain": "stickmanepic.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "492e81c3907e16eb3cb4ba2052654ccf"
+    },
+    {
+      "domain": "stickmanepiclegends.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "c4b230eda78552cb301d92e1c76909f6"
+    },
+    {
+      "domain": "stickmangear.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "eea4c631db99eb5eaf37d02677983a45"
+    },
+    {
+      "domain": "stickmanlegends.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "ec7d5371af9894d35951abf3f9a6f5d3"
+    },
+    {
+      "domain": "stickmanshorts.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "71ecde6dba2c94ac7a8bcefee835dbe4"
+    },
+    {
+      "domain": "stickmanstrike.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "980e10061c865c9df8cc6822eb3a6887"
+    },
+    {
+      "domain": "stickstarz.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "33b0374f065179bf78f31dd1cda90a38"
+    },
+    {
+      "domain": "stickstrike.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "18a3dea7a8435d0ab31a6aa5c2b2446e"
+    },
+    {
+      "domain": "summerlinwesthomes.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::zbgc8-1770952132207-abae90880fea",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "526bc1cf6ce4e1017da28d3f9410166b"
+    },
+    {
+      "domain": "summerlinwestrealestate.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::p4kds-1770952132249-b323605c1d70",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "2ed074c4e72b66e04d14a14d90ef6b16"
+    },
+    {
+      "domain": "suncitysummerlinhomesforsale.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::l9ccl-1770952132232-f901cbbc9326",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:__NEXT_DATA__",
+        "body:/_next/",
+        "body:next/dist"
+      ],
+      "error": null,
+      "zoneId": "8b46e91a9656695e688143be0abcc953"
+    },
+    {
+      "domain": "suncityvegas.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::7j5vz-1770952132811-bb9b2fe0ab7c",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "ddc4402c3ce27a24767c7fc96d421ddc"
+    },
+    {
+      "domain": "sunstonelasvegashomes.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "vercel-other",
+      "markers": [
+        "header:x-vercel-id:sfo1::p4kds-1770952132289-4c5d3914950b",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel"
+      ],
+      "error": null,
+      "zoneId": "69131cbaeedfe49d292996daa26c5500"
+    },
+    {
+      "domain": "sunstonewoodsidehomes.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::sdj8p-1770952132306-f0ffadb62324",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "eee639048154f53e098e154fce38b20a"
+    },
+    {
+      "domain": "taxresidencyadvisors.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::s4nwt-1770952132316-fb431e6f179b",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "dececfb4ddfd602e6301ab406365299e"
+    },
+    {
+      "domain": "terraskyeview.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::xvc2b-1770952133399-0a4a05dbd999",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "9c07620ef2ca715cfab243073ff9f54a"
+    },
+    {
+      "domain": "theridgessummerlinhomes.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "vercel-other",
+      "markers": [
+        "header:x-vercel-id:sfo1::kbs86-1770952133339-4e276c5fde31",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel"
+      ],
+      "error": null,
+      "zoneId": "ca978ba25f32e5c5879485e831176835"
+    },
+    {
+      "domain": "thevistassummerlin.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::n2nhj-1770952133472-b9fa5bf50b1e",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "5f9f84aaed21e47c802f017797f72c12"
+    },
+    {
+      "domain": "tournamenthillshomes.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "623bafe85af89422f2a523c4a1281bb1"
+    },
+    {
+      "domain": "townesunionvillage.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::lzgxx-1770952133365-e328f34d1746",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "a562f6e44a7d33961feb9490d6857076"
+    },
+    {
+      "domain": "trilogysunstonehomes.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "vercel-other",
+      "markers": [
+        "header:x-vercel-id:sfo1::c62tk-1770952133619-ed0a03a90ebd",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel"
+      ],
+      "error": null,
+      "zoneId": "d5e4466820f122f4cc64de1cb5d43ce6"
+    },
+    {
+      "domain": "turnberryplaceforsale.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::iad1::5fb5f-1770952133478-979266c3ef9b",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:__NEXT_DATA__",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "cf0956e3aac5c93d43becb67d751a145"
+    },
+    {
+      "domain": "vegas55living.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "wordpress",
+      "markers": [
+        "body:wordpress"
+      ],
+      "error": null,
+      "zoneId": "aca18d0b500b731f06d36fbc0afdb232"
+    },
+    {
+      "domain": "vegas55plushomes.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-powered-by:Next.js",
+        "header:x-vercel-id:sfo1::iad1::2xr89-1770952133495-55e9b03f7f4a",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "8daba5132e3e946445241ff15c139d6a"
+    },
+    {
+      "domain": "vegashomeagents.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "12d73b4167c34c0611b09fe00a9aff90"
+    },
+    {
+      "domain": "vegashomespotlight.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "wordpress",
+      "markers": [
+        "body:wordpress"
+      ],
+      "error": null,
+      "zoneId": "5757a4b911ba6c87ae63be953d60d42d"
+    },
+    {
+      "domain": "vegasluxuryaddress.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "fetch failed",
+      "zoneId": "9dfc14a4c932ee0c554039a4b1c36b5a"
+    },
+    {
+      "domain": "vegasvalleyhomesforsale.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "unknown",
+      "markers": [],
+      "error": null,
+      "zoneId": "873b63311758094a1283b934d979bce2"
+    },
+    {
+      "domain": "villagestulesprings.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-powered-by:Next.js",
+        "header:x-vercel-id:sfo1::iad1::kjc6t-1770952135954-f1b1b12cf3ba",
+        "header:x-vercel-cache:MISS",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "0e0feeb5f8e38416365d3f0dde852fce"
+    },
+    {
+      "domain": "waterfallhomesnorthlasvegas.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "vercel-other",
+      "markers": [
+        "header:x-vercel-id:sfo1::7n864-1770952134688-44d42726f848",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel"
+      ],
+      "error": null,
+      "zoneId": "5214998273933d78c4fb206c38018d8b"
+    },
+    {
+      "domain": "wealthtransitionplanning.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::r9k2n-1770952134705-0c7ed6c9d087",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "476d893c62aca5dcc5f0aa8f8a116b90"
+    },
+    {
+      "domain": "westsummerlinhomes.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "vercel-other",
+      "markers": [
+        "header:x-vercel-id:sfo1::vj8cs-1770952134809-857b3eb28361",
+        "header:x-vercel-cache:HIT",
+        "header:server:vercel"
+      ],
+      "error": null,
+      "zoneId": "7187f39ab6f878c7ef39eb4821b4ceaa"
+    },
+    {
+      "domain": "yourdivorcerealtor.com",
+      "isNextJs": true,
+      "isSvelteKit": false,
+      "isLive": true,
+      "framework": "nextjs",
+      "markers": [
+        "header:x-vercel-id:sfo1::iad1::b28gp-1770952134822-9af968ff5ecb",
+        "header:x-vercel-cache:MISS",
+        "header:server:vercel",
+        "body:/_next/"
+      ],
+      "error": null,
+      "zoneId": "c2dcb82d87201348c1745b3d46596f94"
+    },
+    {
+      "domain": "zoomintohomes.com",
+      "isNextJs": false,
+      "isSvelteKit": false,
+      "isLive": false,
+      "framework": "unknown",
+      "markers": [],
+      "error": "timeout",
+      "zoneId": "8bf58e2668b4f4b36237db553b3f4730"
+    }
+  ]
+}

@@ -1,0 +1,1646 @@
+{
+  "checkedAt": "2026-02-13T04:50:04.082Z",
+  "summary": {
+    "live": 39,
+    "candidates": 8,
+    "dead": 31,
+    "total": 78
+  },
+  "candidatesForTemplate": [
+    {
+      "domain": "californiaforeverrealty.com",
+      "zoneId": "30daaf9f794c87b5128d3e1f619d4870",
+      "status": "ERROR",
+      "details": [
+        "On Cloudflare",
+        "HTTP 404 error"
+      ]
+    },
+    {
+      "domain": "drduffysellshomes.com",
+      "zoneId": "33159a97fda21d9ea861f234bf016dab",
+      "status": "ERROR",
+      "details": [
+        "On Cloudflare",
+        "HTTP 403 error"
+      ]
+    },
+    {
+      "domain": "findahomeinlasvegas.com",
+      "zoneId": "ca5433b30c6d04dd0ccbbf758f545835",
+      "status": "ERROR",
+      "details": [
+        "On Vercel",
+        "HTTP 404 error"
+      ]
+    },
+    {
+      "domain": "genekellyboyle.com",
+      "zoneId": "5861406ea58a995643861648b2d6bf8b",
+      "status": "EMPTY",
+      "details": [
+        "On Cloudflare",
+        "Minimal content (114 chars)"
+      ]
+    },
+    {
+      "domain": "genekellyminecraft.com",
+      "zoneId": "47a13ba15342acf8c203655f39ebf5d3",
+      "status": "ERROR",
+      "details": [
+        "On Cloudflare",
+        "HTTP 523 error"
+      ]
+    },
+    {
+      "domain": "searchforhomeslasvegas.com",
+      "zoneId": "a11091baa5f7ae9a8cd8a4f86f6a3212",
+      "status": "ERROR",
+      "details": [
+        "On Cloudflare",
+        "HTTP 403 error"
+      ]
+    },
+    {
+      "domain": "skyecanyonhomesforsale.com",
+      "zoneId": "c16f777acc2409a0d0ac4baa42efb08c",
+      "status": "EMPTY",
+      "details": [
+        "Self-redirect: https://www.skyecanyonhomesforsale.com/",
+        "On Vercel",
+        "Low content (3 RE terms, 621 chars)"
+      ]
+    },
+    {
+      "domain": "zoomintohomes.com",
+      "zoneId": "8bf58e2668b4f4b36237db553b3f4730",
+      "status": "ERROR",
+      "details": [
+        "On Cloudflare",
+        "HTTP 403 error"
+      ]
+    }
+  ],
+  "liveSites": [
+    {
+      "domain": "arcadiahomeslasvegas.com",
+      "zoneId": "ecef340a0b610324068ec69e2b142a09",
+      "status": "LIVE",
+      "details": [
+        "Self-redirect: https://www.arcadiahomeslasvegas.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "askdrjanduffy.com",
+      "zoneId": "be3f81e575940950ca3a6e4d589de1a3",
+      "status": "REDIRECT",
+      "details": [
+        "Redirects to: https://www.quora.com/profile/Dr-Jan-Duffy"
+      ]
+    },
+    {
+      "domain": "californiaforeverbroker.com",
+      "zoneId": "a865bcacd300940276be395c705e4031",
+      "status": "REDIRECT",
+      "details": [
+        "Redirects to: https://www.nevadarealestatemarket.com/"
+      ]
+    },
+    {
+      "domain": "californiaforeverrealestateagent.com",
+      "zoneId": "66f6950580feba7ab0d9499f3b4f372b",
+      "status": "REDIRECT",
+      "details": [
+        "Redirects to: https://lasvegas55plushomes.com/"
+      ]
+    },
+    {
+      "domain": "californiahomesandrealty.com",
+      "zoneId": "e4968bb056eddce3cde743390bb399a0",
+      "status": "REDIRECT",
+      "details": [
+        "Redirects to: https://lasvegas55plushomes.com/"
+      ]
+    },
+    {
+      "domain": "centennialhillshomesforsale.com",
+      "zoneId": "ee98107e4df3984ca1593206046598da",
+      "status": "LIVE",
+      "details": [
+        "Self-redirect: https://www.centennialhillshomesforsale.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "consenzaestates.com",
+      "zoneId": "8be68f086fa72513f0610b657a62dfbb",
+      "status": "LIVE",
+      "details": [
+        "Self-redirect: https://www.consenzaestates.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "drduffyforeverconcierge.com",
+      "zoneId": "6c1202dfb9300f74acce0c4824f76ec6",
+      "status": "REDIRECT",
+      "details": [
+        "Redirects to: https://dr-janduffy.moveeasy.com"
+      ]
+    },
+    {
+      "domain": "eugeneboyle.com",
+      "zoneId": "c916883217c8ea75b180029d6272ee41",
+      "status": "REDIRECT",
+      "details": [
+        "Redirects to: https://lasvegasstriphighrises.com/"
+      ]
+    },
+    {
+      "domain": "geneboyle.com",
+      "zoneId": "832b17f0f3a57c218d66fbe2f1fc0d77",
+      "status": "REDIRECT",
+      "details": [
+        "Redirects to: https://www.nevadarealestatemarket.com/"
+      ]
+    },
+    {
+      "domain": "heritagestonebridge.com",
+      "zoneId": "eaa18c0975eec028b76cb37256d856f5",
+      "status": "LIVE",
+      "details": [
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "janetgreeson.com",
+      "zoneId": "cb1ecedd55e5026ed5eb1b182f651709",
+      "status": "REDIRECT",
+      "details": [
+        "Redirects to: https://www.amazon.com/Its-What-Youre-Eating-Whats/dp/0671866532"
+      ]
+    },
+    {
+      "domain": "lasvegasmultigenhomes.com",
+      "zoneId": "119389af2800febcd75c0e070554d5fc",
+      "status": "LIVE",
+      "details": [
+        "Self-redirect: http://www.lasvegasmultigenhomes.com/",
+        "On Cloudflare",
+        "Real content (13 RE terms, 207497 chars)"
+      ]
+    },
+    {
+      "domain": "letmehelpyourealtor.com",
+      "zoneId": "ebc4a12d15b9d6a16b3e095435b1e894",
+      "status": "REDIRECT",
+      "details": [
+        "Redirects to: https://drjanduffy.realscout.com/onboarding"
+      ]
+    },
+    {
+      "domain": "logcabinranchhomes.com",
+      "zoneId": "7c5384ad07b2211adcd0dccd7a95ff9f",
+      "status": "LIVE",
+      "details": [
+        "Self-redirect: https://www.logcabinranchhomes.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "mountainedgehomes.com",
+      "zoneId": "e3b91b3c5c9373f4851804e547bf1187",
+      "status": "LIVE",
+      "details": [
+        "Self-redirect: https://www.mountainedgehomes.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "mynevadahomefinder.com",
+      "zoneId": "3c7392df5b9367f54424082c24844473",
+      "status": "REDIRECT",
+      "details": [
+        "Redirects to: https://www.nevadarealestatemarket.com/"
+      ]
+    },
+    {
+      "domain": "nevadahomesandrealty.com",
+      "zoneId": "04b34edd7d72068596faa9251dd8f6d6",
+      "status": "REDIRECT",
+      "details": [
+        "Redirects to: https://www.nevadarealestatemarket.com/"
+      ]
+    },
+    {
+      "domain": "nevadarealestatemarket.com",
+      "zoneId": "cefca0ab24188b28939a8f2d20b180d5",
+      "status": "LIVE",
+      "details": [
+        "Self-redirect: https://www.nevadarealestatemarket.com/",
+        "On Cloudflare",
+        "Powered by: wp engine",
+        "WordPress site"
+      ]
+    },
+    {
+      "domain": "openhouseupdate.com",
+      "zoneId": "1dde512c7ccef6c88a81304eb9b1fdb3",
+      "status": "LIVE",
+      "details": [
+        "Self-redirect: https://www.openhouseupdate.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "openhouseupdates.com",
+      "zoneId": "f4e06f0a604e75996b0d5e757047b909",
+      "status": "LIVE",
+      "details": [
+        "Self-redirect: https://www.openhouseupdates.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "opportunityzonespecialist.com",
+      "zoneId": "fd4e59c7fb4d7faf6cd151dc9f428037",
+      "status": "LIVE",
+      "details": [
+        "Self-redirect: https://www.opportunityzonespecialist.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "opportunityzonespecialists.com",
+      "zoneId": "edc130c924b51fa63558f8532ec542f9",
+      "status": "REDIRECT",
+      "details": [
+        "Redirects to: https://www.opportunityzonespecialist.com/"
+      ]
+    },
+    {
+      "domain": "reverencesummerlinhomes.com",
+      "zoneId": "0087f96c1b89f752eac656377a03f97f",
+      "status": "LIVE",
+      "details": [
+        "Self-redirect: https://www.reverencesummerlinhomes.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "samaritanpharmaceutical.com",
+      "zoneId": "daf87c1ff7daefacc202d3b5864f4e00",
+      "status": "REDIRECT",
+      "details": [
+        "Redirects to: http://lasvegasrealtornews.com/"
+      ]
+    },
+    {
+      "domain": "samaritanpharmaceuticals.com",
+      "zoneId": "c2a5a8d23d39aacf50d9a5970dcd61a2",
+      "status": "REDIRECT",
+      "details": [
+        "Redirects to: http://nevadarealestatemarket.com/"
+      ]
+    },
+    {
+      "domain": "searchforaffordablehomes.com",
+      "zoneId": "19d2958c4a447e8e7afe90e826443197",
+      "status": "LIVE",
+      "details": [
+        "Server: nginx",
+        "Real content (13 RE terms, 222992 chars)"
+      ]
+    },
+    {
+      "domain": "searchforhomesinsummerlin.com",
+      "zoneId": "113f715b8bcbc67fb93dc5f159c9c0c4",
+      "status": "LIVE",
+      "details": [
+        "On Cloudflare",
+        "Substantial content (103518 chars)"
+      ]
+    },
+    {
+      "domain": "searchforhomesvegas.com",
+      "zoneId": "92dd1b9a0442389dc352f1793a825cf3",
+      "status": "REDIRECT",
+      "details": [
+        "Redirects to: https://lasvegasstriphighrises.com/"
+      ]
+    },
+    {
+      "domain": "skyesummithomes.com",
+      "zoneId": "e0fba27a9180e906a809e5e6d22da048",
+      "status": "LIVE",
+      "details": [
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "speedycashhomeoffers.com",
+      "zoneId": "cf762c5edd695e725aee41a888f9a844",
+      "status": "LIVE",
+      "details": [
+        "Self-redirect: https://www.speedycashhomeoffers.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "sunstonelasvegashomes.com",
+      "zoneId": "69131cbaeedfe49d292996daa26c5500",
+      "status": "LIVE",
+      "details": [
+        "Self-redirect: https://www.sunstonelasvegashomes.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "theridgessummerlinhomes.com",
+      "zoneId": "ca978ba25f32e5c5879485e831176835",
+      "status": "LIVE",
+      "details": [
+        "Self-redirect: https://www.theridgessummerlinhomes.com/",
+        "On Vercel",
+        "WordPress site"
+      ]
+    },
+    {
+      "domain": "trilogysunstonehomes.com",
+      "zoneId": "d5e4466820f122f4cc64de1cb5d43ce6",
+      "status": "LIVE",
+      "details": [
+        "Self-redirect: https://www.trilogysunstonehomes.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "vegas55living.com",
+      "zoneId": "aca18d0b500b731f06d36fbc0afdb232",
+      "status": "REDIRECT",
+      "details": [
+        "Redirects to: https://lasvegas55plushomes.com/"
+      ]
+    },
+    {
+      "domain": "vegashomespotlight.com",
+      "zoneId": "5757a4b911ba6c87ae63be953d60d42d",
+      "status": "LIVE",
+      "details": [
+        "Server: nginx",
+        "WordPress site"
+      ]
+    },
+    {
+      "domain": "vegasvalleyhomesforsale.com",
+      "zoneId": "873b63311758094a1283b934d979bce2",
+      "status": "LIVE",
+      "details": [
+        "Real content (9 RE terms, 14360 chars)"
+      ]
+    },
+    {
+      "domain": "waterfallhomesnorthlasvegas.com",
+      "zoneId": "5214998273933d78c4fb206c38018d8b",
+      "status": "LIVE",
+      "details": [
+        "Self-redirect: https://www.waterfallhomesnorthlasvegas.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "westsummerlinhomes.com",
+      "zoneId": "7187f39ab6f878c7ef39eb4821b4ceaa",
+      "status": "LIVE",
+      "details": [
+        "Self-redirect: https://www.westsummerlinhomes.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    }
+  ],
+  "deadSites": [
+    {
+      "domain": "askberkshirehomes.com",
+      "zoneId": "90d265190dba661625d98fc86b295f31",
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "calldrboyle.com",
+      "zoneId": "1b6e6e46bc737d3d53508406e70075da",
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "craigranchvegashomes.com",
+      "zoneId": "43da5e9baf02e266b74e265ed83bb9af",
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "eaglehillshomes.com",
+      "zoneId": "beed09bbaf76ca1b9f1685c886986140",
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "emersonestateshomes.com",
+      "zoneId": "57a52dfecd7cf4fcfe863ef7bc3bad8a",
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "gkanimates.com",
+      "zoneId": "6475a70af5b2b5c3d8f5ec14270ec717",
+      "details": [
+        "Timeout (10s)"
+      ]
+    },
+    {
+      "domain": "heritagestoneridgevalue.com",
+      "zoneId": "a638510e6bd4191ea57bdd08ec5ea911",
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "lasvegas55plushomes.com",
+      "zoneId": "3488f7bd42e980aaf5688a3031bc4733",
+      "details": [
+        "Timeout (10s)"
+      ]
+    },
+    {
+      "domain": "lasvegasfamilyhomes.com",
+      "zoneId": "f3bb3e0f39843f85fa8dbbb344ae66fd",
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "lasvegasstriphighrises.com",
+      "zoneId": "c052d127830f6b3d1165ff859215e55a",
+      "details": [
+        "Timeout (10s)"
+      ]
+    },
+    {
+      "domain": "lonemountainhomesforsale.com",
+      "zoneId": "c354616464e7aac9bac5988b3b08a11b",
+      "details": [
+        "Timeout (10s)"
+      ]
+    },
+    {
+      "domain": "mesaskyeview.com",
+      "zoneId": "bda8f947c54c1e3f28b688c7e41871c0",
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "probaterealestatesales.com",
+      "zoneId": "32e96d1280608f1d4dc7133a3a166bb1",
+      "details": [
+        "Error: fetch failed"
+      ]
+    },
+    {
+      "domain": "realestatetalkwithdrduffy.com",
+      "zoneId": "17e1b48f2bb548a355290e785be6b6ca",
+      "details": [
+        "Timeout (10s)"
+      ]
+    },
+    {
+      "domain": "realtimetouring.com",
+      "zoneId": "b3bc32f87f6921bd262e85019a86cac7",
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "samaritanpharma.com",
+      "zoneId": "0f2c7f932b0e8da10849d8515bd9b443",
+      "details": [
+        "Self-redirect: https://samaritanpharma.com/",
+        "Error: fetch failed"
+      ]
+    },
+    {
+      "domain": "shawoodhomes.com",
+      "zoneId": "ec911f85ad17e1495d0f9645203b4bdb",
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "skyecanyonrealtor.com",
+      "zoneId": "81b18b14fed3eff4854875a475195bf5",
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "stickifyanimation.com",
+      "zoneId": "1ddc6aab28f141d178f1a9d205314da2",
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "stickmancommunity.com",
+      "zoneId": "76e353bf999ae7dc511aee5a81b4f2f0",
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "stickmanepic.com",
+      "zoneId": "492e81c3907e16eb3cb4ba2052654ccf",
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "stickmanepiclegends.com",
+      "zoneId": "c4b230eda78552cb301d92e1c76909f6",
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "stickmangear.com",
+      "zoneId": "eea4c631db99eb5eaf37d02677983a45",
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "stickmanlegends.com",
+      "zoneId": "ec7d5371af9894d35951abf3f9a6f5d3",
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "stickmanshorts.com",
+      "zoneId": "71ecde6dba2c94ac7a8bcefee835dbe4",
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "stickmanstrike.com",
+      "zoneId": "980e10061c865c9df8cc6822eb3a6887",
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "stickstarz.com",
+      "zoneId": "33b0374f065179bf78f31dd1cda90a38",
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "stickstrike.com",
+      "zoneId": "18a3dea7a8435d0ab31a6aa5c2b2446e",
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "tournamenthillshomes.com",
+      "zoneId": "623bafe85af89422f2a523c4a1281bb1",
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "vegashomeagents.com",
+      "zoneId": "12d73b4167c34c0611b09fe00a9aff90",
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "vegasluxuryaddress.com",
+      "zoneId": "9dfc14a4c932ee0c554039a4b1c36b5a",
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    }
+  ],
+  "allResults": [
+    {
+      "domain": "arcadiahomeslasvegas.com",
+      "zoneId": "ecef340a0b610324068ec69e2b142a09",
+      "status": "LIVE",
+      "httpStatus": 200,
+      "contentLength": 12703,
+      "redirectTo": "https://www.arcadiahomeslasvegas.com/",
+      "hasRealContent": true,
+      "details": [
+        "Self-redirect: https://www.arcadiahomeslasvegas.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "askberkshirehomes.com",
+      "zoneId": "90d265190dba661625d98fc86b295f31",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "askdrjanduffy.com",
+      "zoneId": "be3f81e575940950ca3a6e4d589de1a3",
+      "status": "REDIRECT",
+      "httpStatus": 301,
+      "contentLength": 0,
+      "redirectTo": "https://www.quora.com/profile/Dr-Jan-Duffy",
+      "hasRealContent": false,
+      "details": [
+        "Redirects to: https://www.quora.com/profile/Dr-Jan-Duffy"
+      ]
+    },
+    {
+      "domain": "californiaforeverbroker.com",
+      "zoneId": "a865bcacd300940276be395c705e4031",
+      "status": "REDIRECT",
+      "httpStatus": 301,
+      "contentLength": 0,
+      "redirectTo": "https://www.nevadarealestatemarket.com/",
+      "hasRealContent": false,
+      "details": [
+        "Redirects to: https://www.nevadarealestatemarket.com/"
+      ]
+    },
+    {
+      "domain": "californiaforeverrealestateagent.com",
+      "zoneId": "66f6950580feba7ab0d9499f3b4f372b",
+      "status": "REDIRECT",
+      "httpStatus": 301,
+      "contentLength": 0,
+      "redirectTo": "https://lasvegas55plushomes.com/",
+      "hasRealContent": false,
+      "details": [
+        "Redirects to: https://lasvegas55plushomes.com/"
+      ]
+    },
+    {
+      "domain": "californiaforeverrealty.com",
+      "zoneId": "30daaf9f794c87b5128d3e1f619d4870",
+      "status": "ERROR",
+      "httpStatus": 404,
+      "contentLength": 5210,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "On Cloudflare",
+        "HTTP 404 error"
+      ]
+    },
+    {
+      "domain": "californiahomesandrealty.com",
+      "zoneId": "e4968bb056eddce3cde743390bb399a0",
+      "status": "REDIRECT",
+      "httpStatus": 301,
+      "contentLength": 0,
+      "redirectTo": "https://lasvegas55plushomes.com/",
+      "hasRealContent": false,
+      "details": [
+        "Redirects to: https://lasvegas55plushomes.com/"
+      ]
+    },
+    {
+      "domain": "calldrboyle.com",
+      "zoneId": "1b6e6e46bc737d3d53508406e70075da",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "centennialhillshomesforsale.com",
+      "zoneId": "ee98107e4df3984ca1593206046598da",
+      "status": "LIVE",
+      "httpStatus": 200,
+      "contentLength": 101520,
+      "redirectTo": "https://www.centennialhillshomesforsale.com/",
+      "hasRealContent": true,
+      "details": [
+        "Self-redirect: https://www.centennialhillshomesforsale.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "consenzaestates.com",
+      "zoneId": "8be68f086fa72513f0610b657a62dfbb",
+      "status": "LIVE",
+      "httpStatus": 200,
+      "contentLength": 29084,
+      "redirectTo": "https://www.consenzaestates.com/",
+      "hasRealContent": true,
+      "details": [
+        "Self-redirect: https://www.consenzaestates.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "craigranchvegashomes.com",
+      "zoneId": "43da5e9baf02e266b74e265ed83bb9af",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "drduffyforeverconcierge.com",
+      "zoneId": "6c1202dfb9300f74acce0c4824f76ec6",
+      "status": "REDIRECT",
+      "httpStatus": 301,
+      "contentLength": 0,
+      "redirectTo": "https://dr-janduffy.moveeasy.com",
+      "hasRealContent": false,
+      "details": [
+        "Redirects to: https://dr-janduffy.moveeasy.com"
+      ]
+    },
+    {
+      "domain": "drduffysellshomes.com",
+      "zoneId": "33159a97fda21d9ea861f234bf016dab",
+      "status": "ERROR",
+      "httpStatus": 403,
+      "contentLength": 11472,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "On Cloudflare",
+        "HTTP 403 error"
+      ]
+    },
+    {
+      "domain": "eaglehillshomes.com",
+      "zoneId": "beed09bbaf76ca1b9f1685c886986140",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "emersonestateshomes.com",
+      "zoneId": "57a52dfecd7cf4fcfe863ef7bc3bad8a",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "eugeneboyle.com",
+      "zoneId": "c916883217c8ea75b180029d6272ee41",
+      "status": "REDIRECT",
+      "httpStatus": 301,
+      "contentLength": 0,
+      "redirectTo": "https://lasvegasstriphighrises.com/",
+      "hasRealContent": false,
+      "details": [
+        "Redirects to: https://lasvegasstriphighrises.com/"
+      ]
+    },
+    {
+      "domain": "findahomeinlasvegas.com",
+      "zoneId": "ca5433b30c6d04dd0ccbbf758f545835",
+      "status": "ERROR",
+      "httpStatus": 404,
+      "contentLength": 107,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "On Vercel",
+        "HTTP 404 error"
+      ]
+    },
+    {
+      "domain": "geneboyle.com",
+      "zoneId": "832b17f0f3a57c218d66fbe2f1fc0d77",
+      "status": "REDIRECT",
+      "httpStatus": 301,
+      "contentLength": 0,
+      "redirectTo": "https://www.nevadarealestatemarket.com/",
+      "hasRealContent": false,
+      "details": [
+        "Redirects to: https://www.nevadarealestatemarket.com/"
+      ]
+    },
+    {
+      "domain": "genekellyboyle.com",
+      "zoneId": "5861406ea58a995643861648b2d6bf8b",
+      "status": "EMPTY",
+      "httpStatus": 200,
+      "contentLength": 114,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "On Cloudflare",
+        "Minimal content (114 chars)"
+      ]
+    },
+    {
+      "domain": "genekellyminecraft.com",
+      "zoneId": "47a13ba15342acf8c203655f39ebf5d3",
+      "status": "ERROR",
+      "httpStatus": 523,
+      "contentLength": 7265,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "On Cloudflare",
+        "HTTP 523 error"
+      ]
+    },
+    {
+      "domain": "gkanimates.com",
+      "zoneId": "6475a70af5b2b5c3d8f5ec14270ec717",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "Timeout (10s)"
+      ]
+    },
+    {
+      "domain": "heritagestonebridge.com",
+      "zoneId": "eaa18c0975eec028b76cb37256d856f5",
+      "status": "LIVE",
+      "httpStatus": 200,
+      "contentLength": 31527,
+      "redirectTo": null,
+      "hasRealContent": true,
+      "details": [
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "heritagestoneridgevalue.com",
+      "zoneId": "a638510e6bd4191ea57bdd08ec5ea911",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "janetgreeson.com",
+      "zoneId": "cb1ecedd55e5026ed5eb1b182f651709",
+      "status": "REDIRECT",
+      "httpStatus": 301,
+      "contentLength": 0,
+      "redirectTo": "https://www.amazon.com/Its-What-Youre-Eating-Whats/dp/0671866532",
+      "hasRealContent": false,
+      "details": [
+        "Redirects to: https://www.amazon.com/Its-What-Youre-Eating-Whats/dp/0671866532"
+      ]
+    },
+    {
+      "domain": "lasvegas55plushomes.com",
+      "zoneId": "3488f7bd42e980aaf5688a3031bc4733",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "Timeout (10s)"
+      ]
+    },
+    {
+      "domain": "lasvegasfamilyhomes.com",
+      "zoneId": "f3bb3e0f39843f85fa8dbbb344ae66fd",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "lasvegasmultigenhomes.com",
+      "zoneId": "119389af2800febcd75c0e070554d5fc",
+      "status": "LIVE",
+      "httpStatus": 200,
+      "contentLength": 207497,
+      "redirectTo": "http://www.lasvegasmultigenhomes.com/",
+      "hasRealContent": true,
+      "details": [
+        "Self-redirect: http://www.lasvegasmultigenhomes.com/",
+        "On Cloudflare",
+        "Real content (13 RE terms, 207497 chars)"
+      ]
+    },
+    {
+      "domain": "lasvegasstriphighrises.com",
+      "zoneId": "c052d127830f6b3d1165ff859215e55a",
+      "status": "DEAD",
+      "httpStatus": 200,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "Timeout (10s)"
+      ]
+    },
+    {
+      "domain": "letmehelpyourealtor.com",
+      "zoneId": "ebc4a12d15b9d6a16b3e095435b1e894",
+      "status": "REDIRECT",
+      "httpStatus": 301,
+      "contentLength": 0,
+      "redirectTo": "https://drjanduffy.realscout.com/onboarding",
+      "hasRealContent": false,
+      "details": [
+        "Redirects to: https://drjanduffy.realscout.com/onboarding"
+      ]
+    },
+    {
+      "domain": "logcabinranchhomes.com",
+      "zoneId": "7c5384ad07b2211adcd0dccd7a95ff9f",
+      "status": "LIVE",
+      "httpStatus": 200,
+      "contentLength": 26472,
+      "redirectTo": "https://www.logcabinranchhomes.com/",
+      "hasRealContent": true,
+      "details": [
+        "Self-redirect: https://www.logcabinranchhomes.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "lonemountainhomesforsale.com",
+      "zoneId": "c354616464e7aac9bac5988b3b08a11b",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "Timeout (10s)"
+      ]
+    },
+    {
+      "domain": "mesaskyeview.com",
+      "zoneId": "bda8f947c54c1e3f28b688c7e41871c0",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "mountainedgehomes.com",
+      "zoneId": "e3b91b3c5c9373f4851804e547bf1187",
+      "status": "LIVE",
+      "httpStatus": 200,
+      "contentLength": 98384,
+      "redirectTo": "https://www.mountainedgehomes.com/",
+      "hasRealContent": true,
+      "details": [
+        "Self-redirect: https://www.mountainedgehomes.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "mynevadahomefinder.com",
+      "zoneId": "3c7392df5b9367f54424082c24844473",
+      "status": "REDIRECT",
+      "httpStatus": 301,
+      "contentLength": 0,
+      "redirectTo": "https://www.nevadarealestatemarket.com/",
+      "hasRealContent": false,
+      "details": [
+        "Redirects to: https://www.nevadarealestatemarket.com/"
+      ]
+    },
+    {
+      "domain": "nevadahomesandrealty.com",
+      "zoneId": "04b34edd7d72068596faa9251dd8f6d6",
+      "status": "REDIRECT",
+      "httpStatus": 301,
+      "contentLength": 0,
+      "redirectTo": "https://www.nevadarealestatemarket.com/",
+      "hasRealContent": false,
+      "details": [
+        "Redirects to: https://www.nevadarealestatemarket.com/"
+      ]
+    },
+    {
+      "domain": "nevadarealestatemarket.com",
+      "zoneId": "cefca0ab24188b28939a8f2d20b180d5",
+      "status": "LIVE",
+      "httpStatus": 200,
+      "contentLength": 103603,
+      "redirectTo": "https://www.nevadarealestatemarket.com/",
+      "hasRealContent": true,
+      "details": [
+        "Self-redirect: https://www.nevadarealestatemarket.com/",
+        "On Cloudflare",
+        "Powered by: wp engine",
+        "WordPress site"
+      ]
+    },
+    {
+      "domain": "openhouseupdate.com",
+      "zoneId": "1dde512c7ccef6c88a81304eb9b1fdb3",
+      "status": "LIVE",
+      "httpStatus": 200,
+      "contentLength": 81679,
+      "redirectTo": "https://www.openhouseupdate.com/",
+      "hasRealContent": true,
+      "details": [
+        "Self-redirect: https://www.openhouseupdate.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "openhouseupdates.com",
+      "zoneId": "f4e06f0a604e75996b0d5e757047b909",
+      "status": "LIVE",
+      "httpStatus": 200,
+      "contentLength": 208636,
+      "redirectTo": "https://www.openhouseupdates.com/",
+      "hasRealContent": true,
+      "details": [
+        "Self-redirect: https://www.openhouseupdates.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "opportunityzonespecialist.com",
+      "zoneId": "fd4e59c7fb4d7faf6cd151dc9f428037",
+      "status": "LIVE",
+      "httpStatus": 200,
+      "contentLength": 26320,
+      "redirectTo": "https://www.opportunityzonespecialist.com/",
+      "hasRealContent": true,
+      "details": [
+        "Self-redirect: https://www.opportunityzonespecialist.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "opportunityzonespecialists.com",
+      "zoneId": "edc130c924b51fa63558f8532ec542f9",
+      "status": "REDIRECT",
+      "httpStatus": 307,
+      "contentLength": 0,
+      "redirectTo": "https://www.opportunityzonespecialist.com/",
+      "hasRealContent": false,
+      "details": [
+        "Redirects to: https://www.opportunityzonespecialist.com/"
+      ]
+    },
+    {
+      "domain": "probaterealestatesales.com",
+      "zoneId": "32e96d1280608f1d4dc7133a3a166bb1",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "Error: fetch failed"
+      ]
+    },
+    {
+      "domain": "realestatetalkwithdrduffy.com",
+      "zoneId": "17e1b48f2bb548a355290e785be6b6ca",
+      "status": "DEAD",
+      "httpStatus": 200,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "Timeout (10s)"
+      ]
+    },
+    {
+      "domain": "realtimetouring.com",
+      "zoneId": "b3bc32f87f6921bd262e85019a86cac7",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "reverencesummerlinhomes.com",
+      "zoneId": "0087f96c1b89f752eac656377a03f97f",
+      "status": "LIVE",
+      "httpStatus": 200,
+      "contentLength": 117788,
+      "redirectTo": "https://www.reverencesummerlinhomes.com/",
+      "hasRealContent": true,
+      "details": [
+        "Self-redirect: https://www.reverencesummerlinhomes.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "samaritanpharmaceutical.com",
+      "zoneId": "daf87c1ff7daefacc202d3b5864f4e00",
+      "status": "REDIRECT",
+      "httpStatus": 301,
+      "contentLength": 0,
+      "redirectTo": "http://lasvegasrealtornews.com/",
+      "hasRealContent": false,
+      "details": [
+        "Redirects to: http://lasvegasrealtornews.com/"
+      ]
+    },
+    {
+      "domain": "samaritanpharmaceuticals.com",
+      "zoneId": "c2a5a8d23d39aacf50d9a5970dcd61a2",
+      "status": "REDIRECT",
+      "httpStatus": 301,
+      "contentLength": 0,
+      "redirectTo": "http://nevadarealestatemarket.com/",
+      "hasRealContent": false,
+      "details": [
+        "Redirects to: http://nevadarealestatemarket.com/"
+      ]
+    },
+    {
+      "domain": "samaritanpharma.com",
+      "zoneId": "0f2c7f932b0e8da10849d8515bd9b443",
+      "status": "DEAD",
+      "httpStatus": 301,
+      "contentLength": 0,
+      "redirectTo": "https://samaritanpharma.com/",
+      "hasRealContent": false,
+      "details": [
+        "Self-redirect: https://samaritanpharma.com/",
+        "Error: fetch failed"
+      ]
+    },
+    {
+      "domain": "searchforaffordablehomes.com",
+      "zoneId": "19d2958c4a447e8e7afe90e826443197",
+      "status": "LIVE",
+      "httpStatus": 200,
+      "contentLength": 222992,
+      "redirectTo": null,
+      "hasRealContent": true,
+      "details": [
+        "Server: nginx",
+        "Real content (13 RE terms, 222992 chars)"
+      ]
+    },
+    {
+      "domain": "searchforhomesinsummerlin.com",
+      "zoneId": "113f715b8bcbc67fb93dc5f159c9c0c4",
+      "status": "LIVE",
+      "httpStatus": 200,
+      "contentLength": 103518,
+      "redirectTo": null,
+      "hasRealContent": true,
+      "details": [
+        "On Cloudflare",
+        "Substantial content (103518 chars)"
+      ]
+    },
+    {
+      "domain": "searchforhomeslasvegas.com",
+      "zoneId": "a11091baa5f7ae9a8cd8a4f86f6a3212",
+      "status": "ERROR",
+      "httpStatus": 403,
+      "contentLength": 6331,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "On Cloudflare",
+        "HTTP 403 error"
+      ]
+    },
+    {
+      "domain": "searchforhomesvegas.com",
+      "zoneId": "92dd1b9a0442389dc352f1793a825cf3",
+      "status": "REDIRECT",
+      "httpStatus": 301,
+      "contentLength": 0,
+      "redirectTo": "https://lasvegasstriphighrises.com/",
+      "hasRealContent": false,
+      "details": [
+        "Redirects to: https://lasvegasstriphighrises.com/"
+      ]
+    },
+    {
+      "domain": "shawoodhomes.com",
+      "zoneId": "ec911f85ad17e1495d0f9645203b4bdb",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "skyecanyonhomesforsale.com",
+      "zoneId": "c16f777acc2409a0d0ac4baa42efb08c",
+      "status": "EMPTY",
+      "httpStatus": 200,
+      "contentLength": 621,
+      "redirectTo": "https://www.skyecanyonhomesforsale.com/",
+      "hasRealContent": false,
+      "details": [
+        "Self-redirect: https://www.skyecanyonhomesforsale.com/",
+        "On Vercel",
+        "Low content (3 RE terms, 621 chars)"
+      ]
+    },
+    {
+      "domain": "skyecanyonrealtor.com",
+      "zoneId": "81b18b14fed3eff4854875a475195bf5",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "skyesummithomes.com",
+      "zoneId": "e0fba27a9180e906a809e5e6d22da048",
+      "status": "LIVE",
+      "httpStatus": 200,
+      "contentLength": 39071,
+      "redirectTo": null,
+      "hasRealContent": true,
+      "details": [
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "speedycashhomeoffers.com",
+      "zoneId": "cf762c5edd695e725aee41a888f9a844",
+      "status": "LIVE",
+      "httpStatus": 200,
+      "contentLength": 80572,
+      "redirectTo": "https://www.speedycashhomeoffers.com/",
+      "hasRealContent": true,
+      "details": [
+        "Self-redirect: https://www.speedycashhomeoffers.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "stickifyanimation.com",
+      "zoneId": "1ddc6aab28f141d178f1a9d205314da2",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "stickmancommunity.com",
+      "zoneId": "76e353bf999ae7dc511aee5a81b4f2f0",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "stickmanepic.com",
+      "zoneId": "492e81c3907e16eb3cb4ba2052654ccf",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "stickmanepiclegends.com",
+      "zoneId": "c4b230eda78552cb301d92e1c76909f6",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "stickmangear.com",
+      "zoneId": "eea4c631db99eb5eaf37d02677983a45",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "stickmanlegends.com",
+      "zoneId": "ec7d5371af9894d35951abf3f9a6f5d3",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "stickmanshorts.com",
+      "zoneId": "71ecde6dba2c94ac7a8bcefee835dbe4",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "stickmanstrike.com",
+      "zoneId": "980e10061c865c9df8cc6822eb3a6887",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "stickstarz.com",
+      "zoneId": "33b0374f065179bf78f31dd1cda90a38",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "stickstrike.com",
+      "zoneId": "18a3dea7a8435d0ab31a6aa5c2b2446e",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "sunstonelasvegashomes.com",
+      "zoneId": "69131cbaeedfe49d292996daa26c5500",
+      "status": "LIVE",
+      "httpStatus": 200,
+      "contentLength": 26645,
+      "redirectTo": "https://www.sunstonelasvegashomes.com/",
+      "hasRealContent": true,
+      "details": [
+        "Self-redirect: https://www.sunstonelasvegashomes.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "theridgessummerlinhomes.com",
+      "zoneId": "ca978ba25f32e5c5879485e831176835",
+      "status": "LIVE",
+      "httpStatus": 200,
+      "contentLength": 21557,
+      "redirectTo": "https://www.theridgessummerlinhomes.com/",
+      "hasRealContent": true,
+      "details": [
+        "Self-redirect: https://www.theridgessummerlinhomes.com/",
+        "On Vercel",
+        "WordPress site"
+      ]
+    },
+    {
+      "domain": "tournamenthillshomes.com",
+      "zoneId": "623bafe85af89422f2a523c4a1281bb1",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "trilogysunstonehomes.com",
+      "zoneId": "d5e4466820f122f4cc64de1cb5d43ce6",
+      "status": "LIVE",
+      "httpStatus": 200,
+      "contentLength": 18525,
+      "redirectTo": "https://www.trilogysunstonehomes.com/",
+      "hasRealContent": true,
+      "details": [
+        "Self-redirect: https://www.trilogysunstonehomes.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "vegas55living.com",
+      "zoneId": "aca18d0b500b731f06d36fbc0afdb232",
+      "status": "REDIRECT",
+      "httpStatus": 301,
+      "contentLength": 0,
+      "redirectTo": "https://lasvegas55plushomes.com/",
+      "hasRealContent": false,
+      "details": [
+        "Redirects to: https://lasvegas55plushomes.com/"
+      ]
+    },
+    {
+      "domain": "vegashomeagents.com",
+      "zoneId": "12d73b4167c34c0611b09fe00a9aff90",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "vegashomespotlight.com",
+      "zoneId": "5757a4b911ba6c87ae63be953d60d42d",
+      "status": "LIVE",
+      "httpStatus": 200,
+      "contentLength": 19608,
+      "redirectTo": null,
+      "hasRealContent": true,
+      "details": [
+        "Server: nginx",
+        "WordPress site"
+      ]
+    },
+    {
+      "domain": "vegasluxuryaddress.com",
+      "zoneId": "9dfc14a4c932ee0c554039a4b1c36b5a",
+      "status": "DEAD",
+      "httpStatus": null,
+      "contentLength": 0,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "DNS failure (no A record)"
+      ]
+    },
+    {
+      "domain": "vegasvalleyhomesforsale.com",
+      "zoneId": "873b63311758094a1283b934d979bce2",
+      "status": "LIVE",
+      "httpStatus": 200,
+      "contentLength": 14360,
+      "redirectTo": null,
+      "hasRealContent": true,
+      "details": [
+        "Real content (9 RE terms, 14360 chars)"
+      ]
+    },
+    {
+      "domain": "waterfallhomesnorthlasvegas.com",
+      "zoneId": "5214998273933d78c4fb206c38018d8b",
+      "status": "LIVE",
+      "httpStatus": 200,
+      "contentLength": 75275,
+      "redirectTo": "https://www.waterfallhomesnorthlasvegas.com/",
+      "hasRealContent": true,
+      "details": [
+        "Self-redirect: https://www.waterfallhomesnorthlasvegas.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "westsummerlinhomes.com",
+      "zoneId": "7187f39ab6f878c7ef39eb4821b4ceaa",
+      "status": "LIVE",
+      "httpStatus": 200,
+      "contentLength": 54580,
+      "redirectTo": "https://www.westsummerlinhomes.com/",
+      "hasRealContent": true,
+      "details": [
+        "Self-redirect: https://www.westsummerlinhomes.com/",
+        "On Vercel",
+        "Vercel site with real estate content"
+      ]
+    },
+    {
+      "domain": "zoomintohomes.com",
+      "zoneId": "8bf58e2668b4f4b36237db553b3f4730",
+      "status": "ERROR",
+      "httpStatus": 403,
+      "contentLength": 6417,
+      "redirectTo": null,
+      "hasRealContent": false,
+      "details": [
+        "On Cloudflare",
+        "HTTP 403 error"
+      ]
+    }
+  ]
+}
